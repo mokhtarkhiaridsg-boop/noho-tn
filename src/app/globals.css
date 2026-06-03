@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-baloo: "Baloo 2", system-ui, -apple-system, sans-serif;
+  --font-pacifico: "Pacifico", cursive;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body { padding: 0; margin: 0; }
+body {
+  font-family: var(--font-baloo);
+  background: #fff;
+  color: #2D100F;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ─── Animated icon system — ported from nohomailbox.org ─────────────── */
+@keyframes ai-flag-flutter {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(8deg); }
+}
+@keyframes ai-truck-roll {
+  0%   { transform: translateX(-2px); }
+  100% { transform: translateX(2px); }
+}
+@keyframes ai-wheel-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes ai-heart-beat {
+  0%, 100% { transform: scale(1); }
+  20%      { transform: scale(1.08); }
+  40%      { transform: scale(0.96); }
+  60%      { transform: scale(1.04); }
+}
+@keyframes ai-shield-glow {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(51,116,133,0)); }
+  50%      { filter: drop-shadow(0 2px 6px rgba(51,116,133,0.35)); }
+}
+@keyframes ai-clock-tick {
+  0%, 90%   { transform: rotate(0deg); }
+  92%, 100% { transform: rotate(6deg); }
+}
+@keyframes ai-bolt-flash {
+  0%, 90%, 100% { opacity: 1; }
+  92%, 96%      { opacity: 0.4; }
+}
+@keyframes ai-pin-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+@keyframes ai-envelope-tilt {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(-2deg); }
+}
+
+.ai-flag        { transform-origin: 0% 100%; animation: ai-flag-flutter 4.5s ease-in-out infinite; }
+.ai-truck       { animation: ai-truck-roll 1.4s ease-in-out infinite alternate; }
+.ai-wheel       { transform-origin: center; transform-box: fill-box; }
+.ai-icon:hover .ai-wheel { animation: ai-wheel-spin 0.9s linear infinite; }
+.ai-heart       { transform-origin: center; transform-box: fill-box; animation: ai-heart-beat 4s ease-in-out infinite; }
+.ai-icon:hover .ai-shield-body { animation: ai-shield-glow 1.6s ease-in-out infinite; }
+.ai-clock-hand  { transform-origin: 50% 100%; transform-box: fill-box; animation: ai-clock-tick 2s steps(2) infinite; }
+.ai-bolt        { animation: ai-bolt-flash 3s ease-in-out infinite; }
+.ai-pin         { animation: ai-pin-bob 3s ease-in-out infinite; }
+.ai-envelope    { transform-origin: center; transform-box: fill-box; animation: ai-envelope-tilt 5s ease-in-out infinite; }
+
+.ai-icon { transition: transform 0.35s var(--ease-out-expo); }
+.ai-icon:hover { transform: translateY(-2px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-flag, .ai-truck, .ai-heart, .ai-clock-hand, .ai-bolt, .ai-pin, .ai-envelope { animation: none; }
+  .ai-icon:hover .ai-wheel, .ai-icon:hover .ai-shield-body { animation: none; }
+}
+
+/* ─── Blog article body styling ──────────────────────────────────── */
+.prose-noho h2 {
+  font-family: var(--font-baloo), sans-serif;
+  font-size: clamp(1.375rem, 2.6vw, 1.75rem);
+  font-weight: 800;
+  color: #2D100F;
+  margin-top: 2.25rem;
+  margin-bottom: 0.875rem;
+  line-height: 1.2;
+}
+.prose-noho h2:first-child { margin-top: 0; }
+.prose-noho h3 {
+  font-family: var(--font-baloo), sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #2D100F;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.prose-noho p { margin-bottom: 1.125rem; }
+.prose-noho ul, .prose-noho ol {
+  margin: 1rem 0 1.25rem;
+  padding-left: 1.5rem;
+}
+.prose-noho ul { list-style: disc; }
+.prose-noho ol { list-style: decimal; }
+.prose-noho li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+.prose-noho li::marker { color: #337485; }
+.prose-noho strong {
+  color: #2D100F;
+  font-weight: 700;
+}
+.prose-noho a {
+  color: #337485;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+}
+.prose-noho a:hover { color: #23596A; }
+

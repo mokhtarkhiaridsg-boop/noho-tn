@@ -1,0 +1,12 @@
+import type { Metadata } from "next";
+import ArabicStub from "@/app/ar/_components/ArabicStub";
+
+export const metadata: Metadata = {
+  title: "من نحن",
+  alternates: { canonical: "https://noho.tn/ar/a-propos" },
+  robots: { index: false, follow: true },
+};
+
+export default function ArAProposPage() {
+  return <ArabicStub frHref="/a-propos" frTitleAr="من نحن" />;
+}

@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+.vercel
+*.tsbuildinfo
+.DS_Store
+
+# env files — this site has none today, but NEVER commit secrets. Pull from Vercel.
+.env*
+
+# marketing / sales collateral — belongs to marketing, not the website repo
+sales-kit/
