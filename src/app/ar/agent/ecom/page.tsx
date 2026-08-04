@@ -3,10 +3,10 @@ import ArabicStub from "@/app/ar/_components/ArabicStub";
 
 export const metadata: Metadata = {
   title: "حل التجارة الإلكترونية",
-  alternates: { canonical: "https://noho.tn/ar/agent/ecom" },
+  alternates: { canonical: "https://nohomailboxtunis.com/ar/agent/ecom" },
   robots: { index: false, follow: true },
 };
 
 export default function ArAgentEcomPage() {
-  return <ArabicStub frHref="/agent/ecom" frTitleAr="حل التجارة الإلكترونية" />;
+  return <ArabicStub frHref="/fr/agent/ecom" frTitleAr="حل التجارة الإلكترونية" />;
 }

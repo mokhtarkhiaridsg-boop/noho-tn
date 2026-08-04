@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { ARTICLES } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://noho.tn";
+  const base = "https://nohomailboxtunis.com";
   const now = new Date();
   const pages: { path: string; priority: number; freq?: "weekly" | "monthly" | "daily" }[] = [
     { path: "/", priority: 1.0, freq: "weekly" },
@@ -62,31 +62,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     pages.push({ path: `/blog/categorie/${c}`, priority: 0.7, freq: "weekly" });
   }
 
-  // Arabic locale — high-priority pages + all blog articles
-  const arPaths = [
-    "/ar",
-    "/ar/business",
-    "/ar/agent",
-    "/ar/agent/ecom",
-    "/ar/agent/student",
-    "/ar/agent/jobs",
-    "/ar/virtual-mailbox",
-    "/ar/tarifs",
-    "/ar/notary",
-    "/ar/shipping",
-    "/ar/blog",
-    "/ar/outils",
-    "/ar/contact",
-    "/ar/suivi-mensuel",
-  ];
-  for (const p of arPaths) {
-    pages.push({ path: p, priority: 0.6, freq: "weekly" });
-  }
-  for (const a of ARTICLES) {
-    pages.push({ path: `/ar/blog/${a.slug}`, priority: 0.55, freq: "monthly" });
-  }
+  /*
+   * The bare paths above are the DEFAULT locale (Tounsi). French is a real,
+   * indexable tree at /fr, so it is mirrored here at a slightly lower priority
+   * — the root URL is the canonical one for every shared route.
+   *
+   * /ar and /en stay out: they are still noindex, and a sitemap must not list
+   * noindexed URLs (Search Console flags "submitted URL marked noindex").
+   */
+  const frPages = pages.map((p) => ({
+    path: p.path === "/" ? "/fr" : `/fr${p.path}`,
+    priority: Math.round(p.priority * 0.9 * 100) / 100,
+    freq: p.freq,
+  }));
 
-  return pages.map((p) => ({
+  return [...pages, ...frPages].map((p) => ({
     url: `${base}${p.path}`,
     lastModified: now,
     changeFrequency: (p.freq ?? "monthly") as "weekly" | "monthly",

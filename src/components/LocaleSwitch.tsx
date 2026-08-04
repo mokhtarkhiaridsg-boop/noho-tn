@@ -2,11 +2,12 @@
 
 import { useState, useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { localeFromPath, localizePath, type Locale } from "@/lib/locale";
 
 /**
- * FR / AR locale switcher.
- * Strips or adds an `/ar` prefix on the current path so the user lands
- * on the same page in the target locale.
+ * TN / FR / AR / EN locale switcher.
+ * Swaps the locale prefix on the current path so the user lands on the same
+ * page in the target locale. Tounsi is the default and carries no prefix.
  */
 export default function LocaleSwitch() {
   const [open, setOpen] = useState(false);
@@ -14,8 +15,8 @@ export default function LocaleSwitch() {
   const router = useRouter();
   const ref = useRef<HTMLDivElement>(null);
 
-  const isAr = path.startsWith("/ar");
-  const current = isAr ? "AR" : "FR";
+  const currentLocale = localeFromPath(path);
+  const current = currentLocale.toUpperCase();
 
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
@@ -25,16 +26,10 @@ export default function LocaleSwitch() {
     return () => document.removeEventListener("mousedown", onClick);
   }, []);
 
-  const switchTo = (locale: "fr" | "ar") => {
+  const switchTo = (locale: Locale) => {
     setOpen(false);
-    if (locale === "ar") {
-      if (isAr) return;
-      router.push("/ar" + (path === "/" ? "" : path));
-    } else {
-      if (!isAr) return;
-      const stripped = path.replace(/^\/ar/, "") || "/";
-      router.push(stripped);
-    }
+    if (locale === currentLocale) return;
+    router.push(localizePath(path, locale));
   };
 
   return (
@@ -42,7 +37,7 @@ export default function LocaleSwitch() {
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        aria-label={isAr ? "تغيير اللغة" : "Changer de langue"}
+        aria-label={currentLocale === "ar" ? "تغيير اللغة" : currentLocale === "en" ? "Change language" : currentLocale === "fr" ? "Changer de langue" : "Baddel el logha"}
         aria-haspopup="menu"
         aria-expanded={open}
         className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-[12px] font-black uppercase tracking-[0.08em] transition-colors"
@@ -71,12 +66,22 @@ export default function LocaleSwitch() {
             boxShadow: "0 12px 32px rgba(45,16,15,0.16)",
           }}
         >
+          {/* Tounsi first — it is the default locale. */}
+          <button
+            type="button"
+            onClick={() => switchTo("tn")}
+            role="menuitem"
+            className="w-full text-left px-4 py-2.5 text-[13px] font-bold transition-colors hover:bg-[#F7E6C2]/50"
+            style={{ color: currentLocale === "tn" ? "#337485" : "#2D100F" }}
+          >
+            Tounsi
+          </button>
           <button
             type="button"
             onClick={() => switchTo("fr")}
             role="menuitem"
             className="w-full text-left px-4 py-2.5 text-[13px] font-bold transition-colors hover:bg-[#F7E6C2]/50"
-            style={{ color: !isAr ? "#337485" : "#2D100F" }}
+            style={{ color: currentLocale === "fr" ? "#337485" : "#2D100F" }}
           >
             Français
           </button>
@@ -86,9 +91,18 @@ export default function LocaleSwitch() {
             role="menuitem"
             dir="rtl"
             className="w-full text-right px-4 py-2.5 text-[13px] font-bold transition-colors hover:bg-[#F7E6C2]/50"
-            style={{ color: isAr ? "#337485" : "#2D100F", fontFamily: "system-ui" }}
+            style={{ color: currentLocale === "ar" ? "#337485" : "#2D100F", fontFamily: "system-ui" }}
           >
             العربية
+          </button>
+          <button
+            type="button"
+            onClick={() => switchTo("en")}
+            role="menuitem"
+            className="w-full text-left px-4 py-2.5 text-[13px] font-bold transition-colors hover:bg-[#F7E6C2]/50"
+            style={{ color: currentLocale === "en" ? "#337485" : "#2D100F" }}
+          >
+            English
           </button>
         </div>
       )}

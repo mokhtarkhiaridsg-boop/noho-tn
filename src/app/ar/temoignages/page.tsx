@@ -3,10 +3,10 @@ import ArabicStub from "@/app/ar/_components/ArabicStub";
 
 export const metadata: Metadata = {
   title: "الشهادات",
-  alternates: { canonical: "https://noho.tn/ar/temoignages" },
+  alternates: { canonical: "https://nohomailboxtunis.com/ar/temoignages" },
   robots: { index: false, follow: true },
 };
 
 export default function ArTemoignagesPage() {
-  return <ArabicStub frHref="/temoignages" frTitleAr="الشهادات" />;
+  return <ArabicStub frHref="/fr/temoignages" frTitleAr="الشهادات" />;
 }

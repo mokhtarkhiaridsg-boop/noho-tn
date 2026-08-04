@@ -6,47 +6,59 @@ import { usePathname } from "next/navigation";
 import Logo from "@/components/Logo";
 import LocaleSwitch from "@/components/LocaleSwitch";
 import NavbarStatusPill from "@/components/NavbarStatusPill";
+import { localeFromPath, localePrefix } from "@/lib/locale";
+import { waLink } from "@/lib/whatsapp";
 
 const FR_LINKS = [
-  { href: "/virtual-mailbox", label: "Boîte virtuelle", highlight: true },
-  { href: "/agent", label: "Services" },
-  { href: "/livraison", label: "Livraison" },
-  { href: "/shipping", label: "Devis" },
-  { href: "/tarifs", label: "Tarifs" },
-  { href: "/business", label: "Business" },
-  { href: "/etudiants", label: "Étudiants" },
-  { href: "/notary", label: "Notaire" },
+  { href: "/fr/virtual-mailbox", label: "Adresse & Colis", highlight: true },
+  { href: "/fr/shipping", label: "Expédition" },
+  { href: "/fr/etudiants", label: "Étudiants" },
+  { href: "/fr/business", label: "Business" },
 ];
 
 const AR_LINKS = [
-  { href: "/ar/virtual-mailbox", label: "صندوق البريد", highlight: true },
-  { href: "/ar/agent", label: "الخدمات" },
-  { href: "/ar/livraison", label: "التوصيل" },
-  { href: "/ar/shipping", label: "تسعيرة" },
-  { href: "/ar/tarifs", label: "الأسعار" },
-  { href: "/ar/business", label: "الأعمال" },
+  { href: "/ar/virtual-mailbox", label: "العنوان والطرود", highlight: true },
+  { href: "/ar/shipping", label: "الشحن" },
   { href: "/ar/etudiants", label: "الطلاب" },
-  { href: "/ar/notary", label: "كاتب العدل" },
+  { href: "/ar/business", label: "الأعمال" },
+];
+
+// Tounsi is the default locale — no prefix.
+const TN_LINKS = [
+  { href: "/virtual-mailbox", label: "Adresse & Colis", highlight: true },
+  { href: "/shipping", label: "Shipping" },
+  { href: "/etudiants", label: "Étudiants" },
+  { href: "/business", label: "Business" },
+];
+
+const EN_LINKS = [
+  { href: "/en/virtual-mailbox", label: "Address & Packages", highlight: true },
+  { href: "/en/shipping", label: "Shipping" },
+  { href: "/en/etudiants", label: "Students" },
+  { href: "/en/business", label: "Business" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const path = usePathname() ?? "/";
-  const isAr = path.startsWith("/ar");
-  const links = isAr ? AR_LINKS : FR_LINKS;
-  const reserverLabel = isAr ? "احجز" : "Réserver";
-  const reserverMobileLabel = isAr ? "احجز مكالمة" : "Réserver l'appel";
-  const closeMenuLabel = isAr ? "إغلاق القائمة" : "Fermer le menu";
-  const openMenuLabel = isAr ? "فتح القائمة" : "Ouvrir le menu";
-  const homeHref = isAr ? "/ar" : "/";
-  const appelHref = isAr ? "/ar/appel" : "/appel";
+  const locale = localeFromPath(path);
+  const isAr = locale === "ar";
+  const isTn = locale === "tn";
+  const isEn = locale === "en";
+  const isAdmin = path.startsWith("/admin");
+  const links = isAr ? AR_LINKS : isTn ? TN_LINKS : isEn ? EN_LINKS : FR_LINKS;
+  const closeMenuLabel = isAr ? "إغلاق القائمة" : isEn ? "Close menu" : "Fermer le menu";
+  const openMenuLabel = isAr ? "فتح القائمة" : isEn ? "Open menu" : "Ouvrir le menu";
+  const homeHref = localePrefix(locale) || "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  if (isAdmin) return null;
 
   return (
     <header
@@ -106,10 +118,27 @@ export default function Navbar() {
             )
           )}
           <div className="ml-3 flex items-center gap-2">
-            <NavbarStatusPill isAr={isAr} />
+            <NavbarStatusPill isAr={isAr} isTn={isTn} isEn={isEn} />
             <LocaleSwitch />
             <Link
-              href={appelHref}
+              href="/login"
+              className="px-2.5 py-2 rounded-lg text-[13px] font-bold transition-colors hover:bg-[#337485]/10"
+              style={{ color: "rgba(45,16,15,0.7)" }}
+            >
+              {isAr ? "تسجيل الدخول" : isEn ? "Log in" : "Connexion"}
+            </Link>
+            {/* Signup is French on every locale — transactional surfaces are. */}
+            <Link
+              href="/inscription"
+              className="px-2.5 py-2 rounded-lg text-[13px] font-bold transition-colors hover:bg-[#337485]/10"
+              style={{ color: "#337485" }}
+            >
+              Inscription
+            </Link>
+            <a
+              href={waLink("general")}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-4 py-2 rounded-xl text-[13px] font-black transition-all duration-200 hover:-translate-y-0.5"
               style={{
                 background: "#2D100F",
@@ -117,8 +146,8 @@ export default function Navbar() {
                 boxShadow: "0 4px 14px rgba(45,16,15,0.25)",
               }}
             >
-              {reserverLabel}
-            </Link>
+              WhatsApp
+            </a>
           </div>
         </nav>
 
@@ -170,12 +199,22 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
+          <Link
+            href="/login"
+            onClick={() => setOpen(false)}
+            className="font-bold text-sm py-3"
+            style={{ color: "#337485", borderBottom: "1px solid rgba(45,16,15,0.08)" }}
+          >
+            {isAr ? "تسجيل الدخول" : isEn ? "Log in" : "Connexion"}
+          </Link>
           <div className="mt-3 flex items-center gap-2">
             <div className="flex-1">
               <LocaleSwitch />
             </div>
-            <Link
-              href={appelHref}
+            <a
+              href={waLink("general")}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="flex-[2] text-center font-black py-3 rounded-2xl text-[13px] uppercase tracking-[0.06em]"
               style={{
@@ -184,8 +223,8 @@ export default function Navbar() {
                 boxShadow: "0 6px 20px rgba(45,16,15,0.28)",
               }}
             >
-              {reserverMobileLabel}
-            </Link>
+              WhatsApp
+            </a>
           </div>
         </nav>
       </div>

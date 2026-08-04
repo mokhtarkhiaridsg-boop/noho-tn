@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "صندوق بريد افتراضي أمريكي — عنوان حقيقي، مسح ضوئي، شحن من 35 ديناراً شهرياً",
+  title: "عنوان أمريكي حقيقي — مسح ضوئي، استلام طرود، شحن من 35 ديناراً شهرياً",
   description:
-    "عنوان بريدي أمريكي حقيقي في لوس أنجلوس. مسح ضوئي للرسائل في نفس اليوم عبر لوحة التحكم. استلام طرود (Amazon، UPS، FedEx، DHL). شحن دولي إلى تونس. ثلاث خطط بالدينار: 35، 75، 150 ديناراً شهرياً.",
+    "عنوان بريدي أمريكي حقيقي في لوس أنجلوس. مسح ضوئي للرسائل في نفس اليوم عبر لوحة التحكم. استلام طرود (Amazon، UPS، FedEx، DHL). شحن دولي إلى تونس. خطة Free بالدفع عند الاستعمال (محفظة، طرود بدون USPS) أو 35، 75، 150 ديناراً شهرياً.",
   alternates: {
-    canonical: "https://noho.tn/ar/virtual-mailbox",
+    canonical: "https://nohomailboxtunis.com/ar/virtual-mailbox",
     languages: {
-      "fr-TN": "https://noho.tn/virtual-mailbox",
-      "ar-TN": "https://noho.tn/ar/virtual-mailbox",
+      "fr-TN": "https://nohomailboxtunis.com/fr/virtual-mailbox",
+      "ar-TN": "https://nohomailboxtunis.com/ar/virtual-mailbox",
     },
   },
   robots: { index: false, follow: true },
@@ -23,12 +23,25 @@ const GOLD = "#f8c84a";
 
 const PLANS = [
   {
+    name: "Free",
+    price: "0",
+    yearPrice: "",
+    note: "الدفع عند الاستعمال — طرود بدون اشتراك",
+    bullets: [
+      ["عنوان استلام الطرود", "⁦5062 Lankershim Blvd⁩ — استلم مشترياتك الأمريكية"],
+      ["ناقلون خاصّون فقط", "UPS، FedEx، DHL، Amazon — بدون USPS (تُطبَّق السياسات)"],
+      ["الدفع عند الاستعمال", "كل خدمة تُخصم من المحفظة حسب جدول الأسعار"],
+      ["محفظة مدفوعة مسبقاً", "شحن الرصيد بحد أدنى 50 ديناراً"],
+      ["لوحة تحكم عبر الإنترنت", "إشعار عند كل طرد مستلم"],
+    ],
+  },
+  {
     name: "Basic",
     price: "35",
     yearPrice: "350",
     note: "للاستخدام الشخصي الخفيف أو لتخزين العنوان",
     bullets: [
-      ["عنوان بريدي أمريكي حقيقي", "5062 Lankershim Blvd, North Hollywood, CA"],
+      ["عنوان بريدي أمريكي حقيقي", "⁦5062 Lankershim Blvd, North Hollywood, CA⁩"],
       ["5 عمليات مسح ضوئي مشمولة", "شهرياً. الزائد: 3 دنانير للمسح"],
       ["شحن حسب الطلب", "رسوم البريد الحقيقية + 4 دنانير معالجة"],
       ["تخزين 30 يوماً", "الزائد: 1 دينار للطرد لكل يوم"],
@@ -70,7 +83,7 @@ const PLANS = [
 
 const USES = [
   { t: "الشراء من Amazon US، eBay، Shein، Nordstrom", b: "هذه المواقع غالباً لا تشحن إلى تونس. مع عنوان أمريكي، تطلب ما تريد." },
-  { t: "تفعيل Stripe، Mercury، Wise Business", b: "هؤلاء المزودون يتطلبون عنواناً أمريكياً حقيقياً (وليس صندوقاً افتراضياً سيء السمعة). NOHO يجتاز تحقّقهم." },
+  { t: "تفعيل Stripe، Mercury، Wise Business", b: "هؤلاء المزودون يتطلبون عنواناً أمريكياً حقيقياً (وليس صندوق بريد مجهول سيء السمعة). NOHO يجتاز تحقّقهم." },
   { t: "استلام بريد الأعمال الأمريكية", b: "مصلحة الضرائب، البنوك، مزودو SaaS، الشركاء — كل مراسلات شركتك الأمريكية تصل هنا، ممسوحة ضوئياً ومُشعَر بها في الوقت الفعلي." },
   { t: "SEVIS وبريد الجامعة", b: "للطلاب: يصل I-20 هنا، مُمسوح في نفس اليوم. أثناء دراستك، بريد الحرم الجامعي يُدار بين الفصول." },
   { t: "مجلات واشتراكات ورقية", b: "The Economist، WSJ، Vogue، Wired — كل الاشتراكات الأمريكية تصل. مسح + شحن حسب التفضيل." },
@@ -78,7 +91,7 @@ const USES = [
 ];
 
 const PROCESS = [
-  { n: 1, t: "تطلب عبر الإنترنت", b: "عنوان التسليم: 5062 Lankershim Blvd, Suite [رقم صندوقك], North Hollywood, CA 91601." },
+  { n: 1, t: "تطلب عبر الإنترنت", b: "عنوان التسليم: ⁦5062 Lankershim Blvd, Suite [رقم صندوقك], North Hollywood, CA 91601⁩." },
   { n: 2, t: "الوصول إلى المتجر", b: "نستلم فعلياً (UPS، FedEx، USPS، DHL، Amazon). توقيع مقبول. إشعار فوري في لوحة التحكم." },
   { n: 3, t: "تختار الإجراء", b: "شحن، فتح ومسح، تخزين، تدوير، إرجاع. قرر من لوحة التحكم." },
   { n: 4, t: "الدمج (اختياري)", b: "عدة طرود؟ نجمعها في شحنة واحدة لتخفيض رسوم البريد الدولي." },
@@ -88,32 +101,24 @@ const PROCESS = [
 export default function ArabicVirtualMailboxPage() {
   return (
     <>
-      <section className="px-5 sm:px-6 pt-12 sm:pt-20 pb-10 text-center" style={{ background: CREAM }}>
-        <div className="max-w-3xl mx-auto">
-          <span
-            className="inline-block text-[11px] font-black px-3 py-1.5 rounded-full mb-5"
-            style={{ background: INK, color: CREAM }}
-          >
-            المنتج الرئيسي · من 35 ديناراً شهرياً
-          </span>
-          <h1
-            className="font-extrabold leading-[1.15] tracking-tight mb-5"
-            style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)", color: INK }}
-          >
-            صندوق بريد افتراضي أمريكي
-          </h1>
-          <p className="text-[16px] leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(45,16,15,0.78)" }}>
-            عنوان بريدي أمريكي حقيقي في لوس أنجلوس. مسح ضوئي للرسائل في نفس
-            اليوم عبر لوحة التحكم. استلام طرود (Amazon، UPS، FedEx، DHL).
-            شحن دولي إلى تونس. تسعير بالدينار.
-          </p>
-        </div>
-      </section>
-
       {/* PLANS */}
-      <section className="px-5 sm:px-6 py-14 sm:py-20" style={{ background: "#fff" }}>
+      <section className="px-5 sm:px-6 pt-12 sm:pt-16 pb-14 sm:pb-20" style={{ background: "#fff" }}>
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="text-center mb-10">
+            <p className="font-black mb-2 text-[15px]" style={{ color: BLUE }}>
+              اختر خطتك
+            </p>
+            <h2
+              className="font-extrabold tracking-tight"
+              style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)", color: INK }}
+            >
+              أربع خطط، عنوان حقيقي واحد
+            </h2>
+            <p className="mt-3 text-[15px]" style={{ color: "rgba(45,16,15,0.5)" }}>
+              قابلة للإلغاء في أي وقت. الخطة السنوية = شهران مجاناً. Free = الدفع عند الاستعمال.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
             {PLANS.map((plan) => (
               <div
                 key={plan.name}
@@ -137,9 +142,11 @@ export default function ArabicVirtualMailboxPage() {
                   <span className="font-extrabold" style={{ fontSize: "48px", lineHeight: 1 }}>
                     {plan.price}
                   </span>
-                  <span className="text-[16px] font-black opacity-80">TND/mois</span>
+                  <span className="text-[16px] font-black opacity-80">TND/شهر</span>
                 </div>
-                <p className="text-[11.5px] opacity-65 mb-2" dir="ltr">أو {plan.yearPrice} TND/an (شهران مجاناً)</p>
+                <p className="text-[11.5px] opacity-65 mb-2">
+                  {plan.yearPrice ? `أو ${plan.yearPrice} TND/سنة (شهران مجاناً)` : "الدفع عند الاستعمال · محفظة مدفوعة مسبقاً"}
+                </p>
                 <p className="text-[12.5px] opacity-70 mb-5">{plan.note}</p>
                 <ul className="space-y-3 text-[13px] mb-6 flex-1">
                   {plan.bullets.map((b, idx) => (
@@ -166,7 +173,7 @@ export default function ArabicVirtualMailboxPage() {
             className="text-center text-[12px] mt-7 max-w-xl mx-auto"
             style={{ color: "rgba(45,16,15,0.55)" }}
           >
-            توثيق Form 1583 من USPS مشمول في إعداد جميع الخطط.
+            توثيق Form 1583 من USPS مشمول في إعداد الخطط الشهرية (Basic، Standard، Premium).
           </p>
         </div>
       </section>

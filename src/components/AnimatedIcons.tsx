@@ -158,3 +158,51 @@ export function AiSparkle(props: IconProps) {
     </svg>
   );
 }
+
+/** Grad cap in the AiMailbox language — bold ink, body fill, swinging tassel. */
+export function AiGradCap(props: IconProps) {
+  return (
+    <svg viewBox="0 0 120 120" {...withAi(props)}>
+      <path d="M10 52 L60 30 L110 52 L60 74 Z" fill={BRAND.body} stroke={BRAND.ink} strokeWidth="3.5" strokeLinejoin="round" />
+      <path d="M26 52 L60 38 L94 52 L60 66 Z" fill={BRAND.blue} opacity="0.25" />
+      <path d="M28 62 L28 84 C28 91 42 97 60 97 C78 97 92 91 92 84 L92 62" fill={BRAND.body} stroke={BRAND.ink} strokeWidth="3.5" strokeLinejoin="round" />
+      <g className="ai-heart">
+        <path d="M60 78 C60 71 50 68 50 75 C50 83 60 89 60 89 C60 89 70 83 70 75 C70 68 60 71 60 78Z" fill={BRAND.blue} />
+      </g>
+      <g className="pl-tassel" style={{ transformOrigin: "104px 55px", transformBox: "view-box" }}>
+        <path d="M104 55 L104 78" stroke={BRAND.amber} strokeWidth="3.5" strokeLinecap="round" />
+        <circle cx="104" cy="55" r="4" fill={BRAND.amber} stroke={BRAND.ink} strokeWidth="2" />
+        <path d="M99.5 78 h9 l-1.5 12 h-6 Z" fill={BRAND.amber} stroke={BRAND.ink} strokeWidth="2" strokeLinejoin="round" />
+      </g>
+    </svg>
+  );
+}
+
+/** Old-west storefront in the AiMailbox language — awning, star, swinging sign. */
+export function AiStorefront(props: IconProps) {
+  return (
+    <svg viewBox="0 0 120 120" {...withAi(props)}>
+      {/* false-front cornice */}
+      <rect x="14" y="10" width="92" height="16" rx="3" fill={BRAND.body} stroke={BRAND.ink} strokeWidth="3.5" />
+      <g className="ai-bolt">
+        <path d="M60 13 L61.8 17.6 L66.5 18.2 L63 21.4 L64 26 L60 23.6 L56 26 L57 21.4 L53.5 18.2 L58.2 17.6 Z" fill={BRAND.amber} stroke={BRAND.ink} strokeWidth="1.5" strokeLinejoin="round" />
+      </g>
+      {/* facade */}
+      <rect x="20" y="26" width="80" height="80" fill={BRAND.body} stroke={BRAND.ink} strokeWidth="3.5" />
+      {/* scalloped awning */}
+      <path d="M20 40 L100 40 L94 52 L26 52 Z" fill={BRAND.blue} opacity="0.3" stroke={BRAND.ink} strokeWidth="3" strokeLinejoin="round" />
+      <path d="M26 52 Q30 58 34 52 Q38 58 42 52 Q46 58 50 52 Q54 58 58 52 Q62 58 66 52 Q70 58 74 52 Q78 58 82 52 Q86 58 90 52 Q92 55 94 52" stroke={BRAND.ink} strokeWidth="2.5" fill={BRAND.paper} />
+      {/* windows */}
+      <rect className="pl-win pl-win-0" x="28" y="62" width="20" height="20" fill={BRAND.blue} stroke={BRAND.ink} strokeWidth="2.5" />
+      <rect className="pl-win pl-win-2" x="72" y="62" width="20" height="20" fill={BRAND.blue} stroke={BRAND.ink} strokeWidth="2.5" />
+      {/* door */}
+      <rect x="53" y="68" width="15" height="38" fill={BRAND.ink} />
+      {/* hanging sign, swinging */}
+      <g className="pl-sign" style={{ transformOrigin: "100px 56px", transformBox: "view-box" }}>
+        <path d="M100 56 L100 64" stroke={BRAND.ink} strokeWidth="2.5" />
+        <rect x="88" y="64" width="24" height="13" rx="3" fill={BRAND.red} stroke={BRAND.ink} strokeWidth="2.5" />
+        <path d="M93 70.5 H107" stroke={BRAND.paper} strokeWidth="2.5" strokeLinecap="round" />
+      </g>
+    </svg>
+  );
+}

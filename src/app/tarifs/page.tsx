@@ -1,18 +1,18 @@
+{/* TODO: native derja review */}
 import type { Metadata } from "next";
 import Link from "next/link";
-import StampCard from "@/components/StampCard";
-import { breadcrumbJsonLd } from "@/lib/breadcrumb";
+import { waLink } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "Tarifs — Boîtes virtuelles, Business, Suivi mensuel (dinars)",
+  title: "Tarifs b dinar — Adresse US, Business, Suivi mensuel, Étudiants",
   description:
-    "Boîte virtuelle 35-150 TND/mois. Business 4 000 TND une fois. Suivi mensuel 1 200 TND/mois. Portail Étudiants 1 800 TND/an. Grille tarifaire complète + politique de stockage et de réexpédition depuis le storefront US.",
+    "Tarifs wadh7in b dinar tounsi. Adresse US 35-150 TND/chhar. Business 4 000 TND marra barka. Suivi mensuel 1 200 TND/chhar. Portail Étudiants 1 800 TND/an. Bla frais mkhabbiin, bla scarcity mafabrkia.",
   alternates: {
-    canonical: "https://noho.tn/tarifs",
+    canonical: "https://nohomailboxtunis.com/tarifs",
     languages: {
-      "fr-TN": "https://noho.tn/tarifs",
-      "ar-TN": "https://noho.tn/ar/tarifs",
-      "x-default": "https://noho.tn/tarifs",
+      "fr-TN": "https://nohomailboxtunis.com/fr/tarifs",
+      "ar-TN": "https://nohomailboxtunis.com/ar/tarifs",
+      "aeb-TN": "https://nohomailboxtunis.com/tarifs",
     },
   },
 };
@@ -22,507 +22,283 @@ const INK = "#2D100F";
 const BLUE = "#337485";
 const GOLD = "#f8c84a";
 
-const breadcrumbs = breadcrumbJsonLd([
-  { name: "Accueil", url: "https://noho.tn" },
-  { name: "Tarifs", url: "https://noho.tn/tarifs" },
-]);
-
-const MAILBOX_PLANS = [
+const PLANS = [
   {
-    name: "Basic",
-    price: "35",
-    note: "Usage personnel léger",
-    bullets: [
-      "Adresse postale US réelle (Lankershim Blvd)",
-      "5 scans de courrier inclus / mois",
-      "Form 1583 USPS notarisé inclus",
-      "Stockage 30 jours",
-      "Forwarding sur demande (frais postaux en sus)",
-    ],
-  },
-  {
-    name: "Standard",
-    price: "75",
-    note: "Le plus populaire",
-    primary: true,
-    bullets: [
-      "Tout du Basic",
-      "20 scans inclus / mois",
-      "Réception colis incluse (5/mois)",
-      "Forwarding hebdomadaire automatique",
-      "Consolidation de colis",
-      "SMS + email notifications",
-    ],
-  },
-  {
-    name: "Premium",
-    price: "150",
-    note: "E-commerce + business actif",
-    bullets: [
-      "Tout du Standard",
-      "Scans illimités",
-      "Réception colis illimitée",
-      "Priorité scan (sous 2h)",
-      "Repacking inclus",
-      "Cloud storage des scans (3 ans)",
-    ],
-  },
-];
-
-const PRODUCTS = [
-  {
-    name: "Business",
+    label: "Business",
+    badge: "Marra barka",
     price: "4 000",
-    unit: "une fois",
-    desc: "Société américaine ou tunisienne, EIN, brand, site, social. Livré en 14 jours.",
-    href: "/business",
+    currency: "TND",
+    note: "Paiement we7ed. Yetsallem fi 14 jours.",
+    description:
+      "Société américaine wala tounsia, EIN, brand, site web, réseaux sociaux. Kol chay yetsallem fi 14 jours.",
+    bullets: [
+      "Société américaine wala tounsia",
+      "EIN",
+      "Brand w identité visuelle",
+      "Site web",
+      "Réseaux sociaux",
+      "Yetsallem fi 14 jours",
+    ],
+    cta: { label: "En savoir plus", href: "/business" },
+    color: INK,
+    textColor: CREAM,
+    accent: GOLD,
   },
   {
-    name: "Suivi mensuel",
+    label: "Suivi mensuel",
+    badge: "Chhari · bla engagement",
     price: "1 200",
-    unit: "/ mois",
-    desc: "Conformité US mensuelle, courrier prioritaire, contenu, revue trimestrielle.",
-    href: "/suivi-mensuel",
+    currency: "TND",
+    suffix: "/chhar",
+    note: "Chhar b chhar. Bla engagement annuel.",
+    description:
+      "Conformité US kol chhar, courrier prioritaire, contenu, revue trimestrielle mta3 el business mte3ek.",
+    bullets: [
+      "Conformité US mensuelle",
+      "Courrier prioritaire",
+      "Contenu lel réseaux",
+      "Revue trimestrielle",
+    ],
+    cta: { label: "En savoir plus", href: "/suivi-mensuel" },
+    color: CREAM,
+    textColor: INK,
+    accent: BLUE,
   },
   {
-    name: "Portail Étudiants",
+    label: "Portail Étudiants",
+    badge: "Année académique",
     price: "1 800",
-    unit: "/ année académique",
-    desc: "Admissions US + visa F-1 + arrivée sur place. End-to-end depuis Tunis.",
-    href: "/etudiants",
-  },
-  {
-    name: "Notariat (Form 1583)",
-    price: "Inclus",
-    unit: "avec mailbox",
-    desc: "Notaire californien sur place. Inclus dans Boîte virtuelle. Notariat ponctuel possible.",
-    href: "/notary",
-  },
-];
-
-const FEES = [
-  { label: "Scan supplémentaire au-delà du forfait", sub: "Couleur, recto-verso, format A4", amount: "2 TND / page" },
-  { label: "Stockage de colis au-delà de 90 jours", sub: "Compté par semaine, par colis", amount: "6 TND / semaine" },
-  { label: "Réexpédition consolidée Tunis", sub: "Vendredi hebdomadaire, DHL Express", amount: "140-280 TND + frais postaux" },
-  { label: "Réexpédition urgente Tunis", sub: "24-48h, DHL Worldwide Priority", amount: "200-470 TND + frais postaux" },
-  { label: "Same-day NoHo (local LA)", sub: "Livraison < 3h dans North Hollywood", amount: "15 TND" },
-  { label: "Same-day LA County", sub: "0-6h, toute zone LA County", amount: "28-90 TND" },
-  { label: "Repacking colis", sub: "Re-emballage avant expédition", amount: "8 TND / colis" },
-  { label: "Retour à l'expéditeur (US)", sub: "Si tu refuses la livraison", amount: "Frais postaux réels uniquement" },
-  { label: "Destruction sécurisée", sub: "Shredding crosscut + certificat", amount: "Gratuit" },
-  { label: "Notariat supplémentaire (non-Form 1583)", sub: "Document ponctuel via notaire CA", amount: "50 TND / document" },
-  { label: "Apostille TN (via partenaire KHIARI Tunis)", sub: "MAE Tunis + traduction jurée", amount: "Facturé par KHIARI (~250 TND)" },
-  { label: "Réactivation après suspension", sub: "Compte gelé pour impayé", amount: "25 TND" },
-];
-
-const POLICIES = [
-  {
-    q: "Stockage de courrier — combien de temps gratuit ?",
-    a: "Tout courrier ou colis reçu au storefront 5062 Lankershim est stocké gratuitement pendant 90 jours. Au-delà, surcharge de 6 TND par colis par semaine. On t'envoie un rappel à J+60 et J+85 avant de facturer.",
-  },
-  {
-    q: "Volume de colis — y a-t-il une limite ?",
-    a: "Aucune limite en nombre, mais surcharge volumétrique au-delà de 1 pied cube par colis (volumes Amazon-style). Frais 15-45 TND selon taille. Les colis très grands (mobilier, vélo) peuvent être refusés — appelle-nous avant l'envoi.",
-  },
-  {
-    q: "Réexpédition vers Tunisie — comment ça marche ?",
-    a: "Par défaut, consolidation hebdomadaire le vendredi. Tu reçois tout le courrier de la semaine en un seul envoi DHL Express, économie significative vs envois individuels. Tu peux demander un envoi urgent à tout moment (200-470 TND + postal réel selon poids).",
-  },
-  {
-    q: "Frais postaux DHL / UPS / FedEx — markup ?",
-    a: "Aucun. Tu paies les frais postaux exacts facturés par le transporteur (DHL, UPS, FedEx). Notre fee couvre uniquement la consolidation + manutention + emballage. Reçus DHL transparents fournis dans ton dashboard.",
-  },
-  {
-    q: "Annulation — combien de temps de préavis ?",
-    a: "Boîte virtuelle : annulable à tout moment, prend effet à la fin du mois en cours. Suivi mensuel : mois par mois, aucun engagement annuel. Business 4 000 TND : non-remboursable une fois la LLC formée (les frais d'État ne sont pas récupérables).",
-  },
-  {
-    q: "Refus de livraison à l'arrivée — que se passe-t-il ?",
-    a: "Si le destinataire en Tunisie refuse la livraison (ou douane bloque), DHL nous retourne le colis. Frais de retour 25-60 TND. Tu décides ensuite : restockage chez nous (6 TND/semaine au-delà des 90 jours offerts), destruction sécurisée (gratuit), ou re-expédition à autre adresse.",
-  },
-  {
-    q: "Confidentialité du courrier — qui voit quoi ?",
-    a: "Le scan automatique ne lit que l'enveloppe (expéditeur, date d'arrivée). L'ouverture + scan du contenu nécessite ton autorisation explicite via dashboard. Les scans sont stockés chiffrés. Le personnel storefront ne photocopie jamais de documents privés sans consigne écrite.",
-  },
-  {
-    q: "Form 1583 USPS — pourquoi obligatoire et combien ça coûte ?",
-    a: "Form 1583 est l'autorisation USPS pour qu'on reçoive ton courrier en ton nom. Obligatoire pour tout CMRA américain enregistré USPS. Notarisation incluse dans tous les forfaits Boîte virtuelle. Si tu changes d'adresse en Tunisie : re-notarisation gratuite.",
-  },
-  {
-    q: "Politiques applicables aux colis transitant via le storefront US",
-    a: "Tout colis qui arrive au 5062 Lankershim (que ce soit pour réexpédition vers Tunis ou pour livraison locale LA) est soumis aux mêmes politiques : photo entrée + sortie, stockage gratuit 90 jours, surcharge au-delà. Les colis livrés au TN store sont sous nos mêmes politiques pour la durée du transit.",
-  },
-  {
-    q: "BCT et déclaration douanière (côté Tunisie) — qui gère ?",
-    a: "Tu reçois le colis en Tunisie. La déclaration douanière est faite par DHL/UPS lors du dédouanement. Tu paies les droits + TVA Tunisie si applicables (variable selon nature et valeur déclarée). On peut t'envoyer une commercial invoice complète si demandé pour faciliter le passage.",
+    currency: "TND",
+    suffix: "/an",
+    note: "Lel étudiants Twensa elli 7abbin y9raw fi jam3a américaine.",
+    description:
+      "Admissions fel jam3at US + visa F-1 + el wsoul ghadi. End-to-end men Tounes.",
+    bullets: [
+      "Admissions US",
+      "Visa F-1",
+      "Arrivée sur place",
+      "End-to-end men Tounes",
+    ],
+    cta: { label: "En savoir plus", href: "/etudiants" },
+    color: "#C8A35A",
+    textColor: INK,
+    accent: INK,
   },
 ];
 
-export default function TarifsPage() {
+const MAILBOX_TIER = [
+  {
+    name: "Free",
+    price: "0",
+    note: "Pay-as-you-go — colis bla abonnement",
+    bullets: [
+      "Adresse bch testacbel el colis (Lankershim Blvd)",
+      "Transporteurs privés bark — bla USPS (les politiques applicables)",
+      "Tkhalles ki testa3mel — kol service yetna77a mel wallet 7asb el grille",
+      "Wallet prépayé — recharge minimum 50 TND",
+      "Dashboard en ligne, notification 3la kol colis",
+    ],
+  },
+  { name: "Basic", price: "35", note: "Usage personnel khfif" },
+  { name: "Standard", price: "75", note: "El plus populaire" },
+  { name: "Premium", price: "150", note: "E-commerce + business actif" },
+];
+
+const ONE_OFFS = [
+  { label: "Scan supplémentaire fou9 el forfait (couleur, recto-verso, A4)", price: "2 TND/page" },
+  { label: "Stockage colis fou9 el mudda incluse (30 / 60 / 90 j 7asb el forfait)", price: "6 TND/semaine" },
+  { label: "Réexpédition consolidée l Tounes (kol jom3a, DHL Express)", price: "140-280 TND + frais postaux" },
+  { label: "Réexpédition urgente l Tounes (24-48h, DHL Worldwide Priority)", price: "200-470 TND + frais postaux" },
+  { label: "Same-day NoHo (livraison a9al men 3h fi North Hollywood)", price: "15 TND" },
+  { label: "Same-day LA County (0-6h, ay zone fi LA County)", price: "28-90 TND" },
+  { label: "Repacking colis (n3awdou el emballage 9bal el expédition)", price: "8 TND/colis" },
+  { label: "Retour lel expéditeur (US) ki trefes el livraison", price: "Frais postaux el 7a9i9iyin bark" },
+  { label: "Destruction sécurisée (shredding crosscut + certificat)", price: "B latech" },
+  { label: "Notariat supplémentaire (mch Form 1583, document ponctuel via notaire CA)", price: "50 TND/document" },
+  { label: "Apostille TN (via partenaire KHIARI Tunis, MAE + traduction jurée)", price: "Facturé par KHIARI (~250 TND)" },
+  { label: "Réactivation ba3d suspension (compte mgelé 3ala impayé)", price: "25 TND" },
+];
+
+export default function TounsiTarifsPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
-      />
-
-      {/* HERO */}
-      <section className="relative px-5 sm:px-6 pt-14 pb-10 sm:pt-20 sm:pb-14 text-center" style={{ background: CREAM }}>
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: "radial-gradient(circle, rgba(45,16,15,0.07) 1px, transparent 1px)",
-            backgroundSize: "26px 26px",
-          }}
-        />
-        <div className="relative max-w-3xl mx-auto">
-          <p className="text-[11px] font-black uppercase tracking-[0.22em] mb-3" style={{ color: BLUE }}>
-            Tarifs
-          </p>
-          <h1
-            className="font-extrabold tracking-tight mb-4"
-            style={{
-              fontFamily: "var(--font-baloo), sans-serif",
-              fontSize: "clamp(2.4rem, 5.5vw, 4rem)",
-              color: INK,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.05,
-            }}
+      <section className="px-5 sm:px-6 pt-12 sm:pt-20 pb-10 sm:pb-12 text-center" style={{ background: CREAM }}>
+        <div className="max-w-3xl mx-auto">
+          <span
+            className="inline-block text-[11px] font-black px-3 py-1.5 rounded-full mb-5"
+            style={{ background: INK, color: CREAM }}
           >
-            Tarifs en dinars,
-            <br />
+            Tarifs wadh7in · b dinar
+          </span>
+          <h1
+            className="font-extrabold leading-[1.15] tracking-tight mb-5"
+            style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)", color: INK, fontFamily: "var(--font-baloo), sans-serif" }}
+          >
+            Tarifs b dinar,{" "}
             <span style={{ fontFamily: "var(--font-pacifico), cursive", color: BLUE, fontWeight: 400 }}>
-              sans surprise
+              bla surprise
             </span>
           </h1>
-          <p className="text-[16px] leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(45,16,15,0.65)" }}>
-            Aucun frais caché. Aucune scarcity inventée. Tu paies ce qui est
-            sur la grille — et rien d&apos;autre.
+          <p className="text-[16px] leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(45,16,15,0.78)" }}>
+            Bla frais mkhabbiin. Bla scarcity mafabriké. Bla remise fausse.
+            Tkhalles elli fel grille — w chay ekher le. El prix b dinar 5ater
+            houma flous el clients mte3na Twensa.
           </p>
         </div>
       </section>
 
-      {/* PLANS — STAMPS */}
-      <section className="py-14 sm:py-20 px-7 sm:px-6" style={{ background: CREAM }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10 sm:mb-12">
-            <p
-              className="font-black mb-2"
-              style={{ fontFamily: "var(--font-pacifico), cursive", fontSize: "1.1rem", color: BLUE }}
-            >
-              Boîte virtuelle
-            </p>
-            <h2
-              className="font-extrabold tracking-tight"
-              style={{
-                fontFamily: "var(--font-baloo), sans-serif",
-                fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
-                color: INK,
-              }}
-            >
-              Choisis ton forfait
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-            {MAILBOX_PLANS.map((plan) => (
-              <div key={plan.name} className={`group ${plan.primary ? "md:-mt-3" : ""}`}>
-                <StampCard popular={plan.primary}>
-                  {plan.primary && (
-                    <div className="flex justify-center mb-4">
-                      <span
-                        className="text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full"
-                        style={{ background: BLUE, color: "white" }}
-                      >
-                        ★ Le plus populaire
-                      </span>
-                    </div>
-                  )}
-                  <div className="text-center mb-2">
-                    <p
-                      className="text-[10px] font-black uppercase tracking-[0.2em] mb-1"
-                      style={{ color: plan.primary ? "rgba(247,230,194,0.55)" : "rgba(45,16,15,0.45)" }}
-                    >
-                      {plan.note}
-                    </p>
-                    <h3
-                      className="font-black text-2xl mb-1"
-                      style={{ color: plan.primary ? CREAM : INK, fontFamily: "var(--font-baloo), sans-serif" }}
-                    >
-                      {plan.name}
-                    </h3>
-                    <div className="flex items-end justify-center gap-1">
-                      <span
-                        className="font-extrabold"
-                        style={{
-                          fontSize: "2.5rem",
-                          color: plan.primary ? CREAM : INK,
-                          fontFamily: "var(--font-baloo), sans-serif",
-                        }}
-                      >
-                        {plan.price}
-                      </span>
-                      <span
-                        className="text-sm mb-1.5"
-                        style={{ color: plan.primary ? "rgba(247,230,194,0.45)" : "rgba(45,16,15,0.45)" }}
-                      >
-                        TND / mois
-                      </span>
-                    </div>
-                    <p
-                      className="text-[10px] mt-1 font-bold"
-                      style={{ color: plan.primary ? "rgba(247,230,194,0.55)" : "rgba(45,16,15,0.5)" }}
-                    >
-                      Form 1583 notarisé inclus
-                    </p>
-                  </div>
-                  <ul className="space-y-2.5 text-sm mt-5 mb-7">
-                    {plan.bullets.map((b) => (
-                      <li key={b} className="flex items-center gap-2.5">
-                        <span
-                          className="w-4 h-4 rounded-full flex items-center justify-center shrink-0"
-                          style={{ background: plan.primary ? BLUE : CREAM }}
-                        >
-                          <svg
-                            className="w-2 h-2"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke={plan.primary ? "white" : INK}
-                            strokeWidth="3.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            aria-hidden="true"
-                          >
-                            <path d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
-                        <span
-                          style={{ color: plan.primary ? "rgba(247,230,194,0.78)" : "rgba(45,16,15,0.78)" }}
-                        >
-                          {b}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/virtual-mailbox"
-                    className="block text-center font-black py-3.5 rounded-2xl text-sm transition-all duration-200 hover:scale-[1.02]"
-                    style={{
-                      background: plan.primary ? BLUE : INK,
-                      color: plan.primary ? "white" : CREAM,
-                      boxShadow: plan.primary ? "0 6px 20px rgba(51,116,133,0.35)" : "none",
-                    }}
-                  >
-                    Choisir {plan.name}
-                  </Link>
-                </StampCard>
+      {/* MAIN PLANS */}
+      <section className="px-5 sm:px-6 py-14 sm:py-16" style={{ background: "#fff" }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {PLANS.map((p) => (
+              <div
+                key={p.label}
+                className="p-7 rounded-3xl"
+                style={{
+                  background: p.color,
+                  color: p.textColor,
+                  boxShadow: "0 8px 30px rgba(45,16,15,0.10)",
+                }}
+              >
+                <p
+                  className="text-[11px] font-black mb-3"
+                  style={{ color: p.accent }}
+                >
+                  {p.badge}
+                </p>
+                <h3 className="font-black text-[18px] mb-4" style={{ fontFamily: "var(--font-baloo), sans-serif" }}>
+                  {p.label}
+                </h3>
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="font-extrabold" style={{ fontSize: "44px", lineHeight: 1 }}>
+                    {p.price}
+                  </span>
+                  <span className="text-[16px] font-black opacity-80">
+                    {p.currency}
+                    {p.suffix ?? ""}
+                  </span>
+                </div>
+                <p className="text-[12.5px] opacity-70 mb-3">{p.note}</p>
+                <p className="text-[14px] leading-relaxed mb-5 opacity-90">{p.description}</p>
+                <ul className="space-y-1.5 text-[13.5px] mb-6">
+                  {p.bullets.map((b, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="mt-0.5 opacity-60">·</span>
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={p.cta.href}
+                  className="block w-full text-center font-black px-5 py-3 rounded-xl text-[14px]"
+                  style={{ background: p.textColor, color: p.color }}
+                >
+                  {p.cta.label}
+                </Link>
               </div>
             ))}
           </div>
-          <p className="text-center mt-10 text-sm" style={{ color: "rgba(45,16,15,0.5)" }}>
-            Forfait annuel = 2 mois offerts. Annulable à tout moment.
+          <p
+            className="text-center text-[13px] mt-7 max-w-xl mx-auto"
+            style={{ color: "rgba(45,16,15,0.6)" }}
+          >
+            Notariat (Form 1583) : inclus m3a el adresse US. Notariat ponctuel
+            mawjoud zeda —{" "}
+            <Link href="/notary" className="underline font-black">
+              chouf el notariat
+            </Link>
+            .
           </p>
         </div>
       </section>
 
-      {/* PRODUCTS */}
-      <section className="py-14 sm:py-20 px-5 sm:px-6" style={{ background: "#fff" }}>
-        <div className="max-w-5xl mx-auto">
+      {/* MAILBOX TIER PRICING */}
+      <section className="px-5 sm:px-6 py-14 sm:py-16" style={{ background: CREAM }}>
+        <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
-            <p
-              className="font-black mb-2"
-              style={{ fontFamily: "var(--font-pacifico), cursive", fontSize: "1.1rem", color: BLUE }}
-            >
-              Autres produits
-            </p>
             <h2
-              className="font-extrabold tracking-tight"
-              style={{
-                fontFamily: "var(--font-baloo), sans-serif",
-                fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
-                color: INK,
-              }}
+              className="font-extrabold mb-3"
+              style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.25rem)", color: INK, fontFamily: "var(--font-baloo), sans-serif" }}
             >
-              Business, étudiants, services
+              Adresse US 7a9i9ia — 3 forfaits
             </h2>
+            <p className="text-[14px]" style={{ color: "rgba(45,16,15,0.65)" }}>
+              El forfaits el chhariya lel adresse US wa7adha, bla pack business.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {PRODUCTS.map((p) => (
-              <Link
-                key={p.name}
-                href={p.href}
-                className="block p-7 rounded-3xl transition-all hover:-translate-y-1"
-                style={{ background: CREAM, boxShadow: "0 4px 18px rgba(45,16,15,0.08)" }}
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <h3
-                    className="font-extrabold text-[20px]"
-                    style={{ color: INK, fontFamily: "var(--font-baloo), sans-serif" }}
-                  >
-                    {p.name}
-                  </h3>
-                  <div className="text-right">
-                    <p
-                      className="font-extrabold text-[24px] leading-none"
-                      style={{ color: BLUE, fontFamily: "var(--font-baloo), sans-serif" }}
-                    >
-                      {p.price}
-                    </p>
-                    <p className="text-[11px] font-bold" style={{ color: "rgba(45,16,15,0.5)" }}>
-                      TND {p.unit}
-                    </p>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {MAILBOX_TIER.map((m) => (
+              <div key={m.name} className="p-6 rounded-2xl text-center" style={{ background: "#fff" }}>
+                <h3 className="font-black text-[18px] mb-2" style={{ color: INK, fontFamily: "var(--font-baloo), sans-serif" }}>
+                  {m.name}
+                </h3>
+                <div className="flex items-baseline justify-center gap-1 mb-1">
+                  <span className="font-extrabold" style={{ fontSize: "36px", lineHeight: 1, color: INK }}>{m.price}</span>
+                  <span className="text-[14px] font-black opacity-70" style={{ color: INK }}>TND/chhar</span>
                 </div>
-                <p className="text-[14px] leading-relaxed" style={{ color: "rgba(45,16,15,0.78)" }}>
-                  {p.desc}
-                </p>
-                <p className="text-[12px] font-black uppercase tracking-[0.12em] mt-4" style={{ color: BLUE }}>
-                  En savoir plus →
-                </p>
-              </Link>
+                <p className="text-[12.5px]" style={{ color: "rgba(45,16,15,0.65)" }}>{m.note}</p>
+              </div>
             ))}
           </div>
+          <p className="text-center text-[13px] mt-6" style={{ color: "rgba(45,16,15,0.65)" }}>
+            Forfait annuel = zouz chhoura offerts. Tnajjem twa99ef wa9telli t7eb.{" "}
+            <Link href="/virtual-mailbox" className="underline font-black">
+              Voir les détails
+            </Link>
+          </p>
         </div>
       </section>
 
-      {/* FEES */}
-      <section id="fees" className="py-14 sm:py-20 px-5 sm:px-6" style={{ background: "#FAFAF8" }}>
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <p className="text-[11px] font-black uppercase tracking-[0.22em] mb-2" style={{ color: BLUE }}>
-              À la carte
-            </p>
-            <h2
-              className="font-extrabold tracking-tight"
-              style={{
-                fontFamily: "var(--font-baloo), sans-serif",
-                fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
-                color: INK,
-              }}
-            >
-              Grille tarifaire
-            </h2>
-            <p className="mt-2 text-[14px]" style={{ color: "rgba(45,16,15,0.6)" }}>
-              Tu paies seulement ce que tu utilises. Pas de surprise, pas de markup.
-            </p>
-          </div>
-          <ul
-            className="rounded-3xl overflow-hidden"
-            style={{
-              background: "white",
-              border: "1px solid rgba(45,16,15,0.08)",
-              boxShadow: "0 1px 0 rgba(51,116,133,0.04), 0 12px 32px rgba(45,16,15,0.06)",
-            }}
+      {/* ONE-OFFS */}
+      <section className="px-5 sm:px-6 py-14 sm:py-16" style={{ background: "#fff" }}>
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="font-extrabold mb-3 text-center"
+            style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.25rem)", color: INK, fontFamily: "var(--font-baloo), sans-serif" }}
           >
-            {FEES.map((f, i) => (
-              <li
-                key={i}
-                className="px-5 py-4 flex items-start justify-between gap-4 transition-colors hover:bg-[#F7E6C2]/30"
-                style={{ borderTop: i === 0 ? "none" : "1px solid rgba(45,16,15,0.05)" }}
+            Grille tarifaire — à la carte
+          </h2>
+          <p className="text-center text-[14px] mb-8" style={{ color: "rgba(45,16,15,0.65)" }}>
+            Tkhalles ken elli testa3melou. Bla surprise, bla markup.
+          </p>
+          <div className="space-y-2.5">
+            {ONE_OFFS.map((o) => (
+              <div
+                key={o.label}
+                className="p-4 rounded-xl flex justify-between gap-4 items-center"
+                style={{ background: CREAM }}
               >
-                <div className="flex-1 min-w-0">
-                  <p className="text-[14px] font-bold" style={{ color: INK }}>
-                    {f.label}
-                  </p>
-                  {f.sub && (
-                    <p className="text-[12px] mt-0.5" style={{ color: "rgba(45,16,15,0.55)" }}>
-                      {f.sub}
-                    </p>
-                  )}
-                </div>
-                <span
-                  className="text-[15px] font-black shrink-0 text-right"
-                  style={{ color: BLUE, fontFamily: "var(--font-baloo), sans-serif" }}
-                >
-                  {f.amount}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* POLICIES */}
-      <section className="py-14 sm:py-20 px-5 sm:px-6" style={{ background: "#F0EDE8" }}>
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <p className="text-[11px] font-black uppercase tracking-[0.22em] mb-2" style={{ color: BLUE }}>
-              Politique de stockage et de réexpédition
-            </p>
-            <h2
-              className="font-extrabold tracking-tight"
-              style={{
-                fontFamily: "var(--font-baloo), sans-serif",
-                fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
-                color: INK,
-              }}
-            >
-              Politiques
-            </h2>
-            <p className="mt-2 text-[13.5px] max-w-2xl mx-auto" style={{ color: "rgba(45,16,15,0.6)" }}>
-              Ces politiques s&apos;appliquent à tout colis transitant via notre
-              storefront US (5062 Lankershim) — y compris les forwards vers Tunisie.
-            </p>
-          </div>
-          <div className="space-y-3">
-            {POLICIES.map((p, i) => (
-              <details
-                key={i}
-                className="group rounded-2xl overflow-hidden"
-                style={{ background: "white", border: "1px solid rgba(45,16,15,0.08)" }}
-              >
-                <summary
-                  className="px-5 py-4 cursor-pointer font-bold text-[14.5px] flex items-center justify-between gap-4"
-                  style={{ color: INK, listStyle: "none" }}
-                >
-                  <span>{p.q}</span>
-                  <svg
-                    viewBox="0 0 16 16"
-                    className="w-4 h-4 transition-transform group-open:rotate-180 shrink-0"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M4 6 L8 10 L12 6" />
-                  </svg>
-                </summary>
-                <div
-                  className="px-5 pb-4 text-[14px] leading-relaxed"
-                  style={{ color: "rgba(45,16,15,0.78)", borderTop: "1px solid rgba(45,16,15,0.05)" }}
-                >
-                  <p className="pt-3">{p.a}</p>
-                </div>
-              </details>
+                <span className="text-[14px] font-semibold flex-1" style={{ color: INK }}>{o.label}</span>
+                <span className="text-[14px] font-black whitespace-nowrap text-right" style={{ color: BLUE }}>{o.price}</span>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-14 sm:py-20 px-5 sm:px-6 text-center" style={{ background: INK, color: CREAM }}>
-        <div className="max-w-2xl mx-auto">
+      <section className="px-5 sm:px-6 py-14 sm:py-16 text-center" style={{ background: CREAM }}>
+        <div className="max-w-xl mx-auto">
           <h2
             className="font-extrabold mb-4"
-            style={{ fontFamily: "var(--font-baloo), sans-serif", fontSize: "clamp(1.75rem, 4vw, 2.5rem)" }}
+            style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", color: INK, fontFamily: "var(--font-baloo), sans-serif" }}
           >
-            Une question avant de payer ?
+            Ama forfait ynasbek ?
           </h2>
-          <p className="text-[15px] mb-6" style={{ color: "rgba(247,230,194,0.75)" }}>
-            Consultation 30 minutes gratuite. On regarde ton dossier en
-            personne — pas un robot, pas un formulaire.
+          <p className="text-[15px] leading-relaxed mb-7" style={{ color: "rgba(45,16,15,0.75)" }}>
+            Consultation 30 d9i9a b latech. Nchoufou el dossier mte3ek m3ak —
+            mch robot, mch formulaire.
           </p>
-          <Link
-            href="/appel"
-            className="inline-flex items-center gap-2 font-black px-7 py-4 rounded-2xl text-[15px]"
-            style={{ background: GOLD, color: INK }}
+          <a
+            href={waLink("general")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block font-black px-10 py-5 rounded-2xl text-[16px] transition-all hover:scale-[1.02]"
+            style={{ background: INK, color: CREAM, boxShadow: "0 6px 28px rgba(45,16,15,0.28)" }}
           >
-            Réserver l&apos;appel gratuit
-            <svg viewBox="0 0 20 20" className="w-4 h-4" fill="none">
-              <path d="M4 10 H16 M12 6 L16 10 L12 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
+            WhatsApp
+          </a>
         </div>
       </section>
     </>

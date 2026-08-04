@@ -3,10 +3,10 @@ import ArabicStub from "@/app/ar/_components/ArabicStub";
 
 export const metadata: Metadata = {
   title: "المتابعة الشهرية",
-  alternates: { canonical: "https://noho.tn/ar/retainer" },
+  alternates: { canonical: "https://nohomailboxtunis.com/ar/retainer" },
   robots: { index: false, follow: true },
 };
 
 export default function ArRetainerPage() {
-  return <ArabicStub frHref="/retainer" frTitleAr="المتابعة الشهرية" />;
+  return <ArabicStub frHref="/fr/retainer" frTitleAr="المتابعة الشهرية" />;
 }

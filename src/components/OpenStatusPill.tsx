@@ -63,7 +63,20 @@ function computeStatus(): Status {
   };
 }
 
-export default function OpenStatusPill() {
+export default function OpenStatusPill({
+  compact = false,
+  solid = false,
+  openLabel,
+  closedLabel,
+}: {
+  /** Hide the hours sub-label (for tight overlays, e.g. on a photo). */
+  compact?: boolean;
+  /** Opaque cream background so the pill stays readable over imagery. */
+  solid?: boolean;
+  /** Localized labels (default French). */
+  openLabel?: string;
+  closedLabel?: string;
+} = {}) {
   const [status, setStatus] = useState<Status | null>(null);
 
   useEffect(() => {
@@ -80,9 +93,11 @@ export default function OpenStatusPill() {
     <div
       className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-full text-[12px] font-bold"
       style={{
-        background: "rgba(45,16,15,0.04)",
+        background: solid ? "rgba(255,253,248,0.94)" : "rgba(45,16,15,0.04)",
         border: "1px solid rgba(45,16,15,0.12)",
         color: "#2D100F",
+        boxShadow: solid ? "0 8px 22px rgba(45,16,15,0.22)" : undefined,
+        backdropFilter: solid ? "blur(6px)" : undefined,
       }}
     >
       <span
@@ -104,11 +119,13 @@ export default function OpenStatusPill() {
         />
       </span>
       <span style={{ color: status.open ? "#16804A" : "rgba(45,16,15,0.6)" }}>
-        {status.label}
+        {status.open ? openLabel ?? status.label : closedLabel ?? status.label}
       </span>
-      <span className="hidden sm:inline" style={{ color: "rgba(45,16,15,0.45)", fontWeight: 500 }}>
-        · {status.sub}
-      </span>
+      {!compact && (
+        <span className="hidden sm:inline" style={{ color: "rgba(45,16,15,0.45)", fontWeight: 500 }}>
+          · {status.sub}
+        </span>
+      )}
       <style>{`
         @keyframes pingPulse {
           0% { transform: scale(0.9); opacity: 0.65; }

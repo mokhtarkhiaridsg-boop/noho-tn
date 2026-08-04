@@ -10,3 +10,8 @@ out
 
 # marketing / sales collateral — belongs to marketing, not the website repo
 sales-kit/
+
+# local secrets + dev db
+.env
+prisma/dev.db
+prisma/dev.db-*

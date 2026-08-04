@@ -4,16 +4,22 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "@/components/Logo";
 import LiveFooterStatus from "@/components/LiveFooterStatus";
+import { localeFromPath, localePrefix } from "@/lib/locale";
 
 type LinkItem = { href: string; label: string; external?: boolean };
 type Section = { title: string; links: LinkItem[] };
+
+/*
+ * All internal hrefs below are canonical FR paths; the locale prefix
+ * (/ar, /tn, /en) is added at render time. External links are untouched.
+ */
 
 const FR_SECTIONS: Section[] = [
   {
     title: "Mailbox & courrier",
     links: [
-      { href: "/virtual-mailbox", label: "Boîte virtuelle US" },
-      { href: "/virtual-mailbox/tunisie", label: "Boîte virtuelle TN (pré-lancement)" },
+      { href: "/virtual-mailbox", label: "Adresse US réelle" },
+      { href: "/virtual-mailbox/tunisie", label: "Adresse réelle TN (pré-lancement)" },
       { href: "/shipping", label: "Expédition int'l" },
       { href: "/livraison", label: "Livraison US" },
       { href: "/notary", label: "Form 1583 notarisé" },
@@ -35,28 +41,6 @@ const FR_SECTIONS: Section[] = [
       { href: "/agent/student", label: "Solution Étudiants" },
       { href: "/agent/jobs", label: "Solution Application Emploi" },
       { href: "/agent", label: "Découvrir l'Agent" },
-    ],
-  },
-  {
-    title: "Outils",
-    links: [
-      { href: "/outils/calculateurs/form-5472", label: "Calc. Form 5472" },
-      { href: "/outils/calculateurs/tnd-usd", label: "Conv. TND ↔ USD" },
-      { href: "/outils/calculateurs/bundle-vs-diy", label: "Calc. Bundle vs DIY" },
-      { href: "/outils/calculateurs/residence-fiscale", label: "Résidence fiscale" },
-      { href: "/outils/calculateurs/taxes-us-etat", label: "Taxes US par état" },
-      { href: "/outils/calculateurs/stripe-fees", label: "Calc. Stripe fees" },
-      { href: "/outils/calculateurs/roi-propriete-us", label: "ROI propriété US" },
-      { href: "/outils/comparateurs/banques-us", label: "Comp. banques US" },
-      { href: "/outils/comparateurs/etats-llc", label: "Comp. états LLC" },
-      { href: "/outils/comparateurs/cross-border", label: "Comp. cross-border" },
-      { href: "/outils/lookups/llc-status", label: "Lookup LLC SoS" },
-      { href: "/outils/lookups/ein-status", label: "Lookup EIN IRS" },
-      { href: "/outils/lookups/hts-code", label: "Lookup HTS douane" },
-      { href: "/outils/lookups/form-1583", label: "Lookup Form 1583" },
-      { href: "/outils/templates", label: "Templates" },
-      { href: "/appel", label: "Consultation gratuite" },
-      { href: "/livraison", label: "Livraison same-day LA" },
     ],
   },
   {
@@ -95,107 +79,204 @@ const FR_SECTIONS: Section[] = [
   },
 ];
 
+/*
+ * A couple of FR pages have no counterpart under the locale prefixes:
+ * /livraison lives at /{locale}/delivery, and /virtual-mailbox/tunisie
+ * only exists in FR. Remap those before prefixing.
+ */
+const LOCALE_HREF_REMAP: Record<string, string> = {
+  "/livraison": "/delivery",
+  "/virtual-mailbox/tunisie": "/virtual-mailbox",
+};
+
+const localizeSections = (sections: Section[]): Section[] =>
+  sections.map((s) => ({
+    ...s,
+    links: s.links.map((l) =>
+      l.external ? l : { ...l, href: LOCALE_HREF_REMAP[l.href] ?? l.href }
+    ),
+  }));
+
+/* Tunisian UIs code-switch heavily: TN reuses the French labels as-is. */
+const TN_SECTIONS: Section[] = localizeSections(FR_SECTIONS);
+
+const EN_SECTIONS: Section[] = localizeSections([
+  {
+    title: "Mailbox & mail",
+    links: [
+      { href: "/virtual-mailbox", label: "Real US address" },
+      { href: "/virtual-mailbox/tunisie", label: "Real TN address (pre-launch)" },
+      { href: "/shipping", label: "International shipping" },
+      { href: "/livraison", label: "US delivery" },
+      { href: "/notary", label: "Notarized Form 1583" },
+    ],
+  },
+  {
+    title: "Business",
+    links: [
+      { href: "/business", label: "Business (4,000 TND)" },
+      { href: "/business#suivi-mensuel", label: "Monthly follow-up (1,200 TND)" },
+      { href: "/notary", label: "Notary" },
+      { href: "/tarifs", label: "All pricing" },
+    ],
+  },
+  {
+    title: "Services",
+    links: [
+      { href: "/agent/ecom", label: "E-commerce solution" },
+      { href: "/agent/student", label: "Student solution" },
+      { href: "/agent/jobs", label: "Job application solution" },
+      { href: "/agent", label: "Meet the Agent" },
+    ],
+  },
+  {
+    title: "Blog & resources",
+    links: [
+      { href: "/blog", label: "All articles" },
+      { href: "/guides/plafond-carte-technologique", label: "Carte technologique limit" },
+      { href: "/conformite/form-5472-penalite", label: "Form 5472 — penalty" },
+    ],
+  },
+  {
+    title: "Partners",
+    links: [
+      { href: "/partners", label: "Affiliate program" },
+      { href: "/partners", label: "Terms" },
+      { href: "/temoignages", label: "Testimonials" },
+    ],
+  },
+  {
+    title: "About",
+    links: [
+      { href: "/a-propos", label: "About NOHO" },
+      { href: "/faq", label: "FAQ" },
+      { href: "/contact", label: "Contact" },
+      { href: "/track", label: "Track a package" },
+      { href: "/security", label: "Security" },
+      { href: "https://nohomailbox.org", label: "Main US site", external: true },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { href: "/privacy", label: "Privacy" },
+      { href: "/terms", label: "Terms" },
+    ],
+  },
+]);
+
 const AR_SECTIONS: Section[] = [
   {
     title: "البريد والصندوق",
     links: [
-      { href: "/ar/virtual-mailbox", label: "صندوق بريد أمريكي" },
-      { href: "/ar/virtual-mailbox", label: "صندوق بريد تونسي (قريباً جداً)" },
-      { href: "/ar/shipping", label: "الشحن الدولي" },
-      { href: "/ar/livraison", label: "التوصيل في الولايات المتحدة" },
-      { href: "/ar/notary", label: "توثيق Form 1583" },
+      { href: "/virtual-mailbox", label: "عنوان أمريكي حقيقي" },
+      { href: "/virtual-mailbox", label: "عنوان تونسي حقيقي (قريباً جداً)" },
+      { href: "/shipping", label: "الشحن الدولي" },
+      { href: "/delivery", label: "التوصيل في الولايات المتحدة" },
+      { href: "/notary", label: "توثيق Form 1583" },
     ],
   },
   {
     title: "حل الأعمال",
     links: [
-      { href: "/ar/business", label: "حل الأعمال (4 000 دينار)" },
-      { href: "/ar/business", label: "المتابعة الشهرية (1 200 دينار)" },
-      { href: "/ar/notary", label: "كاتب العدل" },
-      { href: "/ar/tarifs", label: "كل الأسعار" },
+      { href: "/business", label: "حل الأعمال (4 000 دينار)" },
+      { href: "/business", label: "المتابعة الشهرية (1 200 دينار)" },
+      { href: "/notary", label: "كاتب العدل" },
+      { href: "/tarifs", label: "كل الأسعار" },
     ],
   },
   {
     title: "الوكيل",
     links: [
-      { href: "/ar/agent/ecom", label: "حل التجارة الإلكترونية" },
-      { href: "/ar/agent/student", label: "حل الطلاب" },
-      { href: "/ar/agent/jobs", label: "حل التقديم للوظائف" },
-      { href: "/ar/agent", label: "اكتشف الوكيل" },
-    ],
-  },
-  {
-    title: "الأدوات",
-    links: [
-      { href: "/ar/outils", label: "آلات حاسبة" },
-      { href: "/ar/outils", label: "مقارنات" },
-      { href: "/ar/outils", label: "أدلة PDF" },
-      { href: "/ar/appel", label: "استشارة مجانية" },
-      { href: "/ar/livraison", label: "توصيل سريع لوس أنجلوس" },
+      { href: "/agent/ecom", label: "حل التجارة الإلكترونية" },
+      { href: "/agent/student", label: "حل الطلاب" },
+      { href: "/agent/jobs", label: "حل التقديم للوظائف" },
+      { href: "/agent", label: "اكتشف الوكيل" },
     ],
   },
   {
     title: "المدونة والموارد",
     links: [
-      { href: "/ar/blog", label: "كل المقالات" },
-      { href: "/ar/guides/plafond-carte-technologique", label: "سقف البطاقة التكنولوجية" },
-      { href: "/ar/conformite/form-5472-penalite", label: "غرامة Form 5472" },
+      { href: "/blog", label: "كل المقالات" },
+      { href: "/guides/plafond-carte-technologique", label: "سقف البطاقة التكنولوجية" },
+      { href: "/conformite/form-5472-penalite", label: "غرامة Form 5472" },
     ],
   },
   {
     title: "الشركاء",
     links: [
-      { href: "/ar/partners", label: "برنامج الشركاء" },
-      { href: "/ar/partners", label: "الشروط" },
-      { href: "/ar/temoignages", label: "الشهادات" },
+      { href: "/partners", label: "برنامج الشركاء" },
+      { href: "/partners", label: "الشروط" },
+      { href: "/temoignages", label: "الشهادات" },
     ],
   },
   {
     title: "حول",
     links: [
-      { href: "/ar/a-propos", label: "حول NOHO" },
-      { href: "/ar/faq", label: "الأسئلة الشائعة" },
-      { href: "/ar/contact", label: "اتصل بنا" },
-      { href: "/ar/track", label: "تتبع بريدك" },
-      { href: "/ar/security", label: "الأمن" },
+      { href: "/a-propos", label: "حول NOHO" },
+      { href: "/faq", label: "الأسئلة الشائعة" },
+      { href: "/contact", label: "اتصل بنا" },
+      { href: "/track", label: "تتبع بريدك" },
+      { href: "/security", label: "الأمن" },
       { href: "https://nohomailbox.org", label: "الموقع الأمريكي (إنجليزي)", external: true },
     ],
   },
   {
     title: "قانوني",
     links: [
-      { href: "/ar/privacy", label: "الخصوصية" },
-      { href: "/ar/terms", label: "الشروط" },
+      { href: "/privacy", label: "الخصوصية" },
+      { href: "/terms", label: "الشروط" },
     ],
   },
 ];
 
 export default function Footer() {
   const path = usePathname() ?? "/";
-  const isAr = path.startsWith("/ar");
-  const sections = isAr ? AR_SECTIONS : FR_SECTIONS;
+  if (path.startsWith("/admin")) return null;
+  const locale = localeFromPath(path);
+  const isAr = locale === "ar";
+  const isTn = locale === "tn";
+  const isEn = locale === "en";
+  const prefix = localePrefix(locale);
+  const sections = isAr ? AR_SECTIONS : isTn ? TN_SECTIONS : isEn ? EN_SECTIONS : FR_SECTIONS;
 
   const tagline = isAr
     ? "النسخة التونسية من NOHO Mailbox. شركة أمريكية أو تونسية، بنوك، وكيل أمريكي للمؤسسين والطلاب والمتقدمين للوظائف التونسيين. تسعير بالدينار."
+    : isTn
+    ? "El version Tounsi mta3 NOHO Mailbox. Adresse 7a9i9ia fi America, colis w courrier, LLC américaine, mrafqa Mercury w Stripe, bweba lel étudiants. Tkhalles b dinar fi Tounes."
+    : isEn
+    ? "The Tunisia edition of NOHO Mailbox. US or Tunisian company, banking, and a US agent for Tunisian founders, students, and job applicants. Priced in dinars."
     : "L'édition Tunisie de NOHO Mailbox. Société américaine ou tunisienne, banque, agent américain pour fondateurs, étudiants et candidats à l'emploi tunisiens. Tarif en dinars.";
 
   const address = isAr
     ? "إصدار تونس للمؤسسين والطلاب والمتقدمين للوظائف التونسيين."
+    : isEn
+    ? "The Tunisia edition, for Tunisian founders, students, and job applicants."
     : "Édition Tunisie pour les fondateurs, étudiants et candidats à l'emploi tunisiens.";
 
+  /* Legal text stays French for TN. */
   const disclaimer = isAr
     ? "معلومات عامة، وليست استشارة ضريبية أو قانونية. NOHO Mailbox تنسق الهيكل التشغيلي ؛ استشر مختص ضرائب معتمد في بلد إقامتك. الموافقات البنكية (Mercury، Stripe وأي مزود طرف ثالث) غير مضمونة."
+    : isEn
+    ? "General information, not tax or legal advice. NOHO Mailbox coordinates the operational structure; talk to a licensed tax professional in your jurisdiction of residence. Banking approvals (Mercury, Stripe, and any other third-party provider) are not guaranteed."
     : "Information générale, pas un conseil fiscal ou juridique. NOHO Mailbox coordonne la structure opérationnelle ; consulte un fiscaliste agréé dans ta juridiction de résidence. Les approbations bancaires (Mercury, Stripe et tout autre fournisseur tiers) ne sont pas garanties.";
 
   const legalLinks = isAr
     ? [
-        { href: "/ar/privacy", label: "الخصوصية" },
-        { href: "/ar/terms", label: "الشروط" },
+        { href: "/privacy", label: "الخصوصية" },
+        { href: "/terms", label: "الشروط" },
+      ]
+    : isEn
+    ? [
+        { href: "/privacy", label: "Privacy" },
+        { href: "/terms", label: "Terms" },
       ]
     : [
         { href: "/privacy", label: "Confidentialité" },
         { href: "/terms", label: "Conditions" },
       ];
+
+  const loginLabel = isAr ? "تسجيل الدخول" : isEn ? "Log in" : "Connexion";
 
   return (
     <footer
@@ -212,17 +293,17 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8 mb-10 items-start">
           <div>
-            <Link href={isAr ? "/ar" : "/"} className="inline-flex items-center gap-2">
+            <Link href={prefix || "/"} className="inline-flex items-center gap-2">
               <Logo className="h-8 w-auto invert" />
             </Link>
             <p className="text-[12.5px] leading-relaxed mt-4 opacity-75 max-w-xl">
               {tagline}
             </p>
           </div>
-          {!isAr && <LiveFooterStatus />}
+          {!isAr && <LiveFooterStatus locale={isTn ? "tn" : isEn ? "en" : "fr"} />}
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-8 mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-7 gap-8 mb-12">
           {sections.map((s) => (
             <div key={s.title}>
               <p className="text-[11px] font-black uppercase tracking-[0.15em] mb-3 opacity-60">
@@ -244,7 +325,7 @@ export default function Footer() {
                   ) : (
                     <li key={l.href + l.label}>
                       <Link
-                        href={l.href}
+                        href={prefix + l.href}
                         className="text-[13px] opacity-85 hover:opacity-100 transition-opacity"
                       >
                         {l.label}
@@ -269,8 +350,11 @@ export default function Footer() {
             <p className="mt-1">{address}</p>
           </div>
           <div className="flex flex-wrap gap-4 text-[12px] opacity-70">
+            <Link href="/login" className="hover:opacity-100 font-bold" style={{ opacity: 1 }}>
+              {loginLabel}
+            </Link>
             {legalLinks.map((l) => (
-              <Link key={l.href} href={l.href} className="hover:opacity-100">
+              <Link key={l.href} href={prefix + l.href} className="hover:opacity-100">
                 {l.label}
               </Link>
             ))}

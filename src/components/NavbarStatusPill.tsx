@@ -33,7 +33,15 @@ function computeOpen(): { open: boolean; label: string } {
   return { open, label: open ? "Ouvert" : "Fermé" };
 }
 
-export default function NavbarStatusPill({ isAr = false }: { isAr?: boolean }) {
+export default function NavbarStatusPill({
+  isAr = false,
+  isTn = false,
+  isEn = false,
+}: {
+  isAr?: boolean;
+  isTn?: boolean;
+  isEn?: boolean;
+}) {
   const [state, setState] = useState<{ open: boolean; label: string } | null>(null);
   useEffect(() => {
     setState(computeOpen());
@@ -42,9 +50,31 @@ export default function NavbarStatusPill({ isAr = false }: { isAr?: boolean }) {
   }, []);
   if (!state) return null;
   const dotColor = state.open ? "#22C55E" : "#9CA3AF";
+  const label = isAr
+    ? (state.open ? "مفتوح" : "مغلق")
+    : isTn
+    ? (state.open ? "Ma7loul" : "Msakker")
+    : isEn
+    ? (state.open ? "Open" : "Closed")
+    : state.label;
+  const title = state.open
+    ? isAr
+      ? "المتجر مفتوح الآن (توقيت لوس أنجلوس)"
+      : isTn
+      ? "Storefront ma7loul tawa (wa9t LA)"
+      : isEn
+      ? "Storefront open now (LA time)"
+      : "Storefront ouvert (heure de LA)"
+    : isAr
+    ? "المتجر مغلق الآن"
+    : isTn
+    ? "Storefront msakker tawa"
+    : isEn
+    ? "Storefront closed right now"
+    : "Storefront fermé";
   return (
     <span
-      title={state.open ? (isAr ? "المتجر مفتوح الآن (توقيت لوس أنجلوس)" : "Storefront ouvert (heure de LA)") : isAr ? "المتجر مغلق الآن" : "Storefront fermé"}
+      title={title}
       className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold"
       style={{
         background: "rgba(45,16,15,0.04)",
@@ -67,7 +97,7 @@ export default function NavbarStatusPill({ isAr = false }: { isAr?: boolean }) {
           style={{ background: dotColor }}
         />
       </span>
-      {isAr ? (state.open ? "مفتوح" : "مغلق") : state.label}
+      {label}
       <style>{`
         @keyframes navPing {
           0% { transform: scale(0.9); opacity: 0.65; }

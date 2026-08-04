@@ -5,12 +5,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "اتصل بنا — NOHO Mailbox تونس",
   description:
-    "ثلاث قنوات للتواصل معنا من تونس: WhatsApp (رد خلال ساعتين)، البريد الإلكتروني (رد خلال 24 ساعة)، نموذج الاتصال. متجر فعلي في لوس أنجلوس.",
+    "ثلاث قنوات للتواصل معنا من تونس: واتساب (رد خلال ساعتين)، البريد الإلكتروني (رد خلال 24 ساعة)، نموذج الاتصال. متجر فعلي في لوس أنجلوس.",
   alternates: {
-    canonical: "https://noho.tn/ar/contact",
+    canonical: "https://nohomailboxtunis.com/ar/contact",
     languages: {
-      "fr-TN": "https://noho.tn/contact",
-      "ar-TN": "https://noho.tn/ar/contact",
+      "fr-TN": "https://nohomailboxtunis.com/fr/contact",
+      "ar-TN": "https://nohomailboxtunis.com/ar/contact",
     },
   },
   robots: { index: false, follow: true },
@@ -79,7 +79,7 @@ export default function ArabicContactPage() {
             style={{ background: GREEN, color: "#fff", boxShadow: "0 8px 30px rgba(45,122,74,0.25)" }}
           >
             <div className="mb-3"><IconChat /></div>
-            <h3 className="font-extrabold text-[20px] mb-2">WhatsApp</h3>
+            <h3 className="font-extrabold text-[20px] mb-2">واتساب</h3>
             <p className="text-[13.5px] leading-relaxed opacity-90 mb-3">
               القناة المفضلة لدى الجالية التونسية. متوسط الرد ساعتان خلال
               ساعات عمل LA (9 صباحاً - 6 مساءً بتوقيت لوس أنجلوس).
@@ -88,7 +88,7 @@ export default function ArabicContactPage() {
           </a>
 
           <a
-            href="mailto:hello@nohomailbox.org?subject=%D8%B7%D9%84%D8%A8%20%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D9%85%D9%86%20noho.tn"
+            href="mailto:hello@nohomailbox.org?subject=%D8%B7%D9%84%D8%A8%20%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D9%85%D9%86%20nohomailboxtunis.com"
             className="block p-7 rounded-3xl transition-all hover:scale-[1.02] text-right"
             style={{ background: INK, color: CREAM, boxShadow: "0 8px 30px rgba(45,16,15,0.25)" }}
           >
@@ -110,7 +110,7 @@ export default function ArabicContactPage() {
             <h3 className="font-extrabold text-[20px] mb-2">نموذج الاتصال</h3>
             <p className="text-[13.5px] leading-relaxed opacity-90 mb-3">
               نموذج الاتصال الرسمي للموقع الرئيسي nohomailbox.org. رد
-              خلال 48 ساعة. WhatsApp أفضل إن كان عاجلاً.
+              خلال 48 ساعة. واتساب أفضل إن كان الأمر عاجلاً.
             </p>
             <p className="font-black text-[14px]" dir="ltr">nohomailbox.org/contact</p>
           </a>
@@ -131,7 +131,7 @@ export default function ArabicContactPage() {
               </p>
               <p className="text-[12px] mt-3" style={{ color: "rgba(45,16,15,0.55)" }}>
                 مفتوح للعموم. يمكنك زيارتنا إذا كنت تمر بلوس أنجلوس. إذا كنت
-                في تونس، فالعنوان يخدم كركيزة أمريكية لشركتك.
+                في تونس، فالعنوان يمثّل ركيزة أمريكية لشركتك.
               </p>
             </div>
             <div className="p-6 rounded-2xl text-right" style={{ background: "#fff" }}>
@@ -139,7 +139,7 @@ export default function ArabicContactPage() {
                 ساعات الرد (بتوقيت تونس)
               </h3>
               <ul className="space-y-1.5 text-[14px] leading-relaxed" style={{ color: INK }}>
-                <li><strong>WhatsApp :</strong> 17:00 - 03:00 (بتوقيت تونس)</li>
+                <li><strong>واتساب :</strong> 17:00 - 03:00 (بتوقيت تونس)</li>
                 <li><strong>البريد الإلكتروني :</strong> خلال 24 ساعة في أيام العمل</li>
                 <li><strong>مكالمة فيديو :</strong> بحجز مسبق، 18:00 - 23:00 تونس</li>
               </ul>

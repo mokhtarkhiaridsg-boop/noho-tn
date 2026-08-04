@@ -3,10 +3,10 @@ import ArabicStub from "@/app/ar/_components/ArabicStub";
 
 export const metadata: Metadata = {
   title: "الشروط والأحكام",
-  alternates: { canonical: "https://noho.tn/ar/terms" },
+  alternates: { canonical: "https://nohomailboxtunis.com/ar/terms" },
   robots: { index: false, follow: true },
 };
 
 export default function ArTermsPage() {
-  return <ArabicStub frHref="/terms" frTitleAr="الشروط والأحكام" />;
+  return <ArabicStub frHref="/fr/terms" frTitleAr="الشروط والأحكام" />;
 }

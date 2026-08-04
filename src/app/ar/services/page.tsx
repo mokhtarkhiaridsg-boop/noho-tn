@@ -3,10 +3,10 @@ import ArabicStub from "@/app/ar/_components/ArabicStub";
 
 export const metadata: Metadata = {
   title: "كل الخدمات",
-  alternates: { canonical: "https://noho.tn/ar/services" },
+  alternates: { canonical: "https://nohomailboxtunis.com/ar/services" },
   robots: { index: false, follow: true },
 };
 
 export default function ArServicesPage() {
-  return <ArabicStub frHref="/services" frTitleAr="كل الخدمات" />;
+  return <ArabicStub frHref="/fr/services" frTitleAr="كل الخدمات" />;
 }

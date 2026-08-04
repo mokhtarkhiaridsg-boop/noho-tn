@@ -19,7 +19,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "MJ12bot", disallow: "/" },
       { userAgent: "DotBot", disallow: "/" },
     ],
-    sitemap: "https://noho.tn/sitemap.xml",
-    host: "noho.tn",
+    sitemap: "https://nohomailboxtunis.com/sitemap.xml",
+    host: "nohomailboxtunis.com",
   };
 }

@@ -7,10 +7,10 @@ export const metadata: Metadata = {
   description:
     "30 دقيقة فيديو مع فريق NOHO من جانب الجالية التونسية. تأطير صريح لوضعك — حل الأعمال (4 000 دينار)، المتابعة الشهرية (1 200 دينار شهرياً)، أو لا شيء من ذلك. مجاني، بدون التزام.",
   alternates: {
-    canonical: "https://noho.tn/ar/appel",
+    canonical: "https://nohomailboxtunis.com/ar/appel",
     languages: {
-      "fr-TN": "https://noho.tn/appel",
-      "ar-TN": "https://noho.tn/ar/appel",
+      "fr-TN": "https://nohomailboxtunis.com/fr/appel",
+      "ar-TN": "https://nohomailboxtunis.com/ar/appel",
     },
   },
   robots: { index: false, follow: true },
@@ -93,7 +93,7 @@ export default function ArabicAppelPage() {
                 className="font-black px-6 py-4 rounded-2xl text-[14.5px] transition-all hover:scale-[1.02]"
                 style={{ background: GREEN, color: "#fff", boxShadow: "0 6px 24px rgba(45,122,74,0.32)" }}
               >
-                WhatsApp — مفضّل (رد خلال ساعتين)
+                تواصل معنا عبر واتساب — رد خلال ساعتين
               </a>
               <a
                 href="mailto:hello@nohomailbox.org?subject=%D8%AD%D8%AC%D8%B2%20%D9%85%D9%83%D8%A7%D9%84%D9%85%D8%A9%2030%20%D8%AF%D9%82%D9%8A%D9%82%D8%A9"

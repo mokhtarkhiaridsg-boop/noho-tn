@@ -1,4 +1,4 @@
-{/* TODO: native Arabic review */}
+// TODO: native Arabic review
 import type { Metadata } from "next";
 import { Noto_Sans_Arabic } from "next/font/google";
 
@@ -25,7 +25,7 @@ const notoSansArabic = Noto_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://noho.tn"),
+  metadataBase: new URL("https://nohomailboxtunis.com"),
   title: {
     default: "NOHO Mailbox تونس — شركة أمريكية، بنك أمريكي، جامعة أمريكية",
     template: "%s | NOHO Mailbox تونس",
@@ -33,17 +33,18 @@ export const metadata: Metadata = {
   description:
     "النسخة التونسية من NOHO Mailbox. شركة أمريكية، عنوان حقيقي في الولايات المتحدة، مرافقة Mercury و Stripe، بوابة طلاب للجامعات الأمريكية. تسعير بالدينار.",
   alternates: {
-    canonical: "https://noho.tn/ar",
+    canonical: "https://nohomailboxtunis.com/ar",
     languages: {
-      "fr-TN": "https://noho.tn",
-      "ar-TN": "https://noho.tn/ar",
+      "fr-TN": "https://nohomailboxtunis.com/fr",
+      "ar-TN": "https://nohomailboxtunis.com/ar",
     },
   },
   openGraph: {
+    images: ["https://nohomailboxtunis.com/opengraph-image"],
     title: "NOHO Mailbox تونس",
     description:
       "شركة أمريكية، بنك أمريكي، جامعة أمريكية. تسعير بالدينار للتونسيين.",
-    url: "https://noho.tn/ar",
+    url: "https://nohomailboxtunis.com/ar",
     locale: "ar_TN",
     type: "website",
   },

@@ -4,9 +4,9 @@ import ArabicStub from "../_components/ArabicStub";
 export const metadata: Metadata = {
   title: "المتابعة الشهرية — 1 200 دينار/شهر",
   description: "الشريك التشغيلي لشركتك LLC الأمريكية. الامتثال الأمريكي الشهري، البريد ذو الأولوية، العلامة التجارية، المراجعة الفصلية.",
-  alternates: { canonical: "https://noho.tn/ar/suivi-mensuel" },
+  alternates: { canonical: "https://nohomailboxtunis.com/ar/suivi-mensuel" },
 };
 
 export default function ArSuiviMensuelPage() {
-  return <ArabicStub frHref="/suivi-mensuel" frTitleAr="المتابعة الشهرية — 1 200 دينار/شهر" />;
+  return <ArabicStub frHref="/fr/suivi-mensuel" frTitleAr="المتابعة الشهرية — 1 200 دينار/شهر" />;
 }

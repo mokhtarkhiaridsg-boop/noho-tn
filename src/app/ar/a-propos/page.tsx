@@ -3,10 +3,10 @@ import ArabicStub from "@/app/ar/_components/ArabicStub";
 
 export const metadata: Metadata = {
   title: "من نحن",
-  alternates: { canonical: "https://noho.tn/ar/a-propos" },
+  alternates: { canonical: "https://nohomailboxtunis.com/ar/a-propos" },
   robots: { index: false, follow: true },
 };
 
 export default function ArAProposPage() {
-  return <ArabicStub frHref="/a-propos" frTitleAr="من نحن" />;
+  return <ArabicStub frHref="/fr/a-propos" frTitleAr="من نحن" />;
 }

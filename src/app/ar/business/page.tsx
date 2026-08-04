@@ -1,16 +1,26 @@
-{/* TODO: native Arabic review */}
+// TODO: native Arabic review
 import type { Metadata } from "next";
 import Link from "next/link";
+import { waLink } from "@/lib/whatsapp";
+import ConsultationForm from "@/components/ConsultationForm";
+import Reveal from "@/components/anim/Reveal";
+
+/*
+ * Arabic mirror of src/app/business/page.tsx — same condensed, bundles-first
+ * landing, RTL-flipped. The /ar layout provides dir="rtl" + Noto Sans Arabic;
+ * physical corners (stamp) are mirrored by hand and directional arrows are
+ * rotated 180° so they point left, in reading direction.
+ */
 
 export const metadata: Metadata = {
-  title: "حل الأعمال — شركة أمريكية أو تونسية في 14 يوماً",
+  title: "NOHO Business Solutions — أطلق شركتك، ونحن نتكفّل بالباقي",
   description:
-    "إعداد شركة أمريكية (LLC) أو تونسية (SARL) كاملاً: شركة، EIN، عنوان، هوية بصرية، موقع، مرافقة بنكية. 4 000 دينار مرة واحدة. متابعة شهرية اختيارية 1 200 دينار شهرياً.",
+    "باقة Business بـ 4 000 TND مرة واحدة (تسليم في 14-21 يوماً). متابعة شهرية 1 200 TND شهرياً بدون التزام.",
   alternates: {
-    canonical: "https://noho.tn/ar/business",
+    canonical: "https://nohomailboxtunis.com/ar/business",
     languages: {
-      "fr-TN": "https://noho.tn/business",
-      "ar-TN": "https://noho.tn/ar/business",
+      "fr-TN": "https://nohomailboxtunis.com/fr/business",
+      "ar-TN": "https://nohomailboxtunis.com/ar/business",
     },
   },
   robots: { index: false, follow: true },
@@ -18,254 +28,271 @@ export const metadata: Metadata = {
 
 const CREAM = "#F7E6C2";
 const INK = "#2D100F";
-const BLUE = "#337485";
-const GOLD = "#f8c84a";
+const TEAL = "#337485";
+const GOLD = "#C8A35A";
 const GREEN = "#2D7A4A";
 
-const IconLLC = ({ className = "w-11 h-11" }: { className?: string }) => (
-  <svg viewBox="0 0 48 48" className={className} fill="none">
-    <rect x="6" y="8" width="36" height="32" rx="5" fill="#EBF2FA" stroke={INK} strokeWidth="2" />
-    <path d="M13 20 H35 M13 27 H28" stroke={BLUE} strokeWidth="2" strokeLinecap="round" />
-    <circle cx="36" cy="14" r="7" fill={BLUE} stroke={INK} strokeWidth="1.5" />
-    <path d="M33 14 L35.5 16.5 L39 11.5" stroke="#EBF2FA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+/* Baloo carries the Latin glyphs (digits, LLC…); Arabic falls back to Noto. */
+const HEAD_FONT = "var(--font-baloo), var(--font-noto-arabic), sans-serif";
+
+/* Four-point star flourish — same poster language as the homepage piliers. */
+const Flourish = ({ color }: { color: string }) => (
+  <svg viewBox="0 0 12 12" className="w-2.5 h-2.5 shrink-0" fill={color} aria-hidden="true">
+    <path d="M6 0 L7.4 4.6 L12 6 L7.4 7.4 L6 12 L4.6 7.4 L0 6 L4.6 4.6 Z" />
   </svg>
 );
 
-const IconEIN = ({ className = "w-11 h-11" }: { className?: string }) => (
-  <svg viewBox="0 0 48 48" className={className} fill="none">
-    <rect x="8" y="6" width="32" height="36" rx="4" fill="#EBF2FA" stroke={INK} strokeWidth="2" />
-    <rect x="12" y="12" width="24" height="6" rx="2" fill={BLUE} opacity="0.25" />
-    <text x="24" y="33" textAnchor="middle" fill={BLUE} fontSize="13" fontWeight="bold">EIN</text>
-    <path d="M12 22 H36" stroke={INK} strokeWidth="1" opacity="0.15" />
+const Check = ({ color = TEAL }: { color?: string }) => (
+  <svg viewBox="0 0 12 12" className="w-3 h-3 shrink-0 mt-[3px]" fill="none" aria-hidden="true">
+    <path d="M2 6.5 L5 9.5 L10 3" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
-const IconBrand = ({ className = "w-11 h-11" }: { className?: string }) => (
-  <svg viewBox="0 0 48 48" className={className} fill="none">
-    <circle cx="24" cy="24" r="18" fill="#EBF2FA" stroke={INK} strokeWidth="2" />
-    <path d="M18 18 L24 14 L30 18 L30 30 L24 34 L18 30 Z" fill={BLUE} opacity="0.2" stroke={BLUE} strokeWidth="1.5" strokeLinejoin="round" />
-    <circle cx="24" cy="24" r="4" fill={BLUE} />
-  </svg>
+/* Left-pointing arrow for RTL: the wrapper rotates the standard arrow 180°
+   so the .arrow-nudge hover translate still nudges it in reading direction. */
+const ArrowLeft = ({ stroke = "currentColor" }: { stroke?: string }) => (
+  <span className="inline-flex rotate-180 shrink-0" aria-hidden="true">
+    <svg className="arrow-nudge w-3.5 h-3.5" viewBox="0 0 20 20" fill="none">
+      <path d="M4 10h11M11 6l4 4-4 4" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </span>
 );
 
-const IconWebsite = ({ className = "w-11 h-11" }: { className?: string }) => (
-  <svg viewBox="0 0 48 48" className={className} fill="none">
-    <rect x="4" y="8" width="40" height="28" rx="4" fill="#EBF2FA" stroke={INK} strokeWidth="2" />
-    <path d="M4 15 H44" stroke={INK} strokeWidth="1.5" />
-    <circle cx="10" cy="11.5" r="2" fill={BLUE} />
-    <circle cx="16" cy="11.5" r="2" fill={BLUE} opacity="0.5" />
-    <rect x="8" y="18" width="14" height="8" rx="2" fill={BLUE} opacity="0.2" />
-    <path d="M26 19 H40 M26 23 H36 M26 27 H32" stroke={BLUE} strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
-  </svg>
-);
-
-const IconBank = ({ className = "w-11 h-11" }: { className?: string }) => (
-  <svg viewBox="0 0 48 48" className={className} fill="none">
-    <path d="M24 6 L42 16 L6 16 Z" fill="#EBF2FA" stroke={INK} strokeWidth="2" strokeLinejoin="round" />
-    <rect x="6" y="18" width="36" height="2" fill={INK} />
-    <rect x="10" y="22" width="3" height="14" fill={BLUE} opacity="0.5" />
-    <rect x="17" y="22" width="3" height="14" fill={BLUE} opacity="0.5" />
-    <rect x="28" y="22" width="3" height="14" fill={BLUE} opacity="0.5" />
-    <rect x="35" y="22" width="3" height="14" fill={BLUE} opacity="0.5" />
-    <rect x="6" y="38" width="36" height="3" fill={INK} />
-  </svg>
-);
-
-const IconMail = ({ className = "w-11 h-11" }: { className?: string }) => (
-  <svg viewBox="0 0 48 48" className={className} fill="none">
-    <rect x="4" y="12" width="40" height="26" rx="5" fill="#EBF2FA" stroke={INK} strokeWidth="2" />
-    <path d="M6 14 L24 26 L42 14" stroke={INK} strokeWidth="2" strokeLinejoin="round" />
-    <circle cx="38" cy="12" r="7" fill={BLUE} stroke={INK} strokeWidth="1.5" />
-    <text x="38" y="15.5" textAnchor="middle" fill="#EBF2FA" fontSize="9" fontWeight="bold">12</text>
-  </svg>
-);
-
-const PACKAGE_SERVICES = [
-  { Icon: IconLLC, label: "تأسيس شركة أمريكية (LLC في Wyoming/Delaware/NM) أو شركة تونسية SARL/SUARL عبر مكتب KHIARI" },
-  { Icon: IconEIN, label: "الحصول على EIN من مصلحة الضرائب الأمريكية (أو معرف ضريبي تونسي)، إجراءات كاملة" },
-  { Icon: IconBrand, label: "كتاب هوية بصرية مخصص — شعار، لوحة ألوان، طباعة" },
-  { Icon: IconWebsite, label: "موقع ويب يعمل أولاً على الجوال بنطاقك الخاص، استضافة مشمولة" },
-  { Icon: IconBank, label: "مرافقة Mercury + Stripe + Wise لفتح حساب بنكي أمريكي بالكامل" },
-  { Icon: IconMail, label: "12 شهراً من استلام البريد التجاري ومسحه وإعادة شحنه" },
+/* ── The two bundles, up front — no marketplace grid. ── */
+const BUNDLES = [
+  {
+    accent: TEAL,
+    n: "01",
+    eyebrow: "الباقة الكاملة",
+    title: "Business",
+    price: "4 000 TND",
+    per: "مرة واحدة · تسليم في 14-21 يوماً",
+    hook: "شركة أمريكية أو تونسية — ملفّها متزامن مع مكتب محاماة (مكتب الخياري — Cabinet Khiari، تونس).",
+    features: [
+      "LLC أمريكية (Wyoming / Delaware / NM) أو SARL·SUARL تونسية — الملف متزامن مع مكتب المحاماة",
+      "EIN من مصلحة الضرائب الأمريكية IRS (أو معرّف جبائي تونسي) — الإجراءات يتولاها فريقنا",
+      "كتاب هوية بصرية + موقع ويب على نطاقك الخاص — كل شيء ملكك 100%",
+      "12 شهراً من البريد على عنوان ⁦5062 Lankershim⁩، لوس أنجلوس (Form 1583 مشمول)",
+    ],
+  },
+  {
+    accent: GOLD,
+    n: "02",
+    eyebrow: "عمليات متواصلة",
+    title: "المتابعة الشهرية",
+    price: "1 200 TND",
+    per: "شهرياً · بدون التزام",
+    hook: "نحن ندير العمليات، وأنت تركّز على عملك.",
+    features: [
+      "الامتثال الأمريكي كل شهر + بريد ذو أولوية",
+      "موقع مُدار من الألف إلى الياء، إدارة المطبوعات، وتحيينات موسمية",
+      "تسويق تنفّذه خدماتنا الذكية — تحت إشراف الفريق",
+      "تقرير أداء كل شهر",
+    ],
+  },
 ];
 
-const MONTHLY_FOLLOWUP = [
-  { title: "الامتثال الأمريكي", desc: "Form 5472، Wyoming، الوكيل المسجل، رسوم الولاية — كل شيء يُدار في الوقت المناسب." },
-  { title: "بريد ذو أولوية", desc: "مسح ضوئي في نفس اليوم للبريد الحساس. تنبيهات WhatsApp فورية على الوثائق الحرجة." },
-  { title: "تنسيق Mercury / Stripe / Wise", desc: "إذا تم تجميد حساب، إذا طُلبت وثائق إضافية، إذا انتهت صلاحية بطاقة — نحن نتولى التنسيق." },
-  { title: "محتوى وهوية بصرية مستمرة", desc: "تحديثات الموقع، أصول الهوية البصرية، محتوى منتظم لوسائل التواصل الاجتماعي." },
-  { title: "مراجعة فصلية للأعمال", desc: "مكالمة 60 دقيقة كل ثلاثة أشهر لمراجعة الأرقام والإستراتيجية والخطوات التالية." },
-  { title: "وصول WhatsApp ذو أولوية", desc: "خط مباشر للفريق. لا روبوتات، لا مندوبي مبيعات خارجيين." },
+const TRUST = [
+  "خدمات ذكية — ذكاء اصطناعي مع فريق بشري",
+  "توصيل في نفس اليوم في لوس أنجلوس",
+  "خط دعم باللهجة التونسية عبر واتساب",
+  "LLC متزامنة مع مكتب الخياري للمحاماة",
 ];
+
+const NEXT_STEPS = [
+  { n: "01", t: "نعاود الاتصال بك خلال 24 ساعة", d: "عبر البريد الإلكتروني أو واتساب — باللهجة التونسية أو بالفرنسية." },
+  { n: "02", t: "مكالمة مجانية 30 دقيقة", d: "هيكل تونسي أو أمريكي أو كلاهما — توصية صريحة، لا عرض بيع." },
+  { n: "03", t: "خطة واضحة، وأسعار بالدينار", d: "تعرف بالضبط ماذا، ومتى، وبكم. الدفع لدى مكتب المحاماة." },
+];
+
+const AR_FORM_LABELS = {
+  email: "البريد الإلكتروني",
+  firstName: "الاسم",
+  lastName: "اللقب",
+  reason: "سبب المكالمة",
+  reasonPlaceholder: "LLC أمريكية، شركة تونسية، عنوان، متابعة شهرية…",
+  submit: "احجز — نعاود الاتصال بك",
+  successTitle: "تمّ التسجيل.",
+  successBody: "نعاود الاتصال بك خلال 24 ساعة (أيام العمل) لتأكيد المكالمة.",
+};
 
 export default function ArabicBusinessPage() {
   return (
     <>
-      {/* HERO */}
-      <section
-        className="relative overflow-hidden px-5 sm:px-6 pt-12 pb-14 sm:pt-20 sm:pb-20"
-        style={{ background: "radial-gradient(ellipse at top, #F7E6C2 0%, #F0DBA9 45%, #E8DDD0 100%)" }}
-      >
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <span
-            className="inline-block text-[11px] font-black px-3 py-1.5 rounded-full mb-5"
-            style={{ background: INK, color: CREAM }}
-          >
-            فريق عائلي في NoHo · منذ 2017
-          </span>
-          <h1
-            className="font-extrabold leading-[1.15] tracking-tight mb-5"
-            style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)", color: INK }}
-          >
-            الحل الصحيح لـ
-            <br />
-            <span style={{ color: BLUE }}>أعمالك</span>
-          </h1>
-          <p
-            className="leading-relaxed mb-8 max-w-xl mx-auto"
-            style={{ fontSize: "15.5px", color: "rgba(45,16,15,0.78)" }}
-          >
-            فريق محلي حقيقي، ليس سوقاً إلكترونياً. شركة (تونسية أو أمريكية)،
-            هوية بصرية، موقع، بريد — كل ذلك عندنا، يُفوتر مرة واحدة.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              href="/ar/appel"
-              className="font-black px-8 py-4 rounded-2xl text-[15px] transition-all hover:scale-[1.02]"
-              style={{
-                background: INK,
-                color: CREAM,
-                boxShadow: "0 6px 28px rgba(45,16,15,0.28)",
-              }}
+      {/* ── Part 1 — bundles up front, one condensed screen ── */}
+      <section className="grain relative overflow-hidden px-5 sm:px-6 pt-8 pb-12" style={{ background: CREAM }}>
+        <div className="relative z-10 mx-auto w-full max-w-6xl">
+          <div className="text-center">
+            <p className="eyebrow mb-3" style={{ color: TEAL }}>NOHO Business Solutions</p>
+            <h1
+              className="font-extrabold mx-auto max-w-3xl"
+              style={{ fontFamily: HEAD_FONT, fontSize: "clamp(1.9rem, 4vw, 3.1rem)", lineHeight: 1.18, letterSpacing: 0, color: INK }}
             >
-              احجز مكالمة 30 دقيقة
-            </Link>
-            <Link
-              href="/ar/tarifs"
-              className="font-black px-8 py-4 rounded-2xl text-[15px] border-2 transition-all hover:scale-[1.02]"
-              style={{ background: "transparent", color: INK, borderColor: INK }}
-            >
-              عرض الأسعار
-            </Link>
-          </div>
-        </div>
-      </section>
+              أطلق شركتك،
+              <span className="block text-sheen" style={{ lineHeight: 1.35, paddingBottom: "0.08em" }}>
+                ونحن نتكفّل بالباقي.
+              </span>
+            </h1>
 
-      {/* PACKAGE SUMMARY */}
-      <section className="px-5 sm:px-6 py-16 sm:py-20" style={{ background: "#fff" }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-[12px] font-black mb-3" style={{ color: BLUE }}>
-              الباقة الشاملة
-            </p>
-            <h2 className="font-extrabold mb-3" style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", color: INK }}>
-              كل ما تحتاجه لإطلاق شركتك
-            </h2>
-            <p className="text-[14.5px] max-w-2xl mx-auto" style={{ color: "rgba(45,16,15,0.7)" }}>
-              لا تجزئة. لا اشتراكات خفية. سعر واحد، باقة كاملة، تسليم في 14 يوماً.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {PACKAGE_SERVICES.map((s) => (
-              <div
-                key={s.label}
-                className="flex items-start gap-4 p-5 rounded-2xl text-right"
-                style={{ background: CREAM, border: `1px solid rgba(45,16,15,0.08)` }}
+            {/* CTAs — consultation first */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 mb-4">
+              <a
+                href={waLink("business")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shine inline-flex items-center justify-center gap-2 font-bold px-[18px] py-2.5 rounded-xl text-[13.5px] whitespace-nowrap transition-transform duration-300 hover:-translate-y-0.5"
+                style={{ background: GREEN, color: "#fff", boxShadow: "0 8px 22px rgba(45,122,74,0.30)" }}
               >
-                <div className="flex-shrink-0"><s.Icon /></div>
-                <p className="text-[14.5px] leading-relaxed flex-1" style={{ color: INK }}>
-                  {s.label}
-                </p>
-              </div>
+                <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" aria-hidden="true">
+                  <path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.24c5.5 0 9.96-4.46 9.96-9.96 0-2.66-1.04-5.16-2.92-7.04A9.9 9.9 0 0 0 12.04 2Zm5.84 14.24c-.25.7-1.44 1.34-1.99 1.42-.53.08-1.18.11-1.9-.12-.44-.14-1-.33-1.72-.64-3.03-1.31-5-4.36-5.16-4.56-.15-.2-1.23-1.64-1.23-3.12 0-1.49.78-2.22 1.06-2.52.28-.3.6-.38.8-.38.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.33-.3.5l-.45.53c-.15.15-.3.31-.13.6.18.3.78 1.28 1.67 2.07 1.15 1.02 2.12 1.34 2.42 1.49.3.15.47.13.64-.08.18-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.71.81 2 .96.3.15.5.22.57.34.07.13.07.72-.18 1.42Z" />
+                </svg>
+                احجز استشارة مجانية
+              </a>
+              <Link
+                href="/ar/services"
+                className="inline-flex items-center gap-2 font-bold px-[18px] py-2.5 rounded-xl text-[13.5px] whitespace-nowrap transition-colors"
+                style={{ color: INK, border: "1.5px solid rgba(45,16,15,0.22)" }}
+              >
+                <span className="u-draw">كل الخدمات</span>
+              </Link>
+            </div>
+
+            {/* trust strip — one horizontal line */}
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mb-8">
+              {TRUST.map((t, i) => (
+                <span key={t} className="inline-flex items-center gap-3 text-[10px] sm:text-[11px] font-semibold whitespace-nowrap" style={{ color: "rgba(45,16,15,0.65)" }}>
+                  {i > 0 && <span className="h-1 w-1 rotate-45" style={{ background: "rgba(45,16,15,0.3)" }} />}
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* the bundles — certificate posters, front and center */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+            {BUNDLES.map((b) => (
+              <Reveal key={b.n}>
+                <div
+                  className="grain relative h-full rounded-[16px] px-5 pt-5 pb-5"
+                  style={{ background: "#FDF6E4", border: "1.5px solid rgba(45,16,15,0.55)", boxShadow: "var(--shadow-md)" }}
+                >
+                  <span className="west-frame absolute inset-[6px] rounded-[11px] pointer-events-none" aria-hidden="true" style={{ color: b.accent }} />
+                  {/* postage-stamp number — mirrored corner for RTL (top-left) */}
+                  <span
+                    className="stamp-perf absolute top-3 left-3 grid place-items-center h-9 w-8 select-none -rotate-[5deg]"
+                    style={{ background: "#fffdf8", color: b.accent }}
+                  >
+                    <span dir="ltr" className="text-[12px] font-extrabold leading-none" style={{ fontFamily: "var(--font-baloo), sans-serif" }}>{b.n}</span>
+                    <span className="text-[5px] font-black tracking-[0.12em] uppercase" style={{ color: "rgba(45,16,15,0.45)" }}>NOHO</span>
+                  </span>
+
+                  <p className="relative z-[1] flex items-center gap-1.5 mb-1">
+                    <Flourish color={b.accent} />
+                    <span className="text-[9.5px] font-bold tracking-[0.02em]" style={{ color: b.accent }}>{b.eyebrow}</span>
+                    <Flourish color={b.accent} />
+                  </p>
+                  <div className="relative z-[1] flex flex-wrap items-baseline gap-2.5 mb-1">
+                    <h2 className="font-extrabold" style={{ fontFamily: HEAD_FONT, fontSize: "22px", letterSpacing: 0, color: INK }}>
+                      {b.title}
+                    </h2>
+                    <span dir="ltr" className="font-extrabold text-[17px] tnum" style={{ fontFamily: "var(--font-baloo), sans-serif", color: b.accent }}>{b.price}</span>
+                    <span className="text-[10.5px] font-bold" style={{ color: "rgba(45,16,15,0.55)" }}>{b.per}</span>
+                  </div>
+                  <p className="relative z-[1] text-[12.5px] mb-3" style={{ color: "rgba(45,16,15,0.72)", lineHeight: 1.65 }}>
+                    {b.hook}
+                  </p>
+                  <ul className="relative z-[1] space-y-1.5 mb-4">
+                    {b.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-[12px]" style={{ color: "rgba(45,16,15,0.75)", lineHeight: 1.6 }}>
+                        <Check color={b.accent} />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="#consultation"
+                    className="btn-west relative z-[1] inline-flex items-center gap-1.5 font-bold text-[12.5px] px-4 py-2 rounded-xl"
+                    style={{ color: INK, background: "#fffdf8", border: "1.5px solid rgba(45,16,15,0.8)" }}
+                  >
+                    احجز الاستشارة
+                    <ArrowLeft />
+                  </a>
+                </div>
+              </Reveal>
             ))}
           </div>
 
-          <div className="mt-10 p-7 sm:p-9 rounded-3xl text-center" style={{ background: INK, color: CREAM }}>
-            <p className="text-[12px] font-black mb-3" style={{ color: GOLD }}>
-              السعر الكامل
-            </p>
-            <div className="flex items-baseline gap-2 justify-center mb-3" dir="ltr">
-              <span className="font-extrabold" style={{ fontSize: "60px", lineHeight: 1 }}>
-                4 000
-              </span>
-              <span className="text-[20px] font-black opacity-80">TND</span>
-            </div>
-            <p className="text-[14px] opacity-80 mb-6">دفعة واحدة · لا اشتراك · تسليم في 14 يوماً</p>
-            <Link
-              href="/ar/appel"
-              className="inline-block font-black px-8 py-4 rounded-2xl text-[15px] transition-all hover:scale-[1.02]"
-              style={{ background: GOLD, color: INK }}
-            >
-              احجز مكالمة لتأطير المشروع
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* MONTHLY FOLLOWUP */}
-      <section className="px-5 sm:px-6 py-16 sm:py-20" style={{ background: CREAM }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-[12px] font-black mb-3" style={{ color: BLUE }}>
-              المتابعة الشهرية · اختياري
-            </p>
-            <h2 className="font-extrabold mb-3" style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", color: INK }}>
-              شريك تشغيلي شهري
-            </h2>
-            <p className="text-[14.5px] max-w-2xl mx-auto" style={{ color: "rgba(45,16,15,0.7)" }}>
-              بعد تسليم الباقة، يمكنك الاشتراك في المتابعة الشهرية بـ 1 200 دينار شهرياً.
-              قابل للإلغاء في أي وقت.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {MONTHLY_FOLLOWUP.map((f) => (
-              <div key={f.title} className="p-6 rounded-2xl text-right" style={{ background: "#fff" }}>
-                <h3 className="font-black text-[16px] mb-2" style={{ color: INK }}>{f.title}</h3>
-                <p className="text-[13.5px] leading-relaxed" style={{ color: "rgba(45,16,15,0.78)" }}>{f.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 text-center">
-            <div className="inline-flex items-baseline gap-2" dir="ltr">
-              <span className="font-extrabold" style={{ fontSize: "44px", lineHeight: 1, color: INK }}>
-                1 200
-              </span>
-              <span className="text-[16px] font-black" style={{ color: INK }}>TND/mois</span>
-            </div>
-            <p className="text-[13px] mt-2 mb-6" style={{ color: "rgba(45,16,15,0.65)" }}>
-              شهرياً · بدون التزام · قابل للإلغاء في أي وقت
-            </p>
-            <Link
-              href="/ar/tarifs"
-              className="inline-block font-black px-8 py-3.5 rounded-2xl text-[14px] transition-all hover:scale-[1.02]"
-              style={{ background: INK, color: CREAM }}
-            >
-              تفاصيل المتابعة
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="px-5 sm:px-6 py-16 sm:py-20 text-center" style={{ background: "#fff" }}>
-        <div className="max-w-xl mx-auto">
-          <h2 className="font-extrabold mb-4" style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", color: INK }}>
-            هل هذا مناسب لك؟
-          </h2>
-          <p className="text-[15px] leading-relaxed mb-8" style={{ color: "rgba(45,16,15,0.75)" }}>
-            مكالمة 30 دقيقة لتقول لك بصدق إذا كانت الشركة الأمريكية تناسب وضعك.
-            مجانية، بدون التزام.
+          {/* à la carte — one quiet line, not a marketplace */}
+          <p className="text-center mt-5 text-[11.5px]" style={{ color: "rgba(45,16,15,0.6)", lineHeight: 1.8 }}>
+            خدمات على حدة: هوية بصرية + موقع <span dir="ltr" className="tnum">3 400 TND</span> (<span dir="ltr" className="tnum">2 800</span> لعملاء Business) · شركة + EIN فقط <span dir="ltr" className="tnum">700 TND</span> + المعاليم الرسمية ·{" "}
+            <Link href="/ar/tarifs" className="u-draw font-bold" style={{ color: TEAL }}>كامل جدول الأسعار</Link>
           </p>
-          <Link
-            href="/ar/appel"
-            className="inline-block font-black px-10 py-5 rounded-2xl text-[16px] transition-all hover:scale-[1.02]"
-            style={{ background: INK, color: CREAM, boxShadow: "0 6px 28px rgba(45,16,15,0.28)" }}
-          >
-            احجز المكالمة
-          </Link>
+        </div>
+      </section>
+
+      {/* ── Part 2 — book the call: form + what happens next ── */}
+      <section id="consultation" className="px-5 sm:px-6 py-12 sm:py-16" style={{ background: "#fff" }}>
+        <div className="mx-auto w-full max-w-5xl grid grid-cols-1 sm:grid-cols-[1fr_0.9fr] gap-8 sm:gap-10 items-start">
+          <Reveal>
+            <div
+              className="grain relative rounded-[16px] p-5 sm:p-6"
+              style={{ background: "#FDF6E4", border: "1.5px solid rgba(45,16,15,0.55)", boxShadow: "var(--shadow-md)" }}
+            >
+              <span className="west-frame absolute inset-[6px] rounded-[11px] pointer-events-none" aria-hidden="true" style={{ color: TEAL }} />
+              <div className="relative z-[1]">
+                <p className="flex items-center gap-1.5 mb-1">
+                  <Flourish color={TEAL} />
+                  <span className="text-[9.5px] font-bold tracking-[0.02em]" style={{ color: TEAL }}>استشارة مجانية · 30 دقيقة</span>
+                  <Flourish color={TEAL} />
+                </p>
+                <h2 className="font-extrabold mb-1" style={{ fontFamily: HEAD_FONT, fontSize: "22px", color: INK }}>
+                  احجز مكالمتك
+                </h2>
+                <p className="text-[12.5px] mb-4" style={{ color: "rgba(45,16,15,0.7)", lineHeight: 1.65 }}>
+                  اترك بياناتك — نعاود الاتصال بك لتأكيد الموعد.
+                </p>
+                <ConsultationForm locale="ar" labels={AR_FORM_LABELS} />
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <h3 className="font-extrabold mb-4" style={{ fontFamily: HEAD_FONT, fontSize: "19px", color: INK }}>
+              ماذا يحدث بعد ذلك
+            </h3>
+            <div className="space-y-4 mb-6">
+              {NEXT_STEPS.map((s) => (
+                <div key={s.n} className="flex items-start gap-3">
+                  <span
+                    dir="ltr"
+                    className="grid place-items-center h-9 w-9 rounded-xl shrink-0 font-extrabold text-[13px]"
+                    style={{ fontFamily: "var(--font-baloo), sans-serif", background: "rgba(51,116,133,0.10)", color: TEAL }}
+                  >
+                    {s.n}
+                  </span>
+                  <div>
+                    <p className="font-bold text-[14px]" style={{ color: INK }}>{s.t}</p>
+                    <p className="text-[12.5px]" style={{ color: "rgba(45,16,15,0.65)", lineHeight: 1.65 }}>{s.d}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-[12.5px] mb-3" style={{ color: "rgba(45,16,15,0.65)" }}>
+              تريد ردّاً أسرع؟ خط واتساب يجيبك باللهجة التونسية أو بالفرنسية:
+            </p>
+            <a
+              href={waLink("business")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-bold px-[18px] py-2.5 rounded-xl text-[13px] transition-transform duration-300 hover:-translate-y-0.5"
+              style={{ background: GREEN, color: "#fff", boxShadow: "0 8px 22px rgba(45,122,74,0.30)" }}
+            >
+              <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" aria-hidden="true">
+                <path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.24c5.5 0 9.96-4.46 9.96-9.96 0-2.66-1.04-5.16-2.92-7.04A9.9 9.9 0 0 0 12.04 2Z" />
+              </svg>
+              <span dir="ltr">+1 818 506 7744</span>
+            </a>
+          </Reveal>
         </div>
       </section>
     </>

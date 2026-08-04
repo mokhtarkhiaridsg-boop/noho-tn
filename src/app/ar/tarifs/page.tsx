@@ -7,10 +7,10 @@ export const metadata: Metadata = {
   description:
     "أسعار شفافة بالدينار التونسي. حل الأعمال 4 000 دينار، المتابعة الشهرية 1 200 دينار شهرياً، بوابة الطلاب 1 800 دينار سنوياً. بدون ندرة مفتعلة، بدون خصومات وهمية.",
   alternates: {
-    canonical: "https://noho.tn/ar/tarifs",
+    canonical: "https://nohomailboxtunis.com/ar/tarifs",
     languages: {
-      "fr-TN": "https://noho.tn/tarifs",
-      "ar-TN": "https://noho.tn/ar/tarifs",
+      "fr-TN": "https://nohomailboxtunis.com/fr/tarifs",
+      "ar-TN": "https://nohomailboxtunis.com/ar/tarifs",
     },
   },
   robots: { index: false, follow: true },
@@ -51,7 +51,7 @@ const PLANS = [
     badge: "شهري · بدون التزام",
     price: "1 200",
     currency: "TND",
-    suffix: "/mois",
+    suffix: "/شهر",
     note: "شهرياً. قابل للإلغاء في أي وقت.",
     description:
       "الشريك التشغيلي الشهري. امتثال أمريكي، بريد ذو أولوية، هوية بصرية، محتوى، مراجعة فصلية. أنت تبيع وتفوتر — نحن نتولى الإدارة الخلفية.",
@@ -62,7 +62,7 @@ const PLANS = [
       "تحديثات الموقع وأصول العلامة",
       "محتوى مبرمج للشبكات الاجتماعية",
       "مراجعة فصلية للأعمال",
-      "وصول WhatsApp ذو أولوية",
+      "وصول ذو أولوية عبر واتساب",
     ],
     cta: { label: "تفاصيل المتابعة", href: "/ar/business" },
     color: CREAM,
@@ -74,7 +74,7 @@ const PLANS = [
     badge: "سنة دراسية",
     price: "1 800",
     currency: "TND",
-    suffix: "/an",
+    suffix: "/سنة",
     note: "للطلاب التونسيين الذين يستهدفون جامعة أمريكية (Top 50).",
     description:
       "مساعدة الترشيح للجامعات الأمريكية + عنوان لـ SEVIS و I-20 + تنسيق تأشيرة F-1. عرض سنوي واحد، قابل للتجديد.",
@@ -94,19 +94,31 @@ const PLANS = [
 ];
 
 const MAILBOX_TIER = [
+  {
+    name: "Free",
+    price: "0",
+    note: "الدفع عند الاستعمال — طرود بدون اشتراك",
+    bullets: [
+      "عنوان استلام الطرود (⁦Lankershim Blvd⁩)",
+      "ناقلون خاصّون فقط — بدون USPS (تُطبَّق السياسات)",
+      "الدفع عند الاستعمال من المحفظة حسب جدول الأسعار",
+      "محفظة مدفوعة مسبقاً — شحن الرصيد بحد أدنى 50 ديناراً",
+      "لوحة تحكم مع إشعار عند كل طرد",
+    ],
+  },
   { name: "Basic", price: "35", note: "استخدام شخصي خفيف" },
   { name: "Standard", price: "75", note: "الأكثر شعبية" },
   { name: "Premium", price: "150", note: "للتجارة الإلكترونية" },
 ];
 
 const ONE_OFFS = [
-  { label: "تجديد العنوان البريدي الأمريكي (سنوي بعد السنة الأولى)", price: "600 TND/an" },
-  { label: "تجديد الوكيل المسجل Wyoming (سنوي)", price: "200 TND/an" },
-  { label: "التقرير السنوي Wyoming SoS", price: "200 TND/an" },
-  { label: "Form 5472 + Form 1120 (سنوي، خارج المتابعة)", price: "800 TND/an" },
+  { label: "تجديد العنوان البريدي الأمريكي (سنوي بعد السنة الأولى)", price: "600 TND/سنة" },
+  { label: "تجديد الوكيل المسجل Wyoming (سنوي)", price: "200 TND/سنة" },
+  { label: "التقرير السنوي Wyoming SoS", price: "200 TND/سنة" },
+  { label: "Form 5472 + Form 1120 (سنوي، خارج المتابعة)", price: "800 TND/سنة" },
   { label: "إعادة توثيق Form 1583 (تغيير عنوان، إلخ)", price: "150 TND" },
-  { label: "أبوستيل وثيقة أمريكية للاستخدام في تونس", price: "300 TND/doc" },
-  { label: "ترجمة معتمدة AR/FR ↔ EN", price: "120 TND/page" },
+  { label: "أبوستيل وثيقة أمريكية للاستخدام في تونس", price: "300 TND/وثيقة" },
+  { label: "ترجمة معتمدة AR/FR ↔ EN", price: "120 TND/صفحة" },
   { label: "تنسيق محامي هجرة أمريكي (ساعات إضافية)", price: "بسعر الساعة للمكتب الأمريكي" },
 ];
 
@@ -137,7 +149,7 @@ export default function ArabicTarifsPage() {
       {/* MAIN PLANS */}
       <section className="px-5 sm:px-6 py-14 sm:py-16" style={{ background: "#fff" }}>
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {PLANS.map((p) => (
               <div
                 key={p.label}
@@ -192,7 +204,7 @@ export default function ArabicTarifsPage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="font-extrabold mb-3" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.25rem)", color: INK }}>
-              الصندوق الافتراضي — 3 خطط
+              العنوان الأمريكي — 3 خطط
             </h2>
             <p className="text-[14px]" style={{ color: "rgba(45,16,15,0.65)" }}>
               الخطط الشهرية للعنوان الأمريكي وحده، بدون باقة الأعمال.
@@ -204,7 +216,7 @@ export default function ArabicTarifsPage() {
                 <h3 className="font-black text-[18px] mb-2" style={{ color: INK }}>{m.name}</h3>
                 <div className="flex items-baseline justify-center gap-1 mb-1" dir="ltr">
                   <span className="font-extrabold" style={{ fontSize: "36px", lineHeight: 1, color: INK }}>{m.price}</span>
-                  <span className="text-[14px] font-black opacity-70" style={{ color: INK }}>TND/mois</span>
+                  <span className="text-[14px] font-black opacity-70" style={{ color: INK }}>TND/شهر</span>
                 </div>
                 <p className="text-[12.5px]" style={{ color: "rgba(45,16,15,0.65)" }}>{m.note}</p>
               </div>
@@ -212,7 +224,7 @@ export default function ArabicTarifsPage() {
           </div>
           <p className="text-center text-[13px] mt-6" style={{ color: "rgba(45,16,15,0.65)" }}>
             <Link href="/ar/virtual-mailbox" className="underline font-black">
-              عرض تفاصيل الصناديق الافتراضية
+              عرض تفاصيل العناوين الأمريكية
             </Link>
           </p>
         </div>
