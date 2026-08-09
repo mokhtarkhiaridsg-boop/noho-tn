@@ -62,6 +62,19 @@ export const metadata: Metadata = {
   },
   icons: { icon: "/icon.svg" },
   robots: { index: true, follow: true },
+  // Google Search Console verification, added 2026-08-09.
+  //
+  // This site had NO Search Console property at all — no index-coverage data,
+  // no query data, no way to know whether anything here ranks. It shipped in
+  // July and nobody could see a single number.
+  //
+  // Verification lives in the root layout so it renders on all 341 pages from
+  // one edit, which sidesteps the fact that the domain is hardcoded as a
+  // literal ~607 times across the tree. Do NOT remove this tag after
+  // verification — Google re-checks it and ownership lapses without it.
+  verification: {
+    google: "CChcbDa0Hn_ytJTcVm5phrmbhUhNFg43bHtF9SGWL9g",
+  },
 };
 
 export default function RootLayout({
