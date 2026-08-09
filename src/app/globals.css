@@ -182,11 +182,24 @@ h1, h2 { letter-spacing: -0.025em; }
 }
 .text-sheen {
   background: linear-gradient(100deg, var(--teal) 0%, var(--teal) 38%, #6fb6c7 50%, var(--teal) 62%, var(--teal) 100%);
-  background-size: 200% 100%;
+  /* 165% height (not 100%) so Pacifico's descenders sit inside the painted
+     box — at 100% the gradient clips the tails of g/y/j to transparent. */
+  background-size: 200% 165%;
+  background-repeat: repeat;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   animation: noho-sheen 6s linear infinite;
+}
+/* Without this the accent word animates for users who asked it not to; the
+   fill must also be restored or the text stays transparent. */
+@media (prefers-reduced-motion: reduce) {
+  .text-sheen {
+    animation: none;
+    background-image: none;
+    -webkit-text-fill-color: currentColor;
+    color: var(--teal);
+  }
 }
 
 /* — Shine sweep on CTAs/cards — */

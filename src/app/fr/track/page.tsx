@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
+import TrackRouter from "@/components/landing/TrackRouter";
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: "Accueil", url: "https://nohomailboxtunis.com/fr" },
@@ -63,7 +64,7 @@ const IconChat = ({ className = "w-6 h-6" }: { className?: string }) => (
   </svg>
 );
 
-export default function TrackPage() {
+function TrackLanding() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
@@ -153,4 +154,21 @@ export default function TrackPage() {
       </section>
     </>
   );
+}
+
+/**
+ * The homepage track form submits here as `?n=<number>`. With a number we
+ * render the shared carrier-detection router; with none, the original
+ * link-out page below stands unchanged.
+ */
+export default async function TrackPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ n?: string }>;
+}) {
+  const sp = (await searchParams) ?? {};
+  if ((sp.n ?? "").trim()) {
+    return <TrackRouter locale="fr" searchParams={searchParams} />;
+  }
+  return <TrackLanding />;
 }

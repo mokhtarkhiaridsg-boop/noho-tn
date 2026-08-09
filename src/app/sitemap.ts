@@ -3,7 +3,6 @@ import { ARTICLES } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://nohomailboxtunis.com";
-  const now = new Date();
   const pages: { path: string; priority: number; freq?: "weekly" | "monthly" | "daily" }[] = [
     { path: "/", priority: 1.0, freq: "weekly" },
     { path: "/virtual-mailbox", priority: 0.98, freq: "weekly" },
@@ -49,6 +48,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/conformite/form-5472-penalite", priority: 0.8 },
     { path: "/privacy", priority: 0.3 },
     { path: "/terms", priority: 0.3 },
+    // Added 2026-08-09. Live, indexable, and absent from the sitemap until now
+    // — so Google had no discovery path to either. Both have a working /fr
+    // mirror, verified before adding: a sitemap entry that 404s is worse than
+    // no entry at all.
+    { path: "/virtual-mailbox/tunisie", priority: 0.9, freq: "weekly" },
+  ];
+
+  /*
+   * Routes that exist in ONE locale only. These cannot go in `pages` above,
+   * because everything there is auto-mirrored into /fr and a mirror that does
+   * not exist would put a 404 into the sitemap.
+   *
+   * Verified live 2026-08-09:
+   *   /inscription            200   ·  /fr/inscription            404
+   *   /fr/business/tn-vs-us   200   ·  /business/tn-vs-us         404
+   *
+   * /inscription is the primary conversion route and is linked from the navbar
+   * and the homepage hero, so being absent from the sitemap was the most
+   * expensive of the omissions.
+   */
+  const bareOnly: { path: string; priority: number; freq?: "weekly" | "monthly" | "daily" }[] = [
+    { path: "/inscription", priority: 0.95, freq: "weekly" },
+  ];
+  const frOnly: { path: string; priority: number; freq?: "weekly" | "monthly" | "daily" }[] = [
+    { path: "/fr/business/tn-vs-us", priority: 0.8, freq: "monthly" },
   ];
 
   // Blog articles
@@ -76,10 +100,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     freq: p.freq,
   }));
 
-  return [...pages, ...frPages].map((p) => ({
-    url: `${base}${p.path}`,
-    lastModified: now,
-    changeFrequency: (p.freq ?? "monthly") as "weekly" | "monthly",
-    priority: p.priority,
-  }));
+  /*
+   * lastModified is emitted ONLY where a real date exists.
+   *
+   * It used to be `lastModified: now` — a `new Date()` evaluated per request —
+   * on every URL, so each time Google fetched the sitemap the entire site
+   * claimed to have changed that second. A sitemap that says everything
+   * changed says nothing, and lastmod is the main signal Google uses to decide
+   * what to recrawl. Blog articles carry a real publishedAt; nothing else on
+   * this site does, and omitting the field is explicitly fine — Google falls
+   * back to its own heuristics, which is strictly better than a value it
+   * learns to distrust. Same fix as the parent site, same day.
+   */
+  const articleDates = new Map(ARTICLES.map((a) => [`/blog/${a.slug}`, a.publishedAt]));
+
+  return [...pages, ...frPages, ...bareOnly, ...frOnly].map((p) => {
+    const stripped = p.path.startsWith("/fr/") ? p.path.slice(3) : p.path;
+    const lastMod = articleDates.get(stripped);
+    return {
+      url: `${base}${p.path}`,
+      ...(lastMod ? { lastModified: new Date(lastMod) } : {}),
+      changeFrequency: (p.freq ?? "monthly") as "weekly" | "monthly",
+      priority: p.priority,
+    };
+  });
 }
