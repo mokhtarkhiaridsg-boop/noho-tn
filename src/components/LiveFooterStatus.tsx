@@ -59,48 +59,48 @@ const HEADLINES: Record<Locale, Record<Status, string>> = {
 
 const SUBS: Record<Locale, Record<SubKey, string>> = {
   fr: {
-    hours: "Lun-Ven 9h30 · Sam 10h",
+    hours: "Lun-Ven 9h · Sam 10h",
     todayLunch: "Aujourd'hui · ferme 13h30 (pause déjeuner)",
     lunchBreak: "Pause déjeuner · reprise 14h",
     todayEvening: "Aujourd'hui · ferme 17h30",
-    opensToday: "Ouvre à 9h30 (heure de LA)",
-    reopensTomorrow: "Réouvre demain 9h30",
+    opensToday: "Ouvre à 9h (heure de LA)",
+    reopensTomorrow: "Réouvre demain 9h",
     saturdayOpen: "Samedi · ferme 13h30",
     saturdayClosed: "Samedi 10h-13h30 · Dim fermé",
-    sundayClosed: "Dimanche fermé · Réouvre lundi 9h30",
+    sundayClosed: "Dimanche fermé · Réouvre lundi 9h",
   },
   en: {
-    hours: "Mon-Fri 9:30am · Sat 10am",
+    hours: "Mon-Fri 9am · Sat 10am",
     todayLunch: "Today · closes 1:30pm (lunch break)",
     lunchBreak: "Lunch break · back at 2pm",
     todayEvening: "Today · closes 5:30pm",
-    opensToday: "Opens at 9:30am (LA time)",
-    reopensTomorrow: "Reopens tomorrow at 9:30am",
+    opensToday: "Opens at 9am (LA time)",
+    reopensTomorrow: "Reopens tomorrow at 9am",
     saturdayOpen: "Saturday · closes 1:30pm",
     saturdayClosed: "Saturday 10am-1:30pm · Closed Sunday",
-    sundayClosed: "Closed Sunday · Reopens Monday 9:30am",
+    sundayClosed: "Closed Sunday · Reopens Monday 9am",
   },
   tn: {
-    hours: "Lun-Ven 9h30 · Sam 10h",
+    hours: "Lun-Ven 9h · Sam 10h",
     todayLunch: "Lyoum · ysakker 13h30 (pause déjeuner)",
     lunchBreak: "Pause déjeuner · ya7ell 14h",
     todayEvening: "Lyoum · ysakker 17h30",
-    opensToday: "Ya7ell 9h30 (wa9t LA)",
-    reopensTomorrow: "Ya7ell ghodwa 9h30",
+    opensToday: "Ya7ell 9h (wa9t LA)",
+    reopensTomorrow: "Ya7ell ghodwa 9h",
     saturdayOpen: "Samedi · ysakker 13h30",
     saturdayClosed: "Samedi 10h-13h30 · Dimanche msakker",
-    sundayClosed: "Dimanche msakker · Ya7ell lundi 9h30",
+    sundayClosed: "Dimanche msakker · Ya7ell lundi 9h",
   },
   ar: {
-    hours: "الاثنين-الجمعة 9:30 · السبت 10:00",
+    hours: "الاثنين-الجمعة 9:00 · السبت 10:00",
     todayLunch: "اليوم · يغلق على الساعة 13:30 (استراحة الغداء)",
     lunchBreak: "استراحة الغداء · يفتح من جديد على الساعة 14:00",
     todayEvening: "اليوم · يغلق على الساعة 17:30",
-    opensToday: "يفتح على الساعة 9:30 بتوقيت لوس أنجلوس",
-    reopensTomorrow: "يفتح من جديد غداً على الساعة 9:30",
+    opensToday: "يفتح على الساعة 9:00 بتوقيت لوس أنجلوس",
+    reopensTomorrow: "يفتح من جديد غداً على الساعة 9:00",
     saturdayOpen: "السبت · يغلق على الساعة 13:30",
     saturdayClosed: "السبت 10:00-13:30 · الأحد مغلق",
-    sundayClosed: "الأحد مغلق · يفتح من جديد الاثنين على الساعة 9:30",
+    sundayClosed: "الأحد مغلق · يفتح من جديد الاثنين على الساعة 9:00",
   },
 };
 
@@ -127,7 +127,7 @@ function computeResult(): Result {
   let subKey: SubKey = "hours";
 
   if (laDay >= 1 && laDay <= 5) {
-    if (laTime >= 9.5 && laTime < 13.5) {
+    if (laTime >= 9 && laTime < 13.5) {
       status = "open";
       subKey = "todayLunch";
       if (laTime > 13) status = "closing";

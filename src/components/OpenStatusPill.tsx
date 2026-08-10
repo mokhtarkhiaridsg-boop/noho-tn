@@ -7,7 +7,7 @@
  * "fermé" relative to their own clock.
  *
  * Storefront hours (NoHo, PST):
- *   Mon–Fri 09:30–13:30, 14:00–17:30
+ *   Mon–Fri 09:00–13:30, 14:00–17:30
  *   Saturday 10:00–13:30
  *   Sunday closed
  * Tunis is PST+9 in winter and PST+9 (no DST) so conversion is +9 hours from PST.
@@ -41,7 +41,7 @@ function computeStatus(): Status {
   let open = false;
   if (laDay >= 1 && laDay <= 5) {
     // Mon-Fri
-    if ((laTime >= 9.5 && laTime <= 13.5) || (laTime >= 14 && laTime <= 17.5)) {
+    if ((laTime >= 9 && laTime <= 13.5) || (laTime >= 14 && laTime <= 17.5)) {
       open = true;
     }
   } else if (laDay === 6) {
@@ -59,7 +59,7 @@ function computeStatus(): Status {
   return {
     open: false,
     label: "Fermé maintenant",
-    sub: "Ouvre Lun-Ven 9h30 · Heure de LA",
+    sub: "Ouvre Lun-Ven 9h · Heure de LA",
   };
 }
 
