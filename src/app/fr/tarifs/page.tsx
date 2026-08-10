@@ -86,7 +86,7 @@ const PRODUCTS = [
     name: "Business",
     price: "4 000",
     unit: "une fois",
-    desc: "Société américaine ou tunisienne, EIN, brand, site, social. Livré en 14 jours.",
+    desc: "Société américaine ou tunisienne, EIN, brand, site, social. Livré en 14 à 21 jours.",
     href: "/fr/business",
   },
   {

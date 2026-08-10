@@ -332,7 +332,7 @@ export function cloudflareR2WorkersPagesCreatorTunisien() {
         </li>
       </ul>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu construis un SaaS et tu hésites entre AWS et Cloudflare ?{" "}
         <Link href="/fr/appel">Réserve un appel</Link>. On regarde ton

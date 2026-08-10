@@ -41,9 +41,13 @@ export function githubSponsorsPatreonCreatorEconomyLlcUs() {
           </ol>
         </li>
         <li>
-          <strong>Tax form</strong> : W-9 si LLC US (US entity per
-          GitHub interpretation). Filiale fournit FTIN tunisien si
-          besoin, mais W-9 LLC US suffit pour 0% withholding.
+          <strong>Tax form</strong> : attention — une SMLLC détenue par
+          un non-résident est « disregarded » : fiscalement, c&apos;est TOI
+          le bénéficiaire, pas la LLC. Le bon formulaire est le
+          <strong> W-8BEN</strong> (avec ton ITIN le cas échéant), pas un
+          W-9. Signer un W-9 en tant que non-US person est une fausse
+          certification — ne le fais jamais, quel que soit ce que
+          l&apos;interface te propose par défaut.
         </li>
       </ul>
 
@@ -71,7 +75,7 @@ export function githubSponsorsPatreonCreatorEconomyLlcUs() {
             <li>Connect Stripe Connect express account (auto-créé
             par Patreon)</li>
             <li>Bank account Mercury USA</li>
-            <li>Tax form W-9 LLC US</li>
+            <li>Tax form W-8BEN (owner non-US de la SMLLC)</li>
           </ol>
         </li>
         <li>
@@ -292,7 +296,7 @@ export function githubSponsorsPatreonCreatorEconomyLlcUs() {
         </li>
       </ul>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu es creator TN multi-plateformes (GitHub, Patreon, BMAC,
         Substack) et tu veux setup LLC US pour consolider ?{" "}

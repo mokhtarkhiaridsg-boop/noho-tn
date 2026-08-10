@@ -372,7 +372,7 @@ export function stripeExpressVsStandardCreatorsTunisiens() {
         scalabilité.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu es créateur en Express et tu te demandes si tu dois basculer
         en standard ? On fait l&apos;audit math de ton stack actuel

@@ -42,9 +42,9 @@ const PLANS = [
     note: "Usage personnel khfif wala ken t7eb t7ott adresse",
     bullets: [
       ["Adresse postale US 7a9i9ia", "5062 Lankershim Blvd, North Hollywood, CA"],
-      ["5 scans inclus", "Fel chhar. Ekther men hakka : 3 TND lel scan"],
+      ["5 scans inclus", "Fel chhar. Ekther men hakka : 2 TND lel page"],
       ["Forwarding ki t7eb", "Frais postal el 7a9i9i + 4 TND handling"],
-      ["Stockage colis 30 jours", "Courrier 90 jours inclus. Ekther : 1 TND 3al colis fel nhar"],
+      ["Stockage colis 30 jours", "Courrier 90 jours inclus. Ekther : 6 TND 3al colis fel jem3a"],
       ["Dashboard en ligne", "Tchouf el courrier elli wsellek el kol"],
       ["Notarisation Form 1583", "Incluse fel setup"],
     ],

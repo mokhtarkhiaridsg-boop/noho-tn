@@ -302,7 +302,7 @@ export function fatcaCrsImpactTunisienLlcUsOwner() {
         Engage un fiscaliste TN spécialisé pour ne pas te tromper.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu opères avec LLC US depuis Tunis et tu veux clarifier ton
         obligation déclarative IRPP ?{" "}

@@ -395,7 +395,7 @@ export function wiseBusinessTunisie2026StatutReel() {
         unilatérale.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu veux structurer ton stack bancaire Mercury + Wise + BCT
         PPR USD ?{" "}

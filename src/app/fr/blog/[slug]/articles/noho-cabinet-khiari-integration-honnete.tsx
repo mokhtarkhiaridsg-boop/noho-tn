@@ -206,8 +206,9 @@ export function nohoCabinetKhiariIntegrationHonnete() {
           SS-4 à l&apos;IRS depuis LA.
         </li>
         <li>
-          <strong>Notarisation Form 1583</strong>. C&apos;est NOHO
-          (Mokhtar notaire californien) qui le fait sur place à LA.
+          <strong>Notarisation Form 1583</strong>. Tu signes en personne
+          devant un notaire — en Tunisie (KHIARI organise le rendez-vous)
+          ou au comptoir NOHO à LA. L&apos;original est ensuite classé à LA.
         </li>
         <li>
           <strong>Ouverture compte Mercury / Stripe</strong>. C&apos;est
@@ -387,7 +388,7 @@ export function nohoCabinetKhiariIntegrationHonnete() {
         structural — pas marketing.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu veux comprendre exactement quels services NOHO vs KHIARI
         pour ton dossier ?{" "}

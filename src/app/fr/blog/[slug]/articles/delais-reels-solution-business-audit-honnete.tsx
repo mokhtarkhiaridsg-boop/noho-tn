@@ -112,9 +112,12 @@ export function delaisReelsSolutionBusinessAuditHonnete() {
       <h2>Étape 4 — Form 1583 USPS notarisation</h2>
       <ul>
         <li>
-          <strong>Médiane : J+5.</strong> On envoie le PDF Form 1583,
-          tu signes, on notarise à LA via Mokhtar California Notary.
-          Ton mailbox est officiellement actif J+5 à J+7.
+          <strong>Médiane : J+5 à J+10.</strong> On t&apos;envoie le PDF
+          Form 1583 ; tu le signes <em>devant un notaire en Tunisie</em>
+          (n&apos;importe quel notaire assermenté) et l&apos;original nous
+          parvient à LA. La notarisation exige ta présence physique devant
+          le notaire — personne ne peut notariser à ta place, et on ne
+          propose pas de notarisation en ligne.
         </li>
         <li>
           <strong>P90 : J+14.</strong> Si tu ne peux pas signer
@@ -412,7 +415,7 @@ export function delaisReelsSolutionBusinessAuditHonnete() {
         prepay) qu&apos;il ne te facture pas explicitement.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu as une deadline business spécifique (lancement produit,
         deadline contrat client US, etc.) ?{" "}

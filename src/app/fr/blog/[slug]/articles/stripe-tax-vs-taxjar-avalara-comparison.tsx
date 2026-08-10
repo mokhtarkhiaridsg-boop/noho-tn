@@ -287,7 +287,7 @@ export function stripeTaxVsTaxjarAvalaraComparison() {
         Avalara only above 2-5M USD/an.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu opères Stripe US et tu te demandes quand passer à TaxJar
         ou Avalara ?{" "}

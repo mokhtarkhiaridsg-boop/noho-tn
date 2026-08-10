@@ -1,14 +1,6 @@
-import type { Metadata } from "next";
-import EnglishStub from "@/app/en/_components/EnglishStub";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Templates",
-  robots: { index: false, follow: true },
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/en/outils/templates",
-  },
-};
-
-export default function Page() {
-  return <EnglishStub frHref="/fr/outils/templates" title="Templates" />;
+/** Retired 2026-08-10 — placeholder page (all cards "Bientôt"), no pre-launch surfaces. */
+export default function Retired() {
+  redirect("/en");
 }

@@ -32,23 +32,28 @@ export function form1099kThresholds2026EvolutionTunisien() {
           5 000 USD/an. Notice 2024-85.
         </li>
         <li>
-          <strong>2025 (transition)</strong> : seuil intermédiaire{" "}
-          <strong>2 500 USD/an</strong>. Notice 2025-25.
+          <strong>Juillet 2025 — renversement</strong> : le One Big
+          Beautiful Bill Act (signé le 4 juillet 2025) abroge
+          rétroactivement le seuil ARPA. Le seuil fédéral revient à{" "}
+          <strong>20 000 USD/an ET 200 transactions</strong>.
         </li>
         <li>
-          <strong>2026 (cible finale ARP)</strong> :{" "}
-          <strong>600 USD/an</strong> sans floor transactions.
-          Effective 1er janvier 2026.
+          <strong>2026 (droit en vigueur)</strong> : le seuil 600 USD
+          n&apos;existe plus. C&apos;est 20 000 USD + 200 transactions au
+          niveau fédéral — mais certains États gardent leurs propres
+          seuils plus bas, et les processeurs peuvent émettre un 1099-K
+          plus tôt s&apos;ils le veulent.
         </li>
       </ul>
 
       <h2>Statut 2026 — ce qui s&apos;applique maintenant</h2>
       <ul>
         <li>
-          <strong>Seuil 1099-K = 600 USD/an</strong> de payouts à
-          travers TOUS payment processors aggregés. Stripe + Square
-          + PayPal + Amazon + Etsy + eBay → IRS via Form 1099-K
-          séparé chacun.
+          <strong>Seuil fédéral 1099-K = 20 000 USD/an ET 200
+          transactions</strong> par processeur (OBBBA, juillet 2025 —
+          le seuil ARPA de 600 USD a été abrogé rétroactivement).
+          Chaque processeur (Stripe, Square, PayPal, Amazon, Etsy,
+          eBay) évalue son propre seuil et émet son propre formulaire.
         </li>
         <li>
           <strong>Pas de minimum transaction count</strong>. Même 1
@@ -92,11 +97,11 @@ export function form1099kThresholds2026EvolutionTunisien() {
       <h2>1099-K par plateforme (2026)</h2>
       <ul>
         <li>
-          <strong>Stripe</strong> : 1099-K émis dès 600 USD/an. EIN
+          <strong>Stripe</strong> : 1099-K émis selon le seuil fédéral (ou plus tôt, à sa discrétion). EIN
           de ta LLC US comme recipient.
         </li>
         <li>
-          <strong>PayPal Business</strong> : 1099-K si 600 USD/an+
+          <strong>PayPal Business</strong> : 1099-K selon le seuil fédéral (des seuils d'État plus bas peuvent s'appliquer)
           via PayPal Business. Personal PayPal a règle différente
           (1099-NEC dès 600).
         </li>
@@ -302,7 +307,7 @@ export function form1099kThresholds2026EvolutionTunisien() {
         withholding 24% + amendes potentielles.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu opères LLC US avec Stripe et tu veux audit ton W-8BEN +
         compliance 1099-K ?{" "}

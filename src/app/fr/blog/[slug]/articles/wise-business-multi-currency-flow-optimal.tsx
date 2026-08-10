@@ -285,7 +285,7 @@ export function wiseBusinessMultiCurrencyFlowOptimal() {
         USD/an avec 20%+ revenus EU/GBP, c&apos;est le moment du combo.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu opères 50K+ USD/an et tu veux setup le combo Wise +
         Mercury ?{" "}

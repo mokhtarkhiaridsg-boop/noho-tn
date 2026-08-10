@@ -131,7 +131,7 @@ export function youtubeAdsenseMonetizationTnLlcUsSetup() {
           Va dans <strong>Payment Methods</strong> :
           <ul>
             <li>Add bank account : Mercury USD account</li>
-            <li>Routing number Mercury : 084009519 (Choice Financial Group)</li>
+            <li>Routing number : celui affiché dans TON dashboard Mercury (Accounts → Account details) — il est propre à ton compte, ne copie jamais un numéro trouvé dans un article</li>
             <li>Account number Mercury : ton numéro de compte</li>
             <li>Verify via micro-deposit (24-72h)</li>
           </ul>
@@ -308,7 +308,7 @@ export function youtubeAdsenseMonetizationTnLlcUsSetup() {
         gain).
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu es creator YouTube et tu veux setup LLC US pour
         AdSense ?{" "}

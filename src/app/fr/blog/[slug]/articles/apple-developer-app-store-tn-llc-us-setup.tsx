@@ -290,7 +290,7 @@ export function appleDeveloperAppStoreTnLlcUsSetup() {
         premiers payouts &gt; 5K USD.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu es dev iOS et tu veux setup Apple Developer via LLC US ?{" "}
         <Link href="/fr/appel">Réserve un appel</Link>. On audit ton

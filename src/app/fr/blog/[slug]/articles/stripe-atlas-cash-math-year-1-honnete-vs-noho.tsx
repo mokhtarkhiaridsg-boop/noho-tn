@@ -338,7 +338,7 @@ export function stripeAtlasCashMathYear1HonneteVsNoho() {
         profil — pas d&apos;upsell forcé.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu hésites entre Atlas et NOHO ?{" "}
         <Link href="/fr/appel">Réserve un appel</Link>. On regarde

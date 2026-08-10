@@ -134,7 +134,7 @@ const PLANS = [
     note: "For light personal use or keeping an address on file",
     bullets: [
       ["Real US postal address", "5062 Lankershim Blvd, North Hollywood, CA"],
-      ["5 scans included", "Per month. Beyond that: 3 TND/scan"],
+      ["5 scans included", "Per month. Beyond that: 2 TND/page"],
       ["Forwarding on request", "Actual postage + 4 TND handling"],
       ["30-day package storage", "Mail held 90 days included. Packages beyond: 1 TND/package/day"],
       ["Online dashboard", "See every piece of mail you receive"],
@@ -347,37 +347,7 @@ export default function EnglishVirtualMailboxPage() {
       </section>
 
       {/* TN MAILBOX CROSS-LINK */}
-      <section className="px-5 sm:px-6 py-10 sm:py-12" style={{ background: "#fff" }}>
-        <div className="max-w-4xl mx-auto">
-          <Link
-            href="/virtual-mailbox/tunisie"
-            className="block p-6 sm:p-7 rounded-3xl transition-all hover:-translate-y-0.5"
-            style={{
-              background: "linear-gradient(135deg, #2D7A4A 0%, #1F5A35 100%)",
-              color: "#fff",
-              boxShadow: "0 8px 32px rgba(45,122,74,0.28)",
-            }}
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] items-center gap-4">
-              <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.18em] mb-1.5" style={{ color: "rgba(247,230,194,0.85)" }}>
-                  New · 2026 pre-launch
-                </p>
-                <h2 className="font-extrabold text-[19px] sm:text-[22px] mb-2" style={{ fontFamily: "var(--font-baloo), sans-serif" }}>
-                  A real Tunis address is coming soon
-                </h2>
-                <p className="text-[13.5px] leading-relaxed" style={{ color: "rgba(247,230,194,0.92)" }}>
-                  A real address in Tunis for your TN mail, your SARL registration,
-                  your inbound supplier packages. Pair TN + US for a bridge on both sides.
-                </p>
-              </div>
-              <span className="inline-flex items-center justify-center font-black px-5 py-3 rounded-xl text-[13px] whitespace-nowrap" style={{ background: "#fff", color: "#2D100F" }}>
-                Reserve a spot →
-              </span>
-            </div>
-          </Link>
-        </div>
-      </section>
+      {/* TN-address promo card removed 2026-08-10 — product is pre-launch; standing rule: no pre-launch surfaces. */}
 
       {/* PACKAGE HANDLING PROCESS */}
       <section className="px-5 sm:px-6 py-14 sm:py-16" style={{ background: "#fff" }}>

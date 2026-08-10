@@ -448,7 +448,7 @@ export function visaE2TunisieInvestisseurProcedureDetaillee() {
         consulate Tunis attend en 2026.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu as 100K+ USD à investir et tu veux explorer E-2 ?{" "}
         <Link href="/fr/appel">Réserve un appel</Link>. On regarde

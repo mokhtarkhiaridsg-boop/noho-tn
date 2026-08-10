@@ -161,9 +161,10 @@ export function stripeAlternativesHighRiskVerticalsTunisien() {
         </li>
         <li>
           <strong>TN-specific</strong> : Coinbase Business accepte
-          LLC US owned by TN-resident. Personal Coinbase TN-resident
-          accepté aussi en 2026 (post-BCT crypto rule clarification —{" "}
-          <strong>VERIFY current</strong>).
+          une LLC US détenue par un résident tunisien. Pour un compte
+          personnel Coinbase en tant que résident TN, vérifie le cadre BCT en
+          vigueur au moment de t&apos;inscrire — la réglementation crypto
+          tunisienne évolue et on ne promet rien ici.
         </li>
       </ul>
 
@@ -264,7 +265,7 @@ export function stripeAlternativesHighRiskVerticalsTunisien() {
         que soit le processor en aval.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu opères dans un vertical que Stripe a refusé ou qui te
         semble high-risk ?{" "}

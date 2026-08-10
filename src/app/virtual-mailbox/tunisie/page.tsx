@@ -1,15 +1,10 @@
-/*
- * Default-locale fallback. This route has no derja copy yet, so it serves the
- * French page verbatim rather than a "mazelet fel tarjma" dead end. Canonical
- * stays on the root URL — this IS the default site, not a translation of it.
- * When derja lands for this page, replace the whole file with the real page.
+import { redirect } from "next/navigation";
+
+/**
+ * Retired 2026-08-10 (loop audit). TN-address product is pre-launch; the standing rule is no pre-launch
+ * surfaces (no waitlists, no 'reserve ta place'). Route restored when the
+ * product actually exists.
  */
-import type { Metadata } from "next";
-import FrPage, { metadata as frMetadata } from "@/app/fr/virtual-mailbox/tunisie/page";
-
-export const metadata: Metadata = {
-  ...frMetadata,
-  alternates: { canonical: "https://nohomailboxtunis.com/virtual-mailbox/tunisie" },
-};
-
-export default FrPage;
+export default function Retired() {
+  redirect("/virtual-mailbox");
+}

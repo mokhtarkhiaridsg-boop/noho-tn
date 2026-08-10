@@ -676,9 +676,9 @@ export const ARTICLES: ArticleMeta[] = [
   },
   {
     slug: "1099-k-thresholds-2026-evolution-tunisien",
-    title: "Form 1099-K — seuil 600 USD/an 2026, compliance fondateur tunisien LLC US",
+    title: "Form 1099-K en 2026 — le seuil 600 USD abrogé, ce qui s'applique vraiment",
     excerpt:
-      "Historique 2008-2026 : 20 000 USD → 5 000 → 2 500 → 600 USD/an (cible ARP 2021). Émission Stripe + PayPal + Square + Amazon + Etsy + eBay (Zelle exception). Backup withholding 24% si W-8BEN expiré ou mauvais form. EIN consistency critique. 6 actions concrètes compliance + NOHO Suivi mensuel monitoring.",
+      "Le OBBBA (juillet 2025) a abrogé rétroactivement le seuil ARPA de 600 USD : le seuil fédéral 1099-K redevient 20 000 USD ET 200 transactions. Ce que ça change pour Stripe + PayPal + Square + Amazon + Etsy + eBay, le backup withholding 24%, et la compliance d'un fondateur tunisien.",
     category: "us-compliance",
     categoryLabel: "US compliance",
     publishedAt: "2026-07-23",

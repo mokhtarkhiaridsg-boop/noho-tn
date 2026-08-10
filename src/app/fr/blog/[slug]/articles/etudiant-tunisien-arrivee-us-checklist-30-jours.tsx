@@ -21,8 +21,9 @@ export function etudiantTunisienArriveeUsChecklist30Jours() {
         <li>
           <strong>Active mailbox US réelle</strong> via NOHO Boîte
           virtuelle (35 TND/mois Basic suffit pour démarrer). Form
-          1583 notarisé en Tunisie ou notaire californien NOHO en
-          ligne. Adresse à fournir à l&apos;université pour
+          1583 notarisé <em>en personne</em> — chez un notaire en Tunisie
+          avant le départ, ou au comptoir NOHO une fois à Los Angeles
+          (jamais en ligne). Adresse à fournir à l&apos;université pour
           confirmation arrivée.
         </li>
         <li>
@@ -284,7 +285,7 @@ export function etudiantTunisienArriveeUsChecklist30Jours() {
         </li>
       </ul>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu prépares ton départ aux US et tu veux le checklist détaillée
         pour ton cas spécifique (ville, université, budget) ?{" "}

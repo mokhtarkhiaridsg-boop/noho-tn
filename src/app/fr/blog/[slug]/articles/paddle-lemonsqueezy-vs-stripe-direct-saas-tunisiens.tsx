@@ -361,7 +361,7 @@ export function paddleLemonsqueezyVsStripeDirectSaasTunisiens() {
         sérieux avec invoice + enterprise sales en perspective.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu hésites entre Stripe direct, Paddle, et Lemon Squeezy ?{" "}
         <Link href="/fr/appel">Réserve un appel</Link>. On math

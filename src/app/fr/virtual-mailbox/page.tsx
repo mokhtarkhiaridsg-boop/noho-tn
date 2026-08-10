@@ -125,9 +125,9 @@ const PLANS = [
     note: "Pour usage personnel léger ou stockage adresse",
     bullets: [
       ["Adresse postale US réelle", "5062 Lankershim Blvd, North Hollywood, CA"],
-      ["5 scans inclus", "Par mois. Au-delà : 3 TND/scan"],
+      ["5 scans inclus", "Par mois. Au-delà : 2 TND/page"],
       ["Forwarding sur demande", "Frais postal réel + 4 TND de handling"],
-      ["Stockage colis 30 jours", "Courrier 90 j inclus. Colis au-delà : 1 TND/colis/jour"],
+      ["Stockage colis 30 jours", "Courrier 90 j inclus. Colis au-delà : 6 TND/colis/semaine"],
       ["Dashboard en ligne", "Voir tout le courrier reçu"],
       ["Notarisation Form 1583", "Incluse au setup"],
     ],

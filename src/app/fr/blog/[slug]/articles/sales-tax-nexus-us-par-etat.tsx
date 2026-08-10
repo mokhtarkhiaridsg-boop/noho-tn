@@ -48,7 +48,7 @@ export function salesTaxNexusEtat() {
         <li><strong>Caroline du Nord</strong> : 100 000 USD/an OU 200 transactions</li>
         <li><strong>Géorgie</strong> : 100 000 USD/an OU 200 transactions</li>
         <li><strong>Illinois</strong> : 100 000 USD/an OU 200 transactions</li>
-        <li><strong>Wyoming, Delaware, Montana, New Hampshire, Oregon, Alaska</strong> : pas de sales tax au niveau état</li>
+        <li><strong>Delaware, Montana, New Hampshire, Oregon, Alaska</strong> : pas de sales tax au niveau état. (Le Wyoming, lui, EN A une — 4% état + local — même si on y forme volontiers sa LLC : lieu de formation ≠ nexus.)</li>
       </ul>
 
       <h2>Ce qui compte dans le seuil</h2>

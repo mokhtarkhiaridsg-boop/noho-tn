@@ -28,7 +28,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/outils/comparateurs/banques-us", priority: 0.82, freq: "monthly" },
     { path: "/outils/comparateurs/etats-llc", priority: 0.82, freq: "monthly" },
     { path: "/outils/comparateurs/cross-border", priority: 0.82, freq: "monthly" },
-    { path: "/outils/templates", priority: 0.78, freq: "monthly" },
     { path: "/outils/lookups/llc-status", priority: 0.78, freq: "monthly" },
     { path: "/outils/lookups/ein-status", priority: 0.78, freq: "monthly" },
     { path: "/outils/lookups/hts-code", priority: 0.78, freq: "monthly" },
@@ -36,7 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/outils/calculateurs/taxes-us-etat", priority: 0.82, freq: "monthly" },
     { path: "/blog", priority: 0.85, freq: "weekly" },
     { path: "/partners", priority: 0.7, freq: "monthly" },
-    { path: "/temoignages", priority: 0.7, freq: "monthly" },
     { path: "/track", priority: 0.5, freq: "monthly" },
     { path: "/security", priority: 0.5, freq: "monthly" },
     { path: "/diagnostic", priority: 0.9, freq: "weekly" },
@@ -52,7 +50,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // — so Google had no discovery path to either. Both have a working /fr
     // mirror, verified before adding: a sitemap entry that 404s is worse than
     // no entry at all.
-    { path: "/virtual-mailbox/tunisie", priority: 0.9, freq: "weekly" },
   ];
 
   /*

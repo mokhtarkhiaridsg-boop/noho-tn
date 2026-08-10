@@ -273,7 +273,7 @@ export function mercuryPostAcquisitionStack2026Tunisien() {
         <li>Banque tunisienne TND (compte courant TN pour vivre)</li>
       </ul>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu as Mercury et tu veux solidifier ton stack (Treasury, Plan B
         Relay, combo Wise) ?{" "}

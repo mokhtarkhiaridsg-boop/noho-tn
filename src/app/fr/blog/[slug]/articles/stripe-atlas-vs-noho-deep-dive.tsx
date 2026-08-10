@@ -133,10 +133,12 @@ export function stripeAtlasVsNohoDeepDive() {
           ou les ID non-US. Tu dois alors te débrouiller seul.
         </li>
         <li>
-          <strong>NOHO</strong> : notarisation in-house chez Mokhtar
-          (California Notary commission). Inclus. Si tu es à Tunis, le
-          cabinet KHIARI peut notariser localement et NOHO scan + filing
-          via DHL. Délai 7-10 jours. Pas de friction language ou ID.
+          <strong>NOHO</strong> : si tu es à Los Angeles, notarisation
+          en personne au comptoir. Si tu es à Tunis, tu signes devant un
+          notaire tunisien (le cabinet KHIARI peut organiser le rendez-vous)
+          et l&apos;original part vers LA — NOHO gère la réception et le
+          filing. Délai 7-10 jours. Pas de friction langue ou ID. Toujours
+          en personne devant le notaire, jamais en ligne.
         </li>
       </ul>
 

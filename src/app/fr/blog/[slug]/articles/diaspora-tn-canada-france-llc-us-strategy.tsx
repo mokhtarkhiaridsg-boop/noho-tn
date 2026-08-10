@@ -332,7 +332,7 @@ export function diasporaTnCanadaFranceLlcUsStrategy() {
         structure neutre pour binational TN-FR/CA.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu es diaspora TN au Canada ou en France et tu veux explorer
         LLC US ?{" "}

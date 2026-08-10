@@ -19,7 +19,6 @@ const FR_SECTIONS: Section[] = [
     title: "Mailbox & courrier",
     links: [
       { href: "/virtual-mailbox", label: "Adresse US réelle" },
-      { href: "/virtual-mailbox/tunisie", label: "Adresse réelle TN (pré-lancement)" },
       { href: "/shipping", label: "Expédition int'l" },
       { href: "/livraison", label: "Livraison US" },
       { href: "/notary", label: "Form 1583 notarisé" },
@@ -56,7 +55,6 @@ const FR_SECTIONS: Section[] = [
     links: [
       { href: "/partners", label: "Programme affilié" },
       { href: "/partners", label: "Conditions" },
-      { href: "/temoignages", label: "Témoignages" },
     ],
   },
   {
@@ -86,7 +84,6 @@ const FR_SECTIONS: Section[] = [
  */
 const LOCALE_HREF_REMAP: Record<string, string> = {
   "/livraison": "/delivery",
-  "/virtual-mailbox/tunisie": "/virtual-mailbox",
 };
 
 const localizeSections = (sections: Section[]): Section[] =>
@@ -105,7 +102,6 @@ const EN_SECTIONS: Section[] = localizeSections([
     title: "Mailbox & mail",
     links: [
       { href: "/virtual-mailbox", label: "Real US address" },
-      { href: "/virtual-mailbox/tunisie", label: "Real TN address (pre-launch)" },
       { href: "/shipping", label: "International shipping" },
       { href: "/livraison", label: "US delivery" },
       { href: "/notary", label: "Notarized Form 1583" },
@@ -142,7 +138,6 @@ const EN_SECTIONS: Section[] = localizeSections([
     links: [
       { href: "/partners", label: "Affiliate program" },
       { href: "/partners", label: "Terms" },
-      { href: "/temoignages", label: "Testimonials" },
     ],
   },
   {
@@ -207,7 +202,6 @@ const AR_SECTIONS: Section[] = [
     links: [
       { href: "/partners", label: "برنامج الشركاء" },
       { href: "/partners", label: "الشروط" },
-      { href: "/temoignages", label: "الشهادات" },
     ],
   },
   {

@@ -283,7 +283,7 @@ export function carteTechnologiqueBusiness100kTnd2026() {
         + LLC US = optimal pour la majorité des fondateurs TN actifs.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu hésites entre carte tech business et LLC US (ou les deux) ?{" "}
         <Link href="/fr/appel">Réserve un appel</Link>. On math l&apos;économie

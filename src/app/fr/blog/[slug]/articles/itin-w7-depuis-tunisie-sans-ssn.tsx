@@ -8,8 +8,10 @@ export function itinW7DepuisTunisie() {
         Number) est l&apos;équivalent IRS du SSN américain, destiné aux
         non-US persons qui ont une obligation fiscale aux USA. Pour un
         fondateur tunisien, c&apos;est utile dans deux cas précis : tu
-        veux signer un W-9 (pas un W-8BEN), ou tu touches des revenus
-        US-source qui déclenchent une déclaration.
+        remplis un W-8BEN et l&apos;ITIN va en ligne 5 pour réclamer le
+        taux du traité Tunisie-USA, ou tu touches des revenus US-source
+        qui déclenchent une déclaration. (Un non-US person ne signe
+        jamais un W-9 — même avec un ITIN.)
       </p>
 
       <p>
@@ -27,9 +29,9 @@ export function itinW7DepuisTunisie() {
           tu peux réduire ou éliminer cette retenue.
         </li>
         <li>
-          <strong>Tu veux signer un W-9</strong> au lieu d&apos;un
-          W-8BEN. Cas rare mais possible si tu veux apparaître comme
-          contribuable US pour une raison spécifique.
+          <strong>Tu remplis un W-8BEN</strong> et tu veux le taux
+          réduit du traité fiscal Tunisie-USA : l&apos;ITIN va en ligne 5.
+          Sans ITIN, la retenue par défaut de 30% s&apos;applique souvent.
         </li>
         <li>
           <strong>Tu vas acheter de l&apos;immobilier US</strong> en

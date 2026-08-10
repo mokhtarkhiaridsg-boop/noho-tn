@@ -223,7 +223,7 @@ export function llcUsPourDeveloppeurTunisienStackComplet() {
         .
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu es dev tunisien et tu veux mettre en place ce stack ?{" "}
         <Link href="/fr/appel">Réserve un appel</Link>. On audit ton

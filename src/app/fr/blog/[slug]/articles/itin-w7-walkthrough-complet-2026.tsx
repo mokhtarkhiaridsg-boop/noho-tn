@@ -333,7 +333,7 @@ export function itinW7WalkthroughComplet2026() {
         plus rapide (4-7 semaines) et la moins risquée.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu as besoin d&apos;un ITIN et tu te demandes laquelle des 3
         voies te convient ?{" "}

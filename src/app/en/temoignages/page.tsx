@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
-import EnglishStub from "@/app/en/_components/EnglishStub";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Testimonials",
-  robots: { index: false, follow: true },
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/en/temoignages",
-  },
-};
-
-export default function Page() {
-  return <EnglishStub frHref="/fr/temoignages" title="Testimonials" />;
+/**
+ * Retired 2026-08-10 (loop audit): the testimonials page rendered zero
+ * testimonials — an indexable placeholder, which the standing no-pre-launch
+ * rule forbids. Comes back when real case studies exist.
+ */
+export default function Retired() {
+  redirect("/en");
 }

@@ -435,7 +435,7 @@ export function amazonSellerCentralSetupTnDossier() {
         </li>
       </ul>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu veux setup Amazon Seller Central depuis Tunis ?{" "}
         <Link href="/fr/appel">Réserve un appel</Link>. On regarde

@@ -273,8 +273,8 @@ export default function LivraisonPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
-                title: "Stockage gratuit 90 jours",
-                desc: "Tout courrier ou colis reçu est stocké gratuitement pendant 90 jours. Au-delà : 2 USD/colis/semaine.",
+                title: "Stockage inclus",
+                desc: "Courrier : 90 jours gratuits. Colis : 30 / 60 / 90 jours selon le forfait. Au-delà : 6 TND/colis/semaine — voir la grille tarifaire.",
               },
               {
                 title: "Volume colis",

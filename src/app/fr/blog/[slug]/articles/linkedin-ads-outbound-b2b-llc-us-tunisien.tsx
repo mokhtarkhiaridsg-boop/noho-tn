@@ -327,7 +327,7 @@ export function linkedinAdsOutboundB2bLlcUsTunisien() {
         LinkedIn Business limité — friction maximale.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu opères B2B SaaS et tu veux setup LinkedIn Ads + outbound
         via LLC US ?{" "}

@@ -359,7 +359,7 @@ export function upworkToptalFiverrLlcUsRouteFreelanceTunisien() {
         </li>
       </ul>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu es freelance tunisien sur Upwork/Toptal/Fiverr et tu
         veux structurer ta bascule vers LLC US ?{" "}

@@ -361,7 +361,7 @@ export function shopifyPaymentsTunisieVsLlcUsRoute() {
         Authority). Frais &gt; 4-5%.
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu veux migrer ton Shopify TN vers une route LLC US ?{" "}
         <Link href="/fr/appel">Réserve un appel</Link>. On regarde ta

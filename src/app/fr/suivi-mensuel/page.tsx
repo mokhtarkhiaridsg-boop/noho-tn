@@ -149,7 +149,7 @@ export default function RetainerPage() {
             Pour quel profil ?
           </h2>
           <p className="text-[14px] mb-7" style={{ color: "rgba(45,16,15,0.65)" }}>
-            Authority via Honest Self-Disclosure — voici quand le Suivi mensuel fait sens et quand non.
+            En toute franchise — voici quand le Suivi mensuel fait sens, et quand non.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -214,7 +214,7 @@ export default function RetainerPage() {
       <section className="px-5 sm:px-6 py-14 sm:py-16" style={{ background: INK, color: CREAM }}>
         <div className="max-w-3xl mx-auto">
           <p className="text-[11px] font-black uppercase tracking-[0.18em] mb-3" style={{ color: RED }}>
-            Loss Aversion documentée
+            Ce que l'inaction coûte
           </p>
           <h2 className="font-extrabold mb-2" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.25rem)", fontFamily: "var(--font-baloo), sans-serif" }}>
             Ce qu&apos;une LLC non maintenue coûte vraiment

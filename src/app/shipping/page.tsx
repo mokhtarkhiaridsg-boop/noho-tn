@@ -31,9 +31,9 @@ const GREEN = "#2D7A4A";
 const TN_LABELS: LabelClientLabels = {
   intro:
     "Destination + colis → tarifs live 7a9i9iyin mta3 el transporteurs. Tekhtar elli yerta7lek, w el label yetsna3 ba3d ma tkhalles b dinar.",
-  toName: "Esm el destinataire", street: "Adresse", city: "Mdina", state: "Région/État", zip: "Code postal", country: "Pays (code — TN, FR, US…)",
-  suite: "Suite NOHO mte3ek (optionnel)", suiteHint: "ex. 122 — ken el colis yokhrej men boîte mte3ek",
-  length: "Toul (in)", width: "3ordh (in)", height: "Irtife3 (in)", weight: "Wazn (lb)",
+  toName: "Nom du destinataire", street: "Adresse", city: "Ville", state: "Région/État", zip: "Code postal", country: "Pays (code — TN, FR, US…)",
+  suite: "Votre suite NOHO (optionnel)", suiteHint: "ex. 122 — si le colis part de votre boîte",
+  length: "Longueur (in)", width: "Largeur (in)", height: "Hauteur (in)", weight: "Poids (lb)",
   getRates: "Voir les tarifs en direct", gettingRates: "9a3din nes2lou el transporteurs…",
   pickRate: "Choisir ton tarif", days: "iyem",
   email: "Email mte3ek", phone: "Téléphone (optionnel)",

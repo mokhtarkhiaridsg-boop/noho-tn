@@ -64,7 +64,7 @@ const FAQ_GROUPS = [
       },
       {
         q: "Vais-je payer des impôts deux fois ?",
-        a: "Possiblement, selon ta situation. La LLC paie ses propres taxes US (Form 5472 + Form 1120 pro forma annuels). Le bénéficiaire effectif tunisien reste soumis à ses obligations déclaratives en Tunisie sur son revenu mondial. La convention fiscale franco-tunisienne et la coordination CPA US + fiscaliste TN permettent d'éviter la double imposition stricte dans la plupart des cas. À discuter avec ton fiscaliste.",
+        a: "Possiblement, selon ta situation. La LLC paie ses propres taxes US (Form 5472 + Form 1120 pro forma annuels). Le bénéficiaire effectif tunisien reste soumis à ses obligations déclaratives en Tunisie sur son revenu mondial. La convention fiscale Tunisie–États-Unis (1985) et la coordination CPA US + fiscaliste TN permettent d'éviter la double imposition stricte dans la plupart des cas. À discuter avec ton fiscaliste.",
       },
       {
         q: "Que se passe-t-il avec la CRS de septembre 2026 ?",

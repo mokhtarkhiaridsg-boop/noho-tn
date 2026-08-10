@@ -335,7 +335,7 @@ export function cinTunisienneMercuryKycDocumentsAcceptes() {
         dossier incomplet).
       </p>
 
-      <h2>CTA</h2>
+      <h2>Et maintenant ?</h2>
       <p>
         Tu prépares ton dossier Mercury et tu hésites sur tes
         documents tunisiens ?{" "}

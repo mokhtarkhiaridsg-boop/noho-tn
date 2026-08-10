@@ -48,7 +48,7 @@ export default function TermsPage() {
           <p>
             NOHO garantit la livraison contractuelle des éléments de la Solution
             (formation LLC, EIN, adresse, Form 1583, brand, site, social,
-            stratégie) en 14 jours. NOHO ne garantit PAS : (a) le délai
+            stratégie) en 14 à 21 jours. NOHO ne garantit PAS : (a) le délai
             d&apos;émission de l&apos;EIN par l&apos;IRS (4-6 semaines
             typique, hors de notre contrôle) ; (b) l&apos;approbation Mercury,
             Stripe, ou tout autre fournisseur tiers ; (c) l&apos;admission
