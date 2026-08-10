@@ -11,10 +11,29 @@ function cleanEnv(v: string | undefined): string {
   return (v ?? "").replace(/[\r\n\t"]/g, "").trim();
 }
 
-const POSTMARK_TOKEN = cleanEnv(process.env.POSTMARK_SERVER_TOKEN);
-const FROM =
+/**
+ * Read env at REQUEST time, not module-evaluation time.
+ *
+ * 2026-08-09: every Tunisian consultation lead was being dropped with
+ * "[email] POSTMARK_SERVER_TOKEN missing — notification skipped", and adding the
+ * variable in Vercel did not fix it. Two reasons, both invisible from the code:
+ *
+ *  1. Vercel's env-var save triggers a *redeploy* of the previous build output
+ *     (deployment meta literally says action:"redeploy"), so the new value is
+ *     not in the bundle a redeploy ships. A real rebuild is required.
+ *  2. The variable was created with Vercel's **Sensitive** flag, and sensitive
+ *     values are not exposed to the build. `vercel env pull` returned
+ *     POSTMARK_SERVER_TOKEN="" — so whatever the bundler captured was empty.
+ *
+ * Reading these at module scope let an empty build-time value get frozen in for
+ * the life of the deployment. Reading them per call means the function picks up
+ * whatever the runtime actually has, so a correct value starts working without
+ * another code change.
+ */
+const token = () => cleanEnv(process.env.POSTMARK_SERVER_TOKEN);
+const from = () =>
   cleanEnv(process.env.EMAIL_FROM) || "NOHO Tunisia <mokhtar.khiari@nohomailbox.org>";
-const NOTIFY_TO =
+const notifyTo = () =>
   cleanEnv(process.env.NOTIFY_EMAIL) || "mokhtar.khiari.dsg@gmail.com";
 
 export async function sendInternalNotification(opts: {
@@ -22,6 +41,7 @@ export async function sendInternalNotification(opts: {
   html: string;
   text: string;
 }): Promise<{ ok: boolean; error?: string }> {
+  const POSTMARK_TOKEN = token();
   if (!POSTMARK_TOKEN) {
     console.warn("[email] POSTMARK_SERVER_TOKEN missing — notification skipped:", opts.subject);
     return { ok: false, error: "no token" };
@@ -35,8 +55,8 @@ export async function sendInternalNotification(opts: {
         "X-Postmark-Server-Token": POSTMARK_TOKEN,
       },
       body: JSON.stringify({
-        From: FROM,
-        To: NOTIFY_TO,
+        From: from(),
+        To: notifyTo(),
         Subject: opts.subject,
         HtmlBody: opts.html,
         TextBody: opts.text,
