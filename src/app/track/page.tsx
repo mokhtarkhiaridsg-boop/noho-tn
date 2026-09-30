@@ -6,8 +6,8 @@
  * searchParams. With a number we render the shared carrier-detection router;
  * with none we still serve the French link-out page verbatim, because this
  * route has no derja copy yet and a "mazelet fel tarjma" dead end is worse.
- * Canonical stays on the root URL — this IS the default site, not a
- * translation of it. When derja lands, replace the fallback below.
+ * The fallback text is the French page verbatim, so canonical points at
+ * /fr/track. When derja lands, replace the fallback below and point it back.
  */
 import type { Metadata } from "next";
 import FrPage, { metadata as frMetadata } from "@/app/fr/track/page";
@@ -15,7 +15,7 @@ import TrackRouter from "@/components/landing/TrackRouter";
 
 export const metadata: Metadata = {
   ...frMetadata,
-  alternates: { canonical: "https://nohomailboxtunis.com/track" },
+  alternates: { canonical: "https://nohomailboxtunis.com/fr/track" },
 };
 
 export default async function TnTrackPage({

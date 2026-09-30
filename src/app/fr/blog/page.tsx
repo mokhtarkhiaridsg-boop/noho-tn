@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Blog — Guides, comparateurs et cas pratiques pour Tunisiens",
   description:
     "Articles SEO sur la création de société US/TN, banque, Stripe, visa, conformité Form 5472, BCT, fiscalité. Tous les détails service-par-service.",
-  alternates: { canonical: "https://nohomailboxtunis.com/fr/blog" },
+  alternates: { canonical: "https://nohomailboxtunis.com/blog" },
 };
 
 const CREAM = "#F7E6C2";

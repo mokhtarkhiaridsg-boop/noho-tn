@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SignupForm from "@/components/SignupForm";
+import { singleAlternates } from "@/lib/seo";
 
 const CREAM = "#F7E6C2";
 const INK = "#2D100F";
@@ -10,14 +11,7 @@ export const metadata: Metadata = {
   title: "Inscription — adresse US 7a9i9ia m3a NOHO",
   description:
     "A3mel compte NOHO Mailbox. Adresse US 7a9i9ia fi Los Angeles, colis w courrier, tkhalles b dinar. El équipe ta3tik numéro el boîte mte3ek ba3d el vérification.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/inscription",
-    languages: {
-      "aeb-TN": "https://nohomailboxtunis.com/inscription",
-      "fr-TN": "https://nohomailboxtunis.com/fr/inscription",
-      "x-default": "https://nohomailboxtunis.com/inscription",
-    },
-  },
+  alternates: singleAlternates("/inscription"),
 };
 
 export default function InscriptionPage() {

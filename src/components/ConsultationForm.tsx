@@ -1,6 +1,7 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
+import { track } from "@vercel/analytics";
 import { submitConsultation, type ConsultationState } from "@/app/actions/consultation";
 
 const INK = "#2D100F";
@@ -31,6 +32,9 @@ export default function ConsultationForm({
   };
 }) {
   const [state, action, pending] = useActionState(submitConsultation, initial);
+  useEffect(() => {
+    if (state.ok) track("consult_submitted");
+  }, [state.ok]);
 
   const L = labels ?? {
     email: "Email",

@@ -2,19 +2,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { waLink } from "@/lib/whatsapp";
+import { localeAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Tarifs b dinar — Adresse US, Business, Suivi mensuel, Étudiants",
   description:
     "Tarifs wadh7in b dinar tounsi. Adresse US 35-150 TND/chhar. Business 4 000 TND marra barka. Suivi mensuel 1 200 TND/chhar. Portail Étudiants 1 800 TND/an. Bla frais mkhabbiin, bla scarcity mafabrkia.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/tarifs",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/tarifs",
-      "ar-TN": "https://nohomailboxtunis.com/ar/tarifs",
-      "aeb-TN": "https://nohomailboxtunis.com/tarifs",
-    },
-  },
+  alternates: localeAlternates("/tarifs", "tn"),
 };
 
 const CREAM = "#F7E6C2";
@@ -203,7 +197,7 @@ export default function TounsiTarifsPage() {
             className="text-center text-[13px] mt-7 max-w-xl mx-auto"
             style={{ color: "rgba(45,16,15,0.6)" }}
           >
-            Notariat (Form 1583) : inclus m3a el adresse US. Notariat ponctuel
+            Vérification Form 1583 (règle USPS) : incluse m3a el adresse US. Notariat ponctuel
             mawjoud zeda —{" "}
             <Link href="/notary" className="underline font-black">
               chouf el notariat

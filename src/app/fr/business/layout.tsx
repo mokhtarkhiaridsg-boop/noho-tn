@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
+import { localeAlternates } from "@/lib/seo";
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: "Accueil", url: "https://nohomailboxtunis.com/fr" },
@@ -17,15 +18,7 @@ export const metadata: Metadata = {
       "Société US ou TN, EIN, marque, site, 12 mois de courrier à notre adresse de LA — 4 000 TND, une fois. Réserve un appel de 30 minutes.",
     url: "https://nohomailboxtunis.com/fr/business",
   },
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr/business",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/business",
-      "ar-TN": "https://nohomailboxtunis.com/ar/business",
-      "en-US": "https://nohomailbox.org/business-solutions",
-      "es-US": "https://nohomailbox.org/es/negocios",
-    },
-  },
+  alternates: localeAlternates("/business", "fr"),
 };
 
 const serviceJsonLd = {

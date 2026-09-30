@@ -2,19 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import StampCard from "@/components/StampCard";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
+import { localeAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Tarifs — Adresse US réelle, Business, Suivi mensuel (dinars)",
   description:
     "Adresse US réelle 35-150 TND/mois. Business 4 000 TND une fois. Suivi mensuel 1 200 TND/mois. Portail Étudiants 1 800 TND/an. Grille tarifaire complète + politique de stockage et de réexpédition depuis le storefront US.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr/tarifs",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/tarifs",
-      "ar-TN": "https://nohomailboxtunis.com/ar/tarifs",
-      "x-default": "https://nohomailboxtunis.com/tarifs",
-    },
-  },
+  alternates: localeAlternates("/tarifs", "fr"),
 };
 
 const CREAM = "#F7E6C2";
@@ -47,7 +41,7 @@ const MAILBOX_PLANS = [
     bullets: [
       "Adresse postale US réelle (Lankershim Blvd)",
       "5 scans de courrier inclus / mois",
-      "Form 1583 USPS notarisé inclus",
+      "Form 1583 USPS préparé et vérifié inclus",
       "Stockage 30 jours",
       "Forwarding sur demande (frais postaux en sus)",
     ],
@@ -107,7 +101,7 @@ const PRODUCTS = [
     name: "Notariat (Form 1583)",
     price: "Inclus",
     unit: "avec mailbox",
-    desc: "Notaire californien sur place. Incluse avec l'adresse US réelle. Notariat ponctuel possible.",
+    desc: "Signature vérifiée devant notre équipe au comptoir, ou devant un notaire commissionné aux États-Unis (règle USPS). Incluse avec l'adresse US réelle. Notariat ponctuel possible.",
     href: "/fr/notary",
   },
 ];
@@ -158,7 +152,7 @@ const POLICIES = [
   },
   {
     q: "Form 1583 USPS — pourquoi obligatoire et combien ça coûte ?",
-    a: "Form 1583 est l'autorisation USPS pour qu'on reçoive ton courrier en ton nom. Obligatoire pour tout CMRA américain enregistré USPS. Notarisation incluse dans tous les forfaits Adresse US réelle. Si tu changes d'adresse en Tunisie : re-notarisation gratuite.",
+    a: "Form 1583 est l'autorisation USPS pour qu'on reçoive ton courrier en ton nom. Obligatoire pour tout CMRA américain enregistré USPS. La vérification de signature exigée par l'USPS (devant notre équipe ou un notaire commissionné aux États-Unis ; un notaire tunisien n'est pas accepté) est incluse dans tous les forfaits Adresse US réelle. Si tu changes d'adresse en Tunisie : re-notarisation gratuite.",
   },
   {
     q: "Politiques applicables aux colis transitant via le storefront US",
@@ -284,7 +278,7 @@ export default function TarifsPage() {
                       className="text-[10px] mt-1 font-bold"
                       style={{ color: plan.primary ? "rgba(247,230,194,0.55)" : "rgba(45,16,15,0.5)" }}
                     >
-                      Form 1583 notarisé inclus
+                      Form 1583 préparé et vérifié inclus
                     </p>
                   </div>
                   <ul className="space-y-2.5 text-sm mt-5 mb-7">

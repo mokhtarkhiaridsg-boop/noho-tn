@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
+import { singleAlternates } from "@/lib/seo";
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: "Accueil", url: "https://nohomailboxtunis.com/fr" },
@@ -23,14 +24,7 @@ export const metadata: Metadata = {
   title: "Solution Étudiants — Université US end-to-end depuis Tunis",
   description:
     "Admission Common App, visa F-1, TOEFL/SAT/GRE, WES credentials, apostille TN-US, accueil aéroport. Tout le pipeline étudiant US depuis Tunis.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr/agent/student",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/agent/student",
-      "ar-TN": "https://nohomailboxtunis.com/ar/agent/student",
-      "x-default": "https://nohomailboxtunis.com/agent/student",
-    },
-  },
+  alternates: singleAlternates("/fr/agent/student"),
 };
 
 const CREAM = "#F7E6C2";

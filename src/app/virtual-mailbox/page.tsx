@@ -1,19 +1,29 @@
 {/* TODO: native derja review */}
 import type { Metadata } from "next";
 import Link from "next/link";
+import { localeAlternates } from "@/lib/seo";
+import WhatsAppCTA from "@/components/WhatsAppCTA";
+
+const FROM_TUNISIA = [
+  { n: 1, t: "Tsajjel en ligne", b: "Esmek, email w téléphone. Tjik email bech tedkhol l espace mte3ek, w l'équipe tkallmek bech tekhtar el forfait." },
+  { n: 2, t: "El identité w Form 1583", b: "USPS tfardh el formulaire PS 1583 w zouz pièces d'identité, wa7da fiha taswira (el passeport maqboul). El signature lazemha tsir 9odem employé mta3 NOHO Mailbox wala 9odem notaire commissionné fel USA. Notaire tounsi mouch maqboul 3and USPS." },
+  { n: 3, t: "Nestacblou el courrier w el colis", b: "Jwabet w colis USPS, UPS, FedEx, DHL w Amazon (el forfait Free ma y9abbelch USPS). Kol 7aja twasel tetla3lek fel espace mte3ek." },
+  { n: 4, t: "T9arrer mel Tounes", b: "Scan el courrier, réexpédition l Tounes b tarif el transporteur, tjami3 el colis 7asb el forfait, stockage wala destruction." },
+];
+
+const BILLED_SEPARATELY = [
+  "El réexpédition 3al demande : tarif el transporteur + 4 TND handling 3al envoi (formules hebdo w urgente : chouf page tarifs).",
+  "Scans zeydin 3al quota mta3 forfaitek : 2 TND lel page.",
+  "Stockage el colis ba3d el modda el incluse : 6 TND lel colis fel jem3a.",
+  "Droits w taxes mta3 el douane tounsiya, tkhallashom ki youslek el colis.",
+  "Frais el notaire, ken tsigni Form 1583 9odem notaire commissionné fel USA.",
+];
 
 export const metadata: Metadata = {
-  title: "Adresse US 7a9i9ia — scan, colis, forwarding men 35 TND/chhar",
+  title: "Adresse postale fel America mel Tounes — men 35 TND/chhar",
   description:
-    "Adresse postale US 7a9i9ia fi Los Angeles. Scan mta3 courrier fi nefs enhar 3al dashboard. Colis (Amazon, UPS, FedEx, DHL). Ndezzouhom l Tounes. Forfait Free pay-as-you-go (wallet, colis bla USPS) wala 35, 75, 150 TND/chhar.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/virtual-mailbox",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/virtual-mailbox",
-      "ar-TN": "https://nohomailboxtunis.com/ar/virtual-mailbox",
-      "aeb-TN": "https://nohomailboxtunis.com/virtual-mailbox",
-    },
-  },
+    "Adresse postale 7a9i9ia fel America (North Hollywood, Californie), tgérérha mel Tounes : scan courrier, colis Amazon, UPS, FedEx w DHL, réexpédition l Tounes. Forfaits 35, 75 wala 150 TND/chhar, wala Free ki testa3mel.",
+  alternates: localeAlternates("/virtual-mailbox", "tn", { ar: true }),
 };
 
 const CREAM = "#F7E6C2";
@@ -46,7 +56,7 @@ const PLANS = [
       ["Forwarding ki t7eb", "Frais postal el 7a9i9i + 4 TND handling"],
       ["Stockage colis 30 jours", "Courrier 90 jours inclus. Ekther : 6 TND 3al colis fel jem3a"],
       ["Dashboard en ligne", "Tchouf el courrier elli wsellek el kol"],
-      ["Notarisation Form 1583", "Incluse fel setup"],
+      ["Form 1583 (USPS)", "Nhadhrouh m3ak fel setup"],
     ],
   },
   {
@@ -87,8 +97,8 @@ const USES = [
     b: "Les sites hedhom barcha marrat ma ywaslouch l Tounes. B adresse US, tcommandi elli t7eb.",
   },
   {
-    t: "T7ell Stripe, Mercury, Wise Business",
-    b: "El fournisseurs hedhom yelzemhom adresse US 7a9i9ia (mch boîte postale anonyme sm3etha khayba). NOHO y3addi el vérifications mte3hom.",
+    t: "Testacbel courrier el LLC w el comptes mte3ek",
+    b: "Adresse de rue 7a9i9ia lel correspondance mta3 charikatek el américaine. Kol bank wala prestataire paiement 3andou règles mte3ou 3al adresse : ma najmouch ngarantiw elli y9abbelha.",
   },
   {
     t: "Testacbel courrier business US",
@@ -104,7 +114,7 @@ const USES = [
   },
   {
     t: "Adresse stable mte3ek dima",
-    b: "Lel SSN, ITIN, permis américain, el bnouk — adresse stable tesswa dheheb ki tbaddel dar barcha.",
+    b: "Adresse ma titbaddelch ki tbaddel dar : mli7a lel IRS, courrier el ITIN wala abonnements. Ma t3awadhch adresse de résidence ki organisme yotlob wa7da.",
   },
 ];
 
@@ -132,13 +142,51 @@ const PROCESS = [
   {
     n: 5,
     t: "Ndezzou l Tounes",
-    b: "USPS Priority Mail International (~7-10 iyem), UPS Worldwide Expedited (~3-5 iyem), DHL Express (~2-3 iyem). Enti tekhtar el délai vs el prix.",
+    b: "USPS Priority Mail International, UPS, FedEx wala DHL Express : enti tekhtar bin el prix w el sor3a. Délais indicatifs mta3 el transporteurs, bla dédouanement w bla garantie.",
   },
 ];
 
 export default function TounsiVirtualMailboxPage() {
   return (
     <>
+      {/* HERO */}
+      <section className="px-5 sm:px-6 pt-12 sm:pt-16 pb-6" style={{ background: "#fff" }}>
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-[11px] font-black uppercase tracking-[0.18em] mb-3" style={{ color: BLUE }}>
+            Adresse postale fel USA
+          </p>
+          <h1
+            className="font-extrabold tracking-tight mb-5"
+            style={{ fontFamily: "var(--font-baloo), sans-serif", fontSize: "clamp(2rem, 5vw, 3.4rem)", color: INK, lineHeight: 1.1 }}
+          >
+            Adresse postale 7a9i9ia fel America, tgérérha mel Tounes
+          </h1>
+          <p className="text-[16px] leading-relaxed mb-6" style={{ color: "rgba(45,16,15,0.78)" }}>
+            Adresse de rue 7a9i9ia : 5062 Lankershim Blvd, North Hollywood (Californie), m3a
+            numéro el boîte mte3ek. Nestacblou el courrier w el colis mte3ek fel local mte3na,
+            tchouf kol 7aja twasel fel espace mte3ek en ligne, w enti t9arrer : scan,
+            réexpédition l Tounes, stockage wala destruction.
+          </p>
+          <ul className="flex flex-wrap justify-center gap-2 mb-7 text-[12.5px] font-bold" style={{ color: INK }}>
+            <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>Tarifs b dinar tounsi (TND)</li>
+            <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>Vérification d&apos;identité — USPS tfardhha</li>
+            <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>Réexpédition b tarif el transporteur</li>
+          </ul>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="/inscription"
+              data-track="signup_click"
+              data-track-from="tn_virtual_mailbox_hero"
+              className="inline-block font-black px-8 py-4 rounded-2xl text-[15px]"
+              style={{ background: INK, color: CREAM }}
+            >
+              N7ell el boîte mte3i →
+            </Link>
+            <WhatsAppCTA intent="adresse">3andek sou2el ? WhatsApp</WhatsAppCTA>
+          </div>
+        </div>
+      </section>
+
       {/* PLANS */}
       <section className="px-5 sm:px-6 py-14 sm:py-20" style={{ background: "#fff" }}>
         <div className="max-w-6xl mx-auto">
@@ -207,6 +255,8 @@ export default function TounsiVirtualMailboxPage() {
                 </ul>
                 <Link
                   href="/inscription"
+                  data-track="plan_select"
+                  data-track-plan={plan.name}
                   className="block w-full text-center font-black px-5 py-3 rounded-xl text-[14px]"
                   style={{
                     background: plan.primary ? CREAM : INK,
@@ -222,7 +272,7 @@ export default function TounsiVirtualMailboxPage() {
             className="text-center text-[12px] mt-7 max-w-xl mx-auto"
             style={{ color: "rgba(45,16,15,0.55)" }}
           >
-            Notarisation Form 1583 mta3 USPS incluse fel setup mta3 el forfaits
+            Form 1583 mta3 USPS nhadhrouh m3ak fel setup mta3 el forfaits
             payants lkol. El forfait Free bla USPS — donc bla Form 1583.
             Tnajjem twa99ef wa9telli t7eb.
           </p>
@@ -286,6 +336,48 @@ export default function TounsiVirtualMailboxPage() {
       </section>
 
       {/* CTA */}
+      {/* FROM TUNISIA */}
+      <section className="px-5 sm:px-6 py-14 sm:py-16" style={{ background: "#fff" }}>
+        <div className="max-w-4xl mx-auto">
+          <h2
+            className="text-center font-extrabold mb-10"
+            style={{ fontSize: "clamp(1.6rem, 3.8vw, 2.4rem)", color: INK, fontFamily: "var(--font-baloo), sans-serif" }}
+          >
+            Kifech temchi mel Tounes
+          </h2>
+          <ol className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+            {FROM_TUNISIA.map((s) => (
+              <li key={s.n} className="flex gap-4 p-5 rounded-2xl" style={{ background: CREAM }}>
+                <span
+                  className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center font-extrabold"
+                  style={{ background: INK, color: CREAM, fontFamily: "var(--font-baloo), sans-serif" }}
+                  aria-hidden="true"
+                >
+                  {s.n}
+                </span>
+                <div>
+                  <h3 className="font-black text-[15.5px] mb-1" style={{ color: INK }}>{s.t}</h3>
+                  <p className="text-[13.5px] leading-relaxed" style={{ color: "rgba(45,16,15,0.78)" }}>{s.b}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <div className="p-6 rounded-3xl" style={{ background: "#EBF2FA" }}>
+            <h3 className="font-black text-[17px] mb-3" style={{ color: INK }}>Chnowa yetkhalles wa7dou</h3>
+            <ul className="space-y-2 text-[14px] leading-relaxed list-disc pl-5" style={{ color: "rgba(45,16,15,0.82)" }}>
+              {BILLED_SEPARATELY.map((l) => (
+                <li key={l}>{l}</li>
+              ))}
+            </ul>
+            <p className="text-[13px] mt-4" style={{ color: "rgba(45,16,15,0.65)" }}>
+              El grille el kemla fi <Link href="/tarifs" className="underline font-bold">page tarifs</Link>.
+              Lel colis elli techrihom en ligne, chouf zeda{" "}
+              <Link href="/fr/reexpedition-colis-usa-tunisie" className="underline font-bold">réexpédition colis USA → Tounes</Link>.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="px-5 sm:px-6 py-16 sm:py-20 text-center" style={{ background: CREAM }}>
         <div className="max-w-xl mx-auto">
           <h2
@@ -295,14 +387,23 @@ export default function TounsiVirtualMailboxPage() {
             7adher tebda ?
           </h2>
           <p className="text-[15px] leading-relaxed mb-8" style={{ color: "rgba(45,16,15,0.75)" }}>
-            Ekhtar el forfait mte3ek w kallamna. El setup el kemel yekhou 48h
-            ba3d ma yousel Form 1583 notarisé.
+            Tsajjel en ligne, wala kallamna bech tekhtar el forfait w nhadhrou
+            Form 1583 m3a b3adhna.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/contact"
-              className="inline-block font-black px-8 py-4 rounded-2xl text-[15px] transition-all hover:scale-[1.02]"
+              href="/inscription"
+              data-track="signup_click"
+              data-track-from="tn_virtual_mailbox_footer"
+              className="inline-block font-black px-8 py-4 rounded-2xl text-[15px] transition-transform hover:scale-[1.02]"
               style={{ background: INK, color: CREAM, boxShadow: "0 6px 28px rgba(45,16,15,0.28)" }}
+            >
+              N7ell el boîte mte3i →
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-block font-black px-8 py-4 rounded-2xl text-[15px] border-2 transition-transform hover:scale-[1.02]"
+              style={{ background: "transparent", color: INK, borderColor: INK }}
             >
               Kallamna
             </Link>

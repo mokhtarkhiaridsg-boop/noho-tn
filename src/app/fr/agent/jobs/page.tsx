@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
+import { singleAlternates } from "@/lib/seo";
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: "Accueil", url: "https://nohomailboxtunis.com/fr" },
@@ -23,14 +24,7 @@ export const metadata: Metadata = {
   title: "Solution Application Emploi — Job US accompagné depuis Tunis",
   description:
     "CV US-style, LinkedIn US, numéro US sur applications, coordination interviews, visa H-1B/O-1/L-1, négociation d'offre, relocation US.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr/agent/jobs",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/agent/jobs",
-      "ar-TN": "https://nohomailboxtunis.com/ar/agent/jobs",
-      "x-default": "https://nohomailboxtunis.com/agent/jobs",
-    },
-  },
+  alternates: singleAlternates("/fr/agent/jobs"),
 };
 
 const CREAM = "#F7E6C2";

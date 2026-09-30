@@ -3,6 +3,7 @@ import Link from "next/link";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
 import { AiBox, AiShield, AiBolt, AiPin, AiSparkle, AiHeart } from "@/components/AnimatedIcons";
 import OpenStatusPill from "@/components/OpenStatusPill";
+import { singleAlternates } from "@/lib/seo";
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: "Accueil", url: "https://nohomailboxtunis.com/fr" },
@@ -24,14 +25,7 @@ export const metadata: Metadata = {
   title: "L'Agent — Ton agent américain et tunisien",
   description:
     "Quand tu ne peux pas être en Amérique, NOHO l'est pour toi. Solutions pour e-commerce, étudiants tunisiens, et candidats à l'emploi US — opérés depuis Tunis et Los Angeles.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr/agent",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/agent",
-      "ar-TN": "https://nohomailboxtunis.com/ar/agent",
-      "x-default": "https://nohomailboxtunis.com/agent",
-    },
-  },
+  alternates: singleAlternates("/fr/agent"),
 };
 
 /* ─── Palette ─── */

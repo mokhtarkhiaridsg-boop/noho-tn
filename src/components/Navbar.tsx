@@ -31,8 +31,17 @@ const NAV_SHAPE: { href: string; key: string; highlight?: boolean; childKeys?: s
   { href: "/virtual-mailbox", key: "address", highlight: true },
   { href: "/business", key: "business" },
   { href: "/etudiants", key: "students" },
-  { href: "/services", key: "services", childKeys: ["mail", "delivery", "shipping", "notary"] },
+  { href: "/services", key: "services", childKeys: ["forwarding", "mail", "delivery", "shipping", "notary"] },
 ];
+
+/*
+ * The forwarding page exists in French and Arabic only (the bare path
+ * re-exports the French one), so derja and English visitors are sent to the
+ * French page instead of a prefixed URL that would 404.
+ */
+function forwardingHref(locale: Locale): string {
+  return locale === "ar" ? "/ar/reexpedition-colis-usa-tunisie" : "/fr/reexpedition-colis-usa-tunisie";
+}
 
 const CHILD_HREF: Record<string, string> = {
   mail: "/services",
@@ -49,6 +58,7 @@ const LABELS: Record<Locale, Record<string, LabelEntry>> = {
     business: { label: "Business" },
     students: { label: "Étudiants" },
     services: { label: "Services" },
+    forwarding: { label: "Colis USA → Tounes", desc: "Réexpédition b tarif el transporteur" },
     mail: { label: "Courrier & Colis", desc: "Scan, forwarding w pickup" },
     delivery: { label: "Livraison US", desc: "Livraison fi Los Angeles" },
     shipping: { label: "Devis d'expédition", desc: "Compare les tarifs" },
@@ -59,6 +69,7 @@ const LABELS: Record<Locale, Record<string, LabelEntry>> = {
     business: { label: "Business" },
     students: { label: "Étudiants" },
     services: { label: "Services" },
+    forwarding: { label: "Colis USA → Tunisie", desc: "Réexpédition au tarif du transporteur" },
     mail: { label: "Courrier & Colis", desc: "Scan, forwarding et pickup" },
     delivery: { label: "Livraison US", desc: "Livraison sur Los Angeles" },
     shipping: { label: "Devis d'expédition", desc: "Compare les tarifs" },
@@ -69,6 +80,7 @@ const LABELS: Record<Locale, Record<string, LabelEntry>> = {
     business: { label: "الأعمال" },
     students: { label: "الطلاب" },
     services: { label: "الخدمات" },
+    forwarding: { label: "الشحن من أمريكا إلى تونس" },
     mail: { label: "البريد والطرود" },
     delivery: { label: "التوصيل في أمريكا" },
     shipping: { label: "الشحن" },
@@ -79,6 +91,7 @@ const LABELS: Record<Locale, Record<string, LabelEntry>> = {
     business: { label: "Business" },
     students: { label: "Students" },
     services: { label: "Services" },
+    forwarding: { label: "US → Tunisia parcels", desc: "Forwarding at carrier rates (French page)" },
     mail: { label: "Mail & Packages", desc: "Scanning, forwarding & pickup" },
     delivery: { label: "US Delivery", desc: "Delivery across Los Angeles" },
     shipping: { label: "Shipping Quote", desc: "Compare carrier rates" },
@@ -95,7 +108,7 @@ function buildLinks(locale: Locale): NavLink[] {
     label: labels[n.key]!.label,
     highlight: n.highlight,
     children: n.childKeys?.map((k) => ({
-      href: prefix + CHILD_HREF[k]!,
+      href: k === "forwarding" ? forwardingHref(locale) : prefix + CHILD_HREF[k]!,
       label: labels[k]!.label,
       desc: labels[k]!.desc,
     })),

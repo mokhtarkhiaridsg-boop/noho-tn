@@ -3,6 +3,7 @@ import Link from "next/link";
 import { waLink } from "@/lib/whatsapp";
 import ConsultationForm from "@/components/ConsultationForm";
 import Reveal from "@/components/anim/Reveal";
+import { localeAlternates } from "@/lib/seo";
 
 /*
  * Tounsi (derja, Latin script) version of /business.
@@ -17,14 +18,7 @@ export const metadata: Metadata = {
   title: "Business — lanci el société mte3ek, el ba9i 3lina",
   description:
     "Business 4 000 TND marra barka (14-21 jour) · Suivi mensuel 1 200 TND/chhar bla engagement.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/business",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/business",
-      "ar-TN": "https://nohomailboxtunis.com/ar/business",
-      "aeb-TN": "https://nohomailboxtunis.com/business",
-    },
-  },
+  alternates: localeAlternates("/business", "tn"),
 };
 
 const CREAM = "#F7E6C2";

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
+import { singleAlternates } from "@/lib/seo";
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: "Accueil", url: "https://nohomailboxtunis.com/fr" },
@@ -22,14 +23,7 @@ export const metadata: Metadata = {
   title: "Notaire californien — Form 1583 + notariat général",
   description:
     "Notaire commissionné en Californie sur place au storefront 5062 Lankershim. Form 1583 USPS, notariat de documents généraux, apostille, traduction certifiée.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr/notary",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/notary",
-      "ar-TN": "https://nohomailboxtunis.com/ar/notary",
-      "x-default": "https://nohomailboxtunis.com/notary",
-    },
-  },
+  alternates: singleAlternates("/fr/notary"),
 };
 
 const CREAM = "#F7E6C2";

@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
+import { singleAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Outils — Calculateurs, comparateurs et guides gratuits",
   description:
     "Calculateur Form 5472, convertisseur TND ↔ USD, comparateur Mercury vs Relay, comparateur Wyoming vs Delaware vs NM, guide Stripe approval.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr/outils",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/outils",
-      "ar-TN": "https://nohomailboxtunis.com/ar/outils",
-      "x-default": "https://nohomailboxtunis.com/outils",
-    },
-  },
+  alternates: singleAlternates("/fr/outils"),
 };
 
 const CREAM = "#F7E6C2";
@@ -213,7 +207,7 @@ const LIVE_LOOKUPS = [
   {
     href: "/fr/outils/lookups/form-1583",
     title: "Form 1583 USPS",
-    desc: "Le process complet de notarisation en personne pour autoriser NOHO à recevoir ton courrier. Pas d&apos;e-sign acceptée.",
+    desc: "Qui peut vérifier ta signature selon l&apos;USPS, les pièces d&apos;identité et les étapes depuis la Tunisie.",
   },
 ];
 

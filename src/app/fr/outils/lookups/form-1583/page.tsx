@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Lookup Form 1583 USPS — vérification et procédure de notarisation",
+  title: "Form 1583 USPS depuis la Tunisie — qui peut vérifier ta signature",
   description:
-    "Form 1583 = autorisation USPS qui permet à NOHO de recevoir ton courrier en ton nom. Notarisé en personne (pas d'e-sign accepté). Le process complet et la voie KHIARI à Tunis.",
+    "Le Form 1583 autorise NOHO Mailbox à recevoir ton courrier en ton nom. Selon l'USPS, la signature se fait devant un employé du CMRA ou un notaire commissionné aux États-Unis — un notaire tunisien n'est pas accepté. Pièces d'identité et étapes.",
   alternates: { canonical: "https://nohomailboxtunis.com/fr/outils/lookups/form-1583" },
 };
 
@@ -34,7 +34,7 @@ export default function Form1583LookupPage() {
             <span style={{ fontFamily: "var(--font-pacifico), cursive", color: BLUE, fontWeight: 400 }}>
               vérification
             </span>{" "}
-            et notarisation
+            et signature
           </h1>
           <p className="text-[15px] leading-relaxed max-w-2xl mx-auto" style={{ color: "rgba(45,16,15,0.78)" }}>
             Le Form 1583 est le document USPS qui autorise NOHO à
@@ -51,68 +51,50 @@ export default function Form1583LookupPage() {
               Ce qu&apos;est exactement le Form 1583
             </h2>
             <ul className="space-y-1.5 text-[13.5px]" style={{ color: INK }}>
-              <li>• <strong>Form officiel USPS</strong>, ref Publication 28 Section 2.5</li>
+              <li>• <strong>Formulaire officiel USPS</strong> (PS Form 1583), encadré par le Domestic Mail Manual, section 508.1.8</li>
               <li>• Autorise un CMRA (Commercial Mail Receiving Agency) à recevoir le courrier en ton nom</li>
-              <li>• Sans Form 1583 signé et notarisé, le CMRA ne peut PAS légalement recevoir ton courrier — USPS le retournera</li>
+              <li>• Sans Form 1583 signé et vérifié selon la règle USPS, le CMRA ne peut pas recevoir ton courrier</li>
               <li>• Obligation à vie de la LLC tant que l&apos;adresse mailbox est active</li>
             </ul>
           </div>
 
           <div className="p-6 rounded-2xl" style={{ background: "#FFF4E5", borderLeft: `4px solid ${RED}` }}>
             <p className="text-[11px] font-black uppercase tracking-[0.14em] mb-2" style={{ color: RED }}>
-              Pas d&apos;e-signature
+              La règle USPS
             </p>
             <p className="text-[14px] leading-relaxed" style={{ color: INK }}>
-              USPS Publication 28 §2.5 est explicite :{" "}
-              <strong>la signature du Form 1583 doit être faite en personne devant un notary public</strong>,
-              avec 2 pièces d&apos;identité vérifiées. E-signature DocuSign / HelloSign /
-              Adobe Sign = <strong>refus systématique</strong>. C&apos;est la
-              première erreur des concurrents Stripe Atlas / doola qui
-              tentent de tout faire en ligne — ils livrent une mailbox
-              dont l&apos;adresse meurt en 90 jours faute de Form 1583
-              valable.
+              Selon le Domestic Mail Manual de l&apos;USPS (section 508.1.8.3), tu signes le
+              Form 1583 en présence, physique ou par vidéo en temps réel, d&apos;un employé
+              autorisé du CMRA, <strong>ou</strong> devant un notaire commissionné dans un État
+              américain. Une signature électronique sans cette vérification n&apos;est pas
+              valable, et <strong>un notaire tunisien n&apos;est pas accepté</strong>, même
+              pour une copie certifiée.
             </p>
           </div>
 
           <div className="p-6 rounded-2xl" style={{ background: "#fff", border: "1px solid rgba(45,16,15,0.08)" }}>
             <h2 className="font-extrabold text-[20px] mb-3" style={{ color: INK, fontFamily: "var(--font-baloo), sans-serif" }}>
-              Les 2 voies pour signer Form 1583 depuis Tunis
+              Les 2 façons de faire vérifier ta signature
             </h2>
-
             <div className="space-y-4 mt-4">
               <div className="p-4 rounded-xl" style={{ background: CREAM }}>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="inline-block text-[10px] font-black uppercase tracking-[0.14em] px-2 py-1 rounded" style={{ background: GREEN, color: "#fff" }}>
-                    Voie 1 — recommandée
-                  </span>
-                </div>
                 <h3 className="font-extrabold text-[16px] mb-2" style={{ color: INK }}>
-                  Notaire en Tunisie + DHL aller-retour
+                  Devant l&apos;équipe NOHO Mailbox
                 </h3>
                 <ol className="space-y-1 text-[13px]" style={{ color: INK }}>
-                  <li>1. NOHO te prépare le Form 1583 pré-rempli (PDF).</li>
-                  <li>2. Tu imprimes + signes devant un notaire en Tunisie OU au cabinet KHIARI à Tunis (notarisation locale).</li>
-                  <li>3. Tu envoies le PDF scanné signé + ton ID à NOHO en email pour valider la procédure.</li>
-                  <li>4. Tu expédies l&apos;original via DHL à 5062 Lankershim, NoHo, CA.</li>
-                  <li>5. <strong>Délai total : 7-10 jours</strong>. Coût DHL ~30 USD.</li>
+                  <li>1. On te prépare le Form 1583 pré-rempli.</li>
+                  <li>2. Tu signes devant un employé NOHO Mailbox, au comptoir du 5062 Lankershim Blvd à North Hollywood.</li>
+                  <li>3. Tu n&apos;es pas aux États-Unis ? Écris-nous avant de payer : on t&apos;indique comment on procède pour ton cas.</li>
                 </ol>
               </div>
-
               <div className="p-4 rounded-xl" style={{ background: "#FAFAF8" }}>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="inline-block text-[10px] font-black uppercase tracking-[0.14em] px-2 py-1 rounded" style={{ background: BLUE, color: "#fff" }}>
-                    Voie 2 — pratique si tu voyages
-                  </span>
-                </div>
                 <h3 className="font-extrabold text-[16px] mb-2" style={{ color: INK }}>
-                  Notarisation en personne à LA chez NOHO
+                  Devant un notaire commissionné aux États-Unis
                 </h3>
                 <ol className="space-y-1 text-[13px]" style={{ color: INK }}>
-                  <li>1. Tu passes par LA pour un voyage business / personnel.</li>
-                  <li>2. Tu prends RDV avec Mokhtar à 5062 Lankershim (notary public certifié California).</li>
-                  <li>3. Notarisation in-house, sur place, 30 minutes.</li>
-                  <li>4. NOHO traite le Form 1583 le jour même.</li>
-                  <li>5. <strong>Délai total : same-day si tu es à LA</strong>. Coût : 0 USD (inclus dans le Business).</li>
+                  <li>1. Un notaire commissionné dans un État américain, en personne ou par vidéo en temps réel s&apos;il le propose.</li>
+                  <li>2. Les frais du notaire sont à ta charge.</li>
+                  <li>3. Confirme avec nous le format attendu avant de signer, puis transmets-nous le formulaire signé.</li>
                 </ol>
               </div>
             </div>
@@ -120,18 +102,12 @@ export default function Form1583LookupPage() {
 
           <div className="p-6 rounded-2xl" style={{ background: CREAM }}>
             <h2 className="font-extrabold text-[18px] mb-3" style={{ color: INK, fontFamily: "var(--font-baloo), sans-serif" }}>
-              Les 2 IDs requis pour notarisation
+              Les 2 pièces d&apos;identité
             </h2>
             <ol className="space-y-1.5 text-[13.5px]" style={{ color: INK }}>
-              <li><strong>1.</strong> Passeport tunisien (photo principale visible, validité &gt; 6 mois).</li>
-              <li><strong>2.</strong> Deuxième ID au choix :
-                <ul className="mt-1 ml-4 text-[12.5px]" style={{ color: "rgba(45,16,15,0.75)" }}>
-                  <li>• CIN tunisienne (recto-verso)</li>
-                  <li>• Permis de conduire tunisien</li>
-                  <li>• Carte d&apos;identité française (si binational FR-TN)</li>
-                </ul>
-              </li>
-              <li><strong>3.</strong> Les 2 IDs doivent porter le <strong>même nom exactement</strong>. Variation orthographique = USPS refuse.</li>
+              <li><strong>1.</strong> Une pièce avec photo : le passeport est accepté.</li>
+              <li><strong>2.</strong> Une deuxième pièce, par exemple ta CIN tunisienne. L&apos;équipe confirme qu&apos;elle est acceptée avant la signature. Une facture (électricité, téléphone) n&apos;est pas une pièce valable.</li>
+              <li><strong>3.</strong> Les deux pièces portent <strong>exactement le même nom</strong> que le formulaire.</li>
             </ol>
           </div>
 
@@ -143,8 +119,8 @@ export default function Form1583LookupPage() {
               <li>• Box 7 : adresse complète NOHO Mailbox &quot;5062 Lankershim Blvd, Suite {`{ta suite}`}, North Hollywood, CA 91601&quot;</li>
               <li>• Box 12 : ton nom légal exact (matching passeport)</li>
               <li>• Box 14 : nom légal de ta LLC (matching Articles of Organization)</li>
-              <li>• Si l&apos;orthographe diffère entre Form 1583 et passeport, USPS refuse — corrige avant notarisation.</li>
-              <li>• Date de signature et lieu mentionnés sur le notarial certificate.</li>
+              <li>• Si l&apos;orthographe diffère entre le Form 1583 et le passeport, corrige avant de signer.</li>
+              <li>• Si tu passes par un notaire américain : date et lieu figurent sur son certificat.</li>
             </ul>
           </div>
 
@@ -154,7 +130,7 @@ export default function Form1583LookupPage() {
             </h2>
             <ul className="space-y-1 text-[13.5px]" style={{ color: INK }}>
               <li>• Form 1583 reste valable tant que ton mailbox NOHO est actif.</li>
-              <li>• Si tu changes de nom (mariage, etc.), tu dois re-notariser un nouveau Form 1583.</li>
+              <li>• Si tu changes de nom (mariage, etc.), tu signes un nouveau Form 1583.</li>
               <li>• Si tu changes l&apos;adresse de ta LLC (move out of CMRA), tu dois notifier USPS via Change of Address.</li>
               <li>• Si tu fermes ton mailbox NOHO, le Form 1583 expire automatiquement.</li>
             </ul>

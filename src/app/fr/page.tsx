@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HomeLanding from "@/components/landing/HomeLanding";
+import { localeAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -8,16 +9,7 @@ export const metadata: Metadata = {
   },
   description:
     "Adresse postale réelle aux États-Unis dès 35 TND/mois. Vraie adresse US dans un storefront physique, avec scan de courrier, réception colis (UPS/FedEx/Amazon), forwarding international vers Tunis. LLC américaine, notariat, expédition, livraison US. Paiement en dinars chez un cabinet d'avocat.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr",
-      "ar-TN": "https://nohomailboxtunis.com/ar",
-      "aeb-TN": "https://nohomailboxtunis.com",
-      "en": "https://nohomailboxtunis.com/en",
-      "en-US": "https://nohomailbox.org",
-    },
-  },
+  alternates: localeAlternates("/", "fr"),
   openGraph: {
     images: ["https://nohomailboxtunis.com/opengraph-image"],
     title: "NOHO Mailbox Tunisie — Adresse US réelle, LLC, expédition",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HomeLanding from "@/components/landing/HomeLanding";
+import { localeAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -7,14 +8,7 @@ export const metadata: Metadata = {
   },
   description:
     "Adresse 7a9i9ia fel America men 35 TND/chhar. Storefront physique fi North Hollywood, scan courrier, colis (UPS/FedEx/Amazon), ndezzou l Tounes. LLC américaine, notaire, étudiants. Tkhalles b dinar 3and cabinet d'avocat.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr",
-      "ar-TN": "https://nohomailboxtunis.com/ar",
-      "aeb-TN": "https://nohomailboxtunis.com",
-    },
-  },
+  alternates: localeAlternates("/", "tn"),
 };
 
 

@@ -1,6 +1,7 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
+import { track } from "@vercel/analytics";
 import { submitSignup, type SignupState } from "@/app/actions/signup";
 import { waLink, WHATSAPP_DISPLAY } from "@/lib/whatsapp";
 
@@ -28,6 +29,11 @@ const PLANS = [
 
 export default function SignupForm() {
   const [state, action, pending] = useActionState(submitSignup, initial);
+  // Plan id only (a fixed option value) — never anything the visitor typed.
+  const lastPlan = useRef("not_sure");
+  useEffect(() => {
+    if (state.success) track("signup_submitted", { plan: lastPlan.current });
+  }, [state.success]);
 
   if (state.success) {
     return (
@@ -99,7 +105,7 @@ export default function SignupForm() {
 
       <label className="flex flex-col gap-1.5">
         <span className="text-[12px] font-bold" style={{ color: INK }}>Forfait souhaité</span>
-        <select name="plan" defaultValue="not_sure" className={field} style={fieldStyle}>
+        <select onChange={(e) => { lastPlan.current = e.target.value; }} name="plan" defaultValue="not_sure" className={field} style={fieldStyle}>
           {PLANS.map((p) => (
             <option key={p.id} value={p.id}>{p.label}</option>
           ))}

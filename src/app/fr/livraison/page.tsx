@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
+import { singleAlternates } from "@/lib/seo";
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: "Accueil", url: "https://nohomailboxtunis.com/fr" },
@@ -39,15 +40,8 @@ const serviceJsonLd = {
 export const metadata: Metadata = {
   title: "Livraison — Same-day LA + réexpédition Tunisie",
   description:
-    "Livraison same-day à LA (NoHo $5, LA County $9-$28), réexpédition consolidée vers Tunisie hebdo, urgente DHL/UPS Express 24h. Tarifs transparents en USD + TND.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr/livraison",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/livraison",
-      "ar-TN": "https://nohomailboxtunis.com/ar/livraison",
-      "x-default": "https://nohomailboxtunis.com/livraison",
-    },
-  },
+    "Livraison same-day à LA (NoHo $5, LA County $9-$28), réexpédition consolidée vers la Tunisie chaque semaine, ou en express DHL/UPS. Tarifs en USD et TND.",
+  alternates: singleAlternates("/fr/livraison"),
 };
 
 const CREAM = "#F7E6C2";
@@ -254,6 +248,12 @@ export default function LivraisonPage() {
               </div>
             ))}
           </div>
+          <p className="text-center text-[14px] mt-8" style={{ color: "rgba(45,16,15,0.7)" }}>
+            Tu achètes sur Amazon ou d&apos;autres sites américains ? Voir{" "}
+            <Link href="/fr/reexpedition-colis-usa-tunisie" className="underline font-black" style={{ color: INK }}>
+              la réexpédition de colis des États-Unis vers la Tunisie
+            </Link>.
+          </p>
         </div>
       </section>
 

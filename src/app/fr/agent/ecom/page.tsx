@@ -3,6 +3,7 @@ import Link from "next/link";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
 import { AiBox, AiTruck, AiShield, AiBolt, AiPin, AiSparkle } from "@/components/AnimatedIcons";
 import OpenStatusPill from "@/components/OpenStatusPill";
+import { singleAlternates } from "@/lib/seo";
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: "Accueil", url: "https://nohomailboxtunis.com/fr" },
@@ -25,14 +26,7 @@ export const metadata: Metadata = {
   title: "Solution E-Commerce — Vends en TND et USD, en Tunisie et aux USA",
   description:
     "Société US (LLC) ou TN (SARL/SUARL), banque, Stripe, Amazon Brand Registry, Etsy, Shopify, 3PL, douane TN→US. Tout le pipeline e-commerce géré depuis Tunis.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr/agent/ecom",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/agent/ecom",
-      "ar-TN": "https://nohomailboxtunis.com/ar/agent/ecom",
-      "x-default": "https://nohomailboxtunis.com/agent/ecom",
-    },
-  },
+  alternates: singleAlternates("/fr/agent/ecom"),
 };
 
 /* ─── Palette ─── */

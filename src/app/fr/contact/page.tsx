@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
+import { localeAlternates } from "@/lib/seo";
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: "Accueil", url: "https://nohomailboxtunis.com/fr" },
@@ -43,14 +44,7 @@ export const metadata: Metadata = {
   title: "Contact — NOHO Mailbox Tunisie",
   description:
     "Trois canaux pour nous joindre depuis la Tunisie : WhatsApp (réponse 2h), email (réponse 24h), formulaire de contact. Storefront physique à Los Angeles.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr/contact",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/contact",
-      "ar-TN": "https://nohomailboxtunis.com/ar/contact",
-      "x-default": "https://nohomailboxtunis.com/contact",
-    },
-  },
+  alternates: localeAlternates("/contact", "fr"),
 };
 
 const CREAM = "#F7E6C2";

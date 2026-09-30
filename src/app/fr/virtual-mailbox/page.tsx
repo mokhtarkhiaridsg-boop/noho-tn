@@ -3,6 +3,42 @@ import Link from "next/link";
 import StampCard from "@/components/StampCard";
 import WhatsAppCTA from "@/components/WhatsAppCTA";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
+import { localeAlternates } from "@/lib/seo";
+
+const FAQ = [
+  { q: "Combien coûte une réexpédition vers la Tunisie ?", a: "Le tarif du transporteur (USPS, UPS, FedEx ou DHL), plus 4 TND de manutention par envoi. Estimations indicatives pour un colis de 1 kg : environ 35 à 50 USD par USPS Priority Mail International, environ 80 USD par UPS, environ 110 USD par DHL Express. Le prix exact dépend du poids, des dimensions et du service ; tu le vois avant de valider l'envoi." },
+  { q: "Combien de temps pour recevoir un colis en Tunisie ?", a: "Amazon livre généralement notre local en 1 à 3 jours. Pour la Tunisie, les délais indicatifs des transporteurs sont d'environ 2 à 5 jours ouvrés en express (DHL, UPS, FedEx) et de 1 à 2 semaines par USPS, plus le temps de dédouanement en Tunisie. Aucun délai n'est garanti." },
+  { q: "Vous ouvrez les colis pour les inspecter ?", a: "Seulement si tu le demandes (option « ouvrir et scanner le contenu » depuis ton espace). Sinon, le colis reste fermé et on photographie seulement l'extérieur." },
+  { q: "Et la douane tunisienne ?", a: "La douane tunisienne peut appliquer des droits et taxes à l'arrivée, selon la nature et la valeur du contenu. Ils sont payés à la réception en Tunisie et ne sont jamais inclus dans nos prix. On déclare toujours la valeur réelle sur les documents douaniers : sous-déclarer est illégal côté américain comme côté tunisien. Les règles officielles sont publiées sur douane.gov.tn." },
+  { q: "Faut-il venir aux États-Unis pour ouvrir la boîte ?", a: "La poste américaine (USPS) exige le formulaire PS 1583 et deux pièces d'identité, dont une avec photo (le passeport est accepté). La signature doit être faite devant un employé de NOHO Mailbox ou devant un notaire commissionné aux États-Unis, en personne ou par vidéo en temps réel selon la règle USPS. Un notaire tunisien n'est pas accepté. Écris-nous avant de payer : on t'indique la marche à suivre pour ton cas." },
+  { q: "Quand ma boîte est-elle active ?", a: "Dès que ton Form 1583 est signé selon la règle USPS, que tes deux pièces d'identité sont vérifiées et que ton premier paiement est reçu. Tu reçois alors ton numéro de boîte." },
+  { q: "Puis-je avoir plusieurs adresses ?", a: "Une seule boîte par compte de base. Pour des besoins multi-entités (LLC et usage personnel, par exemple), on peut configurer des sous-comptes." },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const FROM_TUNISIA = [
+  { n: 1, t: "Tu t'inscris en ligne", b: "Nom, e-mail et téléphone. Tu reçois un e-mail pour accéder à ton espace, et l'équipe te recontacte pour choisir le forfait." },
+  { n: 2, t: "Identité et Form 1583", b: "L'USPS exige le formulaire PS 1583 et deux pièces d'identité, dont une avec photo (le passeport est accepté). La signature se fait devant un employé de NOHO Mailbox ou devant un notaire commissionné aux États-Unis. Un notaire tunisien n'est pas accepté." },
+  { n: 3, t: "On reçoit ton courrier et tes colis", b: "Lettres et colis USPS, UPS, FedEx, DHL et Amazon (le forfait Free n'accepte pas l'USPS). Chaque arrivée apparaît sur ton espace en ligne." },
+  { n: 4, t: "Tu décides depuis la Tunisie", b: "Scan du courrier, réexpédition vers la Tunisie au tarif du transporteur, regroupement de colis selon ton forfait, stockage ou destruction." },
+];
+
+const BILLED_SEPARATELY = [
+  "La réexpédition à la demande : tarif du transporteur + 4 TND de manutention par envoi (formules hebdomadaire et urgente : voir la page tarifs).",
+  "Les scans au-delà du quota de ton forfait : 2 TND par page.",
+  "Le stockage des colis au-delà de la durée incluse : 6 TND par colis et par semaine.",
+  "Les droits et taxes de la douane tunisienne, payés à l'arrivée.",
+  "Les frais de notaire, si tu signes le Form 1583 devant un notaire commissionné aux États-Unis.",
+];
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: "Accueil", url: "https://nohomailboxtunis.com/fr" },
@@ -28,7 +64,7 @@ const serviceJsonLd = {
   },
   areaServed: "TN",
   description:
-    "Adresse postale US réelle à Los Angeles. Scan de courrier le jour même. Réception colis (Amazon, UPS, FedEx, DHL). Forwarding international vers la Tunisie.",
+    "Adresse postale réelle à North Hollywood (Californie) pour les clients en Tunisie : réception du courrier et des colis, scan sur demande, réexpédition vers la Tunisie au tarif du transporteur.",
   offers: [
     { "@type": "Offer", name: "Basic", price: "35", priceCurrency: "TND", priceSpecification: { "@type": "UnitPriceSpecification", price: "35", priceCurrency: "TND", unitText: "MON" } },
     { "@type": "Offer", name: "Standard", price: "75", priceCurrency: "TND", priceSpecification: { "@type": "UnitPriceSpecification", price: "75", priceCurrency: "TND", unitText: "MON" } },
@@ -37,17 +73,10 @@ const serviceJsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Adresse US réelle — scan, réception colis, forwarding dès 35 TND/mois",
+  title: "Adresse postale aux États-Unis depuis la Tunisie — dès 35 TND/mois",
   description:
-    "Adresse postale US réelle à Los Angeles. Scan de courrier le jour même via dashboard. Réception colis (Amazon, UPS, FedEx, DHL). Forwarding international vers la Tunisie. Forfait Free pay-as-you-go (wallet, colis hors USPS) ou 35, 75, 150 TND/mois.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr/virtual-mailbox",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/virtual-mailbox",
-      "ar-TN": "https://nohomailboxtunis.com/ar/virtual-mailbox",
-      "x-default": "https://nohomailboxtunis.com/virtual-mailbox",
-    },
-  },
+    "Une vraie adresse postale aux États-Unis (North Hollywood, Californie), gérée depuis la Tunisie : courrier scanné, colis Amazon, UPS, FedEx et DHL reçus, réexpédition vers la Tunisie. Forfaits 35, 75 ou 150 TND/mois, ou Free à l'usage.",
+  alternates: localeAlternates("/virtual-mailbox", "fr", { ar: true }),
 };
 
 const CREAM = "#F7E6C2";
@@ -129,7 +158,7 @@ const PLANS = [
       ["Forwarding sur demande", "Frais postal réel + 4 TND de handling"],
       ["Stockage colis 30 jours", "Courrier 90 j inclus. Colis au-delà : 6 TND/colis/semaine"],
       ["Dashboard en ligne", "Voir tout le courrier reçu"],
-      ["Notarisation Form 1583", "Incluse au setup"],
+      ["Form 1583 (USPS)", "Préparé avec toi au setup"],
     ],
   },
   {
@@ -167,11 +196,11 @@ const PLANS = [
 
 const USES: { Icon: IconCmp; t: string; b?: string; c?: string }[] = [
   { Icon: IconCart, t: "Acheter sur Amazon US, eBay, Shein, Nordstrom", b: "Ces sites ne livrent souvent pas en Tunisie. Avec une adresse US, tu commandes ce que tu veux." },
-  { Icon: IconCard, t: "Activer Stripe, Mercury, Wise Business", b: "Ces fournisseurs exigent une adresse US réelle (pas une boîte postale anonyme de mauvaise réputation). NOHO passe leurs vérifications." },
+  { Icon: IconCard, t: "Recevoir le courrier de ta LLC et de tes comptes", b: "Une adresse de rue réelle pour la correspondance de ta société américaine. Chaque banque ou prestataire de paiement applique ses propres règles d'adresse : on ne peut pas garantir qu'il l'accepte." },
   { Icon: IconInbox, t: "Recevoir courrier business US", c: "IRS, banques, fournisseurs SaaS, partenaires — toute correspondance à ta LLC américaine arrive ici, scannée et notifiée en temps réel." },
   { Icon: IconGrad, t: "SEVIS et courrier universitaire", b: "Étudiants : ton I-20 arrive ici, scanné le jour-même. Pendant tes études, ton courrier campus reste géré entre les semestres." },
   { Icon: IconPaper, t: "Magazines, abonnements physiques", b: "The Economist, WSJ, Vogue, Wired — tous les abonnements US arrivent. Scan + forward selon préférence." },
-  { Icon: IconHouse, t: "Adresse stable de référence", b: "Pour le SSN, l'ITIN, le US driver's license, les banques — une adresse stable vaut de l'or quand tu déménages souvent." },
+  { Icon: IconHouse, t: "Adresse stable de référence", b: "Une adresse qui ne change pas quand tu déménages : pratique pour l'IRS, un courrier d'ITIN ou tes abonnements. Elle ne remplace pas une adresse de résidence quand un organisme en exige une." },
 ];
 
 const PACKAGE_PROCESS = [
@@ -179,7 +208,7 @@ const PACKAGE_PROCESS = [
   { n: 2, t: "Arrivée au storefront", b: "On reçoit physiquement (UPS, FedEx, USPS, DHL, Amazon). Signature acceptée. Notification dashboard immédiate." },
   { n: 3, t: "Tu choisis l'action", b: "Forward, ouvrir et scanner, stocker, recycler, retourner. Décide depuis ton dashboard." },
   { n: 4, t: "Consolidation (optionnel)", b: "Plusieurs colis ? On les regroupe en un seul envoi pour réduire les frais postaux internationaux." },
-  { n: 5, t: "Expédition vers Tunis", b: "USPS Priority Mail International (~7-10 jours), UPS Worldwide Expedited (~3-5 jours), DHL Express (~2-3 jours). Tu choisis le délai vs prix." },
+  { n: 5, t: "Expédition vers la Tunisie", b: "USPS Priority Mail International, UPS, FedEx ou DHL Express : tu choisis entre prix et rapidité. Délais indicatifs des transporteurs, hors dédouanement, sans garantie." },
 ];
 
 export default function VirtualMailboxPage() {
@@ -187,6 +216,44 @@ export default function VirtualMailboxPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      {/* HERO — what the customer gets, in one screen */}
+      <section className="px-5 sm:px-6 pt-12 sm:pt-16 pb-10 sm:pb-12" style={{ background: "#fff" }}>
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-[11px] font-black uppercase tracking-[0.18em] mb-3" style={{ color: BLUE }}>
+            Adresse postale aux États-Unis
+          </p>
+          <h1
+            className="font-extrabold tracking-tight mb-5"
+            style={{ fontFamily: "var(--font-baloo), sans-serif", fontSize: "clamp(2rem, 5vw, 3.4rem)", color: INK, lineHeight: 1.1 }}
+          >
+            Ton adresse postale réelle aux États-Unis, gérée depuis la Tunisie
+          </h1>
+          <p className="text-[16px] leading-relaxed mb-6" style={{ color: "rgba(45,16,15,0.78)" }}>
+            Une vraie adresse de rue au 5062 Lankershim Blvd, North Hollywood (Californie),
+            avec ton numéro de boîte. On reçoit ton courrier et tes colis dans notre local,
+            tu vois chaque arrivée sur ton espace en ligne, et tu décides : scan,
+            réexpédition vers la Tunisie, stockage ou destruction.
+          </p>
+          <ul className="flex flex-wrap justify-center gap-2 mb-7 text-[12.5px] font-bold" style={{ color: INK }}>
+            <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>Tarifs en dinars tunisiens (TND)</li>
+            <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>Vérification d&apos;identité exigée par l&apos;USPS</li>
+            <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>Réexpédition au tarif du transporteur</li>
+          </ul>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="/inscription"
+              data-track="signup_click"
+              data-track-from="fr_virtual_mailbox_hero"
+              className="inline-block font-black px-8 py-4 rounded-2xl text-[15px]"
+              style={{ background: INK, color: CREAM }}
+            >
+              Ouvrir ma boîte US →
+            </Link>
+            <WhatsAppCTA intent="adresse">Une question ? WhatsApp</WhatsAppCTA>
+          </div>
+        </div>
+      </section>
       {/* PRICING — STAMP CARDS */}
       <section className="px-7 sm:px-6 pt-12 sm:pt-16 pb-14 sm:pb-20" style={{ background: CREAM }}>
         <div className="max-w-5xl mx-auto">
@@ -260,7 +327,7 @@ export default function VirtualMailboxPage() {
                       className="text-[10px] mt-1 font-bold"
                       style={{ color: p.primary ? "rgba(247,230,194,0.55)" : "rgba(45,16,15,0.5)" }}
                     >
-                      {p.yearPrice ? `${p.yearPrice} TND/an · Form 1583 inclus` : "Pay-as-you-go · wallet prépayé"}
+                      {p.yearPrice ? `${p.yearPrice} TND/an · Form 1583 préparé avec toi` : "Pay-as-you-go · wallet prépayé"}
                     </p>
                   </div>
                   <ul className="space-y-2.5 text-sm mt-5 mb-7">
@@ -300,6 +367,8 @@ export default function VirtualMailboxPage() {
                   </ul>
                   <Link
                     href="/fr/appel"
+                    data-track="plan_select"
+                    data-track-plan={p.name}
                     className="block text-center font-black py-3.5 rounded-2xl text-sm transition-all duration-200 hover:scale-[1.02]"
                     style={{
                       background: p.primary ? BLUE : INK,
@@ -337,39 +406,47 @@ export default function VirtualMailboxPage() {
         </div>
       </section>
 
-      {/* TN MAILBOX CROSS-LINK */}
-      <section className="px-5 sm:px-6 py-10 sm:py-12" style={{ background: "#fff" }}>
+      {/* FROM TUNISIA — how it works, what is billed separately */}
+      <section className="px-5 sm:px-6 py-14 sm:py-16" style={{ background: "#fff" }}>
         <div className="max-w-4xl mx-auto">
-          <Link
-            href="/fr/virtual-mailbox/tunisie"
-            className="block p-6 sm:p-7 rounded-3xl transition-all hover:-translate-y-0.5"
-            style={{
-              background: "linear-gradient(135deg, #2D7A4A 0%, #1F5A35 100%)",
-              color: "#fff",
-              boxShadow: "0 8px 32px rgba(45,122,74,0.28)",
-            }}
+          <h2
+            className="text-center font-extrabold mb-10"
+            style={{ fontSize: "clamp(1.6rem, 3.8vw, 2.4rem)", color: INK, fontFamily: "var(--font-baloo), sans-serif" }}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] items-center gap-4">
-              <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.18em] mb-1.5" style={{ color: "rgba(247,230,194,0.85)" }}>
-                  Nouveau · pré-lancement 2026
-                </p>
-                <h2 className="font-extrabold text-[19px] sm:text-[22px] mb-2" style={{ fontFamily: "var(--font-baloo), sans-serif" }}>
-                  Adresse réelle à Tunis arrive bientôt
-                </h2>
-                <p className="text-[13.5px] leading-relaxed" style={{ color: "rgba(247,230,194,0.92)" }}>
-                  Adresse réelle à Tunis pour ton courrier TN, ton enregistrement SARL,
-                  ton inbound colis fournisseurs. Combo TN + US pour un pont des deux côtés.
-                </p>
-              </div>
-              <span className="inline-flex items-center justify-center font-black px-5 py-3 rounded-xl text-[13px] whitespace-nowrap" style={{ background: "#fff", color: "#2D100F" }}>
-                Réserver une place →
-              </span>
-            </div>
-          </Link>
+            Comment ça marche depuis la Tunisie
+          </h2>
+          <ol className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+            {FROM_TUNISIA.map((s) => (
+              <li key={s.n} className="flex gap-4 p-5 rounded-2xl" style={{ background: CREAM }}>
+                <span
+                  className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center font-extrabold"
+                  style={{ background: INK, color: CREAM, fontFamily: "var(--font-baloo), sans-serif" }}
+                  aria-hidden="true"
+                >
+                  {s.n}
+                </span>
+                <div>
+                  <h3 className="font-black text-[15.5px] mb-1" style={{ color: INK }}>{s.t}</h3>
+                  <p className="text-[13.5px] leading-relaxed" style={{ color: "rgba(45,16,15,0.78)" }}>{s.b}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <div className="p-6 rounded-3xl" style={{ background: BODY }}>
+            <h3 className="font-black text-[17px] mb-3" style={{ color: INK }}>Ce qui est facturé à part</h3>
+            <ul className="space-y-2 text-[14px] leading-relaxed list-disc pl-5" style={{ color: "rgba(45,16,15,0.82)" }}>
+              {BILLED_SEPARATELY.map((l) => (
+                <li key={l}>{l}</li>
+              ))}
+            </ul>
+            <p className="text-[13px] mt-4" style={{ color: "rgba(45,16,15,0.65)" }}>
+              Grille complète sur <Link href="/fr/tarifs" className="underline font-bold">la page tarifs</Link>.
+              Pour les colis achetés en ligne, voir aussi{" "}
+              <Link href="/fr/reexpedition-colis-usa-tunisie" className="underline font-bold">la réexpédition de colis vers la Tunisie</Link>.
+            </p>
+          </div>
         </div>
       </section>
-
       {/* PACKAGE HANDLING PROCESS */}
       <section className="px-5 sm:px-6 py-14 sm:py-16" style={{ background: "#fff" }}>
         <div className="max-w-3xl mx-auto">
@@ -411,14 +488,7 @@ export default function VirtualMailboxPage() {
             Questions fréquentes
           </h2>
           <div className="space-y-3">
-            {[
-              { q: "Combien coûte un forwarding vers Tunis ?", a: "Frais postaux réels au tarif USPS / UPS / FedEx — pas de marge cachée. À titre d'exemple : USPS Priority Mail International pour un colis de 1 kg vers la Tunisie = ~35-50 USD selon dimensions. UPS Express ~80 USD. DHL Express ~110 USD." },
-              { q: "Combien de temps pour un colis Amazon ?", a: "Amazon livre généralement en 1-3 jours au storefront LA. Une fois reçu, scan immédiat. Forwarding international : 3 jours (DHL Express) à 10 jours (USPS Priority)." },
-              { q: "Vous ouvrez les colis pour les inspecter ?", a: "Seulement si tu le demandes (option 'ouvrir et scanner le contenu' depuis ton dashboard). Sinon, le colis reste fermé, on scanne juste l'extérieur." },
-              { q: "Et la douane tunisienne ?", a: "Les colis personnels en dessous de 100 TND de valeur déclarée passent souvent sans taxes. Au-delà, droits de douane appliqués par la Poste Tunisienne. Tu déclares la valeur ; on ne sous-déclare jamais (illégal côté US et côté TN)." },
-              { q: "Puis-je avoir plusieurs adresses ?", a: "Une seule boîte par compte de base. Pour des besoins multi-entités (LLC + perso, par exemple), on peut configurer des sous-comptes." },
-              { q: "Quel délai pour activer la boîte ?", a: "48h après réception de ton Form 1583 notarisé et de ton premier paiement. Le Form 1583 prend 1-3 jours selon le notaire que tu choisis en Tunisie." },
-            ].map((q, idx) => (
+            {FAQ.map((q, idx) => (
               <details key={idx} className="group p-4 rounded-xl cursor-pointer" style={{ background: "#fff" }}>
                 <summary className="font-black text-[15px] flex items-start gap-3 list-none" style={{ color: INK }}>
                   <span className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center font-extrabold text-[14px] transition-transform group-open:rotate-45" style={{ background: INK, color: CREAM }}>
@@ -510,16 +580,25 @@ export default function VirtualMailboxPage() {
             Activer ton adresse US réelle
           </h2>
           <p className="text-[15px] leading-relaxed mb-7" style={{ color: "rgba(45,16,15,0.75)" }}>
-            Réserve l&apos;appel de 15 min pour choisir ton forfait et démarrer
-            le Form 1583. Boîte active sous 48h après notarisation.
+            Inscris-toi en ligne, ou réserve un appel de 15 min pour choisir ton
+            forfait et préparer le Form 1583 avec l&apos;équipe.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/fr/appel"
-              className="inline-block font-black px-10 py-5 rounded-2xl text-[16px] transition-all hover:scale-[1.02]"
+              href="/inscription"
+              data-track="signup_click"
+              data-track-from="fr_virtual_mailbox_footer"
+              className="inline-block font-black px-10 py-5 rounded-2xl text-[16px] transition-transform hover:scale-[1.02]"
               style={{ background: INK, color: CREAM, boxShadow: "0 6px 28px rgba(45,16,15,0.28)" }}
             >
-              Démarrer ma boîte →
+              Ouvrir ma boîte US →
+            </Link>
+            <Link
+              href="/fr/appel"
+              className="inline-block font-black px-10 py-5 rounded-2xl text-[16px] border-2 transition-transform hover:scale-[1.02]"
+              style={{ background: "transparent", color: INK, borderColor: INK }}
+            >
+              Réserver un appel
             </Link>
             <Link
               href="/fr/tarifs"

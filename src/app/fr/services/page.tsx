@@ -91,7 +91,7 @@ const SECTIONS = [
       "Réception colis tous opérateurs (UPS / FedEx / DHL / USPS)",
       "Forward physique vers Tunisie ou international",
       "Stockage colis 30 jours inclus",
-      "Form 1583 USPS notarisé sur place",
+      "Form 1583 USPS préparé et vérifié",
     ],
   },
   {
@@ -104,14 +104,14 @@ const SECTIONS = [
       "EIN auprès de l'IRS (Form SS-4)",
       "Operating Agreement personnalisé",
       "Registered Agent inclus 12 mois",
-      "Form 1583 USPS notarisé sur place",
+      "Form 1583 USPS préparé et vérifié",
     ],
   },
   {
     id: "banking",
     Icon: IconBank,
     title: "Banque US (Mercury, Relay, Wise)",
-    body: "Mercury est la première option (taux d'approbation le plus élevé sur LLC non-résident bien structurée). Plan B documenté : Relay, Wise Business, Airwallex selon le profil et le rejet éventuel.",
+    body: "Mercury est souvent la première option pour une LLC non-résidente bien structurée, sans garantie d'approbation. Plan B documenté : Relay, Wise Business, Airwallex selon le profil et le rejet éventuel.",
     bullets: [
       "Préparation dossier complet (LLC + EIN + 1583 + profil)",
       "Soumission Mercury avec lettre d'intro renforcée",

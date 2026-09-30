@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { localeAlternates } from "@/lib/seo";
 import { Baloo_2, Pacifico, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
+import SiteAnalytics from "@/components/SiteAnalytics";
 import "./globals.css";
 
 const baloo = Baloo_2({
@@ -40,17 +42,8 @@ export const metadata: Metadata = {
     template: "%s | NOHO Mailbox Tounes",
   },
   description:
-    "El version Tounsi mta3 NOHO Mailbox. Adresse 7a9i9ia fi America, colis w courrier, LLC américaine, mrafqa Mercury w Stripe, bweba lel étudiants. Tkhalles b dinar fi Tounes.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com",
-    languages: {
-      "aeb-TN": "https://nohomailboxtunis.com",
-      "fr-TN": "https://nohomailboxtunis.com/fr",
-      "ar-TN": "https://nohomailboxtunis.com/ar",
-      en: "https://nohomailboxtunis.com/en",
-      "x-default": "https://nohomailboxtunis.com",
-    },
-  },
+    "El version Tounsi mta3 NOHO Mailbox. Adresse postale 7a9i9ia fi North Hollywood (Californie), scan mta3 el courrier, colis w réexpédition l Tounes. Tkhalles b dinar.",
+  alternates: localeAlternates("/", "tn"),
   openGraph: {
     images: ["https://nohomailboxtunis.com/opengraph-image"],
     title: "NOHO Mailbox Tounes",
@@ -93,6 +86,7 @@ export default function RootLayout({
         <Footer />
         <MobileStickyCTA />
         <ExitIntentPopup />
+        <SiteAnalytics />
       </body>
     </html>
   );

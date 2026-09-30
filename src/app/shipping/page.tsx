@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import LabelClient, { type LabelClientLabels } from "@/components/LabelClient";
 import { waLink } from "@/lib/whatsapp";
+import { localeAlternates } from "@/lib/seo";
 
 /*
  * Tounsi (derja, Latin script) version of /shipping — condensed.
@@ -13,14 +14,7 @@ export const metadata: Metadata = {
   title: "Expédition — Asna3 el Label Mte3ek w khalles bel TND",
   description:
     "USPS, UPS, FedEx, DHL — tarifs 7a9i9iyin, bla marge moukhabbia.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/shipping",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/shipping",
-      "ar-TN": "https://nohomailboxtunis.com/ar/shipping",
-      "aeb-TN": "https://nohomailboxtunis.com/shipping",
-    },
-  },
+  alternates: localeAlternates("/shipping", "tn"),
 };
 
 const CREAM = "#F7E6C2";

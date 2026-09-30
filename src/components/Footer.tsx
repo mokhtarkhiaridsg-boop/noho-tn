@@ -21,7 +21,7 @@ const FR_SECTIONS: Section[] = [
       { href: "/virtual-mailbox", label: "Adresse US réelle" },
       { href: "/shipping", label: "Expédition int'l" },
       { href: "/livraison", label: "Livraison US" },
-      { href: "/notary", label: "Form 1583 notarisé" },
+      { href: "/notary", label: "Notaire & Form 1583" },
     ],
   },
   {
@@ -104,7 +104,7 @@ const EN_SECTIONS: Section[] = localizeSections([
       { href: "/virtual-mailbox", label: "Real US address" },
       { href: "/shipping", label: "International shipping" },
       { href: "/livraison", label: "US delivery" },
-      { href: "/notary", label: "Notarized Form 1583" },
+      { href: "/notary", label: "Notary & Form 1583" },
     ],
   },
   {
