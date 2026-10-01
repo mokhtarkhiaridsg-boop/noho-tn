@@ -84,7 +84,7 @@ const TRUST = [
 const NEXT_STEPS = [
   { n: "01", t: "Nkalmouk fi 24h", d: "Bel email wala 3al WhatsApp, bel tounsi wala bel français." },
   { n: "02", t: "Appel b latech, 30 d9i9a", d: "Structure TN, US wala combo — recommandation b kol sara7a, mouch pitch." },
-  { n: "03", t: "Plan wadhe7, el soum b dinar", d: "Ta3ref exactement chnowa, wa9tech, w b 9adech. Tkhalles 3and el cabinet d'avocat." },
+  { n: "03", t: "Plan wadhe7, el soum b dinar", d: "Ta3ref exactement chnowa, wa9tech, w b 9adech. El khlas b dinar 3and cabinet partenaire fi Tounes possible — confirmih m3a l'équipe 9bal ma tkhalles." },
 ];
 
 const FORM_LABELS = {

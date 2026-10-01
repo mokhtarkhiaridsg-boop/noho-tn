@@ -91,7 +91,7 @@ const TRUST = [
 const NEXT_STEPS = [
   { n: "01", t: "We get back to you within 24h", d: "By email or WhatsApp, in English, French, or Tunisian." },
   { n: "02", t: "A free 30-minute call", d: "TN, US, or combo structure — a straight recommendation, not a pitch." },
-  { n: "03", t: "A clear plan, priced in dinars", d: "You know exactly what, when, and how much. Payment at the law office." },
+  { n: "03", t: "A clear plan, priced in dinars", d: "You know exactly what, when, and how much. Paying in dinars through a partner law office in Tunis may be possible — confirm with the team before you pay." },
 ];
 
 export default function EnglishBusinessPage() {

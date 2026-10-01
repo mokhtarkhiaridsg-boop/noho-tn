@@ -60,13 +60,10 @@ export default function Form1583LookupPage() {
 
           <div className="p-6 rounded-2xl" style={{ background: "#FFF4E5", borderLeft: `4px solid ${RED}` }}>
             <p className="text-[11px] font-black uppercase tracking-[0.14em] mb-2" style={{ color: RED }}>
-              Depuis la Tunisie : confirme ton éligibilité avant de payer
+              Depuis la Tunisie : contacte-nous avant de payer
             </p>
             <p className="text-[14px] leading-relaxed" style={{ color: INK }}>
-              Aujourd&apos;hui, NOHO Mailbox fait signer le Form 1583 <strong>devant un employé, à notre
-              comptoir de North Hollywood</strong>. Nous ne proposons pas encore de signature à distance.
-              Si tu es en Tunisie, écris-nous avant tout paiement : l&apos;équipe te dit si ton ouverture
-              est possible et comment.
+              Contacte-nous pour confirmer la vérification d&apos;identité, les options de paiement et l&apos;activation depuis la Tunisie avant de payer.
             </p>
           </div>
 
@@ -83,9 +80,9 @@ export default function Form1583LookupPage() {
               District of Columbia.
             </p>
             <ul className="space-y-1.5 text-[13.5px]" style={{ color: INK }}>
-              <li>• <strong>Proposé par NOHO Mailbox aujourd&apos;hui :</strong> signature devant un employé, en personne, à notre comptoir.</li>
-              <li>• <strong>Permis par l&apos;USPS, pas encore proposé par NOHO Mailbox :</strong> signature devant un employé par vidéo en temps réel, ou devant un notaire commissionné aux États-Unis.</li>
+              <li>• <strong>Valable selon l&apos;USPS :</strong> signature devant un employé du CMRA, en personne ou par vidéo en temps réel, ou devant un notaire commissionné aux États-Unis.</li>
               <li>• <strong>Non valable :</strong> un notaire tunisien, ou une signature électronique sans cette vérification.</li>
+              <li>• <strong>Pour ton cas :</strong> les modalités proposées par NOHO Mailbox te sont confirmées avant tout paiement.</li>
             </ul>
           </div>
 

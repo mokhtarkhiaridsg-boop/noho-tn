@@ -21,7 +21,7 @@ const faqJsonLd = {
     { "@type": "Question", name: "Combien coûte la Solution en dinars ?", acceptedAnswer: { "@type": "Answer", text: "4 000 TND une fois. Tarif Tunisia calibré en parité de pouvoir d'achat. Le tarif équivalent côté US est en dollars sur nohomailbox.org." } },
     { "@type": "Question", name: "Est-ce légal pour un résident tunisien ?", acceptedAnswer: { "@type": "Answer", text: "Oui. La loi de finances 2026 autorise les résidents tunisiens à détenir des comptes en devises étrangères. La LLC américaine est un véhicule juridique américain reconnu par l'IRS." } },
     { "@type": "Question", name: "Combien de temps prend la mise en place ?", acceptedAnswer: { "@type": "Answer", text: "14 jours pour les éléments contractuels de la Solution. L'EIN suit selon le délai IRS pour non-résidents (4-6 semaines). Mercury suit selon profil (3-6 semaines)." } },
-    { "@type": "Question", name: "Comment payer depuis la Tunisie ?", acceptedAnswer: { "@type": "Answer", text: "Virement TND vers compte tunisien NOHO. Carte technologique TND si plafond suffisant. D17/Flouci en cours d'intégration." } },
+    { "@type": "Question", name: "Comment payer depuis la Tunisie ?", acceptedAnswer: { "@type": "Answer", text: "Les options de paiement depuis la Tunisie (virement en dinars, carte technologique selon ton plafond, ou paiement via un cabinet partenaire à Tunis) te sont confirmées par l'équipe avant de payer." } },
   ],
 };
 
@@ -43,7 +43,7 @@ const FAQ_GROUPS = [
       },
       {
         q: "Comment payer depuis la Tunisie ?",
-        a: "Virement vers compte bancaire NOHO en TND (RIB fourni après l'appel de cadrage). Carte technologique TND si plafond suffisant. D17 et Flouci en cours d'intégration.",
+        a: "Les options de paiement depuis la Tunisie (virement en dinars, carte technologique selon ton plafond, ou paiement via un cabinet partenaire à Tunis) te sont confirmées par l'équipe avant de payer.",
       },
       {
         q: "Pourquoi un tarif en dinars différent du tarif USD ?",

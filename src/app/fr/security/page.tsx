@@ -100,7 +100,7 @@ const IconUsers = ({ className = "w-8 h-8" }: { className?: string }) => (
 const PILLARS = [
   { Icon: IconLock, t: "Courrier sous clé", d: "Boîte sécurisée à serrure individuelle. Personnel formé, badge accès, caméras 24/7." },
   { Icon: IconCamera, t: "Scan chiffré", d: "PDF chiffrés en transit (TLS 1.3) et au repos (AES-256). Hébergement US conforme SOC 2." },
-  { Icon: IconId, t: "KYC strict", d: "Form 1583 obligatoire avant activation. Signature et identité vérifiées par notre équipe au comptoir." },
+  { Icon: IconId, t: "KYC strict", d: "Form 1583 obligatoire avant activation. Signature et identité vérifiées selon les règles USPS." },
   { Icon: IconEU, t: "GDPR", d: "Données diaspora UE traitées sous GDPR. Droit d'accès, suppression, portabilité." },
   { Icon: IconTN, t: "INPDP TN", d: "Conformité Instance Nationale de Protection des Données Personnelles tunisienne." },
   { Icon: IconUsers, t: "Accès limité", d: "Seul le personnel autorisé voit ton dossier. Logs d'accès tracés. Pas de revente de données." },

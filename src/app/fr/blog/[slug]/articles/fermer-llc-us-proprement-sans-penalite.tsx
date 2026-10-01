@@ -269,7 +269,7 @@ export function fermerLlcUsProprement() {
           USD CPA si tu engages.
         </li>
         <li>
-          Mailbox NOHO 6 mois extra (sécurité) : ~150 TND
+          Mailbox NOHO 6 mois extra (sécurité) : tarif confirmé avec l&apos;équipe avant paiement
         </li>
         <li>
           DHL Form 966 envoi IRS : ~30 USD

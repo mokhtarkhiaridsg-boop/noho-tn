@@ -7,7 +7,7 @@ import PricingPending from "@/components/PricingPending";
 
 const FROM_TUNISIA = [
   { n: 1, t: "Tsajjel en ligne", b: "Esmek, email w téléphone. Tjik email bech tedkhol l espace mte3ek, w l'équipe tkallmek bech tekhtar el forfait." },
-  { n: 2, t: "L'éligibilité w Form 1583", b: "USPS tfardh el formulaire PS 1583 w zouz pièces d'identité. Tawa, el signature tsir 9odem l'équipe mte3na fel comptoir fi North Hollywood ; signature à distance mazelna ma na3mlouhech. Mel Tounes, l'équipe tconfirmi l'ewwel ken el ouverture possible, 9bal ay paiement." },
+  { n: 2, t: "L'identité, el paiement w l'activation", b: "USPS tfardh el formulaire PS 1583 w zouz pièces d'identité. Kallamna bech tconfirmi la vérification d'identité, les options de paiement w l'activation mel Tounes 9bal ma tkhalles." },
   { n: 3, t: "Nestacblou el courrier w el colis", b: "Jwabet w colis USPS, UPS, FedEx, DHL w Amazon (el forfait Free ma y9abbelch USPS). Kol 7aja twasel tetla3lek fel espace mte3ek." },
   { n: 4, t: "T9arrer mel Tounes", b: "Scan el courrier, réexpédition l Tounes b tarif el transporteur, tjami3 el colis 7asb el forfait, stockage wala destruction." },
 ];

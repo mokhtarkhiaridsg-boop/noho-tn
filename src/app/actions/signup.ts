@@ -8,6 +8,7 @@
 import { submitSignupToUs, usApiConfigured } from "@/lib/us-api";
 import { WHATSAPP_DISPLAY } from "@/lib/whatsapp";
 import { track } from "@vercel/analytics/server";
+import { headers } from "next/headers";
 
 export type SignupState = {
   error?: string;
@@ -65,7 +66,14 @@ export async function submitSignup(
   if (completed) {
     const planId = ["virtual-solo", "virtual-pro", "virtual-business", "not_sure"].includes(plan) ? plan : "other";
     try {
-      await track("signup_completed", { site: "tn", plan: planId });
+      // Only what Web Analytics needs to place the event — no cookies.
+      const h = await headers();
+      const minimal: Record<string, string> = {};
+      for (const k of ["user-agent", "x-forwarded-for", "referer"]) {
+        const v = h.get(k);
+        if (v) minimal[k] = v;
+      }
+      await track("signup_completed", { site: "tn", plan: planId }, { headers: minimal });
     } catch (err) {
       console.error("[submitSignup] analytics event failed", err);
     }

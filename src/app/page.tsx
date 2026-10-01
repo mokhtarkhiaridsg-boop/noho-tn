@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     absolute: "NOHO Mailbox Tounes — L'adresse mte3ek fi America",
   },
   description:
-    "Adresse 7a9i9ia fel America. Storefront physique fi North Hollywood, scan courrier, colis (UPS/FedEx/Amazon), ndezzou l Tounes. LLC américaine, notaire, étudiants. Tkhalles b dinar 3and cabinet d'avocat.",
+    "Adresse 7a9i9ia fel America. Storefront physique fi North Hollywood, scan courrier, colis (UPS/FedEx/Amazon), ndezzou l Tounes. LLC américaine, notaire, étudiants. El khlas b dinar 3and cabinet partenaire fi Tounes possible — confirmih m3a l'équipe 9bal ma tkhalles.",
   alternates: localeAlternates("/", "tn"),
 };
 

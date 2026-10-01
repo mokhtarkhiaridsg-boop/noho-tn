@@ -29,7 +29,7 @@ export type LabelClientLabels = {
 };
 
 export const FR_LABELS: LabelClientLabels = {
-  intro: "Destination + colis → tarifs live des transporteurs. Tu choisis, on émet le label après paiement en dinars.",
+  intro: "Destination + colis → tarifs live des transporteurs. Tu choisis, on émet le label après paiement.",
   toName: "Destinataire", street: "Adresse", city: "Ville", state: "Région/État", zip: "Code postal", country: "Pays (code — TN, FR, US…)",
   suite: "Ta suite NOHO (optionnel)", suiteHint: "ex. 122 — si le colis part de ta boîte",
   length: "Longueur (in)", width: "Largeur (in)", height: "Hauteur (in)", weight: "Poids (lb)",
@@ -38,8 +38,8 @@ export const FR_LABELS: LabelClientLabels = {
   email: "Ton email", phone: "Téléphone (optionnel)",
   order: "Commander ce label", ordering: "Envoi…",
   successTitle: "Commande reçue.",
-  successBody: "On te contacte pour le paiement en dinars, puis ton label PDF arrive par email.",
-  payNote: "Paiement en dinars — wallet ou Cabinet Khiari, Tunis. Aucun paiement par carte sur le site.",
+  successBody: "On te contacte pour confirmer le mode de paiement, puis ton label PDF arrive par email.",
+  payNote: "Options de paiement (dont le dinar via le wallet ou un cabinet partenaire à Tunis) confirmées avec l'équipe avant de payer. Aucun paiement par carte sur le site.",
   back: "Modifier le colis",
 };
 

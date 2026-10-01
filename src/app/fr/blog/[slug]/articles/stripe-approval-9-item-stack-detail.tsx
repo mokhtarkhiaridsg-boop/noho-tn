@@ -66,8 +66,7 @@ export function stripeApproval9ItemStack() {
         </li>
         <li>
           NOHO 5062 Lankershim Blvd est un commercial storefront avec
-          staff sur place et signature du Form 1583 au comptoir. Stripe
-          accepte.
+          staff sur place. Stripe accepte.
         </li>
         <li>
           P.O. Box = auto-rejection. Adresse de registered agent seul =

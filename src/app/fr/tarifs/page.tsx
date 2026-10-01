@@ -47,7 +47,7 @@ const PRODUCTS = [
     name: "Notariat (Form 1583)",
     price: "Inclus",
     unit: "avec mailbox",
-    desc: "Signature vérifiée devant notre équipe, à notre comptoir de North Hollywood. Incluse avec l'adresse US réelle. Depuis la Tunisie, confirme ton éligibilité avant de payer. Notariat ponctuel possible.",
+    desc: "Signature vérifiée selon les règles USPS. Incluse avec l'adresse US réelle. Contacte-nous pour confirmer la vérification d'identité, les options de paiement et l'activation depuis la Tunisie avant de payer. Notariat ponctuel possible.",
     href: "/fr/notary",
   },
 ];
@@ -94,7 +94,7 @@ const POLICIES = [
   },
   {
     q: "Form 1583 USPS — pourquoi obligatoire et combien ça coûte ?",
-    a: "Form 1583 est l'autorisation USPS pour qu'on reçoive ton courrier en ton nom. Obligatoire pour tout CMRA américain enregistré USPS. La vérification de signature exigée par l'USPS est incluse ; aujourd'hui elle se fait devant notre équipe, à notre comptoir (pas encore de signature à distance, et un notaire tunisien n'est pas accepté). Depuis la Tunisie, confirme ton éligibilité avant de payer. Si tu changes d'adresse en Tunisie, le montant d'une nouvelle vérification t'est confirmé par l'équipe avant tout paiement.",
+    a: "Form 1583 est l'autorisation USPS pour qu'on reçoive ton courrier en ton nom. Obligatoire pour tout CMRA américain enregistré USPS. La vérification de signature exigée par l'USPS est incluse. Contacte-nous pour confirmer la vérification d'identité, les options de paiement et l'activation depuis la Tunisie avant de payer. Si tu changes d'adresse en Tunisie, le montant d'une nouvelle vérification t'est confirmé par l'équipe avant tout paiement.",
   },
   {
     q: "Politiques applicables aux colis transitant via le storefront US",

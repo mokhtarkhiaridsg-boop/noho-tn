@@ -14,13 +14,17 @@ export function apostilleTnUs() {
       </p>
 
       <p>
-        Attention : ça ne vaut pas pour le Form 1583 USPS. Un notaire
-        tunisien (ou le cabinet KHIARI), même avec apostille, n&apos;est
-        pas accepté pour ce formulaire. Aujourd&apos;hui, le Form 1583
-        se signe devant notre équipe au comptoir de North Hollywood ;
-        l&apos;USPS autorise aussi la signature en vidéo en direct ou
-        devant un notaire commissionné aux USA, mais NOHO ne les propose
-        pas encore. Pour les autres documents, voici la procédure exacte.
+        Attention : ça ne vaut pas pour le Form 1583 USPS. L&apos;USPS
+        (Domestic Mail Manual 508.1.8.3) exige que la signature du PS
+        Form 1583 soit faite ou confirmée en présence — physique ou en
+        vidéo en temps réel — du propriétaire, du gérant ou d&apos;un
+        employé autorisé de la CMRA, ou reconnue devant un notaire
+        commissionné dans un État ou territoire américain ou à DC. Un
+        notaire tunisien (ou le cabinet KHIARI), même avec apostille, ne
+        remplit pas cette condition. Contacte-nous pour confirmer la
+        vérification d&apos;identité, les options de paiement et
+        l&apos;activation depuis la Tunisie avant de payer. Pour les
+        autres documents, voici la procédure exacte.
       </p>
 
       <h2>Quels documents nécessitent une apostille</h2>
@@ -100,8 +104,10 @@ export function apostilleTnUs() {
       <ul>
         <li>
           <strong>Form 1583 devant un notaire tunisien</strong> — pas
-          accepté par l&apos;USPS, apostille ou pas. Le Form 1583 se
-          signe devant notre équipe au comptoir de North Hollywood.
+          accepté par l&apos;USPS, apostille ou pas : la signature doit
+          être faite ou confirmée en présence de la CMRA (physique ou
+          vidéo en temps réel) ou devant un notaire commissionné aux
+          USA.
         </li>
         <li>
           <strong>Apostille avant signature</strong> — l&apos;apostille
@@ -119,12 +125,17 @@ export function apostilleTnUs() {
           l&apos;USPS.
         </li>
         <li>
-          <strong>Aujourd&apos;hui : signature au comptoir</strong> —
-          tu signes le Form 1583 devant notre équipe au storefront 5062
-          Lankershim, North Hollywood. L&apos;USPS autorise aussi la
-          vidéo en direct ou un notaire commissionné aux USA, mais NOHO
-          ne propose pas encore ces options. Depuis la Tunisie, confirme
-          ton éligibilité avec l&apos;équipe avant de payer.
+          <strong>Règle USPS</strong> — l&apos;USPS
+          (Domestic Mail Manual 508.1.8.3) exige que la signature du PS
+          Form 1583 soit faite ou confirmée en présence — physique ou en
+          vidéo en temps réel — du propriétaire, du gérant ou d&apos;un
+          employé autorisé de la CMRA, ou reconnue devant un notaire
+          commissionné dans un État ou territoire américain ou à DC. Il
+          faut deux pièces d&apos;identité, dont une avec photo ;
+          l&apos;USPS accepte un passeport étranger. Contacte-nous pour
+          confirmer la vérification d&apos;identité, les options de
+          paiement et l&apos;activation depuis la Tunisie avant de
+          payer.
         </li>
         <li>
           <strong>Coordination NOHO de bout en bout</strong> — inclus
@@ -133,8 +144,8 @@ export function apostilleTnUs() {
             Solution Business
           </Link>{" "}
           : on te guide étape par étape, on vérifie que le Form 1583
-          est rempli correctement avant que tu le signes devant notre
-          équipe, on coordonne la réception à LA.
+          est rempli correctement avant la signature, on coordonne la
+          réception à LA.
         </li>
       </ul>
     </>

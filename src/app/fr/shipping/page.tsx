@@ -157,7 +157,7 @@ export default function ShippingPage() {
             className="inline-block font-black px-8 py-4 rounded-2xl text-[15px] transition-all hover:scale-[1.02]"
             style={{ background: INK, color: CREAM, boxShadow: "0 6px 28px rgba(45,16,15,0.28)" }}
           >
-            Générer un label — paie en dinars →
+            Générer un label →
           </Link>
         </div>
       </section>
@@ -178,7 +178,7 @@ export default function ShippingPage() {
                 className="font-extrabold mb-3"
                 style={{ fontFamily: "var(--font-baloo), sans-serif", fontSize: "24px", color: INK }}
               >
-                Génère ton label, paie en dinars
+                Génère ton label
               </h2>
               <LabelClient locale="fr" />
             </div>

@@ -76,17 +76,22 @@ export function ouvrirLlcTunisie14Jours() {
       </p>
       <ol>
         <li>
-          Aujourd&apos;hui, tu le signes devant notre équipe au comptoir
-          de North Hollywood (5062 Lankershim).
+          L&apos;USPS (Domestic Mail Manual 508.1.8.3) exige que la
+          signature du PS Form 1583 soit faite ou confirmée en présence
+          — physique ou en vidéo en temps réel — du propriétaire, du
+          gérant ou d&apos;un employé autorisé de la CMRA, ou reconnue
+          devant un notaire commissionné dans un État ou territoire
+          américain ou à DC.
         </li>
         <li>
-          Un notaire tunisien (ou le cabinet KHIARI) n&apos;est pas
-          accepté pour le Form 1583, même avec apostille. L&apos;USPS
-          autorise aussi la vidéo en direct ou un notaire commissionné aux
-          USA, mais NOHO ne propose pas encore ces options.
+          Un notaire tunisien (ou le cabinet KHIARI) ne remplit pas
+          cette condition, même avec apostille. Il faut deux pièces
+          d&apos;identité, dont une avec photo ; l&apos;USPS accepte un
+          passeport étranger.
         </li>
         <li>
-          Depuis la Tunisie, confirme ton éligibilité avec l&apos;équipe
+          Contacte-nous pour confirmer la vérification d&apos;identité,
+          les options de paiement et l&apos;activation depuis la Tunisie
           avant de payer.
         </li>
       </ol>

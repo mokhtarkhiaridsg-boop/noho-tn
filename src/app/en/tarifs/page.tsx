@@ -108,7 +108,7 @@ const POLICIES = [
   },
   {
     q: "USPS Form 1583 — why is it required and what does it cost?",
-    a: "Form 1583 is the USPS authorization letting us receive mail on your behalf. It's mandatory for every USPS-registered American CMRA. The signature check USPS requires is included; today it happens in front of our team at the North Hollywood counter (no remote signing yet, and a Tunisian notary is not accepted). From Tunisia, confirm your eligibility before paying. If your address in Tunisia changes, the amount for a new verification is confirmed by the team before any payment.",
+    a: "Form 1583 is the USPS authorization letting us receive mail on your behalf. It's mandatory for every USPS-registered American CMRA, and the signature check it requires is included. Contact us to confirm identity verification, payment options, and activation from Tunisia before paying. If your address in Tunisia changes, the amount for a new verification is confirmed by the team before any payment.",
   },
   {
     q: "Policies for packages moving through the US storefront",

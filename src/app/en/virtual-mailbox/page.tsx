@@ -203,7 +203,7 @@ export default function EnglishVirtualMailboxPage() {
               { q: "Do you open packages to inspect them?", a: "Only if you ask (the 'open and scan the contents' option in your dashboard). Otherwise the package stays sealed — we only scan the outside." },
               { q: "What about Tunisian customs?", a: "Tunisian customs may charge duties and taxes on arrival, depending on what is inside and its value. You pay them on delivery in Tunisia; they are never included in our prices. We always declare the real value. The official rules are on douane.gov.tn." },
               { q: "Can I have several addresses?", a: "One box per account by default. For multi-entity needs (LLC + personal, for example), we can set up sub-accounts." },
-              { q: "How long until my box is active?", a: "Once your USPS Form 1583 is signed and verified, your two IDs are checked and your first payment is received. Today NOHO Mailbox has the form signed in front of an employee at our North Hollywood counter. USPS rules also allow a live-video signature or a US-commissioned notary, but we do not offer those options yet, and a Tunisian notary is not accepted. From Tunisia, confirm your eligibility before paying anything." },
+              { q: "How long until my box is active?", a: "Once your USPS Form 1583 is signed and verified, your two IDs are checked and your first payment is received. USPS rules (DMM 508.1.8.3) require the signature in the presence of a CMRA employee, in person or by live video, or before a US-commissioned notary; a Tunisian notary does not meet this requirement. Contact us to confirm identity verification, payment options, and activation from Tunisia before paying." },
             ].map((q, idx) => (
               <details key={idx} className="group p-4 rounded-xl cursor-pointer" style={{ background: "#fff" }}>
                 <summary className="font-black text-[15px] flex items-start gap-3 list-none" style={{ color: INK }}>
@@ -297,7 +297,7 @@ export default function EnglishVirtualMailboxPage() {
           </h2>
           <p className="text-[15px] leading-relaxed mb-7" style={{ color: "rgba(45,16,15,0.75)" }}>
             Book the 15-minute call to pick your plan and start the Form 1583.
-            No payment until the team confirms you can be onboarded from Tunisia.
+            Contact us to confirm identity verification, payment options, and activation from Tunisia before paying.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link

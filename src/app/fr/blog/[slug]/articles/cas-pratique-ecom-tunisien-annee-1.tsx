@@ -45,7 +45,7 @@ export function casPratiqueEcomTunisienAnnee1() {
           Solution Business.
         </li>
         <li>
-          Paie 4 000 TND par virement BIAT vers compte tunisien NOHO.
+          Règle les 4 000 TND selon les options de paiement confirmées avec l&apos;équipe.
           Démarrage onboarding.
         </li>
         <li>
@@ -60,9 +60,10 @@ export function casPratiqueEcomTunisienAnnee1() {
           Operating Agreement signé électroniquement le 28 janvier.
         </li>
         <li>
-          Form 1583 préparé par NOHO ; éligibilité et signature organisées
-          avec l&apos;équipe avant tout paiement (un notaire tunisien
-          n&apos;est pas accepté pour ce formulaire).
+          Form 1583 préparé par NOHO ; vérification d&apos;identité et
+          activation confirmées avec l&apos;équipe avant tout paiement
+          (un notaire tunisien n&apos;est pas accepté pour ce
+          formulaire).
         </li>
         <li>
           Mailbox NOHO active le 8 février, 12 mois inclus.

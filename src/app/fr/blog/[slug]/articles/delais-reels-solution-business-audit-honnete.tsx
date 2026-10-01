@@ -113,12 +113,15 @@ export function delaisReelsSolutionBusinessAuditHonnete() {
       <ul>
         <li>
           <strong>Médiane : J+5 à J+10.</strong> On prépare le Form
-          1583 ; tu le signes <em>devant notre équipe au comptoir de
-          North Hollywood</em>. Un notaire tunisien n&apos;est pas
-          accepté pour ce formulaire. L&apos;USPS autorise aussi la vidéo
-          en direct ou un notaire commissionné aux USA, mais on ne propose
-          pas encore ces options — depuis la Tunisie, confirme ton
-          éligibilité avec l&apos;équipe avant de payer.
+          1583. L&apos;USPS (Domestic Mail Manual 508.1.8.3) exige que
+          la signature du PS Form 1583 soit faite ou confirmée en
+          présence — physique ou en vidéo en temps réel — du
+          propriétaire, du gérant ou d&apos;un employé autorisé de la
+          CMRA, ou reconnue devant un notaire commissionné dans un État
+          ou territoire américain ou à DC. Un notaire tunisien ne
+          remplit pas cette condition. Contacte-nous pour confirmer la
+          vérification d&apos;identité, les options de paiement et
+          l&apos;activation depuis la Tunisie avant de payer.
         </li>
         <li>
           <strong>P90 : J+14.</strong> Si tu ne peux pas signer

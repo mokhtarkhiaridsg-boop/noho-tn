@@ -36,8 +36,12 @@ export function tunisianAmericanMoat() {
           probabilité augmente significativement.
         </li>
         <li>
-          Le storefront permet aussi la signature du Form 1583 en
-          personne, devant notre équipe au comptoir.
+          Pour le Form 1583, l&apos;USPS exige une signature faite ou
+          confirmée en présence de la CMRA (physique ou vidéo en temps
+          réel) ou devant un notaire commissionné aux USA. Contacte-nous
+          pour confirmer la vérification d&apos;identité, les options de
+          paiement et l&apos;activation depuis la Tunisie avant de
+          payer.
         </li>
       </ul>
 
@@ -107,7 +111,7 @@ export function tunisianAmericanMoat() {
       <ol>
         <li>Jour 0 : appel discovery, audit du dossier, sélection état + structure.</li>
         <li>Jour 1-7 : formation LLC + EIN coordonnés en parallèle (Mokhtar a accès aux files IRS).</li>
-        <li>Jour 7-10 : Form 1583 signé devant notre équipe au comptoir de North Hollywood (pas de notaire tunisien ni KHIARI pour ce formulaire ; depuis Tunis, confirme ton éligibilité avant de payer).</li>
+        <li>Jour 7-10 : Form 1583 signé selon les règles USPS (pas de notaire tunisien ni KHIARI pour ce formulaire ; contacte-nous pour confirmer la vérification d&apos;identité, les options de paiement et l&apos;activation depuis la Tunisie avant de payer).</li>
         <li>Jour 14 : Mercury soumis avec dossier complet (9 éléments du Mercury KYC stack, lettre KHIARI optionnelle).</li>
         <li>Jour 17-21 : approval Mercury, souvent en première lecture.</li>
         <li>Jour 21 : Stripe activé en parallèle si dossier business clean.</li>

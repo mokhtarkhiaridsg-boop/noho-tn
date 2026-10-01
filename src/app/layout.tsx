@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     images: ["https://nohomailboxtunis.com/opengraph-image"],
     title: "NOHO Mailbox Tounes",
     description:
-      "L'adresse mte3ek fi America, win ma kont. Colis, courrier, LLC, étudiants — w tkhalles b dinar.",
+      "L'adresse mte3ek fi America, win ma kont. Colis, courrier, LLC, étudiants — el khlas b dinar possible, nconfirmiweh m3ak.",
     url: "https://nohomailboxtunis.com",
     locale: "aeb_TN",
     type: "website",
