@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HomeLanding from "@/components/landing/HomeLanding";
+import { localeAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -7,22 +8,13 @@ export const metadata: Metadata = {
       "NOHO Mailbox Tunisie — Adresse US réelle, expédition, livraison, LLC",
   },
   description:
-    "Adresse postale réelle aux États-Unis dès 35 TND/mois. Vraie adresse US dans un storefront physique, avec scan de courrier, réception colis (UPS/FedEx/Amazon), forwarding international vers Tunis. LLC américaine, notariat, expédition, livraison US. Paiement en dinars chez un cabinet d'avocat.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr",
-      "ar-TN": "https://nohomailboxtunis.com/ar",
-      "aeb-TN": "https://nohomailboxtunis.com",
-      "en": "https://nohomailboxtunis.com/en",
-      "en-US": "https://nohomailbox.org",
-    },
-  },
+    "Adresse postale réelle aux États-Unis. Vraie adresse US dans un storefront physique, avec scan de courrier, réception colis (UPS/FedEx/Amazon), forwarding international vers Tunis. LLC américaine, notariat, expédition, livraison US. Paiement en dinars possible via un cabinet partenaire à Tunis, à confirmer avec l'équipe avant de payer.",
+  alternates: localeAlternates("/", "fr"),
   openGraph: {
     images: ["https://nohomailboxtunis.com/opengraph-image"],
     title: "NOHO Mailbox Tunisie — Adresse US réelle, LLC, expédition",
     description:
-      "Adresse postale réelle aux États-Unis dès 35 TND/mois. LLC américaine 4 000 TND. Notaire californien. Paiement en dinars chez un cabinet d'avocat.",
+      "Adresse postale réelle aux États-Unis. LLC américaine 4 000 TND. Notaire californien. Paiement en dinars possible via un cabinet partenaire à Tunis, à confirmer avec l'équipe avant de payer.",
     url: "https://nohomailboxtunis.com/fr",
     siteName: "NOHO Mailbox Tunisie",
     locale: "fr_TN",

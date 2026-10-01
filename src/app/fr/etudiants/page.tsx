@@ -4,6 +4,7 @@ import { breadcrumbJsonLd } from "@/lib/breadcrumb";
 import { AiMailbox, AiShield, AiEnvelope, AiClock, AiPin } from "@/components/AnimatedIcons";
 import OpenStatusPill from "@/components/OpenStatusPill";
 import WhatsAppCTA from "@/components/WhatsAppCTA";
+import { singleAlternates } from "@/lib/seo";
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: "Accueil", url: "https://nohomailboxtunis.com/fr" },
@@ -36,13 +37,7 @@ export const metadata: Metadata = {
   title: "Portail Étudiants — Université US accompagnée depuis Tunis",
   description:
     "Pour les étudiants tunisiens qui visent une université américaine. Adresse US réelle pour SEVIS + I-20, accompagnement Common App, coordination visa F-1, préparation entretien consulat. 1 800 TND/année.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr/etudiants",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/etudiants",
-      "x-default": "https://nohomailboxtunis.com/etudiants",
-    },
-  },
+  alternates: singleAlternates("/fr/etudiants"),
 };
 
 const CREAM = "#F7E6C2";

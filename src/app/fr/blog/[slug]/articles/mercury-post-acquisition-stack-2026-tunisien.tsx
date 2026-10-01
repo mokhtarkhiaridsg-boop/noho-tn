@@ -127,7 +127,7 @@ export function mercuryPostAcquisitionStack2026Tunisien() {
           Lankershim NOHO ✓) — pas une P.O. Box virtuelle.
         </li>
         <li>
-          <strong>Form 1583 USPS notarisé</strong> + USPS-registered
+          <strong>Form 1583 USPS signé</strong> + USPS-registered
           CMRA.
         </li>
         <li>

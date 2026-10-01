@@ -2,19 +2,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { waLink } from "@/lib/whatsapp";
+import { localeAlternates } from "@/lib/seo";
+import PricingPending from "@/components/PricingPending";
 
 export const metadata: Metadata = {
   title: "Tarifs b dinar — Adresse US, Business, Suivi mensuel, Étudiants",
   description:
-    "Tarifs wadh7in b dinar tounsi. Adresse US 35-150 TND/chhar. Business 4 000 TND marra barka. Suivi mensuel 1 200 TND/chhar. Portail Étudiants 1 800 TND/an. Bla frais mkhabbiin, bla scarcity mafabrkia.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/tarifs",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/tarifs",
-      "ar-TN": "https://nohomailboxtunis.com/ar/tarifs",
-      "aeb-TN": "https://nohomailboxtunis.com/tarifs",
-    },
-  },
+    "Tarifs wadh7in b dinar tounsi. Adresse US : el tarif nconfirmiweh m3ak 9bal ay paiement. Business 4 000 TND marra barka. Suivi mensuel 1 200 TND/chhar. Portail Étudiants 1 800 TND/an. Bla frais mkhabbiin, bla scarcity mafabrkia.",
+  alternates: localeAlternates("/tarifs", "tn"),
 };
 
 const CREAM = "#F7E6C2";
@@ -86,29 +81,7 @@ const PLANS = [
   },
 ];
 
-const MAILBOX_TIER = [
-  {
-    name: "Free",
-    price: "0",
-    note: "Pay-as-you-go — colis bla abonnement",
-    bullets: [
-      "Adresse bch testacbel el colis (Lankershim Blvd)",
-      "Transporteurs privés bark — bla USPS (les politiques applicables)",
-      "Tkhalles ki testa3mel — kol service yetna77a mel wallet 7asb el grille",
-      "Wallet prépayé — recharge minimum 50 TND",
-      "Dashboard en ligne, notification 3la kol colis",
-    ],
-  },
-  { name: "Basic", price: "35", note: "Usage personnel khfif" },
-  { name: "Standard", price: "75", note: "El plus populaire" },
-  { name: "Premium", price: "150", note: "E-commerce + business actif" },
-];
-
 const ONE_OFFS = [
-  { label: "Scan supplémentaire fou9 el forfait (couleur, recto-verso, A4)", price: "2 TND/page" },
-  { label: "Stockage colis fou9 el mudda incluse (30 / 60 / 90 j 7asb el forfait)", price: "6 TND/semaine" },
-  { label: "Réexpédition consolidée l Tounes (kol jom3a, DHL Express)", price: "140-280 TND + frais postaux" },
-  { label: "Réexpédition urgente l Tounes (24-48h, DHL Worldwide Priority)", price: "200-470 TND + frais postaux" },
   { label: "Same-day NoHo (livraison a9al men 3h fi North Hollywood)", price: "15 TND" },
   { label: "Same-day LA County (0-6h, ay zone fi LA County)", price: "28-90 TND" },
   { label: "Repacking colis (n3awdou el emballage 9bal el expédition)", price: "8 TND/colis" },
@@ -203,7 +176,7 @@ export default function TounsiTarifsPage() {
             className="text-center text-[13px] mt-7 max-w-xl mx-auto"
             style={{ color: "rgba(45,16,15,0.6)" }}
           >
-            Notariat (Form 1583) : inclus m3a el adresse US. Notariat ponctuel
+            Vérification Form 1583 (règle USPS) : incluse m3a el adresse US. Notariat ponctuel
             mawjoud zeda —{" "}
             <Link href="/notary" className="underline font-black">
               chouf el notariat
@@ -213,42 +186,7 @@ export default function TounsiTarifsPage() {
         </div>
       </section>
 
-      {/* MAILBOX TIER PRICING */}
-      <section className="px-5 sm:px-6 py-14 sm:py-16" style={{ background: CREAM }}>
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <h2
-              className="font-extrabold mb-3"
-              style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.25rem)", color: INK, fontFamily: "var(--font-baloo), sans-serif" }}
-            >
-              Adresse US 7a9i9ia — 3 forfaits
-            </h2>
-            <p className="text-[14px]" style={{ color: "rgba(45,16,15,0.65)" }}>
-              El forfaits el chhariya lel adresse US wa7adha, bla pack business.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {MAILBOX_TIER.map((m) => (
-              <div key={m.name} className="p-6 rounded-2xl text-center" style={{ background: "#fff" }}>
-                <h3 className="font-black text-[18px] mb-2" style={{ color: INK, fontFamily: "var(--font-baloo), sans-serif" }}>
-                  {m.name}
-                </h3>
-                <div className="flex items-baseline justify-center gap-1 mb-1">
-                  <span className="font-extrabold" style={{ fontSize: "36px", lineHeight: 1, color: INK }}>{m.price}</span>
-                  <span className="text-[14px] font-black opacity-70" style={{ color: INK }}>TND/chhar</span>
-                </div>
-                <p className="text-[12.5px]" style={{ color: "rgba(45,16,15,0.65)" }}>{m.note}</p>
-              </div>
-            ))}
-          </div>
-          <p className="text-center text-[13px] mt-6" style={{ color: "rgba(45,16,15,0.65)" }}>
-            Forfait annuel = zouz chhoura offerts. Tnajjem twa99ef wa9telli t7eb.{" "}
-            <Link href="/virtual-mailbox" className="underline font-black">
-              Voir les détails
-            </Link>
-          </p>
-        </div>
-      </section>
+      <PricingPending locale="tn" id="adresse" />
 
       {/* ONE-OFFS */}
       <section className="px-5 sm:px-6 py-14 sm:py-16" style={{ background: "#fff" }}>

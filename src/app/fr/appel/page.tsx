@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { localeAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Réserver l'appel — 30 minutes avec l'équipe NOHO",
   description:
     "30 minutes en visio avec l'équipe NOHO côté diaspora tunisienne. Cadrage honnête de ta situation — le Business (4 000 TND), Suivi mensuel (1 200 TND/mois), ou ni l'un ni l'autre. Gratuit, sans engagement.",
-  alternates: { canonical: "https://nohomailboxtunis.com/fr/appel" },
+  alternates: localeAlternates("/appel", "fr"),
 };
 
 const CALL_SEGMENTS = [

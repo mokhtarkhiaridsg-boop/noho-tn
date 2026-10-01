@@ -116,7 +116,7 @@ export function stripeAtlasVsNohoProcedureTechnique() {
         <li>
           Tu signes électroniquement via DocuSign (Atlas-intégré).
           C&apos;est acceptable pour ces docs (vs Form 1583 qui exige
-          notarisation physique).
+          une signature devant la CMRA ou un notaire US).
         </li>
       </ol>
 
@@ -302,12 +302,17 @@ export function stripeAtlasVsNohoProcedureTechnique() {
           5062 Lankershim Suite, agent NOHO, ton nom legal).
         </li>
         <li>
-          Tu signes devant un notary à Tunis OU au cabinet KHIARI
-          (gratuit pour clients NOHO). Délai 2-5 jours.
-        </li>
-        <li>
-          Tu expédies l&apos;original via DHL à 5062 Lankershim
-          (~30 USD).
+          L&apos;USPS (Domestic Mail Manual 508.1.8.3) exige que la
+          signature du PS Form 1583 soit faite ou confirmée en présence
+          — physique ou en vidéo en temps réel — du propriétaire, du
+          gérant ou d&apos;un employé autorisé de la CMRA, ou reconnue
+          devant un notaire commissionné dans un État ou territoire
+          américain ou à DC. Un notary à Tunis ou le cabinet KHIARI ne
+          remplissent pas cette condition. Il faut deux pièces
+          d&apos;identité, dont une avec photo ; l&apos;USPS accepte un
+          passeport étranger. Contacte-nous pour confirmer la
+          vérification d&apos;identité, les options de paiement et
+          l&apos;activation depuis la Tunisie avant de payer.
         </li>
         <li>
           NOHO traite le Form 1583 dès reception. Ton adresse US est

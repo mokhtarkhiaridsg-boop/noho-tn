@@ -68,31 +68,31 @@ export function ouvrirLlcTunisie14Jours() {
         ne se dépose nulle part — il prouve juste qui contrôle la LLC.
       </p>
 
-      <h2>Étape 5 — Form 1583 USPS notarisé (Jour 5-7)</h2>
+      <h2>Étape 5 — Form 1583 USPS (Jour 5-7)</h2>
       <p>
         Pour que NOHO puisse recevoir ton courrier officiel à
         l&apos;adresse de Los Angeles, l&apos;USPS exige un Form 1583
-        notarisé. Trois manières de le faire :
+        signé. Ce qu&apos;il faut savoir :
       </p>
       <ol>
         <li>
-          Signature devant un notaire en Tunisie + apostille (le plus
-          courant pour les résidents tunisiens). Tunisie est{" "}
-          <strong>signataire de la Convention de La Haye depuis 2018</strong> —
-          tu n&apos;as plus besoin de légalisation consulaire, juste
-          l&apos;apostille délivrée par le Ministère des Affaires
-          Étrangères.
+          L&apos;USPS (Domestic Mail Manual 508.1.8.3) exige que la
+          signature du PS Form 1583 soit faite ou confirmée en présence
+          — physique ou en vidéo en temps réel — du propriétaire, du
+          gérant ou d&apos;un employé autorisé de la CMRA, ou reconnue
+          devant un notaire commissionné dans un État ou territoire
+          américain ou à DC.
         </li>
         <li>
-          Notarisation locale en Tunisie (notaire ou cabinet KHIARI), puis
-          envoi de l&apos;original — on confirme la procédure USPS/CMRA
-          acceptée avant activation. Le notariat en ligne à distance (RON)
-          n&apos;est pas disponible via un notaire californien : la loi
-          californienne exige la comparution physique.
+          Un notaire tunisien (ou le cabinet KHIARI) ne remplit pas
+          cette condition, même avec apostille. Il faut deux pièces
+          d&apos;identité, dont une avec photo ; l&apos;USPS accepte un
+          passeport étranger.
         </li>
         <li>
-          Sur place à Los Angeles si tu y passes. Notre équipe te
-          notarise gratuitement au storefront.
+          Contacte-nous pour confirmer la vérification d&apos;identité,
+          les options de paiement et l&apos;activation depuis la Tunisie
+          avant de payer.
         </li>
       </ol>
 
@@ -148,8 +148,6 @@ export function ouvrirLlcTunisie14Jours() {
         <li>Wyoming filing fee : 100 USD</li>
         <li>Wyoming annual report : 60 USD/an à partir de l&apos;an 2</li>
         <li>EIN : gratuit (l&apos;IRS ne facture pas)</li>
-        <li>Form 1583 notarisé en Tunisie : 50-150 TND selon notaire</li>
-        <li>Apostille TN → US : 20-30 TND</li>
         <li>Form 5472 annuel : entre 0 (si tu fais toi-même) et 200-500 USD via CPA</li>
         <li>
           <strong>NOHO Solution Business</strong> : 4 000 TND une fois — inclut adresse 12 mois, Form 1583, EIN, Operating Agreement, identité de marque, site, accompagnement Mercury + Stripe.{" "}
@@ -163,7 +161,7 @@ export function ouvrirLlcTunisie14Jours() {
       <ul>
         <li>EIN qui prend 4-6 semaines au lieu de 7 jours (~15 % des cas).</li>
         <li>Mercury qui demande des documents supplémentaires (~10 %).</li>
-        <li>Form 1583 mal notarisé qui doit être refait (~5 %).</li>
+        <li>Form 1583 mal rempli ou mal signé qui doit être refait (~5 %).</li>
       </ul>
       <p>
         Le délai contractuel des 14 jours couvre les éléments qui dépendent

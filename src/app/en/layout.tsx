@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     images: ["https://nohomailboxtunis.com/opengraph-image"],
     title: "NOHO Mailbox Tunisia",
     description:
-      "Your US address, wherever you are. Packages, mail, LLC, students — and you pay in dinars.",
+      "Your US address, wherever you are. Packages, mail, LLC, students — paying in dinars may be possible, confirmed with you first.",
     url: "https://nohomailboxtunis.com/en",
     locale: "en_US",
     type: "website",

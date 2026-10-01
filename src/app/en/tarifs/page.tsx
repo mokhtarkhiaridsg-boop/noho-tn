@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import StampCard from "@/components/StampCard";
+import PricingPending from "@/components/PricingPending";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
 
 /*
- * English version of /tarifs. Mirrors the FR page 1:1 — hero, mailbox stamp
- * cards, other products, à-la-carte fee grid, storage/forwarding policies,
+ * English version of /tarifs. Mirrors the FR page 1:1 — hero, mailbox pricing
+ * notice (PricingPending), other products, à-la-carte fee grid, storage/forwarding policies,
  * CTA. Prices and claims sourced from the FR page only.
  */
 
 export const metadata: Metadata = {
   title: "Pricing — Real US address, Business, Monthly management (in dinars)",
   description:
-    "Real US address 35-150 TND/month. Business 4 000 TND once. Monthly management 1 200 TND/month. Student Portal 1 800 TND/academic year. Full price grid plus the storage and forwarding policy for the US storefront.",
+    "Real US address: price confirmed before payment. Business 4 000 TND once. Monthly management 1 200 TND/month. Student Portal 1 800 TND/academic year. Price grid for other services plus the storage and forwarding policy.",
   alternates: {
     canonical: "https://nohomailboxtunis.com/en/tarifs",
     languages: {
@@ -34,48 +34,6 @@ const breadcrumbs = breadcrumbJsonLd([
   { name: "Home", url: "https://nohomailboxtunis.com/en" },
   { name: "Pricing", url: "https://nohomailboxtunis.com/en/tarifs" },
 ]);
-
-const MAILBOX_PLANS = [
-  {
-    name: "Basic",
-    price: "35",
-    note: "Light personal use",
-    bullets: [
-      "Real US postal address (Lankershim Blvd)",
-      "5 mail scans included / month",
-      "Notarized USPS Form 1583 included",
-      "30-day storage",
-      "Forwarding on request (postage extra)",
-    ],
-  },
-  {
-    name: "Standard",
-    price: "75",
-    note: "Most popular",
-    primary: true,
-    bullets: [
-      "Everything in Basic",
-      "20 scans included / month",
-      "Package receiving included (5/month)",
-      "Automatic weekly forwarding",
-      "Package consolidation",
-      "SMS + email notifications",
-    ],
-  },
-  {
-    name: "Premium",
-    price: "150",
-    note: "E-commerce + active business",
-    bullets: [
-      "Everything in Standard",
-      "Unlimited scans",
-      "Unlimited package receiving",
-      "Priority scanning (within 2h)",
-      "Repacking included",
-      "Cloud scan storage (3 years)",
-    ],
-  },
-];
 
 const PRODUCTS = [
   {
@@ -109,10 +67,6 @@ const PRODUCTS = [
 ];
 
 const FEES = [
-  { label: "Extra scan beyond your plan", sub: "Color, double-sided, A4 format", amount: "2 TND / page" },
-  { label: "Package storage beyond the included window", sub: "Included window: 30 / 60 / 90 days by plan", amount: "6 TND / week" },
-  { label: "Consolidated forwarding to Tunis", sub: "Weekly on Fridays, DHL Express", amount: "140-280 TND + postage" },
-  { label: "Urgent forwarding to Tunis", sub: "24-48h, DHL Worldwide Priority", amount: "200-470 TND + postage" },
   { label: "Same-day NoHo (local LA)", sub: "Delivery < 3h within North Hollywood", amount: "15 TND" },
   { label: "Same-day LA County", sub: "0-6h, anywhere in LA County", amount: "28-90 TND" },
   { label: "Package repacking", sub: "Re-boxed before shipping", amount: "8 TND / package" },
@@ -126,15 +80,15 @@ const FEES = [
 const POLICIES = [
   {
     q: "Storage — how long is it free?",
-    a: "Mail (letters, documents) is stored free for 90 days on every plan. Packages are stored free according to your plan: Basic 30 days, Standard 60 days, Premium 90 days. Beyond that, a surcharge of 6 TND per package per week applies. We send you a reminder before anything is billed.",
+    a: "The free storage time for mail and packages, and any charge beyond it, is confirmed by the team before any payment. We send you a reminder before anything is billed.",
   },
   {
     q: "Package volume — is there a limit?",
-    a: "No limit on count, but a volumetric surcharge applies beyond 1 cubic foot per package (Amazon-style volumes). Fee 15-45 TND depending on size. Very large items (furniture, bikes) may be refused — call us before shipping.",
+    a: "No limit on count, but a volumetric surcharge applies beyond 1 cubic foot per package (Amazon-style volumes). The fee depends on size and is confirmed before any payment. Very large items (furniture, bikes) may be refused — call us before shipping.",
   },
   {
     q: "Forwarding to Tunisia — how does it work?",
-    a: "By default, weekly consolidation on Fridays. You get the whole week's mail in one DHL Express shipment — significant savings versus individual shipments. You can request an urgent shipment anytime (200-470 TND + actual postage by weight).",
+    a: "By default, weekly consolidation on Fridays. You get the whole week's mail in one DHL Express shipment — significant savings versus individual shipments. You can request an urgent shipment anytime; the amount is confirmed by the team before any payment.",
   },
   {
     q: "DHL / UPS / FedEx postage — any markup?",
@@ -146,7 +100,7 @@ const POLICIES = [
   },
   {
     q: "Delivery refused on arrival — what happens?",
-    a: "If the recipient in Tunisia refuses the delivery (or customs blocks it), DHL returns the package to us. Return fee 25-60 TND. You then decide: restock with us (6 TND/week beyond the window included in your plan), secure destruction (free), or reship to another address.",
+    a: "If the recipient in Tunisia refuses the delivery (or customs blocks it), DHL returns the package to us. Return shipping is billed at the carrier’s cost, confirmed before any payment. You then decide: restock with us (amount confirmed by the team before any payment), secure destruction (free), or reship to another address.",
   },
   {
     q: "Mail privacy — who sees what?",
@@ -154,11 +108,11 @@ const POLICIES = [
   },
   {
     q: "USPS Form 1583 — why is it required and what does it cost?",
-    a: "Form 1583 is the USPS authorization letting us receive mail on your behalf. It's mandatory for every USPS-registered American CMRA. Notarization is included in all Real US address plans. If your address in Tunisia changes: re-notarization is free.",
+    a: "Form 1583 is the USPS authorization letting us receive mail on your behalf. It's mandatory for every USPS-registered American CMRA, and the signature check it requires is included. Contact us to confirm identity verification, payment options, and activation from Tunisia before paying. If your address in Tunisia changes, the amount for a new verification is confirmed by the team before any payment.",
   },
   {
     q: "Policies for packages moving through the US storefront",
-    a: "Every package that arrives at 5062 Lankershim (whether for forwarding to Tunis or local LA delivery) follows the same policies: photo in + photo out, mail stored 90 days, packages by plan (30 / 60 / 90 days), surcharge beyond that. Packages delivered to the TN store fall under the same policies for the duration of transit.",
+    a: "Every package that arrives at 5062 Lankershim (whether for forwarding to Tunis or local LA delivery) follows the same policies: photo in + photo out, for mail and packages, the included time and any charge beyond it are confirmed by the team before any payment. Packages delivered to the TN store fall under the same policies for the duration of transit.",
   },
   {
     q: "BCT and customs declaration (Tunisia side) — who handles it?",
@@ -211,127 +165,7 @@ export default function EnglishTarifsPage() {
         </div>
       </section>
 
-      {/* PLANS — STAMPS */}
-      <section className="py-14 sm:py-20 px-7 sm:px-6" style={{ background: CREAM }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10 sm:mb-12">
-            <p
-              className="font-black mb-2"
-              style={{ fontFamily: "var(--font-pacifico), cursive", fontSize: "1.1rem", color: BLUE }}
-            >
-              Real US address
-            </p>
-            <h2
-              className="font-extrabold tracking-tight"
-              style={{
-                fontFamily: "var(--font-baloo), sans-serif",
-                fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
-                color: INK,
-              }}
-            >
-              Pick your plan
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-            {MAILBOX_PLANS.map((plan) => (
-              <div key={plan.name} className={`group ${plan.primary ? "md:-mt-3" : ""}`}>
-                <StampCard popular={plan.primary}>
-                  {plan.primary && (
-                    <div className="flex justify-center mb-4">
-                      <span
-                        className="text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full"
-                        style={{ background: BLUE, color: "white" }}
-                      >
-                        ★ Most popular
-                      </span>
-                    </div>
-                  )}
-                  <div className="text-center mb-2">
-                    <p
-                      className="text-[10px] font-black uppercase tracking-[0.2em] mb-1"
-                      style={{ color: plan.primary ? "rgba(247,230,194,0.55)" : "rgba(45,16,15,0.45)" }}
-                    >
-                      {plan.note}
-                    </p>
-                    <h3
-                      className="font-black text-2xl mb-1"
-                      style={{ color: plan.primary ? CREAM : INK, fontFamily: "var(--font-baloo), sans-serif" }}
-                    >
-                      {plan.name}
-                    </h3>
-                    <div className="flex items-end justify-center gap-1">
-                      <span
-                        className="font-extrabold"
-                        style={{
-                          fontSize: "2.5rem",
-                          color: plan.primary ? CREAM : INK,
-                          fontFamily: "var(--font-baloo), sans-serif",
-                        }}
-                      >
-                        {plan.price}
-                      </span>
-                      <span
-                        className="text-sm mb-1.5"
-                        style={{ color: plan.primary ? "rgba(247,230,194,0.45)" : "rgba(45,16,15,0.45)" }}
-                      >
-                        TND / month
-                      </span>
-                    </div>
-                    <p
-                      className="text-[10px] mt-1 font-bold"
-                      style={{ color: plan.primary ? "rgba(247,230,194,0.55)" : "rgba(45,16,15,0.5)" }}
-                    >
-                      Notarized Form 1583 included
-                    </p>
-                  </div>
-                  <ul className="space-y-2.5 text-sm mt-5 mb-7">
-                    {plan.bullets.map((b) => (
-                      <li key={b} className="flex items-center gap-2.5">
-                        <span
-                          className="w-4 h-4 rounded-full flex items-center justify-center shrink-0"
-                          style={{ background: plan.primary ? BLUE : CREAM }}
-                        >
-                          <svg
-                            className="w-2 h-2"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke={plan.primary ? "white" : INK}
-                            strokeWidth="3.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            aria-hidden="true"
-                          >
-                            <path d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
-                        <span
-                          style={{ color: plan.primary ? "rgba(247,230,194,0.78)" : "rgba(45,16,15,0.78)" }}
-                        >
-                          {b}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/en/virtual-mailbox"
-                    className="block text-center font-black py-3.5 rounded-2xl text-sm transition-all duration-200 hover:scale-[1.02]"
-                    style={{
-                      background: plan.primary ? BLUE : INK,
-                      color: plan.primary ? "white" : CREAM,
-                      boxShadow: plan.primary ? "0 6px 20px rgba(51,116,133,0.35)" : "none",
-                    }}
-                  >
-                    Choose {plan.name}
-                  </Link>
-                </StampCard>
-              </div>
-            ))}
-          </div>
-          <p className="text-center mt-10 text-sm" style={{ color: "rgba(45,16,15,0.5)" }}>
-            Annual billing = 2 months free. Cancel anytime.
-          </p>
-        </div>
-      </section>
+      <PricingPending locale="en" id="adresse" />
 
       {/* PRODUCTS */}
       <section className="py-14 sm:py-20 px-5 sm:px-6" style={{ background: "#fff" }}>

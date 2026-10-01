@@ -3,6 +3,7 @@ import Link from "next/link";
 import { waLink } from "@/lib/whatsapp";
 import ConsultationForm from "@/components/ConsultationForm";
 import Reveal from "@/components/anim/Reveal";
+import { localeAlternates } from "@/lib/seo";
 
 /*
  * Tounsi (derja, Latin script) version of /business.
@@ -17,14 +18,7 @@ export const metadata: Metadata = {
   title: "Business — lanci el société mte3ek, el ba9i 3lina",
   description:
     "Business 4 000 TND marra barka (14-21 jour) · Suivi mensuel 1 200 TND/chhar bla engagement.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/business",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/business",
-      "ar-TN": "https://nohomailboxtunis.com/ar/business",
-      "aeb-TN": "https://nohomailboxtunis.com/business",
-    },
-  },
+  alternates: localeAlternates("/business", "tn"),
 };
 
 const CREAM = "#F7E6C2";
@@ -90,7 +84,7 @@ const TRUST = [
 const NEXT_STEPS = [
   { n: "01", t: "Nkalmouk fi 24h", d: "Bel email wala 3al WhatsApp, bel tounsi wala bel français." },
   { n: "02", t: "Appel b latech, 30 d9i9a", d: "Structure TN, US wala combo — recommandation b kol sara7a, mouch pitch." },
-  { n: "03", t: "Plan wadhe7, el soum b dinar", d: "Ta3ref exactement chnowa, wa9tech, w b 9adech. Tkhalles 3and el cabinet d'avocat." },
+  { n: "03", t: "Plan wadhe7, el soum b dinar", d: "Ta3ref exactement chnowa, wa9tech, w b 9adech. El khlas b dinar 3and cabinet partenaire fi Tounes possible — confirmih m3a l'équipe 9bal ma tkhalles." },
 ];
 
 const FORM_LABELS = {

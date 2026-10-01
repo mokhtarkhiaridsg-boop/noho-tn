@@ -30,8 +30,12 @@ export function llcUsPourDeveloppeurTunisienStackComplet() {
           inclus.
         </li>
         <li>
-          <strong>Form 1583 USPS notarisé</strong> en interne par
-          notre notaire californien.
+          <strong>Form 1583 USPS signé</strong> selon les règles USPS :
+          en présence de la CMRA (physique ou vidéo en temps réel) ou
+          devant un notaire commissionné aux USA ; un notaire tunisien
+          ne suffit pas. Contacte-nous pour confirmer la vérification
+          d&apos;identité, les options de paiement et l&apos;activation
+          depuis la Tunisie avant de payer.
         </li>
       </ul>
 
@@ -206,7 +210,7 @@ export function llcUsPourDeveloppeurTunisienStackComplet() {
         <li>GitHub Pro : 96 USD</li>
         <li>Sentry/LogRocket : 200-600 USD selon scale</li>
         <li>CPA US filing : 250-500 USD/an</li>
-        <li>USPS Form 1583 mailbox : 35-150 TND/mois (selon plan)</li>
+        <li>Mailbox USPS Form 1583 : tarif confirmé avec l&apos;équipe avant paiement</li>
         <li>
           <strong>Total compliance + infra Y1 : ~1 500 - 2 500 USD</strong>
         </li>

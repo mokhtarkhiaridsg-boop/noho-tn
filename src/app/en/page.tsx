@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     absolute: "NOHO Mailbox Tunisia — Your US address, wherever you are",
   },
   description:
-    "A real US address from 35 TND/month. Physical storefront in North Hollywood, mail scanning, packages (UPS/FedEx/Amazon), shipping to Tunisia. American LLC, notary, students. Pay in dinars at a law office.",
+    "A real US address, price confirmed before you pay. Physical storefront in North Hollywood, mail scanning, packages (UPS/FedEx/Amazon), shipping to Tunisia. American LLC, notary, students. Pay in dinars at a law office.",
   alternates: {
     canonical: "https://nohomailboxtunis.com/en",
     languages: {

@@ -7,10 +7,15 @@
  */
 import { submitSignupToUs, usApiConfigured } from "@/lib/us-api";
 import { WHATSAPP_DISPLAY } from "@/lib/whatsapp";
+import { track } from "@vercel/analytics/server";
+import { headers } from "next/headers";
 
 export type SignupState = {
   error?: string;
+  /** The US app accepted the request (includes an email it already knew, or a request it held for review). */
   success?: boolean;
+  /** The US app created a NEW account for this request — the only thing counted as a completed signup. */
+  completed?: boolean;
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -49,5 +54,30 @@ export async function submitSignup(
     };
   }
 
-  return { success: true };
+  /*
+   * Completed signup = the US app says it created a new account
+   * (`created: true` with a user id). It also answers `ok` for an email it
+   * already has and for a request its risk gate quarantined (empty user id),
+   * and neither of those is a new customer. The account itself carries
+   * originSite = "tn" in the US database, which is the record of truth; this
+   * event only mirrors it into this site's analytics. Fixed labels only.
+   */
+  const completed = res.data.created === true && !!res.data.userId;
+  if (completed) {
+    const planId = ["virtual-solo", "virtual-pro", "virtual-business", "not_sure"].includes(plan) ? plan : "other";
+    try {
+      // Only what Web Analytics needs to place the event — no cookies.
+      const h = await headers();
+      const minimal: Record<string, string> = {};
+      for (const k of ["user-agent", "x-forwarded-for", "referer"]) {
+        const v = h.get(k);
+        if (v) minimal[k] = v;
+      }
+      await track("signup_completed", { site: "tn", plan: planId }, { headers: minimal });
+    } catch (err) {
+      console.error("[submitSignup] analytics event failed", err);
+    }
+  }
+
+  return { success: true, completed };
 }

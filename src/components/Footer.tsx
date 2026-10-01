@@ -21,7 +21,7 @@ const FR_SECTIONS: Section[] = [
       { href: "/virtual-mailbox", label: "Adresse US réelle" },
       { href: "/shipping", label: "Expédition int'l" },
       { href: "/livraison", label: "Livraison US" },
-      { href: "/notary", label: "Form 1583 notarisé" },
+      { href: "/notary", label: "Notaire & Form 1583" },
     ],
   },
   {
@@ -104,7 +104,7 @@ const EN_SECTIONS: Section[] = localizeSections([
       { href: "/virtual-mailbox", label: "Real US address" },
       { href: "/shipping", label: "International shipping" },
       { href: "/livraison", label: "US delivery" },
-      { href: "/notary", label: "Notarized Form 1583" },
+      { href: "/notary", label: "Notary & Form 1583" },
     ],
   },
   {
@@ -237,7 +237,7 @@ export default function Footer() {
   const tagline = isAr
     ? "النسخة التونسية من NOHO Mailbox. شركة أمريكية أو تونسية، بنوك، وكيل أمريكي للمؤسسين والطلاب والمتقدمين للوظائف التونسيين. تسعير بالدينار."
     : isTn
-    ? "El version Tounsi mta3 NOHO Mailbox. Adresse 7a9i9ia fi America, colis w courrier, LLC américaine, mrafqa Mercury w Stripe, bweba lel étudiants. Tkhalles b dinar fi Tounes."
+    ? "El version Tounsi mta3 NOHO Mailbox. Adresse 7a9i9ia fi America, colis w courrier, LLC américaine, mrafqa Mercury w Stripe, bweba lel étudiants. El khlas b dinar possible — confirmih m3a l'équipe."
     : isEn
     ? "The Tunisia edition of NOHO Mailbox. US or Tunisian company, banking, and a US agent for Tunisian founders, students, and job applicants. Priced in dinars."
     : "L'édition Tunisie de NOHO Mailbox. Société américaine ou tunisienne, banque, agent américain pour fondateurs, étudiants et candidats à l'emploi tunisiens. Tarif en dinars.";

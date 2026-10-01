@@ -173,11 +173,6 @@ export async function generateMetadata({
     description: article.excerpt,
     alternates: {
       canonical: `https://nohomailboxtunis.com/blog/${article.slug}`,
-      languages: {
-        "fr-TN": `https://nohomailboxtunis.com/blog/${article.slug}`,
-        "ar-TN": `https://nohomailboxtunis.com/ar/blog/${article.slug}`,
-        "x-default": `https://nohomailboxtunis.com/blog/${article.slug}`,
-      },
     },
     openGraph: {
     images: ["https://nohomailboxtunis.com/opengraph-image"],

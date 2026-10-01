@@ -159,7 +159,7 @@ export function wyomingAnnualReport() {
         <li>Annual report : 60 USD</li>
         <li>Registered agent : 50-125 USD</li>
         <li>Form 5472/1120 CPA : 250-500 USD (ou 0 si tu le fais toi)</li>
-        <li>Mailbox (5062 Lankershim chez NOHO) : 35-150 TND/mois</li>
+        <li>Mailbox (5062 Lankershim chez NOHO) : tarif confirmé avec l&apos;équipe avant paiement</li>
         <li><strong>Total minimum : ~400 USD/an</strong> sans CPA, ~700 USD/an avec CPA</li>
       </ul>
       <p>

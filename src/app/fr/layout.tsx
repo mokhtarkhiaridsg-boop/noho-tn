@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { localeAlternates } from "@/lib/seo";
 
 /*
  * French locale layout.
@@ -13,26 +14,17 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   metadataBase: new URL("https://nohomailboxtunis.com"),
   title: {
-    default: "NOHO Mailbox Tunisie — LLC américaine, banque US, université US",
+    default: "NOHO Mailbox Tunisie — Adresse postale réelle aux États-Unis",
     template: "%s | NOHO Mailbox Tunisie",
   },
   description:
-    "L'édition Tunisie de NOHO Mailbox. LLC américaine, adresse réelle aux USA, accompagnement Mercury et Stripe, portail étudiants pour universités US. Tarif en dinars.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr",
-    languages: {
-      "aeb-TN": "https://nohomailboxtunis.com",
-      "fr-TN": "https://nohomailboxtunis.com/fr",
-      "ar-TN": "https://nohomailboxtunis.com/ar",
-      en: "https://nohomailboxtunis.com/en",
-      "x-default": "https://nohomailboxtunis.com",
-    },
-  },
+    "L'édition Tunisie de NOHO Mailbox : une adresse postale réelle à North Hollywood (Californie), scan du courrier, réception et réexpédition de colis vers la Tunisie. Tarifs en dinars.",
+  alternates: localeAlternates("/", "fr"),
   openGraph: {
     images: ["https://nohomailboxtunis.com/opengraph-image"],
     title: "NOHO Mailbox Tunisie",
     description:
-      "LLC américaine, banque US, université US. Tarif en dinars pour la Tunisie.",
+      "Adresse postale réelle aux États-Unis, scan du courrier, colis réexpédiés vers la Tunisie. Tarifs en dinars.",
     url: "https://nohomailboxtunis.com/fr",
     locale: "fr_TN",
     type: "website",

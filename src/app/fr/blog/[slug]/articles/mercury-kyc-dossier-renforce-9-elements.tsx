@@ -85,8 +85,8 @@ export function mercuryKycDossier() {
         <li>
           NOHO opère une vraie boutique enregistrée USPS au 5062
           Lankershim Blvd, North Hollywood, CA. Ce n&apos;est PAS une
-          CMRA virtuelle flaggée. C&apos;est un commercial space avec
-          notarisation Form 1583 sur place. Mercury accepte.
+          CMRA virtuelle flaggée. C&apos;est un commercial space.
+          Mercury accepte.
         </li>
         <li>
           Vérifie que l&apos;adresse sur ton{" "}

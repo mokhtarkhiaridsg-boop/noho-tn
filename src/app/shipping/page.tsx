@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import LabelClient, { type LabelClientLabels } from "@/components/LabelClient";
 import { waLink } from "@/lib/whatsapp";
+import { localeAlternates } from "@/lib/seo";
 
 /*
  * Tounsi (derja, Latin script) version of /shipping — condensed.
@@ -10,17 +11,10 @@ import { waLink } from "@/lib/whatsapp";
  */
 
 export const metadata: Metadata = {
-  title: "Expédition — Asna3 el Label Mte3ek w khalles bel TND",
+  title: "Expédition — Asna3 el Label Mte3ek",
   description:
     "USPS, UPS, FedEx, DHL — tarifs 7a9i9iyin, bla marge moukhabbia.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/shipping",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/shipping",
-      "ar-TN": "https://nohomailboxtunis.com/ar/shipping",
-      "aeb-TN": "https://nohomailboxtunis.com/shipping",
-    },
-  },
+  alternates: localeAlternates("/shipping", "tn"),
 };
 
 const CREAM = "#F7E6C2";
@@ -30,7 +24,7 @@ const GREEN = "#2D7A4A";
 
 const TN_LABELS: LabelClientLabels = {
   intro:
-    "Destination + colis → tarifs live 7a9i9iyin mta3 el transporteurs. Tekhtar elli yerta7lek, w el label yetsna3 ba3d ma tkhalles b dinar.",
+    "Destination + colis → tarifs live 7a9i9iyin mta3 el transporteurs. Tekhtar elli yerta7lek, w el label yetsna3 ba3d el khlas.",
   toName: "Nom du destinataire", street: "Adresse", city: "Ville", state: "Région/État", zip: "Code postal", country: "Pays (code — TN, FR, US…)",
   suite: "Votre suite NOHO (optionnel)", suiteHint: "ex. 122 — si le colis part de votre boîte",
   length: "Longueur (in)", width: "Largeur (in)", height: "Hauteur (in)", weight: "Poids (lb)",
@@ -39,8 +33,8 @@ const TN_LABELS: LabelClientLabels = {
   email: "Email mte3ek", phone: "Téléphone (optionnel)",
   order: "Commander ce label", ordering: "9a3din nab3thou el demande…",
   successTitle: "Demande weslet.",
-  successBody: "Nkalmouk bch tkhalles b dinar, w el label PDF yjik bel email.",
-  payNote: "Tkhalles b dinar — wallet wala Cabinet Khiari, Tunis. Ma fama 7atta khlas b carte 3al site.",
+  successBody: "Nkalmouk bch nconfirmiw tari9et el khlas, w el label PDF yjik bel email.",
+  payNote: "Tari9et el khlas (b dinar 3al wallet wala cabinet partenaire fi Tounes) nconfirmiweha m3ak 9bal ma tkhalles. Ma fama 7atta khlas b carte 3al site.",
   back: "Modifier le colis",
 };
 
@@ -89,7 +83,7 @@ export default function TounsiShippingPage() {
                 className="font-extrabold mb-3"
                 style={{ fontFamily: "var(--font-baloo), sans-serif", fontSize: "24px", color: INK }}
               >
-                Asna3 el Label Mte3ek w khalles bel TND
+                Asna3 el Label Mte3ek
               </h2>
               <LabelClient locale="tn" L={TN_LABELS} />
             </div>

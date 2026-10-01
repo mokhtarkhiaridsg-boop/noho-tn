@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
+import { singleAlternates } from "@/lib/seo";
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: "Accueil", url: "https://nohomailboxtunis.com/fr" },
@@ -33,14 +34,7 @@ export const metadata: Metadata = {
   title: "Suivi mensuel — 1 200 TND/mois",
   description:
     "Le partenaire opérationnel de ta LLC américaine. Conformité US mensuelle, courrier prioritaire, brand, contenu, revue trimestrielle. 1 200 TND/mois, mois par mois, sans engagement annuel.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr/suivi-mensuel",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/suivi-mensuel",
-      "ar-TN": "https://nohomailboxtunis.com/ar/suivi-mensuel",
-      "x-default": "https://nohomailboxtunis.com/suivi-mensuel",
-    },
-  },
+  alternates: singleAlternates("/fr/suivi-mensuel"),
 };
 
 const CREAM = "#F7E6C2";

@@ -19,8 +19,7 @@ export function nohoCabinetKhiariIntegrationHonnete() {
           <strong>NOHO Mailbox</strong> = société américaine basée à
           North Hollywood, California. Boîte virtuelle USPS-registered
           au 5062 Lankershim Blvd. Solution Business + Suivi mensuel
-          pour fondateurs non-résidents (Tunisiens et autres). Notaire
-          californien sur place pour Form 1583.
+          pour fondateurs non-résidents (Tunisiens et autres).
         </li>
         <li>
           <strong>Cabinet KHIARI</strong> = cabinet d&apos;avocats
@@ -85,8 +84,7 @@ export function nohoCabinetKhiariIntegrationHonnete() {
           notre équipe LA.
         </li>
         <li>
-          <strong>Form 1583 notarisé</strong> par notre notaire
-          californien sur place.
+          <strong>Form 1583 signé</strong> selon les règles USPS.
         </li>
         <li>
           <strong>Mailbox virtuelle</strong> : scan, forwarding,
@@ -206,9 +204,18 @@ export function nohoCabinetKhiariIntegrationHonnete() {
           SS-4 à l&apos;IRS depuis LA.
         </li>
         <li>
-          <strong>Notarisation Form 1583</strong>. Tu signes en personne
-          devant un notaire — en Tunisie (KHIARI organise le rendez-vous)
-          ou au comptoir NOHO à LA. L&apos;original est ensuite classé à LA.
+          <strong>Signature Form 1583</strong>. L&apos;USPS (Domestic
+          Mail Manual 508.1.8.3) exige que la signature du PS Form 1583
+          soit faite ou confirmée en présence — physique ou en vidéo en
+          temps réel — du propriétaire, du gérant ou d&apos;un employé
+          autorisé de la CMRA, ou reconnue devant un notaire
+          commissionné dans un État ou territoire américain ou à DC. Ni
+          KHIARI ni un notaire tunisien ne remplissent cette condition.
+          Il faut deux pièces d&apos;identité, dont une avec photo ;
+          l&apos;USPS accepte un passeport étranger. Contacte-nous pour
+          confirmer la vérification d&apos;identité, les options de
+          paiement et l&apos;activation depuis la Tunisie avant de
+          payer. L&apos;original est ensuite classé à LA.
         </li>
         <li>
           <strong>Ouverture compte Mercury / Stripe</strong>. C&apos;est

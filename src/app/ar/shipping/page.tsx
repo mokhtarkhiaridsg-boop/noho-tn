@@ -12,9 +12,9 @@ import { WHATSAPP_NUMBER } from "@/lib/whatsapp";
  */
 
 export const metadata: Metadata = {
-  title: "الشحن — أنشئ ملصق الشحن وادفع بالدينار",
+  title: "الشحن — أنشئ ملصق الشحن",
   description:
-    "نشحن طردك من لوس أنجلوس — أنت تختار شركة الشحن وتدفع بالدينار. USPS وUPS وFedEx وDHL — أسعار الشركات الحقيقية من دون هامش مخفي.",
+    "نشحن طردك من لوس أنجلوس — أنت تختار شركة الشحن، ونؤكد معك طريقة الدفع. USPS وUPS وFedEx وDHL — أسعار الشركات الحقيقية من دون هامش مخفي.",
   alternates: {
     canonical: "https://nohomailboxtunis.com/ar/shipping",
     languages: {
@@ -32,7 +32,7 @@ const GREEN = "#2D7A4A";
 
 const AR_LABELS: LabelClientLabels = {
   intro:
-    "الوجهة + الطرد ← أسعار مباشرة من شركات الشحن. تختار السعر المناسب، ونصدر الملصق بعد الدفع بالدينار.",
+    "الوجهة + الطرد ← أسعار مباشرة من شركات الشحن. تختار السعر المناسب، ونصدر الملصق بعد الدفع.",
   toName: "اسم المرسل إليه", street: "العنوان", city: "المدينة", state: "الولاية / المنطقة", zip: "الرمز البريدي", country: "الدولة (رمز — TN، FR، US…)",
   suite: "رقم صندوقك في NOHO (اختياري)", suiteHint: "مثال: 122 — إذا كان الطرد يخرج من صندوقك",
   length: "الطول (إنش)", width: "العرض (إنش)", height: "الارتفاع (إنش)", weight: "الوزن (رطل)",
@@ -41,7 +41,7 @@ const AR_LABELS: LabelClientLabels = {
   email: "بريدك الإلكتروني", phone: "الهاتف (اختياري)",
   order: "اطلب هذا الملصق", ordering: "جارٍ إرسال الطلب…",
   successTitle: "تم استلام الطلب.",
-  successBody: "سنتواصل معك للدفع بالدينار ثم يصلك ملصق PDF عبر البريد الإلكتروني.",
+  successBody: "سنتواصل معك لتأكيد طريقة الدفع ثم يصلك ملصق PDF عبر البريد الإلكتروني.",
   payNote: "الدفع بالدينار — عبر المحفظة أو مكتب الخياري (Cabinet Khiari) في تونس. لا دفع بالبطاقة على الموقع إطلاقاً.",
   back: "عدّل الطرد",
 };
@@ -77,7 +77,7 @@ export default function ArShippingPage() {
             الشحن
           </h1>
           <p className="text-[16px] leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(45,16,15,0.78)" }}>
-            نشحن طردك من لوس أنجلوس — أنت تختار شركة الشحن وتدفع بالدينار.
+            نشحن طردك من لوس أنجلوس — أنت تختار شركة الشحن، ونؤكد معك طريقة الدفع.
           </p>
         </div>
       </section>
@@ -95,7 +95,7 @@ export default function ArShippingPage() {
                 ملصقات مباشرة · أسعار شركات الشحن الحقيقية
               </p>
               <h2 className="font-extrabold mb-3" style={{ fontSize: "24px", color: INK }}>
-                أنشئ ملصق الشحن وادفع بالدينار
+                أنشئ ملصق الشحن
               </h2>
               <LabelClient locale="ar" L={AR_LABELS} />
             </div>

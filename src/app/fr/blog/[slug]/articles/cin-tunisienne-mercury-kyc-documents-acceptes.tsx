@@ -134,7 +134,7 @@ export function cinTunisienneMercuryKycDocumentsAcceptes() {
         <li>
           <strong>Lease ou justificatif d&apos;adresse business US</strong>{" "}
           (5062 Lankershim avec NOHO Solution Business — Form 1583
-          notarisé fait office).
+          signé fait office).
         </li>
       </ul>
 

@@ -20,11 +20,19 @@ export function etudiantTunisienArriveeUsChecklist30Jours() {
         </li>
         <li>
           <strong>Active mailbox US réelle</strong> via NOHO Boîte
-          virtuelle (35 TND/mois Basic suffit pour démarrer). Form
-          1583 notarisé <em>en personne</em> — chez un notaire en Tunisie
-          avant le départ, ou au comptoir NOHO une fois à Los Angeles
-          (jamais en ligne). Adresse à fournir à l&apos;université pour
-          confirmation arrivée.
+          virtuelle (forfait et tarif confirmés avec l&apos;équipe avant paiement). Form
+          1583 : L&apos;USPS (Domestic Mail Manual 508.1.8.3) exige que
+          la signature du PS Form 1583 soit faite ou confirmée en
+          présence — physique ou en vidéo en temps réel — du
+          propriétaire, du gérant ou d&apos;un employé autorisé de la
+          CMRA, ou reconnue devant un notaire commissionné dans un État
+          ou territoire américain ou à DC. Un notaire tunisien ne
+          remplit pas cette condition. Il faut deux pièces
+          d&apos;identité, dont une avec photo ; l&apos;USPS accepte un
+          passeport étranger. Contacte-nous pour confirmer la
+          vérification d&apos;identité, les options de paiement et
+          l&apos;activation depuis la Tunisie avant de payer. Adresse à
+          fournir à l&apos;université pour confirmation arrivée.
         </li>
         <li>
           <strong>Prépare ton dossier physique</strong> : passport
@@ -267,8 +275,8 @@ export function etudiantTunisienArriveeUsChecklist30Jours() {
       <ul>
         <li>
           <strong>Mailbox US pré-arrivée</strong> : adresse stable
-          avant que tu ne saches où tu vivras vraiment. Form 1583
-          notarisé.
+          avant que tu ne saches où tu vivras vraiment. Form 1583 signé
+          selon les règles USPS (voir plus haut).
         </li>
         <li>
           <strong>Coordination avec consul tunisien</strong> à NY/

@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import StampCard from "@/components/StampCard";
+import PricingPending from "@/components/PricingPending";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
+import { localeAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Tarifs — Adresse US réelle, Business, Suivi mensuel (dinars)",
   description:
-    "Adresse US réelle 35-150 TND/mois. Business 4 000 TND une fois. Suivi mensuel 1 200 TND/mois. Portail Étudiants 1 800 TND/an. Grille tarifaire complète + politique de stockage et de réexpédition depuis le storefront US.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr/tarifs",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/tarifs",
-      "ar-TN": "https://nohomailboxtunis.com/ar/tarifs",
-      "x-default": "https://nohomailboxtunis.com/tarifs",
-    },
-  },
+    "Adresse US réelle : tarif confirmé avant paiement. Business 4 000 TND une fois. Suivi mensuel 1 200 TND/mois. Portail Étudiants 1 800 TND/an. Grille des autres services et politique de stockage et de réexpédition.",
+  alternates: localeAlternates("/tarifs", "fr"),
 };
 
 const CREAM = "#F7E6C2";
@@ -26,60 +20,6 @@ const breadcrumbs = breadcrumbJsonLd([
   { name: "Accueil", url: "https://nohomailboxtunis.com/fr" },
   { name: "Tarifs", url: "https://nohomailboxtunis.com/fr/tarifs" },
 ]);
-
-const MAILBOX_PLANS = [
-  {
-    name: "Free",
-    price: "0",
-    note: "Pay-as-you-go — colis sans abonnement",
-    bullets: [
-      "Adresse de réception colis (Lankershim Blvd)",
-      "Transporteurs privés uniquement — pas d'USPS (politiques applicables)",
-      "Paiement à l'usage depuis le wallet, aux tarifs de la grille",
-      "Wallet prépayé — recharge minimum 50 TND",
-      "Dashboard en ligne, notification à chaque colis",
-    ],
-  },
-  {
-    name: "Basic",
-    price: "35",
-    note: "Usage personnel léger",
-    bullets: [
-      "Adresse postale US réelle (Lankershim Blvd)",
-      "5 scans de courrier inclus / mois",
-      "Form 1583 USPS notarisé inclus",
-      "Stockage 30 jours",
-      "Forwarding sur demande (frais postaux en sus)",
-    ],
-  },
-  {
-    name: "Standard",
-    price: "75",
-    note: "Le plus populaire",
-    primary: true,
-    bullets: [
-      "Tout du Basic",
-      "20 scans inclus / mois",
-      "Réception colis incluse (5/mois)",
-      "Forwarding hebdomadaire automatique",
-      "Consolidation de colis",
-      "SMS + email notifications",
-    ],
-  },
-  {
-    name: "Premium",
-    price: "150",
-    note: "E-commerce + business actif",
-    bullets: [
-      "Tout du Standard",
-      "Scans illimités",
-      "Réception colis illimitée",
-      "Priorité scan (sous 2h)",
-      "Repacking inclus",
-      "Cloud storage des scans (3 ans)",
-    ],
-  },
-];
 
 const PRODUCTS = [
   {
@@ -107,16 +47,12 @@ const PRODUCTS = [
     name: "Notariat (Form 1583)",
     price: "Inclus",
     unit: "avec mailbox",
-    desc: "Notaire californien sur place. Incluse avec l'adresse US réelle. Notariat ponctuel possible.",
+    desc: "Signature vérifiée selon les règles USPS. Incluse avec l'adresse US réelle. Contacte-nous pour confirmer la vérification d'identité, les options de paiement et l'activation depuis la Tunisie avant de payer. Notariat ponctuel possible.",
     href: "/fr/notary",
   },
 ];
 
 const FEES = [
-  { label: "Scan supplémentaire au-delà du forfait", sub: "Couleur, recto-verso, format A4", amount: "2 TND / page" },
-  { label: "Stockage de colis au-delà de la durée incluse", sub: "Durée incluse : 30 / 60 / 90 j selon forfait", amount: "6 TND / semaine" },
-  { label: "Réexpédition consolidée Tunis", sub: "Vendredi hebdomadaire, DHL Express", amount: "140-280 TND + frais postaux" },
-  { label: "Réexpédition urgente Tunis", sub: "24-48h, DHL Worldwide Priority", amount: "200-470 TND + frais postaux" },
   { label: "Same-day NoHo (local LA)", sub: "Livraison < 3h dans North Hollywood", amount: "15 TND" },
   { label: "Same-day LA County", sub: "0-6h, toute zone LA County", amount: "28-90 TND" },
   { label: "Repacking colis", sub: "Re-emballage avant expédition", amount: "8 TND / colis" },
@@ -130,15 +66,15 @@ const FEES = [
 const POLICIES = [
   {
     q: "Stockage — combien de temps gratuit ?",
-    a: "Le courrier (lettres, documents) est stocké gratuitement 90 jours sur tous les forfaits. Les colis sont stockés gratuitement selon ton forfait : Basic 30 jours, Standard 60 jours, Premium 90 jours. Au-delà, surcharge de 6 TND par colis par semaine. On t'envoie un rappel avant toute facturation.",
+    a: "La durée de stockage gratuite pour le courrier et les colis et le montant d'un éventuel dépassement te sont confirmés par l'équipe avant tout paiement. On t'envoie un rappel avant toute facturation.",
   },
   {
     q: "Volume de colis — y a-t-il une limite ?",
-    a: "Aucune limite en nombre, mais surcharge volumétrique au-delà de 1 pied cube par colis (volumes Amazon-style). Frais 15-45 TND selon taille. Les colis très grands (mobilier, vélo) peuvent être refusés — appelle-nous avant l'envoi.",
+    a: "Aucune limite en nombre, mais surcharge volumétrique au-delà de 1 pied cube par colis (volumes Amazon-style). Le montant dépend de la taille et t’est confirmé avant tout paiement. Les colis très grands (mobilier, vélo) peuvent être refusés — appelle-nous avant l'envoi.",
   },
   {
     q: "Réexpédition vers Tunisie — comment ça marche ?",
-    a: "Par défaut, consolidation hebdomadaire le vendredi. Tu reçois tout le courrier de la semaine en un seul envoi DHL Express, économie significative vs envois individuels. Tu peux demander un envoi urgent à tout moment (200-470 TND + postal réel selon poids).",
+    a: "Par défaut, consolidation hebdomadaire le vendredi. Tu reçois tout le courrier de la semaine en un seul envoi DHL Express, économie significative vs envois individuels. Tu peux demander un envoi urgent à tout moment ; le montant t'est confirmé par l'équipe avant tout paiement.",
   },
   {
     q: "Frais postaux DHL / UPS / FedEx — markup ?",
@@ -150,7 +86,7 @@ const POLICIES = [
   },
   {
     q: "Refus de livraison à l'arrivée — que se passe-t-il ?",
-    a: "Si le destinataire en Tunisie refuse la livraison (ou douane bloque), DHL nous retourne le colis. Frais de retour 25-60 TND. Tu décides ensuite : restockage chez nous (6 TND/semaine au-delà de la durée incluse selon ton forfait), destruction sécurisée (gratuit), ou re-expédition à autre adresse.",
+    a: "Si le destinataire en Tunisie refuse la livraison (ou douane bloque), DHL nous retourne le colis. Le retour est facturé au coût du transporteur, confirmé avant tout paiement. Tu décides ensuite : restockage chez nous (montant confirmé par l'équipe avant tout paiement), destruction sécurisée (gratuit), ou re-expédition à autre adresse.",
   },
   {
     q: "Confidentialité du courrier — qui voit quoi ?",
@@ -158,11 +94,11 @@ const POLICIES = [
   },
   {
     q: "Form 1583 USPS — pourquoi obligatoire et combien ça coûte ?",
-    a: "Form 1583 est l'autorisation USPS pour qu'on reçoive ton courrier en ton nom. Obligatoire pour tout CMRA américain enregistré USPS. Notarisation incluse dans tous les forfaits Adresse US réelle. Si tu changes d'adresse en Tunisie : re-notarisation gratuite.",
+    a: "Form 1583 est l'autorisation USPS pour qu'on reçoive ton courrier en ton nom. Obligatoire pour tout CMRA américain enregistré USPS. La vérification de signature exigée par l'USPS est incluse. Contacte-nous pour confirmer la vérification d'identité, les options de paiement et l'activation depuis la Tunisie avant de payer. Si tu changes d'adresse en Tunisie, le montant d'une nouvelle vérification t'est confirmé par l'équipe avant tout paiement.",
   },
   {
     q: "Politiques applicables aux colis transitant via le storefront US",
-    a: "Tout colis qui arrive au 5062 Lankershim (que ce soit pour réexpédition vers Tunis ou pour livraison locale LA) est soumis aux mêmes politiques : photo entrée + sortie, courrier stocké 90 jours, colis selon forfait (30 / 60 / 90 j), surcharge au-delà. Les colis livrés au TN store sont sous nos mêmes politiques pour la durée du transit.",
+    a: "Tout colis qui arrive au 5062 Lankershim (que ce soit pour réexpédition vers Tunis ou pour livraison locale LA) est soumis aux mêmes politiques : photo entrée + sortie, courrier stocké 90 jours ; pour les colis, la durée incluse et tout dépassement te sont confirmés par l'équipe avant tout paiement. Les colis livrés au TN store sont sous nos mêmes politiques pour la durée du transit.",
   },
   {
     q: "BCT et déclaration douanière (côté Tunisie) — qui gère ?",
@@ -215,126 +151,7 @@ export default function TarifsPage() {
         </div>
       </section>
 
-      {/* PLANS — STAMPS */}
-      <section className="py-14 sm:py-20 px-7 sm:px-6" style={{ background: CREAM }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10 sm:mb-12">
-            <p
-              className="font-black mb-2"
-              style={{ fontFamily: "var(--font-pacifico), cursive", fontSize: "1.1rem", color: BLUE }}
-            >
-              Adresse US réelle            </p>
-            <h2
-              className="font-extrabold tracking-tight"
-              style={{
-                fontFamily: "var(--font-baloo), sans-serif",
-                fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
-                color: INK,
-              }}
-            >
-              Choisis ton forfait
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
-            {MAILBOX_PLANS.map((plan) => (
-              <div key={plan.name} className={`group ${plan.primary ? "md:-mt-3" : ""}`}>
-                <StampCard popular={plan.primary}>
-                  {plan.primary && (
-                    <div className="flex justify-center mb-4">
-                      <span
-                        className="text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full"
-                        style={{ background: BLUE, color: "white" }}
-                      >
-                        ★ Le plus populaire
-                      </span>
-                    </div>
-                  )}
-                  <div className="text-center mb-2">
-                    <p
-                      className="text-[10px] font-black uppercase tracking-[0.2em] mb-1"
-                      style={{ color: plan.primary ? "rgba(247,230,194,0.55)" : "rgba(45,16,15,0.45)" }}
-                    >
-                      {plan.note}
-                    </p>
-                    <h3
-                      className="font-black text-2xl mb-1"
-                      style={{ color: plan.primary ? CREAM : INK, fontFamily: "var(--font-baloo), sans-serif" }}
-                    >
-                      {plan.name}
-                    </h3>
-                    <div className="flex items-end justify-center gap-1">
-                      <span
-                        className="font-extrabold"
-                        style={{
-                          fontSize: "2.5rem",
-                          color: plan.primary ? CREAM : INK,
-                          fontFamily: "var(--font-baloo), sans-serif",
-                        }}
-                      >
-                        {plan.price}
-                      </span>
-                      <span
-                        className="text-sm mb-1.5"
-                        style={{ color: plan.primary ? "rgba(247,230,194,0.45)" : "rgba(45,16,15,0.45)" }}
-                      >
-                        TND / mois
-                      </span>
-                    </div>
-                    <p
-                      className="text-[10px] mt-1 font-bold"
-                      style={{ color: plan.primary ? "rgba(247,230,194,0.55)" : "rgba(45,16,15,0.5)" }}
-                    >
-                      Form 1583 notarisé inclus
-                    </p>
-                  </div>
-                  <ul className="space-y-2.5 text-sm mt-5 mb-7">
-                    {plan.bullets.map((b) => (
-                      <li key={b} className="flex items-center gap-2.5">
-                        <span
-                          className="w-4 h-4 rounded-full flex items-center justify-center shrink-0"
-                          style={{ background: plan.primary ? BLUE : CREAM }}
-                        >
-                          <svg
-                            className="w-2 h-2"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke={plan.primary ? "white" : INK}
-                            strokeWidth="3.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            aria-hidden="true"
-                          >
-                            <path d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
-                        <span
-                          style={{ color: plan.primary ? "rgba(247,230,194,0.78)" : "rgba(45,16,15,0.78)" }}
-                        >
-                          {b}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/fr/virtual-mailbox"
-                    className="block text-center font-black py-3.5 rounded-2xl text-sm transition-all duration-200 hover:scale-[1.02]"
-                    style={{
-                      background: plan.primary ? BLUE : INK,
-                      color: plan.primary ? "white" : CREAM,
-                      boxShadow: plan.primary ? "0 6px 20px rgba(51,116,133,0.35)" : "none",
-                    }}
-                  >
-                    Choisir {plan.name}
-                  </Link>
-                </StampCard>
-              </div>
-            ))}
-          </div>
-          <p className="text-center mt-10 text-sm" style={{ color: "rgba(45,16,15,0.5)" }}>
-            Forfait annuel = 2 mois offerts. Annulable à tout moment.
-          </p>
-        </div>
-      </section>
+      <PricingPending locale="fr" id="adresse" />
 
       {/* PRODUCTS */}
       <section className="py-14 sm:py-20 px-5 sm:px-6" style={{ background: "#fff" }}>

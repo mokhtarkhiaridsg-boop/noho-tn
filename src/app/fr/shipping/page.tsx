@@ -3,6 +3,7 @@ import Link from "next/link";
 import QuoteClient from "./QuoteClient";
 import LabelClient from "@/components/LabelClient";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
+import { localeAlternates } from "@/lib/seo";
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: "Accueil", url: "https://nohomailboxtunis.com/fr" },
@@ -24,14 +25,7 @@ export const metadata: Metadata = {
   title: "Expédition — Devis USPS, UPS, FedEx, DHL depuis Los Angeles",
   description:
     "Drop-off de colis au storefront, emballage, expédition US ou international. Devis transparent — tu paies les frais postaux réels. USPS Priority Mail, UPS Worldwide, FedEx International, DHL Express.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/fr/shipping",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/shipping",
-      "ar-TN": "https://nohomailboxtunis.com/ar/shipping",
-      "x-default": "https://nohomailboxtunis.com/shipping",
-    },
-  },
+  alternates: localeAlternates("/shipping", "fr"),
 };
 
 const CREAM = "#F7E6C2";
@@ -118,7 +112,7 @@ const IconWarn: IconCmp = ({ className = "w-5 h-5" }) => (
 
 const CARRIERS = [
   { name: "USPS Priority Mail International", time: "6-10 jours", price: "~35-60 USD", note: "Le moins cher. Tracking jusqu'à la douane US, suivi limité ensuite." },
-  { name: "USPS Priority Mail Express International", time: "3-5 jours", price: "~60-90 USD", note: "Tracking complet jusqu'à Tunis. Délai garanti." },
+  { name: "USPS Priority Mail Express International", time: "3-5 jours", price: "~60-90 USD", note: "Suivi complet jusqu'à Tunis. Délai indicatif, hors dédouanement." },
   { name: "UPS Worldwide Expedited", time: "3-5 jours", price: "~70-110 USD", note: "Tracking complet, signature à la livraison." },
   { name: "FedEx International Economy", time: "4-6 jours", price: "~75-110 USD", note: "Bon rapport qualité-prix-tracking. Customs broker inclus." },
   { name: "DHL Express Worldwide", time: "2-3 jours", price: "~110-160 USD", note: "Le plus rapide. Tracking en temps réel. Cher mais fiable." },
@@ -163,7 +157,7 @@ export default function ShippingPage() {
             className="inline-block font-black px-8 py-4 rounded-2xl text-[15px] transition-all hover:scale-[1.02]"
             style={{ background: INK, color: CREAM, boxShadow: "0 6px 28px rgba(45,16,15,0.28)" }}
           >
-            Générer un label — paie en dinars →
+            Générer un label →
           </Link>
         </div>
       </section>
@@ -184,7 +178,7 @@ export default function ShippingPage() {
                 className="font-extrabold mb-3"
                 style={{ fontFamily: "var(--font-baloo), sans-serif", fontSize: "24px", color: INK }}
               >
-                Génère ton label, paie en dinars
+                Génère ton label
               </h2>
               <LabelClient locale="fr" />
             </div>
@@ -350,16 +344,23 @@ export default function ShippingPage() {
         <div className="max-w-3xl mx-auto text-[13.5px] leading-relaxed" style={{ color: "#422006" }}>
           <p className="font-black mb-2 inline-flex items-center gap-2"><IconWarn className="w-5 h-5" /> Note sur la douane</p>
           <p className="mb-2">
-            <strong>Côté US (export) :</strong> depuis le 29 août 2025, fin du
-            seuil de minimis de 800 USD. Tout colis vers les USA nécessite
-            customs entry complète avec HTS codes. On s&apos;en charge ; on
-            te fournit le commercial invoice.
+            <strong>Côté US (départ) :</strong> chaque envoi international part
+            avec sa déclaration douanière (description, valeur réelle, code
+            HS). On la prépare avec toi. Pour les envois <em>vers</em> les
+            États-Unis, le seuil de minimis de 800 USD n&apos;existe plus depuis
+            le 29 août 2025.
           </p>
           <p>
-            <strong>Côté Tunisie (import) :</strong> au-delà de 100 TND de
-            valeur déclarée, droits de douane appliqués par la Poste
-            Tunisienne ou le transporteur. On ne sous-déclare jamais (illégal
-            côté US et côté TN). Tu déclares la valeur réelle.
+            <strong>Côté Tunisie (arrivée) :</strong> la douane tunisienne peut
+            appliquer des droits et taxes selon la nature et la valeur du
+            contenu, perçus à la livraison par la Poste Tunisienne ou le
+            transporteur. Ils ne sont jamais inclus dans nos prix. Règles
+            officielles : douane.gov.tn. On ne sous-déclare jamais : tu
+            déclares la valeur réelle.
+          </p>
+          <p className="mt-3">
+            Pour recevoir tes achats américains et les faire venir en Tunisie :{" "}
+            <Link href="/fr/reexpedition-colis-usa-tunisie" className="underline font-black">réexpédition de colis USA → Tunisie</Link>.
           </p>
         </div>
       </section>

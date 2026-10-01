@@ -35,7 +35,7 @@ const GOLD = "#f8c84a";
 const BODY = "#EBF2FA";
 
 const EN_LABELS: LabelClientLabels = {
-  intro: "Destination + parcel → live carrier rates. You pick one, we issue the label once you've paid in dinars.",
+  intro: "Destination + parcel → live carrier rates. You pick one, we issue the label once you've paid.",
   toName: "Recipient", street: "Street address", city: "City", state: "State / region", zip: "ZIP / postal code", country: "Country (code — TN, FR, US…)",
   suite: "Your NOHO suite (optional)", suiteHint: "e.g. 122 — if the package ships from your box",
   length: "Length (in)", width: "Width (in)", height: "Height (in)", weight: "Weight (lb)",
@@ -44,8 +44,8 @@ const EN_LABELS: LabelClientLabels = {
   email: "Your email", phone: "Phone (optional)",
   order: "Order this label", ordering: "Sending…",
   successTitle: "Order received.",
-  successBody: "We'll reach out to settle payment in dinars, then your label PDF lands in your inbox.",
-  payNote: "Payment in dinars — wallet or Cabinet Khiari, Tunis. No card payments on the site.",
+  successBody: "We'll reach out to confirm how you pay, then your label PDF lands in your inbox.",
+  payNote: "Payment options (including dinars via the wallet or a partner law office in Tunis) are confirmed with the team before you pay. No card payments on the site.",
   back: "Edit the parcel",
 };
 
@@ -169,7 +169,7 @@ export default function EnglishShippingPage() {
             className="inline-block font-black px-8 py-4 rounded-2xl text-[15px] transition-all hover:scale-[1.02]"
             style={{ background: INK, color: CREAM, boxShadow: "0 6px 28px rgba(45,16,15,0.28)" }}
           >
-            Generate a label — pay in dinars
+            Generate a label
           </Link>
         </div>
       </section>
@@ -190,7 +190,7 @@ export default function EnglishShippingPage() {
                 className="font-extrabold mb-3"
                 style={{ fontFamily: "var(--font-baloo), sans-serif", fontSize: "24px", color: INK }}
               >
-                Generate your label, pay in dinars
+                Generate your label
               </h2>
               <LabelClient locale="en" L={EN_LABELS} />
             </div>
@@ -342,9 +342,10 @@ export default function EnglishShippingPage() {
             of it; we provide the commercial invoice.
           </p>
           <p>
-            <strong>Tunisia side (import):</strong> above 100 TND of
-            declared value, the Poste Tunisienne or the carrier applies
-            customs duties. We never under-declare (illegal on both the US
+            <strong>Tunisia side (import):</strong> Tunisian customs may charge
+            duties and taxes depending on what is inside and its value,
+            collected on delivery by the Poste Tunisienne or the carrier
+            (official rules: douane.gov.tn). We never under-declare (illegal on both the US
             and the Tunisian side). You declare the real value.
           </p>
         </div>

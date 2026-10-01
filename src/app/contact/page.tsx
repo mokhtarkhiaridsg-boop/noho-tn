@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { waLink, WHATSAPP_DISPLAY } from "@/lib/whatsapp";
+import { localeAlternates } from "@/lib/seo";
 
 /*
  * Tounsi (derja, Latin script) version of /contact.
@@ -13,14 +14,7 @@ export const metadata: Metadata = {
   title: "Contact — NOHO Mailbox Tounes",
   description:
     "Tlata canaux bch tousel l'équipe mel Tounes: WhatsApp (réponse fi 2h), email (réponse fi 24h), formulaire de contact. Storefront physique fi Los Angeles.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/contact",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/contact",
-      "ar-TN": "https://nohomailboxtunis.com/ar/contact",
-      "aeb-TN": "https://nohomailboxtunis.com/contact",
-    },
-  },
+  alternates: localeAlternates("/contact", "tn"),
 };
 
 const CREAM = "#F7E6C2";

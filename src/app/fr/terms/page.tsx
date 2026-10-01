@@ -26,7 +26,7 @@ export default function TermsPage() {
           <p>
             NOHO accompagne la structure opérationnelle d&apos;une LLC
             américaine pour fondateurs non-résidents : formation entité,
-            obtention EIN, adresse postale réelle US, Form 1583 USPS notarisé,
+            obtention EIN, adresse postale réelle US, Form 1583 USPS vérifié,
             identité de marque, site web, accompagnement candidatures
             bancaires et processeurs de paiement, accompagnement candidatures
             universitaires US (Portail Étudiants).

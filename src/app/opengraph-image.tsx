@@ -97,7 +97,7 @@ export default async function OgImage() {
           }}
         >
           <div style={{ display: "flex", width: 12, height: 12, borderRadius: 999, background: "#2D7A4A" }} />
-          5062 Lankershim Blvd, Los Angeles · Tkhalles b dinar
+          5062 Lankershim Blvd, North Hollywood, CA
         </div>
       </div>
     ),

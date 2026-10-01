@@ -68,7 +68,7 @@ export const ARTICLES: ArticleMeta[] = [
     slug: "apostille-tn-us-guide-complet",
     title: "Apostille tunisienne pour usage aux USA — guide complet (depuis 2018)",
     excerpt:
-      "Tunisie est signataire de la Convention de La Haye depuis 2018 — fini la légalisation consulaire. Procédure exacte : Ministère des Affaires Étrangères, délai 2-7 jours, frais ~20 TND. Pour Form 1583, mariage, diplôme, ou contrat US.",
+      "Tunisie est signataire de la Convention de La Haye depuis 2018 — fini la légalisation consulaire. Procédure exacte : Ministère des Affaires Étrangères, délai 2-7 jours, frais ~20 TND. Pour mariage, diplôme, procuration ou contrat US (pas pour le Form 1583 USPS).",
     category: "us-compliance",
     categoryLabel: "US compliance",
     publishedAt: "2026-05-23",

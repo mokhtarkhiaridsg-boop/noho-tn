@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { waLink } from "@/lib/whatsapp";
+import { localeAlternates } from "@/lib/seo";
 
 /*
  * Tounsi (derja, Latin script) version of /appel.
@@ -14,14 +15,7 @@ export const metadata: Metadata = {
   title: "Réserver un appel — 30 d9i9a m3a l'équipe NOHO",
   description:
     "30 d9i9a visio m3a l'équipe NOHO côté diaspora tounsia. Cadrage honnête l wadh3ek — el Business (4 000 TND), Suivi mensuel (1 200 TND/chhar), wala 7atta wa7ed fihom. Gratuit, bla engagement.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com/appel",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr/appel",
-      "ar-TN": "https://nohomailboxtunis.com/ar/appel",
-      "aeb-TN": "https://nohomailboxtunis.com/appel",
-    },
-  },
+  alternates: localeAlternates("/appel", "tn"),
 };
 
 const CREAM = "#F7E6C2";

@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
 import HomeLanding from "@/components/landing/HomeLanding";
+import { localeAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
     absolute: "NOHO Mailbox Tounes — L'adresse mte3ek fi America",
   },
   description:
-    "Adresse 7a9i9ia fel America men 35 TND/chhar. Storefront physique fi North Hollywood, scan courrier, colis (UPS/FedEx/Amazon), ndezzou l Tounes. LLC américaine, notaire, étudiants. Tkhalles b dinar 3and cabinet d'avocat.",
-  alternates: {
-    canonical: "https://nohomailboxtunis.com",
-    languages: {
-      "fr-TN": "https://nohomailboxtunis.com/fr",
-      "ar-TN": "https://nohomailboxtunis.com/ar",
-      "aeb-TN": "https://nohomailboxtunis.com",
-    },
-  },
+    "Adresse 7a9i9ia fel America. Storefront physique fi North Hollywood, scan courrier, colis (UPS/FedEx/Amazon), ndezzou l Tounes. LLC américaine, notaire, étudiants. El khlas b dinar 3and cabinet partenaire fi Tounes possible — confirmih m3a l'équipe 9bal ma tkhalles.",
+  alternates: localeAlternates("/", "tn"),
 };
 
 

@@ -66,7 +66,7 @@ const TRUST = [
 const NEXT_STEPS = [
   { n: "01", t: "On te recontacte sous 24h", d: "Par email ou WhatsApp, en français ou en tounsi." },
   { n: "02", t: "Appel gratuit de 30 minutes", d: "Structure TN, US ou combo — recommandation franche, pas un pitch." },
-  { n: "03", t: "Plan clair, prix en dinars", d: "Tu sais exactement quoi, quand, et combien. Paiement chez le cabinet d'avocat." },
+  { n: "03", t: "Plan clair, prix en dinars", d: "Tu sais exactement quoi, quand, et combien. Paiement en dinars possible via un cabinet partenaire à Tunis, à confirmer avec l'équipe avant de payer." },
 ];
 
 export default function BusinessPage() {

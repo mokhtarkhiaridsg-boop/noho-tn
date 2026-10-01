@@ -103,8 +103,12 @@ export function stripeAtlasCashMathYear1HonneteVsNoho() {
           Atlas 500 USD.
         </li>
         <li>
-          <strong>Form 1583 notarisé en interne</strong> par notre
-          notaire californien. Atlas te demande de trouver ton propre
+          <strong>Form 1583 préparé par NOHO</strong> (signature selon
+          les règles USPS : en présence de la CMRA, physique ou vidéo en
+          temps réel, ou devant un notaire commissionné aux USA).
+          Contacte-nous pour confirmer la vérification d&apos;identité,
+          les options de paiement et l&apos;activation depuis la Tunisie
+          avant de payer. Atlas te demande de trouver ton propre
           notary. À LA, 30-50 USD.
         </li>
         <li>

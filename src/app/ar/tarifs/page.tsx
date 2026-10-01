@@ -1,6 +1,7 @@
 {/* TODO: native Arabic review */}
 import type { Metadata } from "next";
 import Link from "next/link";
+import PricingPending from "@/components/PricingPending";
 
 export const metadata: Metadata = {
   title: "الأسعار بالدينار — حل الأعمال، المتابعة، بوابة الطلاب",
@@ -93,30 +94,10 @@ const PLANS = [
   },
 ];
 
-const MAILBOX_TIER = [
-  {
-    name: "Free",
-    price: "0",
-    note: "الدفع عند الاستعمال — طرود بدون اشتراك",
-    bullets: [
-      "عنوان استلام الطرود (⁦Lankershim Blvd⁩)",
-      "ناقلون خاصّون فقط — بدون USPS (تُطبَّق السياسات)",
-      "الدفع عند الاستعمال من المحفظة حسب جدول الأسعار",
-      "محفظة مدفوعة مسبقاً — شحن الرصيد بحد أدنى 50 ديناراً",
-      "لوحة تحكم مع إشعار عند كل طرد",
-    ],
-  },
-  { name: "Basic", price: "35", note: "استخدام شخصي خفيف" },
-  { name: "Standard", price: "75", note: "الأكثر شعبية" },
-  { name: "Premium", price: "150", note: "للتجارة الإلكترونية" },
-];
-
 const ONE_OFFS = [
-  { label: "تجديد العنوان البريدي الأمريكي (سنوي بعد السنة الأولى)", price: "600 TND/سنة" },
   { label: "تجديد الوكيل المسجل Wyoming (سنوي)", price: "200 TND/سنة" },
   { label: "التقرير السنوي Wyoming SoS", price: "200 TND/سنة" },
   { label: "Form 5472 + Form 1120 (سنوي، خارج المتابعة)", price: "800 TND/سنة" },
-  { label: "إعادة توثيق Form 1583 (تغيير عنوان، إلخ)", price: "150 TND" },
   { label: "أبوستيل وثيقة أمريكية للاستخدام في تونس", price: "300 TND/وثيقة" },
   { label: "ترجمة معتمدة AR/FR ↔ EN", price: "120 TND/صفحة" },
   { label: "تنسيق محامي هجرة أمريكي (ساعات إضافية)", price: "بسعر الساعة للمكتب الأمريكي" },
@@ -199,36 +180,7 @@ export default function ArabicTarifsPage() {
         </div>
       </section>
 
-      {/* MAILBOX TIER PRICING */}
-      <section className="px-5 sm:px-6 py-14 sm:py-16" style={{ background: CREAM }}>
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="font-extrabold mb-3" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.25rem)", color: INK }}>
-              العنوان الأمريكي — 3 خطط
-            </h2>
-            <p className="text-[14px]" style={{ color: "rgba(45,16,15,0.65)" }}>
-              الخطط الشهرية للعنوان الأمريكي وحده، بدون باقة الأعمال.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {MAILBOX_TIER.map((m) => (
-              <div key={m.name} className="p-6 rounded-2xl text-center" style={{ background: "#fff" }}>
-                <h3 className="font-black text-[18px] mb-2" style={{ color: INK }}>{m.name}</h3>
-                <div className="flex items-baseline justify-center gap-1 mb-1" dir="ltr">
-                  <span className="font-extrabold" style={{ fontSize: "36px", lineHeight: 1, color: INK }}>{m.price}</span>
-                  <span className="text-[14px] font-black opacity-70" style={{ color: INK }}>TND/شهر</span>
-                </div>
-                <p className="text-[12.5px]" style={{ color: "rgba(45,16,15,0.65)" }}>{m.note}</p>
-              </div>
-            ))}
-          </div>
-          <p className="text-center text-[13px] mt-6" style={{ color: "rgba(45,16,15,0.65)" }}>
-            <Link href="/ar/virtual-mailbox" className="underline font-black">
-              عرض تفاصيل العناوين الأمريكية
-            </Link>
-          </p>
-        </div>
-      </section>
+      <PricingPending locale="ar" id="adresse" />
 
       {/* ONE-OFFS */}
       <section className="px-5 sm:px-6 py-14 sm:py-16" style={{ background: "#fff" }}>

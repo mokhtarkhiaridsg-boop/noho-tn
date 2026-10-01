@@ -40,7 +40,7 @@ export function stripeAtlasVsNohoDeepDive() {
           Service complet : <strong>formation Wyoming LLC</strong> (état
           le plus accepté côté Mercury pour non-US founders), EIN, Mercury
           setup avec dossier renforcé, Stripe setup avec dossier complet,
-          Form 1583 notarisé in-house, brand identity + site web,
+          Form 1583, brand identity + site web,
           coordination ITIN si besoin, onboarding live.
         </li>
         <li>
@@ -133,12 +133,18 @@ export function stripeAtlasVsNohoDeepDive() {
           ou les ID non-US. Tu dois alors te débrouiller seul.
         </li>
         <li>
-          <strong>NOHO</strong> : si tu es à Los Angeles, notarisation
-          en personne au comptoir. Si tu es à Tunis, tu signes devant un
-          notaire tunisien (le cabinet KHIARI peut organiser le rendez-vous)
-          et l&apos;original part vers LA — NOHO gère la réception et le
-          filing. Délai 7-10 jours. Pas de friction langue ou ID. Toujours
-          en personne devant le notaire, jamais en ligne.
+          <strong>NOHO</strong> : on prépare le Form 1583. L&apos;USPS
+          (Domestic Mail Manual 508.1.8.3) exige que la signature du PS
+          Form 1583 soit faite ou confirmée en présence — physique ou en
+          vidéo en temps réel — du propriétaire, du gérant ou d&apos;un
+          employé autorisé de la CMRA, ou reconnue devant un notaire
+          commissionné dans un État ou territoire américain ou à DC. Un
+          notaire tunisien (ou le cabinet KHIARI) ne remplit pas cette
+          condition. Il faut deux pièces d&apos;identité, dont une avec
+          photo ; l&apos;USPS accepte un passeport étranger.
+          Contacte-nous pour confirmer la vérification d&apos;identité,
+          les options de paiement et l&apos;activation depuis la Tunisie
+          avant de payer.
         </li>
       </ul>
 
@@ -257,8 +263,10 @@ export function stripeAtlasVsNohoDeepDive() {
           Mercury (cas spécifiques de credibility-building).</li>
         <li>Tu veux le Suivi mensuel qui automatise toute la compliance
           ongoing, avec un humain accessible WhatsApp.</li>
-        <li>Tu opères depuis Tunis et tu peux pas voyager pour
-          notarisation aux US. NOHO/KHIARI gère tout depuis Tunis.</li>
+        <li>Tu opères depuis Tunis et tu veux un accompagnement en
+          français — pour le Form 1583, contacte-nous pour confirmer la
+          vérification d&apos;identité, les options de paiement et
+          l&apos;activation depuis la Tunisie avant de payer.</li>
       </ul>
 
       <h2>Le faux dilemme — souvent c&apos;est ni l&apos;un ni l&apos;autre</h2>
