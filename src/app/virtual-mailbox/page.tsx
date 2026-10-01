@@ -3,26 +3,25 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { localeAlternates } from "@/lib/seo";
 import WhatsAppCTA from "@/components/WhatsAppCTA";
+import PricingPending from "@/components/PricingPending";
 
 const FROM_TUNISIA = [
   { n: 1, t: "Tsajjel en ligne", b: "Esmek, email w téléphone. Tjik email bech tedkhol l espace mte3ek, w l'équipe tkallmek bech tekhtar el forfait." },
-  { n: 2, t: "El identité w Form 1583", b: "USPS tfardh el formulaire PS 1583 w zouz pièces d'identité, wa7da fiha taswira (el passeport maqboul). El signature lazemha tsir 9odem employé mta3 NOHO Mailbox wala 9odem notaire commissionné fel USA. Notaire tounsi mouch maqboul 3and USPS." },
+  { n: 2, t: "L'éligibilité w Form 1583", b: "USPS tfardh el formulaire PS 1583 w zouz pièces d'identité. Tawa, el signature tsir 9odem l'équipe mte3na fel comptoir fi North Hollywood ; signature à distance mazelna ma na3mlouhech. Mel Tounes, l'équipe tconfirmi l'ewwel ken el ouverture possible, 9bal ay paiement." },
   { n: 3, t: "Nestacblou el courrier w el colis", b: "Jwabet w colis USPS, UPS, FedEx, DHL w Amazon (el forfait Free ma y9abbelch USPS). Kol 7aja twasel tetla3lek fel espace mte3ek." },
   { n: 4, t: "T9arrer mel Tounes", b: "Scan el courrier, réexpédition l Tounes b tarif el transporteur, tjami3 el colis 7asb el forfait, stockage wala destruction." },
 ];
 
 const BILLED_SEPARATELY = [
-  "El réexpédition 3al demande : tarif el transporteur + 4 TND handling 3al envoi (formules hebdo w urgente : chouf page tarifs).",
-  "Scans zeydin 3al quota mta3 forfaitek : 2 TND lel page.",
-  "Stockage el colis ba3d el modda el incluse : 6 TND lel colis fel jem3a.",
+  "El réexpédition : tarif el transporteur, + frais de service.",
+  "Scans w stockage el colis elli yfoutou 3la chnowa inclus fel forfait.",
   "Droits w taxes mta3 el douane tounsiya, tkhallashom ki youslek el colis.",
-  "Frais el notaire, ken tsigni Form 1583 9odem notaire commissionné fel USA.",
 ];
 
 export const metadata: Metadata = {
-  title: "Adresse postale fel America mel Tounes — men 35 TND/chhar",
+  title: "Adresse postale fel America mel Tounes — courrier w colis",
   description:
-    "Adresse postale 7a9i9ia fel America (North Hollywood, Californie), tgérérha mel Tounes : scan courrier, colis Amazon, UPS, FedEx w DHL, réexpédition l Tounes. Forfaits 35, 75 wala 150 TND/chhar, wala Free ki testa3mel.",
+    "Adresse postale 7a9i9ia fel America (North Hollywood, Californie), tgérérha mel Tounes : scan courrier, colis Amazon, UPS, FedEx w DHL, réexpédition l Tounes. El tarif nconfirmiweh m3ak 9bal ay paiement.",
   alternates: localeAlternates("/virtual-mailbox", "tn", { ar: true }),
 };
 
@@ -31,65 +30,6 @@ const INK = "#2D100F";
 const BLUE = "#337485";
 const GOLD = "#f8c84a";
 
-const PLANS = [
-  {
-    name: "Free",
-    price: "0",
-    yearPrice: "",
-    note: "Pay-as-you-go — colis bla abonnement",
-    bullets: [
-      ["Adresse bch testacbel el colis", "5062 Lankershim Blvd — testacbel les achats US mte3ek"],
-      ["Transporteurs privés bark", "UPS, FedEx, DHL, Amazon. Bla USPS — les politiques applicables"],
-      ["Tkhalles ki testa3mel", "Kol service yetna77a mel wallet 7asb el grille"],
-      ["Wallet prépayé", "Recharge minimum 50 TND"],
-      ["Dashboard en ligne", "Notification 3la kol colis yousel"],
-    ],
-  },
-  {
-    name: "Basic",
-    price: "35",
-    yearPrice: "350",
-    note: "Usage personnel khfif wala ken t7eb t7ott adresse",
-    bullets: [
-      ["Adresse postale US 7a9i9ia", "5062 Lankershim Blvd, North Hollywood, CA"],
-      ["5 scans inclus", "Fel chhar. Ekther men hakka : 2 TND lel page"],
-      ["Forwarding ki t7eb", "Frais postal el 7a9i9i + 4 TND handling"],
-      ["Stockage colis 30 jours", "Courrier 90 jours inclus. Ekther : 6 TND 3al colis fel jem3a"],
-      ["Dashboard en ligne", "Tchouf el courrier elli wsellek el kol"],
-      ["Form 1583 (USPS)", "Nhadhrouh m3ak fel setup"],
-    ],
-  },
-  {
-    name: "Standard",
-    price: "75",
-    yearPrice: "750",
-    note: "El plus populaire 3and les freelances w elli yechriw men Amazon",
-    bullets: [
-      ["Kol chay fel Basic", "+ extras louta"],
-      ["20 scans inclus", "Fel chhar. Ekther : 2 TND lel scan"],
-      ["Réception colis incluse", "5 colis fel chhar inclus"],
-      ["Forwarding kol jom3a", "Auto-forward chaque semaine"],
-      ["Consolidation mta3 colis", "Njam3ouhom bech tna99es el frais"],
-      ["Stockage colis 60 jours", "Courrier 90 jours inclus. Mzyen lelli yechriw men Amazon"],
-    ],
-    primary: true,
-  },
-  {
-    name: "Premium",
-    price: "150",
-    yearPrice: "1 500",
-    note: "Lel e-commerce, business actif, volumes kbar",
-    bullets: [
-      ["Kol chay fel Standard", "+ extras louta"],
-      ["Scans illimités", "Bla limite fel chhar"],
-      ["Réception colis illimitée", "Bla limite"],
-      ["Priorité scan", "A9al men 2h wa9t heures de bureau fi LA"],
-      ["Repacking inclus", "N3awdou n3abbiw el colis el fragile wala el kbir"],
-      ["Cloud storage lel scans", "Archive 3 snin accessible"],
-      ["Tarifs préférentiels expédition", "Remise USPS / UPS / FedEx 3al volume"],
-    ],
-  },
-];
 
 const USES = [
   {
@@ -168,7 +108,7 @@ export default function TounsiVirtualMailboxPage() {
             réexpédition l Tounes, stockage wala destruction.
           </p>
           <ul className="flex flex-wrap justify-center gap-2 mb-7 text-[12.5px] font-bold" style={{ color: INK }}>
-            <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>Tarifs b dinar tounsi (TND)</li>
+            <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>Tarif mconfirmé 9bal ay paiement</li>
             <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>Vérification d&apos;identité — USPS tfardhha</li>
             <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>Réexpédition b tarif el transporteur</li>
           </ul>
@@ -180,104 +120,14 @@ export default function TounsiVirtualMailboxPage() {
               className="inline-block font-black px-8 py-4 rounded-2xl text-[15px]"
               style={{ background: INK, color: CREAM }}
             >
-              N7ell el boîte mte3i →
+              Ab3ath demande →
             </Link>
             <WhatsAppCTA intent="adresse">3andek sou2el ? WhatsApp</WhatsAppCTA>
           </div>
         </div>
       </section>
 
-      {/* PLANS */}
-      <section className="px-5 sm:px-6 py-14 sm:py-20" style={{ background: "#fff" }}>
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10">
-            <p
-              className="font-black mb-2"
-              style={{ fontFamily: "var(--font-pacifico), cursive", fontSize: "1.2rem", color: BLUE }}
-            >
-              Ekhtar el forfait mte3ek
-            </p>
-            <h2
-              className="font-extrabold tracking-tight"
-              style={{
-                fontFamily: "var(--font-baloo), sans-serif",
-                fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
-                color: INK,
-              }}
-            >
-              Domiciliation fi les USA
-            </h2>
-            <p className="mt-3 text-[15px]" style={{ color: "rgba(45,16,15,0.5)" }}>
-              Tnajjem twa99ef wa9telli t7eb. Forfait annuel = zouz chhoura offerts. Free = tkhalles ki testa3mel.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
-            {PLANS.map((plan) => (
-              <div
-                key={plan.name}
-                className="p-7 rounded-3xl flex flex-col"
-                style={{
-                  background: plan.primary ? INK : CREAM,
-                  color: plan.primary ? CREAM : INK,
-                  boxShadow: plan.primary
-                    ? "0 12px 50px rgba(45,16,15,0.25)"
-                    : "0 4px 18px rgba(45,16,15,0.08)",
-                  transform: plan.primary ? "scale(1.03)" : "none",
-                }}
-              >
-                {plan.primary && (
-                  <p className="text-[11px] font-black mb-2" style={{ color: GOLD }}>
-                    El plus populaire
-                  </p>
-                )}
-                <h3 className="font-extrabold text-[22px] mb-3" style={{ fontFamily: "var(--font-baloo), sans-serif" }}>
-                  {plan.name}
-                </h3>
-                <div className="flex items-baseline gap-1 mb-1">
-                  <span className="font-extrabold" style={{ fontSize: "48px", lineHeight: 1 }}>
-                    {plan.price}
-                  </span>
-                  <span className="text-[16px] font-black opacity-80">TND/chhar</span>
-                </div>
-                <p className="text-[11.5px] opacity-65 mb-2">
-                  {plan.yearPrice
-                    ? `wela ${plan.yearPrice} TND/an (zouz chhoura offerts)`
-                    : "Pay-as-you-go · wallet prépayé"}
-                </p>
-                <p className="text-[12.5px] opacity-70 mb-5">{plan.note}</p>
-                <ul className="space-y-3 text-[13px] mb-6 flex-1">
-                  {plan.bullets.map((b, idx) => (
-                    <li key={idx} className="flex flex-col gap-0.5">
-                      <span className="font-black leading-snug">{b[0]}</span>
-                      <span className="opacity-70 text-[12px] leading-snug">{b[1]}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/inscription"
-                  data-track="plan_select"
-                  data-track-plan={plan.name}
-                  className="block w-full text-center font-black px-5 py-3 rounded-xl text-[14px]"
-                  style={{
-                    background: plan.primary ? CREAM : INK,
-                    color: plan.primary ? INK : CREAM,
-                  }}
-                >
-                  Choisir {plan.name}
-                </Link>
-              </div>
-            ))}
-          </div>
-          <p
-            className="text-center text-[12px] mt-7 max-w-xl mx-auto"
-            style={{ color: "rgba(45,16,15,0.55)" }}
-          >
-            Form 1583 mta3 USPS nhadhrouh m3ak fel setup mta3 el forfaits
-            payants lkol. El forfait Free bla USPS — donc bla Form 1583.
-            Tnajjem twa99ef wa9telli t7eb.
-          </p>
-        </div>
-      </section>
+      <PricingPending locale="tn" id="forfaits" />
 
       {/* USES */}
       <section className="px-5 sm:px-6 py-16 sm:py-20" style={{ background: CREAM }}>
@@ -364,13 +214,13 @@ export default function TounsiVirtualMailboxPage() {
           </ol>
           <div className="p-6 rounded-3xl" style={{ background: "#EBF2FA" }}>
             <h3 className="font-black text-[17px] mb-3" style={{ color: INK }}>Chnowa yetkhalles wa7dou</h3>
+            <p className="text-[13.5px] mb-3" style={{ color: "rgba(45,16,15,0.7)" }}>El montants nconfirmiwhom lek bel ktiba 9bal ay paiement.</p>
             <ul className="space-y-2 text-[14px] leading-relaxed list-disc pl-5" style={{ color: "rgba(45,16,15,0.82)" }}>
               {BILLED_SEPARATELY.map((l) => (
                 <li key={l}>{l}</li>
               ))}
             </ul>
             <p className="text-[13px] mt-4" style={{ color: "rgba(45,16,15,0.65)" }}>
-              El grille el kemla fi <Link href="/tarifs" className="underline font-bold">page tarifs</Link>.
               Lel colis elli techrihom en ligne, chouf zeda{" "}
               <Link href="/fr/reexpedition-colis-usa-tunisie" className="underline font-bold">réexpédition colis USA → Tounes</Link>.
             </p>
@@ -387,8 +237,8 @@ export default function TounsiVirtualMailboxPage() {
             7adher tebda ?
           </h2>
           <p className="text-[15px] leading-relaxed mb-8" style={{ color: "rgba(45,16,15,0.75)" }}>
-            Tsajjel en ligne, wala kallamna bech tekhtar el forfait w nhadhrou
-            Form 1583 m3a b3adhna.
+            Ab3ath demande en ligne bla paiement : l'équipe tconfirmi l'éligibilité,
+            el forfait w el prix 9bal ay facturation.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
@@ -398,7 +248,7 @@ export default function TounsiVirtualMailboxPage() {
               className="inline-block font-black px-8 py-4 rounded-2xl text-[15px] transition-transform hover:scale-[1.02]"
               style={{ background: INK, color: CREAM, boxShadow: "0 6px 28px rgba(45,16,15,0.28)" }}
             >
-              N7ell el boîte mte3i →
+              Ab3ath demande →
             </Link>
             <Link
               href="/contact"

@@ -109,15 +109,16 @@ export function delaisReelsSolutionBusinessAuditHonnete() {
         </li>
       </ul>
 
-      <h2>Étape 4 — Form 1583 USPS notarisation</h2>
+      <h2>Étape 4 — Form 1583 USPS</h2>
       <ul>
         <li>
-          <strong>Médiane : J+5 à J+10.</strong> On t&apos;envoie le PDF
-          Form 1583 ; tu le signes <em>devant un notaire en Tunisie</em>
-          (n&apos;importe quel notaire assermenté) et l&apos;original nous
-          parvient à LA. La notarisation exige ta présence physique devant
-          le notaire — personne ne peut notariser à ta place, et on ne
-          propose pas de notarisation en ligne.
+          <strong>Médiane : J+5 à J+10.</strong> On prépare le Form
+          1583 ; tu le signes <em>devant notre équipe au comptoir de
+          North Hollywood</em>. Un notaire tunisien n&apos;est pas
+          accepté pour ce formulaire. L&apos;USPS autorise aussi la vidéo
+          en direct ou un notaire commissionné aux USA, mais on ne propose
+          pas encore ces options — depuis la Tunisie, confirme ton
+          éligibilité avec l&apos;équipe avant de payer.
         </li>
         <li>
           <strong>P90 : J+14.</strong> Si tu ne peux pas signer
@@ -263,7 +264,7 @@ export function delaisReelsSolutionBusinessAuditHonnete() {
           <strong>J+3</strong> — LLC formed (Wyoming SoS).
         </li>
         <li>
-          <strong>J+5</strong> — Form 1583 notarisé, mailbox active.
+          <strong>J+5</strong> — Form 1583 signé, mailbox active.
         </li>
         <li>
           <strong>J+15</strong> — EIN reçu (median, P90 J+30).

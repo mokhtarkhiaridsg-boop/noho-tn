@@ -13,17 +13,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import WhatsAppCTA from "@/components/WhatsAppCTA";
+import PricingPending from "@/components/PricingPending";
 import { localeAlternates } from "@/lib/seo";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
-  title: "عنوان بريدي في الولايات المتحدة من تونس — ابتداءً من 35 ديناراً شهرياً",
+  title: "عنوان بريدي في الولايات المتحدة من تونس — الرسائل والطرود",
   description:
-    "عنوان بريدي حقيقي في الولايات المتحدة (نورث هوليوود، كاليفورنيا) تديره من تونس: مسح الرسائل، استلام طرود Amazon وUPS وFedEx وDHL، وإعادة شحنها إلى تونس. باقات 35 أو 75 أو 150 ديناراً شهرياً، أو باقة Free بالدفع حسب الاستعمال.",
+    "عنوان بريدي حقيقي في الولايات المتحدة (نورث هوليوود، كاليفورنيا) تديره من تونس: مسح الرسائل، استلام طرود Amazon وUPS وFedEx وDHL، وإعادة شحنها إلى تونس. نؤكد لك السعر قبل أي دفع.",
   alternates: localeAlternates("/virtual-mailbox", "ar", { ar: true }),
   openGraph: {
     title: "عنوان بريدي في الولايات المتحدة من تونس",
-    description: "عنوان شارع حقيقي في كاليفورنيا، مسح الرسائل، استلام الطرود وإعادة شحنها إلى تونس. الأسعار بالدينار.",
+    description: "عنوان شارع حقيقي في كاليفورنيا، مسح الرسائل، استلام الطرود وإعادة شحنها إلى تونس. نؤكد السعر قبل أي دفع.",
     url: "https://nohomailboxtunis.com/ar/virtual-mailbox",
     locale: "ar_TN",
     type: "website",
@@ -39,80 +40,18 @@ const GOLD = "#f8c84a";
 
 const ADDRESS = "⁦5062 Lankershim Blvd, North Hollywood, CA 91601⁩";
 
-const PLANS = [
-  {
-    name: "Free",
-    price: "0",
-    yearPrice: "",
-    note: "الدفع حسب الاستعمال — طرود بدون اشتراك",
-    bullets: [
-      ["عنوان لاستلام الطرود", "⁦5062 Lankershim Blvd⁩ — لاستلام مشترياتك من أمريكا"],
-      ["شركات النقل الخاصة فقط", "UPS وFedEx وDHL وAmazon، بدون USPS"],
-      ["الدفع حسب الاستعمال", "كل خدمة تُخصم من المحفظة حسب جدول الأسعار"],
-      ["محفظة مسبقة الدفع", "أدنى شحن للرصيد: 50 ديناراً"],
-      ["حساب على الإنترنت", "إشعار عند وصول كل طرد"],
-    ],
-  },
-  {
-    name: "Basic",
-    price: "35",
-    yearPrice: "350",
-    note: "للاستعمال الشخصي الخفيف",
-    bullets: [
-      ["عنوان بريدي حقيقي في أمريكا", "⁦5062 Lankershim Blvd, North Hollywood, CA⁩"],
-      ["5 عمليات مسح شهرياً", "بعدها: 2 دينار للصفحة"],
-      ["إعادة الشحن عند الطلب", "سعر شركة النقل + 4 دنانير رسوم معالجة"],
-      ["تخزين الطرود 30 يوماً", "الرسائل 90 يوماً. بعدها للطرود: 6 دنانير للطرد في الأسبوع"],
-      ["حساب على الإنترنت", "لمشاهدة كل البريد الواصل"],
-      ["النموذج 1583 (USPS)", "نُعدّه معك عند فتح الحساب"],
-    ],
-  },
-  {
-    name: "Standard",
-    price: "75",
-    yearPrice: "750",
-    note: "الأكثر طلباً لدى المستقلين ومشتري Amazon",
-    bullets: [
-      ["كل ما في Basic", "مع الإضافات التالية"],
-      ["20 عملية مسح شهرياً", "بعدها: 2 دينار للصفحة"],
-      ["استلام الطرود مشمول", "5 طرود شهرياً"],
-      ["إعادة شحن أسبوعية", "إرسال تلقائي كل أسبوع"],
-      ["تجميع الطرود", "نجمعها لتخفيض تكلفة الشحن"],
-      ["تخزين الطرود 60 يوماً", "الرسائل 90 يوماً"],
-    ],
-    primary: true,
-  },
-  {
-    name: "Premium",
-    price: "150",
-    yearPrice: "1 500",
-    note: "للتجارة الإلكترونية والكميات الكبيرة",
-    bullets: [
-      ["كل ما في Standard", "مع الإضافات التالية"],
-      ["مسح غير محدود", "بدون حد شهري"],
-      ["استلام طرود غير محدود", "بدون حد"],
-      ["أولوية في المسح", "خلال ساعتين في أوقات العمل بتوقيت لوس أنجلوس"],
-      ["إعادة تغليف مشمولة", "للطرود الهشّة أو الكبيرة"],
-      ["تخزين 90 يوماً", "للرسائل والطرود"],
-      ["أرشيف سحابي للمسح", "أرشيف لمدة 3 سنوات"],
-      ["أسعار شحن تفضيلية", "تخفيضات USPS وUPS وFedEx حسب الحجم"],
-    ],
-  },
-];
 
 const FROM_TUNISIA = [
   { n: 1, t: "تسجّل على الإنترنت", b: "الاسم والبريد الإلكتروني والهاتف. تصلك رسالة للدخول إلى حسابك، ويتواصل معك الفريق لاختيار الباقة. استمارة التسجيل بالفرنسية." },
-  { n: 2, t: "الهوية والنموذج 1583", b: "تشترط هيئة البريد الأمريكية (USPS) النموذج PS 1583 ووثيقتَي هوية، إحداهما بصورة (جواز السفر مقبول). يتم التوقيع أمام موظف من NOHO Mailbox أو أمام كاتب عدل (notary) معتمد في الولايات المتحدة. التوقيع أمام عدل تونسي غير مقبول لدى USPS." },
+  { n: 2, t: "الأهلية والنموذج 1583", b: "تشترط هيئة البريد الأمريكية (USPS) النموذج PS 1583 ووثيقتَي هوية. حالياً يتم التوقيع أمام فريقنا في محلّنا بنورث هوليوود، ولا نوفّر بعدُ التوقيع عن بُعد. من تونس، يؤكد الفريق أولاً إمكانية فتح صندوقك قبل أي دفع." },
   { n: 3, t: "نستلم رسائلك وطرودك", b: "رسائل وطرود USPS وUPS وFedEx وDHL وAmazon (باقة Free لا تقبل USPS). تظهر كل شحنة واصلة في حسابك." },
   { n: 4, t: "تقرّر من تونس", b: "مسح الرسائل، إعادة الشحن إلى تونس بسعر شركة النقل، تجميع الطرود حسب الباقة، التخزين أو الإتلاف." },
 ];
 
 const BILLED_SEPARATELY = [
-  "إعادة الشحن عند الطلب: سعر شركة النقل + 4 دنانير رسوم معالجة لكل شحنة (لإعادة الشحن الأسبوعية والعاجلة أسعار خاصة في صفحة الأسعار).",
-  "المسح الزائد عن حصة باقتك: 2 دينار للصفحة.",
-  "تخزين الطرود بعد المدة المشمولة: 6 دنانير للطرد في الأسبوع.",
+  "إعادة الشحن: سعر شركة النقل مع رسوم خدمة.",
+  "المسح الضوئي وتخزين الطرود بما يتجاوز ما تشمله باقتك.",
   "الرسوم والضرائب الجمركية التونسية، وتُدفع عند الاستلام.",
-  "أتعاب كاتب العدل، إذا وقّعت النموذج 1583 أمام كاتب عدل معتمد في الولايات المتحدة.",
 ];
 
 const USES = [
@@ -133,11 +72,11 @@ const PROCESS = [
 ];
 
 const FAQ = [
-  { q: "كم تكلّف إعادة الشحن إلى تونس؟", a: "سعر شركة النقل (USPS أو UPS أو FedEx أو DHL) مع 4 دنانير رسوم معالجة لكل شحنة. تقديرات لطرد وزنه 1 كغ: نحو 35 إلى 50 دولاراً عبر USPS Priority Mail International، ونحو 80 دولاراً عبر UPS، ونحو 110 دولارات عبر DHL Express. يتحدد السعر الدقيق حسب الوزن والأبعاد والخدمة، وتراه قبل تأكيد الشحن." },
+  { q: "كم تكلّف إعادة الشحن إلى تونس؟", a: "سعر شركة النقل (USPS أو UPS أو FedEx أو DHL) مع رسوم خدمة يؤكدها لك الفريق قبل الشحن. تقديرات شركات النقل لطرد وزنه 1 كغ: نحو 35 إلى 50 دولاراً عبر USPS Priority Mail International، ونحو 80 دولاراً عبر UPS، ونحو 110 دولارات عبر DHL Express. يتحدد السعر الدقيق حسب الوزن والأبعاد والخدمة، وتراه قبل تأكيد الشحن." },
   { q: "كم يستغرق وصول الطرد إلى تونس؟", a: "يصل Amazon إلى محلّنا عادة خلال 1 إلى 3 أيام. إلى تونس، المُهل التقديرية لشركات النقل نحو 2 إلى 5 أيام عمل بالشحن السريع (DHL وUPS وFedEx)، ومن أسبوع إلى أسبوعين عبر USPS، يُضاف إليها وقت التخليص الجمركي في تونس. لا توجد مهلة مضمونة." },
   { q: "ماذا عن الديوانة التونسية؟", a: "قد تفرض الديوانة التونسية رسوماً وضرائب عند الوصول حسب طبيعة المحتوى وقيمته. تُدفع عند الاستلام في تونس ولا تدخل أبداً في أسعارنا. نصرّح دائماً بالقيمة الحقيقية في وثائق الجمارك. القواعد الرسمية منشورة على douane.gov.tn." },
-  { q: "هل يجب أن أسافر إلى أمريكا لفتح الصندوق؟", a: "تشترط USPS النموذج PS 1583 ووثيقتَي هوية، إحداهما بصورة (جواز السفر مقبول). يتم التوقيع أمام موظف من NOHO Mailbox أو أمام كاتب عدل معتمد في الولايات المتحدة، حضورياً أو عبر فيديو مباشر حسب قاعدة USPS. كاتب العدل التونسي غير مقبول. راسلنا قبل الدفع وسنشرح لك الطريقة المناسبة لحالتك." },
-  { q: "متى يُفعَّل صندوقي؟", a: "بمجرد توقيع النموذج 1583 وفق قاعدة USPS، والتحقق من وثيقتَي الهوية، واستلام أول دفعة. عندها تحصل على رقم صندوقك." },
+  { q: "هل يجب أن أسافر إلى أمريكا لفتح الصندوق؟", a: "تشترط USPS النموذج PS 1583 ووثيقتَي هوية، إحداهما بصورة (جواز السفر الأجنبي مقبول). حالياً تُوقّع NOHO Mailbox هذا النموذج أمام موظف في محلّنا بنورث هوليوود. تسمح قواعد USPS أيضاً بالتوقيع عبر فيديو مباشر أو أمام كاتب عدل معتمد في الولايات المتحدة، لكننا لا نوفّر هذين الخيارين بعد. كاتب العدل التونسي غير مقبول. من تونس، اطلب تأكيد أهليتك قبل أي دفع." },
+  { q: "متى يُفعَّل صندوقي؟", a: "بمجرد توقيع النموذج 1583 والتحقق منه، وفحص وثيقتَي الهوية، واستلام أول دفعة. عندها تحصل على رقم صندوقك. لا يُطلب أي دفع قبل تأكيد أهليتك." },
 ];
 
 const faqJsonLd = {
@@ -173,7 +112,7 @@ export default function ArabicVirtualMailboxPage() {
             تخزين أو إتلاف.
           </p>
           <ul className="flex flex-wrap justify-center gap-2 mb-7 text-[13px] font-bold" style={{ color: INK }}>
-            <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>الأسعار بالدينار التونسي (TND)</li>
+            <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>السعر يُؤكَّد قبل أي دفع</li>
             <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>التحقق من الهوية إلزامي حسب قواعد USPS</li>
             <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>إعادة الشحن بسعر شركة النقل</li>
           </ul>
@@ -185,71 +124,14 @@ export default function ArabicVirtualMailboxPage() {
               className="inline-block font-black px-8 py-4 rounded-2xl text-[15px]"
               style={{ background: INK, color: CREAM }}
             >
-              افتح صندوقي الأمريكي
+              أرسل طلب الفتح
             </Link>
             <WhatsAppCTA intent="adresse">سؤال؟ واتساب</WhatsAppCTA>
           </div>
         </div>
       </section>
 
-      {/* PLANS */}
-      <section className="px-5 sm:px-6 pt-6 pb-14 sm:pb-20" style={{ background: "#fff" }}>
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="font-extrabold tracking-tight" style={{ fontSize: "clamp(1.8rem, 4.2vw, 3rem)", color: INK }}>
-              أربع باقات، عنوان حقيقي واحد
-            </h2>
-            <p className="mt-3 text-[15px]" style={{ color: "rgba(45,16,15,0.6)" }}>
-              قابلة للإلغاء في أي وقت. الاشتراك السنوي يمنحك شهرين مجاناً. Free: الدفع حسب الاستعمال.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
-            {PLANS.map((plan) => (
-              <div
-                key={plan.name}
-                className="p-7 rounded-3xl flex flex-col text-right"
-                style={{
-                  background: plan.primary ? INK : CREAM,
-                  color: plan.primary ? CREAM : INK,
-                  boxShadow: plan.primary ? "0 12px 50px rgba(45,16,15,0.25)" : "0 4px 18px rgba(45,16,15,0.08)",
-                }}
-              >
-                {plan.primary && (
-                  <p className="text-[12px] font-black mb-2" style={{ color: GOLD }}>
-                    الأكثر طلباً
-                  </p>
-                )}
-                <h3 className="font-extrabold text-[22px] mb-3">{plan.name}</h3>
-                <div className="flex items-baseline gap-1 mb-1" dir="ltr" style={{ justifyContent: "flex-end" }}>
-                  <span className="font-extrabold" style={{ fontSize: "48px", lineHeight: 1 }}>{plan.price}</span>
-                  <span className="text-[16px] font-black opacity-80">TND</span>
-                </div>
-                <p className="text-[12px] opacity-70 mb-2">
-                  {plan.yearPrice ? `شهرياً، أو ${plan.yearPrice} دينار سنوياً` : "الدفع حسب الاستعمال · محفظة مسبقة الدفع"}
-                </p>
-                <p className="text-[12.5px] opacity-75 mb-5">{plan.note}</p>
-                <ul className="space-y-3 text-[13.5px] mb-6 flex-1">
-                  {plan.bullets.map((b, idx) => (
-                    <li key={idx} className="flex flex-col gap-0.5">
-                      <span className="font-black leading-snug">{b[0]}</span>
-                      <span className="opacity-75 text-[12.5px] leading-snug">{b[1]}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/inscription"
-                  data-track="plan_select"
-                  data-track-plan={plan.name}
-                  className="block w-full text-center font-black px-5 py-3 rounded-xl text-[14px]"
-                  style={{ background: plan.primary ? CREAM : INK, color: plan.primary ? INK : CREAM }}
-                >
-                  اختر {plan.name}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PricingPending locale="ar" id="forfaits" />
 
       {/* FROM TUNISIA */}
       <section className="px-5 sm:px-6 py-14 sm:py-16" style={{ background: CREAM }}>
@@ -272,6 +154,7 @@ export default function ArabicVirtualMailboxPage() {
           </ol>
           <div className="p-6 rounded-3xl text-right" style={{ background: "#fff" }}>
             <h3 className="font-black text-[17px] mb-3" style={{ color: INK }}>ما يُدفع على حدة</h3>
+            <p className="text-[13.5px] mb-3" style={{ color: "rgba(45,16,15,0.7)" }}>نؤكد لك المبالغ كتابياً قبل أي دفع.</p>
             <ul className="space-y-2 text-[14.5px] leading-relaxed list-disc pr-5" style={{ color: "rgba(45,16,15,0.85)" }}>
               {BILLED_SEPARATELY.map((l) => (
                 <li key={l}>{l}</li>
@@ -348,7 +231,7 @@ export default function ArabicVirtualMailboxPage() {
             جاهز للبدء؟
           </h2>
           <p className="text-[15.5px] leading-relaxed mb-8" style={{ color: "rgba(45,16,15,0.78)" }}>
-            سجّل على الإنترنت، أو احجز مكالمة قصيرة لاختيار باقتك وتحضير النموذج 1583 مع الفريق.
+            أرسل طلبك على الإنترنت دون دفع: يؤكد الفريق أهليتك والباقة والسعر قبل أي فوترة.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
@@ -358,7 +241,7 @@ export default function ArabicVirtualMailboxPage() {
               className="inline-block font-black px-8 py-4 rounded-2xl text-[15px]"
               style={{ background: INK, color: CREAM }}
             >
-              افتح صندوقي الأمريكي
+              أرسل طلب الفتح
             </Link>
             <Link
               href="/ar/appel"
@@ -369,7 +252,7 @@ export default function ArabicVirtualMailboxPage() {
             </Link>
           </div>
           <p className="text-[13px] mt-6" style={{ color: "rgba(45,16,15,0.6)" }}>
-            <Link href="/tarifs" className="underline font-black">جدول الأسعار الكامل</Link>
+            <Link href="/ar/contact" className="underline font-black">تواصل معنا</Link>
           </p>
         </div>
       </section>

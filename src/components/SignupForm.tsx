@@ -32,7 +32,9 @@ export default function SignupForm() {
   // Plan id only (a fixed option value) — never anything the visitor typed.
   const lastPlan = useRef("not_sure");
   useEffect(() => {
-    if (state.success) track("signup_submitted", { plan: lastPlan.current });
+    // "Request sent" only. A completed signup is recorded server-side as
+    // signup_completed, from the US app's own answer (see actions/signup.ts).
+    if (state.success) track("signup_request_sent", { plan: lastPlan.current });
   }, [state.success]);
 
   if (state.success) {

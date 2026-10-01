@@ -18,7 +18,8 @@
  *   signup_click      a link to /inscription            { from }
  *   plan_select       a plan card button                { plan }
  *   whatsapp_click    any wa.me link                    { intent }
- *   signup_submitted  the signup form succeeded         { plan }   (SignupForm)
+ *   signup_request_sent  the US app accepted the form     { plan }   (SignupForm, client)
+ *   signup_completed  the US app created a NEW account  { site, plan } (actions/signup.ts, server)
  *   consult_submitted the consultation form succeeded   {}         (ConsultationForm)
  * Page views give visits per page (the Tunisia pages included) for free.
  *

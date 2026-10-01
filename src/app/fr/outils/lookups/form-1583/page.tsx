@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Form 1583 USPS depuis la Tunisie — qui peut vérifier ta signature",
   description:
-    "Le Form 1583 autorise NOHO Mailbox à recevoir ton courrier en ton nom. Selon l'USPS, la signature se fait devant un employé du CMRA ou un notaire commissionné aux États-Unis — un notaire tunisien n'est pas accepté. Pièces d'identité et étapes.",
+    "Le Form 1583 autorise NOHO Mailbox à recevoir ton courrier en ton nom. Ce que l'USPS permet, ce que NOHO Mailbox propose aujourd'hui depuis la Tunisie, et pourquoi confirmer ton éligibilité avant de payer.",
   alternates: { canonical: "https://nohomailboxtunis.com/fr/outils/lookups/form-1583" },
 };
 
@@ -60,44 +60,33 @@ export default function Form1583LookupPage() {
 
           <div className="p-6 rounded-2xl" style={{ background: "#FFF4E5", borderLeft: `4px solid ${RED}` }}>
             <p className="text-[11px] font-black uppercase tracking-[0.14em] mb-2" style={{ color: RED }}>
-              La règle USPS
+              Depuis la Tunisie : confirme ton éligibilité avant de payer
             </p>
             <p className="text-[14px] leading-relaxed" style={{ color: INK }}>
-              Selon le Domestic Mail Manual de l&apos;USPS (section 508.1.8.3), tu signes le
-              Form 1583 en présence, physique ou par vidéo en temps réel, d&apos;un employé
-              autorisé du CMRA, <strong>ou</strong> devant un notaire commissionné dans un État
-              américain. Une signature électronique sans cette vérification n&apos;est pas
-              valable, et <strong>un notaire tunisien n&apos;est pas accepté</strong>, même
-              pour une copie certifiée.
+              Aujourd&apos;hui, NOHO Mailbox fait signer le Form 1583 <strong>devant un employé, à notre
+              comptoir de North Hollywood</strong>. Nous ne proposons pas encore de signature à distance.
+              Si tu es en Tunisie, écris-nous avant tout paiement : l&apos;équipe te dit si ton ouverture
+              est possible et comment.
             </p>
           </div>
 
           <div className="p-6 rounded-2xl" style={{ background: "#fff", border: "1px solid rgba(45,16,15,0.08)" }}>
             <h2 className="font-extrabold text-[20px] mb-3" style={{ color: INK, fontFamily: "var(--font-baloo), sans-serif" }}>
-              Les 2 façons de faire vérifier ta signature
+              Ce que les règles USPS permettent
             </h2>
-            <div className="space-y-4 mt-4">
-              <div className="p-4 rounded-xl" style={{ background: CREAM }}>
-                <h3 className="font-extrabold text-[16px] mb-2" style={{ color: INK }}>
-                  Devant l&apos;équipe NOHO Mailbox
-                </h3>
-                <ol className="space-y-1 text-[13px]" style={{ color: INK }}>
-                  <li>1. On te prépare le Form 1583 pré-rempli.</li>
-                  <li>2. Tu signes devant un employé NOHO Mailbox, au comptoir du 5062 Lankershim Blvd à North Hollywood.</li>
-                  <li>3. Tu n&apos;es pas aux États-Unis ? Écris-nous avant de payer : on t&apos;indique comment on procède pour ton cas.</li>
-                </ol>
-              </div>
-              <div className="p-4 rounded-xl" style={{ background: "#FAFAF8" }}>
-                <h3 className="font-extrabold text-[16px] mb-2" style={{ color: INK }}>
-                  Devant un notaire commissionné aux États-Unis
-                </h3>
-                <ol className="space-y-1 text-[13px]" style={{ color: INK }}>
-                  <li>1. Un notaire commissionné dans un État américain, en personne ou par vidéo en temps réel s&apos;il le propose.</li>
-                  <li>2. Les frais du notaire sont à ta charge.</li>
-                  <li>3. Confirme avec nous le format attendu avant de signer, puis transmets-nous le formulaire signé.</li>
-                </ol>
-              </div>
-            </div>
+            <p className="text-[13.5px] leading-relaxed mb-3" style={{ color: INK }}>
+              Le Domestic Mail Manual de l&apos;USPS, section{" "}
+              <a href="https://pe.usps.com/text/dmm300/508.htm" className="underline font-bold" rel="noopener noreferrer" target="_blank">508.1.8.3</a>,
+              dit que tu signes ou confirmes ta signature en présence, physique ou par vidéo en temps réel,
+              du propriétaire, du gérant ou d&apos;un employé autorisé du CMRA, ou que tu la reconnais devant
+              un notaire commissionné dans un État, territoire ou possession des États-Unis, ou dans le
+              District of Columbia.
+            </p>
+            <ul className="space-y-1.5 text-[13.5px]" style={{ color: INK }}>
+              <li>• <strong>Proposé par NOHO Mailbox aujourd&apos;hui :</strong> signature devant un employé, en personne, à notre comptoir.</li>
+              <li>• <strong>Permis par l&apos;USPS, pas encore proposé par NOHO Mailbox :</strong> signature devant un employé par vidéo en temps réel, ou devant un notaire commissionné aux États-Unis.</li>
+              <li>• <strong>Non valable :</strong> un notaire tunisien, ou une signature électronique sans cette vérification.</li>
+            </ul>
           </div>
 
           <div className="p-6 rounded-2xl" style={{ background: CREAM }}>
@@ -105,8 +94,8 @@ export default function Form1583LookupPage() {
               Les 2 pièces d&apos;identité
             </h2>
             <ol className="space-y-1.5 text-[13.5px]" style={{ color: INK }}>
-              <li><strong>1.</strong> Une pièce avec photo : le passeport est accepté.</li>
-              <li><strong>2.</strong> Une deuxième pièce, par exemple ta CIN tunisienne. L&apos;équipe confirme qu&apos;elle est acceptée avant la signature. Une facture (électricité, téléphone) n&apos;est pas une pièce valable.</li>
+              <li><strong>1.</strong> Une pièce avec photo. L&apos;USPS accepte un passeport étranger (<a href="https://pe.usps.com/text/dmm300/608.htm" className="underline" rel="noopener noreferrer" target="_blank">DMM 608.10.3</a>).</li>
+              <li><strong>2.</strong> Une deuxième pièce. L&apos;USPS cite par exemple un bail, un prêt immobilier, une carte d&apos;électeur ou une police d&apos;assurance (DMM 608.10.4). L&apos;équipe te confirme laquelle est acceptée avant la signature. Une facture n&apos;est pas une pièce valable.</li>
               <li><strong>3.</strong> Les deux pièces portent <strong>exactement le même nom</strong> que le formulaire.</li>
             </ol>
           </div>
@@ -120,7 +109,7 @@ export default function Form1583LookupPage() {
               <li>• Box 12 : ton nom légal exact (matching passeport)</li>
               <li>• Box 14 : nom légal de ta LLC (matching Articles of Organization)</li>
               <li>• Si l&apos;orthographe diffère entre le Form 1583 et le passeport, corrige avant de signer.</li>
-              <li>• Si tu passes par un notaire américain : date et lieu figurent sur son certificat.</li>
+              <li>• Date de signature et nom de l&apos;employé qui a vérifié ta signature figurent sur le formulaire.</li>
             </ul>
           </div>
 

@@ -10,7 +10,7 @@ const TEAL = "#337485";
 export const metadata: Metadata = {
   title: "Inscription — adresse US 7a9i9ia m3a NOHO",
   description:
-    "A3mel compte NOHO Mailbox. Adresse US 7a9i9ia fi Los Angeles, colis w courrier, tkhalles b dinar. El équipe ta3tik numéro el boîte mte3ek ba3d el vérification.",
+    "A3mel compte NOHO Mailbox. Adresse US 7a9i9ia fi Los Angeles, colis w courrier. Bla paiement fel étape hedhi : l'équipe tconfirmi l'éligibilité, el forfait w el prix 9bal ay paiement.",
   alternates: singleAlternates("/inscription"),
 };
 
@@ -29,8 +29,9 @@ export default function InscriptionPage() {
         </h1>
         <p className="text-[15px] leading-relaxed mb-8 max-w-lg" style={{ color: "rgba(45,16,15,0.75)" }}>
           Adresse US 7a9i9ia fi Los Angeles. Ba3d ma tab3ath el demande,
-          tekhou email b les identifiants mte3ek, w l&apos;équipe ta3tik numéro
-          el boîte.
+          tekhou email b les identifiants mte3ek. Ma tkhalles chay tawa :
+          l&apos;équipe tconfirmi l&apos;éligibilité mte3ek (Form 1583), el forfait
+          w el prix 9bal ay paiement, ba3d ta3tik numéro el boîte.
         </p>
 
         <div

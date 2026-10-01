@@ -17,7 +17,7 @@ const AR_URL = "https://nohomailboxtunis.com/ar/reexpedition-colis-usa-tunisie";
 export const metadata: Metadata = {
   title: "Réexpédition de colis des États-Unis vers la Tunisie — adresse US réelle",
   description:
-    "Commande sur Amazon, eBay ou tout site américain avec ton adresse NOHO Mailbox en Californie. On reçoit tes colis et on les réexpédie en Tunisie par USPS, UPS, FedEx ou DHL, au tarif du transporteur + 4 TND de manutention.",
+    "Commande sur Amazon, eBay ou tout site américain avec une adresse NOHO Mailbox en Californie. On reçoit tes colis et on les réexpédie en Tunisie par USPS, UPS, FedEx ou DHL, au tarif du transporteur. Frais de service et éligibilité confirmés avant tout paiement.",
   alternates: { canonical: URL, languages: { fr: URL, ar: AR_URL, "x-default": URL } },
   openGraph: {
     title: "Réexpédition de colis des États-Unis vers la Tunisie",
@@ -36,11 +36,11 @@ const COPY: ReexpeditionCopy = {
   intro:
     "Commande sur Amazon, eBay ou n'importe quel site américain avec ton adresse NOHO Mailbox à North Hollywood (Californie). On reçoit le colis dans notre local, tu le vois sur ton espace en ligne, et on te le réexpédie en Tunisie avec le transporteur que tu choisis, au tarif du transporteur.",
   chips: ["Adresse de rue réelle, pas une boîte postale", "USPS · UPS · FedEx · DHL", "Prix du transport affiché avant l'envoi"],
-  ctaSignup: "Ouvrir mon adresse US →",
+  ctaSignup: "Demander mon ouverture →",
   ctaWhatsApp: "Poser une question sur WhatsApp",
   stepsTitle: "Comment ça marche",
   steps: [
-    { t: "Tu ouvres ton adresse", b: "Inscription en ligne. Pour les colis UPS, FedEx, DHL et Amazon, le forfait Free suffit ; pour recevoir aussi l'USPS et du courrier, choisis un forfait payant (Form 1583 exigé par l'USPS)." },
+    { t: "Tu fais confirmer ton éligibilité", b: "Tu envoies ta demande en ligne, sans paiement. L'équipe vérifie que ton ouverture est possible depuis la Tunisie (Form 1583, pièces d'identité) et te confirme par écrit le forfait, le prix et la devise." },
     { t: "Tu commandes", b: "Adresse de livraison : 5062 Lankershim Blvd, Suite [ton numéro], North Hollywood, CA 91601, avec ton nom exact." },
     { t: "On reçoit ton colis", b: "Il arrive physiquement dans notre local et apparaît sur ton espace avec une photo de l'extérieur." },
     { t: "Tu choisis l'envoi", b: "Transporteur et service, regroupement de plusieurs colis si ton forfait l'inclut. Tu vois le prix du transport avant de valider." },
@@ -48,17 +48,15 @@ const COPY: ReexpeditionCopy = {
   ],
   costTitle: "Ce que tu paies",
   costRows: [
-    { item: "L'adresse", price: "Free (0 TND, à l'usage) · Basic 35 · Standard 75 · Premium 150 TND/mois" },
-    { item: "La réexpédition à la demande", price: "Tarif du transporteur + 4 TND de manutention par envoi" },
-    { item: "Le regroupement de colis", price: "Inclus dans Standard et Premium" },
-    { item: "Le stockage au-delà de la durée incluse", price: "6 TND par colis et par semaine" },
+    { item: "L'adresse", price: "Forfait et prix confirmés par écrit avant tout paiement" },
+    { item: "La réexpédition", price: "Tarif du transporteur, plus des frais de service confirmés avant l'envoi" },
+    { item: "Le stockage au-delà de la durée incluse", price: "Selon ton forfait, confirmé avant tout paiement" },
     { item: "La douane tunisienne", price: "Droits et taxes éventuels payés par toi à l'arrivée, jamais inclus dans nos prix" },
   ],
   costNote: (
     <>
-      Les forfaits sont facturés en dinars tunisiens. Les formules de réexpédition hebdomadaire et urgente ont leur propre prix, détaillé sur{" "}
-      <Link href="/fr/tarifs" className="underline font-bold">la page tarifs</Link>. Pour payer tes achats sur les sites
-      américains, ta carte technologique internationale a un plafond annuel : voir{" "}
+      Aucun paiement avant la confirmation de ton éligibilité. Pour payer tes achats sur les sites américains, ta carte
+      technologique internationale a un plafond annuel : voir{" "}
       <Link href="/fr/guides/plafond-carte-technologique" className="underline font-bold">notre guide</Link>.
     </>
   ),
@@ -83,14 +81,14 @@ const COPY: ReexpeditionCopy = {
   faqTitle: "Questions fréquentes",
   faq: [
     { q: "Pourquoi passer par une adresse aux États-Unis ?", a: "Beaucoup de vendeurs américains ne livrent pas en Tunisie. Avec une adresse aux États-Unis, tu commandes comme un client américain, puis on te réexpédie le colis." },
-    { q: "Faut-il un abonnement ?", a: "Non. Le forfait Free accepte les colis UPS, FedEx, DHL et Amazon sans abonnement : chaque service est débité de ton wallet prépayé. Pour recevoir l'USPS et du courrier, il faut un forfait payant." },
-    { q: "Faut-il le Form 1583 ?", a: "Pour les forfaits payants, oui : l'USPS l'exige avec deux pièces d'identité, et la signature doit se faire devant un employé de NOHO Mailbox ou devant un notaire commissionné aux États-Unis (un notaire tunisien n'est pas accepté). Le forfait Free, sans USPS, ne demande pas le Form 1583, mais une vérification d'identité reste nécessaire. Écris-nous pour la marche à suivre." },
-    { q: "Combien coûte l'envoi d'un colis vers la Tunisie ?", a: "Le tarif du transporteur, plus 4 TND de manutention par envoi. À titre indicatif pour 1 kg : environ 35 à 50 USD par USPS Priority Mail International, environ 80 USD par UPS, environ 110 USD par DHL Express. Regrouper plusieurs colis en un seul envoi réduit souvent le total." },
+    { q: "Faut-il un abonnement ?", a: "Les options disponibles pour la Tunisie, leurs prix et leur devise te sont confirmés par écrit avant tout paiement. Rien n'est facturé avant la confirmation de ton éligibilité." },
+    { q: "Faut-il le Form 1583 ?", a: "Pour recevoir du courrier et des colis à ton nom, oui : l'USPS exige le PS Form 1583 et deux pièces d'identité, dont une avec photo (un passeport étranger est accepté). Aujourd'hui, NOHO Mailbox fait signer ce formulaire devant un employé, à notre comptoir de North Hollywood. Les règles USPS permettent aussi une signature par vidéo en temps réel ou devant un notaire commissionné aux États-Unis, mais nous ne proposons pas encore ces options, et un notaire tunisien n'est pas accepté. Depuis la Tunisie, fais confirmer ton éligibilité avant de payer." },
+    { q: "Combien coûte l'envoi d'un colis vers la Tunisie ?", a: "Le tarif du transporteur, plus des frais de service que l'équipe te confirme avant l'envoi. Estimations indicatives des transporteurs pour 1 kg : environ 35 à 50 USD par USPS Priority Mail International, environ 80 USD par UPS, environ 110 USD par DHL Express. Regrouper plusieurs colis en un seul envoi réduit souvent le total." },
     { q: "Et la douane tunisienne ?", a: "La douane tunisienne peut appliquer des droits et taxes à l'arrivée, selon la nature et la valeur du contenu. Tu les paies à la réception. Les règles officielles sont sur douane.gov.tn." },
-    { q: "Combien de temps garde-t-on mon colis ?", a: "30 jours avec Basic, 60 avec Standard, 90 avec Premium, puis 6 TND par colis et par semaine. Pour le forfait Free, l'équipe te donne la durée à l'inscription." },
+    { q: "Combien de temps garde-t-on mon colis ?", a: "La durée de stockage gratuite et le prix au-delà dépendent de ton forfait ; l'équipe te les confirme par écrit avant tout paiement." },
   ],
   endTitle: "Prêt à commander aux États-Unis ?",
-  endBody: "Ouvre ton adresse en ligne, ou pose ta question sur WhatsApp avant de commander.",
+  endBody: "Envoie ta demande sans paiement, ou pose ta question sur WhatsApp avant de commander.",
   endSecondary: { href: "/fr/virtual-mailbox", label: "Voir les forfaits d'adresse" },
   trackFrom: "fr_reexpedition",
 };

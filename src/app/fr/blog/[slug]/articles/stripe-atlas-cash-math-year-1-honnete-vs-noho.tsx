@@ -103,8 +103,8 @@ export function stripeAtlasCashMathYear1HonneteVsNoho() {
           Atlas 500 USD.
         </li>
         <li>
-          <strong>Form 1583 notarisé en interne</strong> par notre
-          notaire californien. Atlas te demande de trouver ton propre
+          <strong>Form 1583 signé au comptoir</strong> devant notre
+          équipe. Atlas te demande de trouver ton propre
           notary. À LA, 30-50 USD.
         </li>
         <li>

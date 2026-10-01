@@ -116,7 +116,7 @@ export function stripeAtlasVsNohoProcedureTechnique() {
         <li>
           Tu signes électroniquement via DocuSign (Atlas-intégré).
           C&apos;est acceptable pour ces docs (vs Form 1583 qui exige
-          notarisation physique).
+          une signature devant la CMRA ou un notaire US).
         </li>
       </ol>
 
@@ -302,12 +302,12 @@ export function stripeAtlasVsNohoProcedureTechnique() {
           5062 Lankershim Suite, agent NOHO, ton nom legal).
         </li>
         <li>
-          Tu signes devant un notary à Tunis OU au cabinet KHIARI
-          (gratuit pour clients NOHO). Délai 2-5 jours.
-        </li>
-        <li>
-          Tu expédies l&apos;original via DHL à 5062 Lankershim
-          (~30 USD).
+          Tu le signes devant notre équipe au comptoir de North
+          Hollywood. Un notary à Tunis ou le cabinet KHIARI ne sont pas
+          acceptés pour ce formulaire ; la vidéo ou un notaire US, permis
+          par l&apos;USPS, ne sont pas encore proposés par NOHO. Depuis la
+          Tunisie, confirme ton éligibilité avec l&apos;équipe avant de
+          payer.
         </li>
         <li>
           NOHO traite le Form 1583 dès reception. Ton adresse US est

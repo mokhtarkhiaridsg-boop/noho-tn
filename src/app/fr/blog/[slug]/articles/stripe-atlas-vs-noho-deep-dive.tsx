@@ -40,7 +40,7 @@ export function stripeAtlasVsNohoDeepDive() {
           Service complet : <strong>formation Wyoming LLC</strong> (état
           le plus accepté côté Mercury pour non-US founders), EIN, Mercury
           setup avec dossier renforcé, Stripe setup avec dossier complet,
-          Form 1583 notarisé in-house, brand identity + site web,
+          Form 1583 signé au comptoir, brand identity + site web,
           coordination ITIN si besoin, onboarding live.
         </li>
         <li>
@@ -133,12 +133,13 @@ export function stripeAtlasVsNohoDeepDive() {
           ou les ID non-US. Tu dois alors te débrouiller seul.
         </li>
         <li>
-          <strong>NOHO</strong> : si tu es à Los Angeles, notarisation
-          en personne au comptoir. Si tu es à Tunis, tu signes devant un
-          notaire tunisien (le cabinet KHIARI peut organiser le rendez-vous)
-          et l&apos;original part vers LA — NOHO gère la réception et le
-          filing. Délai 7-10 jours. Pas de friction langue ou ID. Toujours
-          en personne devant le notaire, jamais en ligne.
+          <strong>NOHO</strong> : aujourd&apos;hui, tu signes le Form
+          1583 devant notre équipe au comptoir de North Hollywood. Un
+          notaire tunisien (ou le cabinet KHIARI) n&apos;est pas accepté.
+          L&apos;USPS autorise aussi la vidéo en direct ou un notaire
+          commissionné aux USA, mais NOHO ne les propose pas encore :
+          depuis Tunis, confirme ton éligibilité avec l&apos;équipe avant
+          de payer.
         </li>
       </ul>
 
@@ -257,8 +258,10 @@ export function stripeAtlasVsNohoDeepDive() {
           Mercury (cas spécifiques de credibility-building).</li>
         <li>Tu veux le Suivi mensuel qui automatise toute la compliance
           ongoing, avec un humain accessible WhatsApp.</li>
-        <li>Tu opères depuis Tunis et tu peux pas voyager pour
-          notarisation aux US. NOHO/KHIARI gère tout depuis Tunis.</li>
+        <li>Tu opères depuis Tunis et tu veux un accompagnement en
+          français — pour le Form 1583, confirme ton éligibilité avec
+          l&apos;équipe avant de payer (il se signe aujourd&apos;hui
+          devant notre équipe au comptoir de North Hollywood).</li>
       </ul>
 
       <h2>Le faux dilemme — souvent c&apos;est ni l&apos;un ni l&apos;autre</h2>

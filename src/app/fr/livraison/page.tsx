@@ -33,7 +33,6 @@ const serviceJsonLd = {
   offers: [
     { "@type": "Offer", name: "Same-day NoHo", priceCurrency: "USD", price: "5" },
     { "@type": "Offer", name: "Same-day LA County", priceCurrency: "USD", price: "9" },
-    { "@type": "Offer", name: "Réexpédition Tunis (consolidée)", priceCurrency: "USD", price: "45" },
   ],
 };
 
@@ -76,22 +75,22 @@ const TIER_LOCAL = [
 const TIER_INTL = [
   {
     name: "Réexpédition Tunis consolidée",
-    price: "45-90 USD",
-    sub: "≈ 140-280 TND + frais postaux DHL réels",
+    price: "Prix confirmé avant l'envoi",
+    sub: "Tarif du transporteur + frais de service",
     desc: "On consolide tout ton courrier de la semaine en un envoi unique. Envoyé chaque vendredi via DHL Express vers Tunis.",
     time: "Hebdomadaire · 5-7 jours en transit",
   },
   {
     name: "Urgent 24-48h",
-    price: "65-150 USD",
-    sub: "≈ 200-470 TND + frais postaux",
+    price: "Prix confirmé avant l'envoi",
+    sub: "Tarif du transporteur + frais de service",
     desc: "Document critique (Mercury card, IRS letter, EIN CP 575). DHL Express Worldwide Priority, suivi temps réel.",
     time: "24-48 heures",
   },
   {
     name: "Standard économique",
-    price: "30-60 USD",
-    sub: "≈ 95-190 TND + frais postaux",
+    price: "Prix confirmé avant l'envoi",
+    sub: "Tarif du transporteur + frais de service",
     desc: "USPS First-Class International ou UPS Standard. Délai plus long mais coût optimisé.",
     time: "10-21 jours",
   },
@@ -274,7 +273,7 @@ export default function LivraisonPage() {
             {[
               {
                 title: "Stockage inclus",
-                desc: "Courrier : 90 jours gratuits. Colis : 30 / 60 / 90 jours selon le forfait. Au-delà : 6 TND/colis/semaine — voir la grille tarifaire.",
+                desc: "La durée de stockage gratuite et le prix au-delà dépendent de ton forfait et te sont confirmés avant tout paiement.",
               },
               {
                 title: "Volume colis",

@@ -30,8 +30,8 @@ export function llcUsPourDeveloppeurTunisienStackComplet() {
           inclus.
         </li>
         <li>
-          <strong>Form 1583 USPS notarisé</strong> en interne par
-          notre notaire californien.
+          <strong>Form 1583 USPS signé</strong> devant notre équipe
+          au comptoir de North Hollywood.
         </li>
       </ul>
 

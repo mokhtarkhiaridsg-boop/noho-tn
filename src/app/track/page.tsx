@@ -27,5 +27,9 @@ export default async function TnTrackPage({
   if ((sp.n ?? "").trim()) {
     return <TrackRouter locale="tn" searchParams={searchParams} />;
   }
-  return <FrPage searchParams={searchParams} />;
+  return (
+    <div lang="fr">
+      <FrPage searchParams={searchParams} />
+    </div>
+  );
 }

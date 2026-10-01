@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import StampCard from "@/components/StampCard";
+import PricingPending from "@/components/PricingPending";
 import WhatsAppCTA from "@/components/WhatsAppCTA";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
 
 /*
- * English version of /virtual-mailbox. Mirrors the FR page 1:1 — stamp-card
- * plan selection (4 plans incl. Free pay-as-you-go), use cases, TN mailbox
+ * English version of /virtual-mailbox. Mirrors the FR page 1:1 — mailbox
+ * pricing notice (PricingPending, prices confirmed before payment), use cases, TN mailbox
  * cross-link, package process, FAQ, ecosystem ribbon, CTA. Prices and claims
  * sourced from the FR page only.
  */
@@ -36,17 +36,12 @@ const serviceJsonLd = {
   areaServed: "TN",
   description:
     "A real US postal address in Los Angeles. Same-day mail scanning. Package receiving (Amazon, UPS, FedEx, DHL). International forwarding to Tunisia.",
-  offers: [
-    { "@type": "Offer", name: "Basic", price: "35", priceCurrency: "TND", priceSpecification: { "@type": "UnitPriceSpecification", price: "35", priceCurrency: "TND", unitText: "MON" } },
-    { "@type": "Offer", name: "Standard", price: "75", priceCurrency: "TND", priceSpecification: { "@type": "UnitPriceSpecification", price: "75", priceCurrency: "TND", unitText: "MON" } },
-    { "@type": "Offer", name: "Premium", price: "150", priceCurrency: "TND", priceSpecification: { "@type": "UnitPriceSpecification", price: "150", priceCurrency: "TND", unitText: "MON" } },
-  ],
 };
 
 export const metadata: Metadata = {
-  title: "Real US address — mail scans, packages, forwarding from 35 TND/month",
+  title: "Real US address — mail scans, packages, forwarding to Tunisia",
   description:
-    "A real US postal address in Los Angeles. Same-day mail scanning from your dashboard. Package receiving (Amazon, UPS, FedEx, DHL). International forwarding to Tunisia. Free pay-as-you-go plan (prepaid wallet, private carriers only — no USPS) or 35, 75, 150 TND/month.",
+    "A real US postal address in Los Angeles. Same-day mail scanning from your dashboard. Package receiving (Amazon, UPS, FedEx, DHL). International forwarding to Tunisia. Price confirmed by the team before any payment.",
   alternates: {
     canonical: "https://nohomailboxtunis.com/en/virtual-mailbox",
     languages: {
@@ -113,74 +108,13 @@ const IconHouse: IconCmp = ({ className = "w-8 h-8" }) => (
     <rect x="30" y="26" width="6" height="6" fill={BLUE} opacity="0.4" stroke={INK} strokeWidth="1.5" />
   </svg>
 );
-const PLANS = [
-  {
-    name: "Free",
-    price: "0",
-    yearPrice: "",
-    note: "Pay-as-you-go — packages without a subscription",
-    bullets: [
-      ["Package receiving address", "5062 Lankershim Blvd — get your US purchases"],
-      ["Private carriers only", "UPS, FedEx, DHL, Amazon. No USPS — policies apply"],
-      ["Pay per use", "Each service is deducted from your wallet at the grid rates"],
-      ["Prepaid wallet", "Minimum top-up 50 TND"],
-      ["Online dashboard", "A notification for every package received"],
-    ],
-  },
-  {
-    name: "Basic",
-    price: "35",
-    yearPrice: "350",
-    note: "For light personal use or keeping an address on file",
-    bullets: [
-      ["Real US postal address", "5062 Lankershim Blvd, North Hollywood, CA"],
-      ["5 scans included", "Per month. Beyond that: 2 TND/page"],
-      ["Forwarding on request", "Actual postage + 4 TND handling"],
-      ["30-day package storage", "Mail held 90 days included. Packages beyond: 1 TND/package/day"],
-      ["Online dashboard", "See every piece of mail you receive"],
-      ["Form 1583 notarization", "Included at setup"],
-    ],
-  },
-  {
-    name: "Standard",
-    price: "75",
-    yearPrice: "750",
-    note: "Most popular with freelancers and Amazon shoppers",
-    bullets: [
-      ["Everything in Basic", "+ the extras below"],
-      ["20 scans included", "Per month. Beyond that: 2 TND/scan"],
-      ["Package receiving included", "5 packages/month included"],
-      ["Weekly forwarding", "Auto-forward every week"],
-      ["Package consolidation", "We bundle shipments to cut your costs"],
-      ["60-day package storage", "Mail held 90 days included. Great for Amazon shoppers"],
-    ],
-    primary: true,
-  },
-  {
-    name: "Premium",
-    price: "150",
-    yearPrice: "1 500",
-    note: "For e-commerce, active businesses, high volume",
-    bullets: [
-      ["Everything in Standard", "+ the extras below"],
-      ["Unlimited scans", "No monthly cap"],
-      ["Unlimited package receiving", "No cap"],
-      ["Priority scanning", "Scanned within 2 hours during LA business hours"],
-      ["Repacking included", "We repack fragile or oversized packages"],
-      ["90-day package storage", "Mail + packages held 90 days included"],
-      ["Cloud scan storage", "3-year archive, always accessible"],
-      ["Preferred shipping rates", "USPS / UPS / FedEx volume discounts"],
-    ],
-  },
-];
-
 const USES: { Icon: IconCmp; t: string; b?: string; c?: string }[] = [
   { Icon: IconCart, t: "Shop Amazon US, eBay, Shein, Nordstrom", b: "Most of these stores won't ship to Tunisia. With a US address, you order whatever you want." },
-  { Icon: IconCard, t: "Activate Stripe, Mercury, Wise Business", b: "These providers require a real US address (not an anonymous PO box with a bad reputation). NOHO passes their checks." },
+  { Icon: IconCard, t: "Mail for your LLC and accounts", b: "A real street address for your US company’s correspondence. Each bank or payment provider applies its own address rules, so we cannot promise it will accept it." },
   { Icon: IconInbox, t: "Receive US business mail", c: "IRS, banks, SaaS vendors, partners — every letter to your American LLC lands here, scanned and flagged in real time." },
   { Icon: IconGrad, t: "SEVIS and university mail", b: "Students: your I-20 arrives here, scanned the same day. While you study, your campus mail stays handled between semesters." },
   { Icon: IconPaper, t: "Magazines, print subscriptions", b: "The Economist, WSJ, Vogue, Wired — every US subscription arrives. Scan or forward, your call." },
-  { Icon: IconHouse, t: "A stable address of record", b: "For the SSN, ITIN, US driver's license, banks — a stable address is worth gold when you move around a lot." },
+  { Icon: IconHouse, t: "A stable address of record", b: "An address that does not change when you move: useful for IRS mail, ITIN letters or subscriptions. It does not replace a residential address where one is required." },
 ];
 
 const PACKAGE_PROCESS = [
@@ -196,134 +130,7 @@ export default function EnglishVirtualMailboxPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
-      {/* PRICING — STAMP CARDS */}
-      <section className="px-7 sm:px-6 pt-12 sm:pt-16 pb-14 sm:pb-20" style={{ background: CREAM }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10 sm:mb-14">
-            <p
-              className="font-black mb-2"
-              style={{ fontFamily: "var(--font-pacifico), cursive", fontSize: "1.2rem", color: BLUE }}
-            >
-              Pick your plan
-            </p>
-            <h2
-              className="font-extrabold tracking-tight"
-              style={{
-                fontFamily: "var(--font-baloo), sans-serif",
-                fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
-                color: INK,
-              }}
-            >
-              4 plans, one real address
-            </h2>
-            <p className="mt-3 text-[15px]" style={{ color: "rgba(45,16,15,0.5)" }}>
-              Cancel anytime. Annual billing = 2 months free. Free = pay as you go.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
-            {PLANS.map((p) => (
-              <div key={p.name} className={`group ${p.primary ? "md:-mt-3" : ""}`}>
-                <StampCard popular={p.primary}>
-                  {p.primary && (
-                    <div className="flex justify-center mb-4">
-                      <span
-                        className="text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full"
-                        style={{ background: BLUE, color: "white" }}
-                      >
-                        ★ Most popular
-                      </span>
-                    </div>
-                  )}
-                  <div className="text-center mb-2">
-                    <p
-                      className="text-[10px] font-black uppercase tracking-[0.2em] mb-1"
-                      style={{ color: p.primary ? "rgba(247,230,194,0.55)" : "rgba(45,16,15,0.45)" }}
-                    >
-                      {p.note}
-                    </p>
-                    <h3
-                      className="font-black text-2xl mb-1"
-                      style={{ color: p.primary ? CREAM : INK, fontFamily: "var(--font-baloo), sans-serif" }}
-                    >
-                      {p.name}
-                    </h3>
-                    <div className="flex items-end justify-center gap-1">
-                      <span
-                        className="font-extrabold"
-                        style={{
-                          fontSize: "2.5rem",
-                          color: p.primary ? CREAM : INK,
-                          fontFamily: "var(--font-baloo), sans-serif",
-                        }}
-                      >
-                        {p.price}
-                      </span>
-                      <span
-                        className="text-sm mb-1.5"
-                        style={{ color: p.primary ? "rgba(247,230,194,0.45)" : "rgba(45,16,15,0.45)" }}
-                      >
-                        TND / month
-                      </span>
-                    </div>
-                    <p
-                      className="text-[10px] mt-1 font-bold"
-                      style={{ color: p.primary ? "rgba(247,230,194,0.55)" : "rgba(45,16,15,0.5)" }}
-                    >
-                      {p.yearPrice ? `${p.yearPrice} TND/year · Form 1583 included` : "Pay-as-you-go · prepaid wallet"}
-                    </p>
-                  </div>
-                  <ul className="space-y-2.5 text-sm mt-5 mb-7">
-                    {p.bullets.map((b, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5">
-                        <span
-                          className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                          style={{ background: p.primary ? BLUE : CREAM }}
-                        >
-                          <svg
-                            className="w-2 h-2"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke={p.primary ? "white" : INK}
-                            strokeWidth="3.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            aria-hidden="true"
-                          >
-                            <path d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
-                        <span
-                          className="leading-snug"
-                          style={{ color: p.primary ? "rgba(247,230,194,0.85)" : "rgba(45,16,15,0.85)" }}
-                        >
-                          <span className="font-bold">{b[0]}</span>
-                          <span
-                            className="block text-[11.5px]"
-                            style={{ color: p.primary ? "rgba(247,230,194,0.55)" : "rgba(45,16,15,0.55)" }}
-                          >
-                            {b[1]}
-                          </span>
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/en/appel"
-                    className="block text-center font-black py-3.5 rounded-2xl text-sm transition-all duration-200 hover:scale-[1.02]"
-                    style={{
-                      background: p.primary ? BLUE : INK,
-                      color: p.primary ? "white" : CREAM,
-                      boxShadow: p.primary ? "0 6px 20px rgba(51,116,133,0.35)" : "none",
-                    }}
-                  >
-                    Choose {p.name}
-                  </Link>
-                </StampCard>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PricingPending locale="en" id="adresse" />
 
       {/* USE CASES */}
       <section id="packages" className="px-5 sm:px-6 py-14 sm:py-16" style={{ background: CREAM }}>
@@ -394,9 +201,9 @@ export default function EnglishVirtualMailboxPage() {
               { q: "How much does forwarding to Tunis cost?", a: "You pay the actual postage at USPS / UPS / FedEx rates — no hidden markup. For reference: USPS Priority Mail International for a 1 kg package to Tunisia runs ~35-50 USD depending on dimensions. UPS Express ~80 USD. DHL Express ~110 USD." },
               { q: "How long does an Amazon package take?", a: "Amazon usually delivers to the LA storefront in 1-3 days. Once it arrives, we scan it right away. International forwarding: 3 days (DHL Express) to 10 days (USPS Priority)." },
               { q: "Do you open packages to inspect them?", a: "Only if you ask (the 'open and scan the contents' option in your dashboard). Otherwise the package stays sealed — we only scan the outside." },
-              { q: "What about Tunisian customs?", a: "Personal packages under 100 TND declared value often clear without taxes. Above that, the Tunisian Post applies customs duties. You declare the value; we never under-declare (it's illegal on both the US and the TN side)." },
+              { q: "What about Tunisian customs?", a: "Tunisian customs may charge duties and taxes on arrival, depending on what is inside and its value. You pay them on delivery in Tunisia; they are never included in our prices. We always declare the real value. The official rules are on douane.gov.tn." },
               { q: "Can I have several addresses?", a: "One box per account by default. For multi-entity needs (LLC + personal, for example), we can set up sub-accounts." },
-              { q: "How long until my box is active?", a: "48 hours after we receive your notarized Form 1583 and your first payment. The Form 1583 takes 1-3 days depending on the notary you pick in Tunisia." },
+              { q: "How long until my box is active?", a: "Once your USPS Form 1583 is signed and verified, your two IDs are checked and your first payment is received. Today NOHO Mailbox has the form signed in front of an employee at our North Hollywood counter. USPS rules also allow a live-video signature or a US-commissioned notary, but we do not offer those options yet, and a Tunisian notary is not accepted. From Tunisia, confirm your eligibility before paying anything." },
             ].map((q, idx) => (
               <details key={idx} className="group p-4 rounded-xl cursor-pointer" style={{ background: "#fff" }}>
                 <summary className="font-black text-[15px] flex items-start gap-3 list-none" style={{ color: INK }}>
@@ -490,7 +297,7 @@ export default function EnglishVirtualMailboxPage() {
           </h2>
           <p className="text-[15px] leading-relaxed mb-7" style={{ color: "rgba(45,16,15,0.75)" }}>
             Book the 15-minute call to pick your plan and start the Form 1583.
-            Your box goes live within 48 hours after notarization.
+            No payment until the team confirms you can be onboarded from Tunisia.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link

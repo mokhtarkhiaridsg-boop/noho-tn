@@ -66,7 +66,7 @@ export function stripeApproval9ItemStack() {
         </li>
         <li>
           NOHO 5062 Lankershim Blvd est un commercial storefront avec
-          staff sur place et notarisation Form 1583 in-house. Stripe
+          staff sur place et signature du Form 1583 au comptoir. Stripe
           accepte.
         </li>
         <li>

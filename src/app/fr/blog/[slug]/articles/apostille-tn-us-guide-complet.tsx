@@ -14,18 +14,17 @@ export function apostilleTnUs() {
       </p>
 
       <p>
-        C&apos;est l&apos;une des raisons pour lesquelles on peut
-        notariser un Form 1583 en Tunisie et le faire accepter par
-        l&apos;USPS sans déplacement physique aux USA. Voici la
-        procédure exacte.
+        Attention : ça ne vaut pas pour le Form 1583 USPS. Un notaire
+        tunisien (ou le cabinet KHIARI), même avec apostille, n&apos;est
+        pas accepté pour ce formulaire. Aujourd&apos;hui, le Form 1583
+        se signe devant notre équipe au comptoir de North Hollywood ;
+        l&apos;USPS autorise aussi la signature en vidéo en direct ou
+        devant un notaire commissionné aux USA, mais NOHO ne les propose
+        pas encore. Pour les autres documents, voici la procédure exacte.
       </p>
 
       <h2>Quels documents nécessitent une apostille</h2>
       <ul>
-        <li>
-          <strong>Form 1583 USPS</strong> notarisé en Tunisie (le cas
-          le plus fréquent pour les fondateurs NOHO).
-        </li>
         <li>
           <strong>Diplômes universitaires</strong> pour candidature
           à un master ou PhD US.
@@ -81,7 +80,7 @@ export function apostilleTnUs() {
         <li>DHL Tunis → USA (si tu envoies l&apos;original) : ~150-200 TND</li>
       </ul>
       <p>
-        Total typique pour un Form 1583 apostillé + envoyé à NOHO :
+        Total typique pour un document apostillé + envoyé aux USA :
         environ <strong>200-350 TND</strong>.
       </p>
 
@@ -100,42 +99,32 @@ export function apostilleTnUs() {
       <h2>Pièges courants</h2>
       <ul>
         <li>
-          <strong>Notaire qui ne sait pas remplir Form 1583</strong> —
-          assure-toi que la signature du notaire est sur la dernière
-          page du Form 1583 (pas sur un acte séparé). NOHO te fournit
-          un template avec les indications.
-        </li>
-        <li>
-          <strong>Identité USA ≠ identité TN</strong> — l&apos;USPS veut
-          deux pièces d&apos;identité présentées au notaire. Une seule
-          peut être ta CIN ; l&apos;autre doit être ton passeport
-          tunisien (pas ta carte d&apos;étudiant ni ton permis de
-          conduire).
+          <strong>Form 1583 devant un notaire tunisien</strong> — pas
+          accepté par l&apos;USPS, apostille ou pas. Le Form 1583 se
+          signe devant notre équipe au comptoir de North Hollywood.
         </li>
         <li>
           <strong>Apostille avant signature</strong> — l&apos;apostille
           doit être délivrée APRÈS la notarisation. Sinon, refus de
-          l&apos;USPS.
+          l&apos;administration US.
         </li>
       </ul>
 
-      <h2>Alternatives sans déplacement Tunis ↔ USA</h2>
-      <p>
-        Si tu ne veux pas faire la procédure toi-même :
-      </p>
+      <h2>Et le Form 1583 depuis la Tunisie ?</h2>
       <ul>
         <li>
-          <strong>Notarisation locale + envoi de l&apos;original</strong> —
-          tu signes devant un notaire en Tunisie (ou au cabinet KHIARI),
-          puis on confirme la procédure USPS/CMRA acceptée avant activation.
-          À noter : les notaires californiens ne peuvent pas effectuer de
-          notariat en ligne à distance (RON) — la loi exige la comparution
-          physique devant le notaire.
+          <strong>Pas de notaire tunisien pour le Form 1583</strong> —
+          ni un notaire en Tunisie, ni le cabinet KHIARI, ni un original
+          signé devant eux puis envoyé par DHL ne sont acceptés par
+          l&apos;USPS.
         </li>
         <li>
-          <strong>Notarisation lors d&apos;un passage à LA</strong> —
-          si tu prévois un voyage aux USA, notre équipe te notarise
-          gratuitement au storefront 5062 Lankershim.
+          <strong>Aujourd&apos;hui : signature au comptoir</strong> —
+          tu signes le Form 1583 devant notre équipe au storefront 5062
+          Lankershim, North Hollywood. L&apos;USPS autorise aussi la
+          vidéo en direct ou un notaire commissionné aux USA, mais NOHO
+          ne propose pas encore ces options. Depuis la Tunisie, confirme
+          ton éligibilité avec l&apos;équipe avant de payer.
         </li>
         <li>
           <strong>Coordination NOHO de bout en bout</strong> — inclus
@@ -144,8 +133,8 @@ export function apostilleTnUs() {
             Solution Business
           </Link>{" "}
           : on te guide étape par étape, on vérifie que le Form 1583
-          est rempli correctement avant que tu le notarises, on
-          coordonne la réception à LA.
+          est rempli correctement avant que tu le signes devant notre
+          équipe, on coordonne la réception à LA.
         </li>
       </ul>
     </>

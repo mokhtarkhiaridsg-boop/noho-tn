@@ -287,8 +287,8 @@ export function apostilleTunisienneProcedureCompleteMae() {
           Notre notaire californien sur place peut produire un{" "}
           <em>certificate of notarial acknowledgment</em> US à
           intégrer au dossier — différent d&apos;une apostille mais
-          parfois requis en parallèle (Form 1583, Operating Agreement
-          signature).
+          parfois requis en parallèle (signature d&apos;Operating
+          Agreement, par exemple).
         </li>
       </ul>
 

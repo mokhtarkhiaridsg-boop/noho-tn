@@ -105,7 +105,7 @@ const IconScrollSm: IconCmp = ({ className = "w-4 h-4" }) => (
 );
 
 const SERVICES: { Icon: IconCmp; t: string; b: string }[] = [
-  { Icon: IconMailbox, t: "Form 1583 USPS", b: "Formulaire USPS obligatoire pour toute boîte CMRA. Selon ton cas, la vérification d'identité et de signature se fait via une procédure CMRA autorisée ou devant un notaire américain là où c'est légalement accepté. Un notaire tunisien peut aider à certifier tes pièces d'identité locales, mais ne remplace pas la vérification USPS requise. On confirme la bonne voie avant activation. Incluse si tu démarres une adresse US réelle." },
+  { Icon: IconMailbox, t: "Form 1583 USPS", b: "Formulaire USPS obligatoire pour toute boîte CMRA. Aujourd'hui, la vérification d'identité et de signature se fait devant notre équipe, à notre comptoir de North Hollywood. L'USPS permet aussi une signature par vidéo en temps réel ou devant un notaire commissionné aux États-Unis, mais nous ne proposons pas encore ces options. Un notaire tunisien n'est pas accepté. Depuis la Tunisie, confirme ton éligibilité avant de payer. Incluse si tu démarres une adresse US réelle." },
   { Icon: IconScroll, t: "Notariat général de documents", b: "Acknowledgements, jurats, copy certifications. Pour contrats, procurations, attestations. En Californie, les frais d'acknowledgement/jurat sont généralement plafonnés à 15 USD par signature." },
   { Icon: IconLaptop, t: "Notariat à distance (RON) — non disponible", b: "À ce jour, les notaires californiens ne peuvent pas effectuer de notariat en ligne à distance (RON) : la loi californienne exige toujours la comparution physique devant le notaire. On confirme la bonne voie de vérification (procédure CMRA ou notaire américain accepté) avant activation." },
   { Icon: IconLock, t: "Apostille de documents US", b: "Pour utiliser un document notarié US en Tunisie ou ailleurs hors USA. On se charge du dépôt au California Secretary of State. Délai 2-3 semaines. 200 USD par document apostillé." },
@@ -115,8 +115,8 @@ const SERVICES: { Icon: IconCmp; t: string; b: string }[] = [
 
 const FORM_1583_STEPS = [
   { n: 1, t: "On prépare ton Form 1583", b: "Une fois ton forfait adresse US réelle choisi, on pré-remplit le Form 1583 avec ton nom, l'adresse NOHO et les mentions USPS." },
-  { n: 2, t: "On confirme la bonne voie de vérification", b: "Selon ton cas, la vérification d'identité et de signature se fait via une procédure CMRA autorisée ou devant un notaire américain là où c'est légalement accepté. On te dit exactement laquelle avant de commencer." },
-  { n: 3, t: "Vérification d'identité et de signature", b: "Tu complètes la vérification par la voie confirmée. Un notaire tunisien peut certifier tes pièces d'identité locales, mais ne remplace pas la vérification USPS/US notariale requise." },
+  { n: 2, t: "On confirme ton éligibilité", b: "Aujourd'hui, la vérification d'identité et de signature se fait devant notre équipe, à notre comptoir de North Hollywood. L'USPS permet aussi une signature par vidéo en temps réel ou devant un notaire commissionné aux États-Unis, mais nous ne proposons pas encore ces options. Si tu es en Tunisie, on te dit avant tout paiement si ton ouverture est possible." },
+  { n: 3, t: "Vérification d'identité et de signature", b: "Tu signes devant notre équipe au comptoir, avec tes deux pièces d'identité. Un notaire tunisien n'est pas accepté pour le Form 1583." },
   { n: 4, t: "Dépôt USPS et activation", b: "Une fois la vérification conforme, on finalise le dépôt USPS. Ton adresse est officiellement active — notification dashboard immédiate." },
 ];
 
@@ -226,10 +226,11 @@ export default function NotaryPage() {
             devant le notaire.
           </p>
           <p className="text-[15px] leading-relaxed" style={{ color: "rgba(45,16,15,0.85)" }}>
-            Pour le Form 1583 USPS, la vérification d&apos;identité et de
-            signature peut se faire via une procédure USPS/CMRA acceptée, ou
-            devant un notaire américain là où c&apos;est légalement possible. On
-            confirme la bonne voie avec toi avant l&apos;activation.
+            Pour le Form 1583 USPS, la signature se fait aujourd&apos;hui devant
+            notre équipe, à notre comptoir. L&apos;USPS permet aussi la vidéo en
+            temps réel ou un notaire commissionné aux États-Unis, mais nous ne
+            proposons pas encore ces options. Depuis la Tunisie, confirme ton
+            éligibilité avant de payer.
           </p>
         </div>
       </section>

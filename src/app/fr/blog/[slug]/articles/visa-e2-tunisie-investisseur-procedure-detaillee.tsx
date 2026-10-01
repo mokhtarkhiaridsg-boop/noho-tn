@@ -420,8 +420,8 @@ export function visaE2TunisieInvestisseurProcedureDetaillee() {
         </li>
         <li>
           <strong>Adresse 5062 Lankershim Blvd California</strong>{" "}
-          comme adresse business officielle dans ton dossier (notre
-          notaire californien sur place valide Form 1583).
+          comme adresse business officielle dans ton dossier (Form 1583
+          signé devant notre équipe au comptoir).
         </li>
         <li>
           <strong>Ouverture Mercury + setup Stripe</strong> — preuve

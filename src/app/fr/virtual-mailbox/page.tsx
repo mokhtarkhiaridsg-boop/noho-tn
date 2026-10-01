@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import StampCard from "@/components/StampCard";
 import WhatsAppCTA from "@/components/WhatsAppCTA";
+import PricingPending from "@/components/PricingPending";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
 import { localeAlternates } from "@/lib/seo";
 
 const FAQ = [
-  { q: "Combien coûte une réexpédition vers la Tunisie ?", a: "Le tarif du transporteur (USPS, UPS, FedEx ou DHL), plus 4 TND de manutention par envoi. Estimations indicatives pour un colis de 1 kg : environ 35 à 50 USD par USPS Priority Mail International, environ 80 USD par UPS, environ 110 USD par DHL Express. Le prix exact dépend du poids, des dimensions et du service ; tu le vois avant de valider l'envoi." },
+  { q: "Combien coûte une réexpédition vers la Tunisie ?", a: "Le tarif du transporteur (USPS, UPS, FedEx ou DHL), plus des frais de service que l'équipe te confirme avant l'envoi. Estimations indicatives des transporteurs pour un colis de 1 kg : environ 35 à 50 USD par USPS Priority Mail International, environ 80 USD par UPS, environ 110 USD par DHL Express. Le prix exact dépend du poids, des dimensions et du service ; tu le vois avant de valider l'envoi." },
   { q: "Combien de temps pour recevoir un colis en Tunisie ?", a: "Amazon livre généralement notre local en 1 à 3 jours. Pour la Tunisie, les délais indicatifs des transporteurs sont d'environ 2 à 5 jours ouvrés en express (DHL, UPS, FedEx) et de 1 à 2 semaines par USPS, plus le temps de dédouanement en Tunisie. Aucun délai n'est garanti." },
   { q: "Vous ouvrez les colis pour les inspecter ?", a: "Seulement si tu le demandes (option « ouvrir et scanner le contenu » depuis ton espace). Sinon, le colis reste fermé et on photographie seulement l'extérieur." },
   { q: "Et la douane tunisienne ?", a: "La douane tunisienne peut appliquer des droits et taxes à l'arrivée, selon la nature et la valeur du contenu. Ils sont payés à la réception en Tunisie et ne sont jamais inclus dans nos prix. On déclare toujours la valeur réelle sur les documents douaniers : sous-déclarer est illégal côté américain comme côté tunisien. Les règles officielles sont publiées sur douane.gov.tn." },
-  { q: "Faut-il venir aux États-Unis pour ouvrir la boîte ?", a: "La poste américaine (USPS) exige le formulaire PS 1583 et deux pièces d'identité, dont une avec photo (le passeport est accepté). La signature doit être faite devant un employé de NOHO Mailbox ou devant un notaire commissionné aux États-Unis, en personne ou par vidéo en temps réel selon la règle USPS. Un notaire tunisien n'est pas accepté. Écris-nous avant de payer : on t'indique la marche à suivre pour ton cas." },
-  { q: "Quand ma boîte est-elle active ?", a: "Dès que ton Form 1583 est signé selon la règle USPS, que tes deux pièces d'identité sont vérifiées et que ton premier paiement est reçu. Tu reçois alors ton numéro de boîte." },
+  { q: "Faut-il venir aux États-Unis pour ouvrir la boîte ?", a: "La poste américaine (USPS) exige le formulaire PS 1583 et deux pièces d'identité, dont une avec photo (un passeport étranger est accepté). Aujourd'hui, NOHO Mailbox fait signer ce formulaire devant un employé, à notre comptoir de North Hollywood. Les règles USPS permettent aussi une signature par vidéo en temps réel ou devant un notaire commissionné aux États-Unis, mais nous ne proposons pas encore ces options. Un notaire tunisien n'est pas accepté. Depuis la Tunisie, fais confirmer ton éligibilité avant de payer quoi que ce soit." },
+  { q: "Quand ma boîte est-elle active ?", a: "Dès que ton Form 1583 est signé et vérifié, que tes deux pièces d'identité sont contrôlées et que ton premier paiement est reçu. Tu reçois alors ton numéro de boîte. Aucun paiement n'est demandé avant la confirmation de ton éligibilité." },
   { q: "Puis-je avoir plusieurs adresses ?", a: "Une seule boîte par compte de base. Pour des besoins multi-entités (LLC et usage personnel, par exemple), on peut configurer des sous-comptes." },
 ];
 
@@ -27,17 +27,15 @@ const faqJsonLd = {
 
 const FROM_TUNISIA = [
   { n: 1, t: "Tu t'inscris en ligne", b: "Nom, e-mail et téléphone. Tu reçois un e-mail pour accéder à ton espace, et l'équipe te recontacte pour choisir le forfait." },
-  { n: 2, t: "Identité et Form 1583", b: "L'USPS exige le formulaire PS 1583 et deux pièces d'identité, dont une avec photo (le passeport est accepté). La signature se fait devant un employé de NOHO Mailbox ou devant un notaire commissionné aux États-Unis. Un notaire tunisien n'est pas accepté." },
+  { n: 2, t: "Éligibilité et Form 1583", b: "L'USPS exige le formulaire PS 1583 et deux pièces d'identité. Aujourd'hui, la signature se fait devant notre équipe, à notre comptoir de North Hollywood ; nous ne proposons pas encore de signature à distance. Depuis la Tunisie, l'équipe confirme d'abord si ton ouverture est possible, avant tout paiement." },
   { n: 3, t: "On reçoit ton courrier et tes colis", b: "Lettres et colis USPS, UPS, FedEx, DHL et Amazon (le forfait Free n'accepte pas l'USPS). Chaque arrivée apparaît sur ton espace en ligne." },
   { n: 4, t: "Tu décides depuis la Tunisie", b: "Scan du courrier, réexpédition vers la Tunisie au tarif du transporteur, regroupement de colis selon ton forfait, stockage ou destruction." },
 ];
 
 const BILLED_SEPARATELY = [
-  "La réexpédition à la demande : tarif du transporteur + 4 TND de manutention par envoi (formules hebdomadaire et urgente : voir la page tarifs).",
-  "Les scans au-delà du quota de ton forfait : 2 TND par page.",
-  "Le stockage des colis au-delà de la durée incluse : 6 TND par colis et par semaine.",
+  "La réexpédition : tarif du transporteur, plus des frais de service.",
+  "Les scans et le stockage des colis au-delà de ce qu'inclut ton forfait.",
   "Les droits et taxes de la douane tunisienne, payés à l'arrivée.",
-  "Les frais de notaire, si tu signes le Form 1583 devant un notaire commissionné aux États-Unis.",
 ];
 
 const breadcrumbs = breadcrumbJsonLd([
@@ -65,17 +63,12 @@ const serviceJsonLd = {
   areaServed: "TN",
   description:
     "Adresse postale réelle à North Hollywood (Californie) pour les clients en Tunisie : réception du courrier et des colis, scan sur demande, réexpédition vers la Tunisie au tarif du transporteur.",
-  offers: [
-    { "@type": "Offer", name: "Basic", price: "35", priceCurrency: "TND", priceSpecification: { "@type": "UnitPriceSpecification", price: "35", priceCurrency: "TND", unitText: "MON" } },
-    { "@type": "Offer", name: "Standard", price: "75", priceCurrency: "TND", priceSpecification: { "@type": "UnitPriceSpecification", price: "75", priceCurrency: "TND", unitText: "MON" } },
-    { "@type": "Offer", name: "Premium", price: "150", priceCurrency: "TND", priceSpecification: { "@type": "UnitPriceSpecification", price: "150", priceCurrency: "TND", unitText: "MON" } },
-  ],
 };
 
 export const metadata: Metadata = {
-  title: "Adresse postale aux États-Unis depuis la Tunisie — dès 35 TND/mois",
+  title: "Adresse postale aux États-Unis depuis la Tunisie — courrier et colis",
   description:
-    "Une vraie adresse postale aux États-Unis (North Hollywood, Californie), gérée depuis la Tunisie : courrier scanné, colis Amazon, UPS, FedEx et DHL reçus, réexpédition vers la Tunisie. Forfaits 35, 75 ou 150 TND/mois, ou Free à l'usage.",
+    "Une vraie adresse postale aux États-Unis (North Hollywood, Californie), gérée depuis la Tunisie : courrier scanné, colis Amazon, UPS, FedEx et DHL reçus, réexpédition vers la Tunisie. Tarif confirmé avec toi avant tout paiement.",
   alternates: localeAlternates("/virtual-mailbox", "fr", { ar: true }),
 };
 
@@ -133,66 +126,6 @@ const IconHouse: IconCmp = ({ className = "w-8 h-8" }) => (
     <rect x="30" y="26" width="6" height="6" fill={BLUE} opacity="0.4" stroke={INK} strokeWidth="1.5" />
   </svg>
 );
-const PLANS = [
-  {
-    name: "Free",
-    price: "0",
-    yearPrice: "",
-    note: "Pay-as-you-go — colis sans abonnement",
-    bullets: [
-      ["Adresse de réception colis", "5062 Lankershim Blvd — reçois tes achats US"],
-      ["Transporteurs privés uniquement", "UPS, FedEx, DHL, Amazon. Pas d'USPS — politiques applicables"],
-      ["Paiement à l'usage", "Chaque service débité du wallet, aux tarifs de la grille"],
-      ["Wallet prépayé", "Recharge minimum 50 TND"],
-      ["Dashboard en ligne", "Notification à chaque colis reçu"],
-    ],
-  },
-  {
-    name: "Basic",
-    price: "35",
-    yearPrice: "350",
-    note: "Pour usage personnel léger ou stockage adresse",
-    bullets: [
-      ["Adresse postale US réelle", "5062 Lankershim Blvd, North Hollywood, CA"],
-      ["5 scans inclus", "Par mois. Au-delà : 2 TND/page"],
-      ["Forwarding sur demande", "Frais postal réel + 4 TND de handling"],
-      ["Stockage colis 30 jours", "Courrier 90 j inclus. Colis au-delà : 6 TND/colis/semaine"],
-      ["Dashboard en ligne", "Voir tout le courrier reçu"],
-      ["Form 1583 (USPS)", "Préparé avec toi au setup"],
-    ],
-  },
-  {
-    name: "Standard",
-    price: "75",
-    yearPrice: "750",
-    note: "Le plus populaire chez les freelances et acheteurs Amazon",
-    bullets: [
-      ["Tout du Basic", "+ extras ci-dessous"],
-      ["20 scans inclus", "Par mois. Au-delà : 2 TND/scan"],
-      ["Réception colis incluse", "5 colis/mois inclus"],
-      ["Forwarding hebdomadaire", "Auto-forward toutes les semaines"],
-      ["Consolidation de colis", "On regroupe pour réduire les frais"],
-      ["Stockage colis 60 jours", "Courrier 90 j inclus. Idéal acheteurs Amazon"],
-    ],
-    primary: true,
-  },
-  {
-    name: "Premium",
-    price: "150",
-    yearPrice: "1 500",
-    note: "Pour e-commerce, business actif, gros volumes",
-    bullets: [
-      ["Tout du Standard", "+ extras ci-dessous"],
-      ["Scans illimités", "Aucune limite mensuelle"],
-      ["Réception colis illimitée", "Aucune limite"],
-      ["Priorité scan", "Scanné sous 2h pendant les heures de bureau LA"],
-      ["Repacking inclus", "On repack les colis fragiles ou volumineux"],
-      ["Stockage colis 90 jours", "Courrier + colis 90 j inclus"],
-      ["Cloud storage scans", "Archive 3 ans accessible"],
-      ["Tarifs préférentiels expédition", "Remise USPS / UPS / FedEx volume"],
-    ],
-  },
-];
 
 const USES: { Icon: IconCmp; t: string; b?: string; c?: string }[] = [
   { Icon: IconCart, t: "Acheter sur Amazon US, eBay, Shein, Nordstrom", b: "Ces sites ne livrent souvent pas en Tunisie. Avec une adresse US, tu commandes ce que tu veux." },
@@ -236,7 +169,7 @@ export default function VirtualMailboxPage() {
             réexpédition vers la Tunisie, stockage ou destruction.
           </p>
           <ul className="flex flex-wrap justify-center gap-2 mb-7 text-[12.5px] font-bold" style={{ color: INK }}>
-            <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>Tarifs en dinars tunisiens (TND)</li>
+            <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>Tarif confirmé avant tout paiement</li>
             <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>Vérification d&apos;identité exigée par l&apos;USPS</li>
             <li className="px-3 py-1.5 rounded-full" style={{ background: CREAM }}>Réexpédition au tarif du transporteur</li>
           </ul>
@@ -248,142 +181,13 @@ export default function VirtualMailboxPage() {
               className="inline-block font-black px-8 py-4 rounded-2xl text-[15px]"
               style={{ background: INK, color: CREAM }}
             >
-              Ouvrir ma boîte US →
+              Demander mon ouverture →
             </Link>
             <WhatsAppCTA intent="adresse">Une question ? WhatsApp</WhatsAppCTA>
           </div>
         </div>
       </section>
-      {/* PRICING — STAMP CARDS */}
-      <section className="px-7 sm:px-6 pt-12 sm:pt-16 pb-14 sm:pb-20" style={{ background: CREAM }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10 sm:mb-14">
-            <p
-              className="font-black mb-2"
-              style={{ fontFamily: "var(--font-pacifico), cursive", fontSize: "1.2rem", color: BLUE }}
-            >
-              Choisis ton forfait
-            </p>
-            <h2
-              className="font-extrabold tracking-tight"
-              style={{
-                fontFamily: "var(--font-baloo), sans-serif",
-                fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
-                color: INK,
-              }}
-            >
-              4 forfaits, une adresse réelle
-            </h2>
-            <p className="mt-3 text-[15px]" style={{ color: "rgba(45,16,15,0.5)" }}>
-              Annulables à tout moment. Forfait annuel = 2 mois offerts. Free = paiement à l’usage.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
-            {PLANS.map((p) => (
-              <div key={p.name} className={`group ${p.primary ? "md:-mt-3" : ""}`}>
-                <StampCard popular={p.primary}>
-                  {p.primary && (
-                    <div className="flex justify-center mb-4">
-                      <span
-                        className="text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full"
-                        style={{ background: BLUE, color: "white" }}
-                      >
-                        ★ Le plus populaire
-                      </span>
-                    </div>
-                  )}
-                  <div className="text-center mb-2">
-                    <p
-                      className="text-[10px] font-black uppercase tracking-[0.2em] mb-1"
-                      style={{ color: p.primary ? "rgba(247,230,194,0.55)" : "rgba(45,16,15,0.45)" }}
-                    >
-                      {p.note}
-                    </p>
-                    <h3
-                      className="font-black text-2xl mb-1"
-                      style={{ color: p.primary ? CREAM : INK, fontFamily: "var(--font-baloo), sans-serif" }}
-                    >
-                      {p.name}
-                    </h3>
-                    <div className="flex items-end justify-center gap-1">
-                      <span
-                        className="font-extrabold"
-                        style={{
-                          fontSize: "2.5rem",
-                          color: p.primary ? CREAM : INK,
-                          fontFamily: "var(--font-baloo), sans-serif",
-                        }}
-                      >
-                        {p.price}
-                      </span>
-                      <span
-                        className="text-sm mb-1.5"
-                        style={{ color: p.primary ? "rgba(247,230,194,0.45)" : "rgba(45,16,15,0.45)" }}
-                      >
-                        TND / mois
-                      </span>
-                    </div>
-                    <p
-                      className="text-[10px] mt-1 font-bold"
-                      style={{ color: p.primary ? "rgba(247,230,194,0.55)" : "rgba(45,16,15,0.5)" }}
-                    >
-                      {p.yearPrice ? `${p.yearPrice} TND/an · Form 1583 préparé avec toi` : "Pay-as-you-go · wallet prépayé"}
-                    </p>
-                  </div>
-                  <ul className="space-y-2.5 text-sm mt-5 mb-7">
-                    {p.bullets.map((b, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5">
-                        <span
-                          className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                          style={{ background: p.primary ? BLUE : CREAM }}
-                        >
-                          <svg
-                            className="w-2 h-2"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke={p.primary ? "white" : INK}
-                            strokeWidth="3.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            aria-hidden="true"
-                          >
-                            <path d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
-                        <span
-                          className="leading-snug"
-                          style={{ color: p.primary ? "rgba(247,230,194,0.85)" : "rgba(45,16,15,0.85)" }}
-                        >
-                          <span className="font-bold">{b[0]}</span>
-                          <span
-                            className="block text-[11.5px]"
-                            style={{ color: p.primary ? "rgba(247,230,194,0.55)" : "rgba(45,16,15,0.55)" }}
-                          >
-                            {b[1]}
-                          </span>
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/fr/appel"
-                    data-track="plan_select"
-                    data-track-plan={p.name}
-                    className="block text-center font-black py-3.5 rounded-2xl text-sm transition-all duration-200 hover:scale-[1.02]"
-                    style={{
-                      background: p.primary ? BLUE : INK,
-                      color: p.primary ? "white" : CREAM,
-                      boxShadow: p.primary ? "0 6px 20px rgba(51,116,133,0.35)" : "none",
-                    }}
-                  >
-                    Choisir {p.name}
-                  </Link>
-                </StampCard>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PricingPending locale="fr" id="forfaits" />
 
       {/* USE CASES */}
       <section id="packages" className="px-5 sm:px-6 py-14 sm:py-16" style={{ background: CREAM }}>
@@ -434,13 +238,13 @@ export default function VirtualMailboxPage() {
           </ol>
           <div className="p-6 rounded-3xl" style={{ background: BODY }}>
             <h3 className="font-black text-[17px] mb-3" style={{ color: INK }}>Ce qui est facturé à part</h3>
+            <p className="text-[13.5px] mb-3" style={{ color: "rgba(45,16,15,0.7)" }}>Les montants te sont confirmés par écrit avant tout paiement.</p>
             <ul className="space-y-2 text-[14px] leading-relaxed list-disc pl-5" style={{ color: "rgba(45,16,15,0.82)" }}>
               {BILLED_SEPARATELY.map((l) => (
                 <li key={l}>{l}</li>
               ))}
             </ul>
             <p className="text-[13px] mt-4" style={{ color: "rgba(45,16,15,0.65)" }}>
-              Grille complète sur <Link href="/fr/tarifs" className="underline font-bold">la page tarifs</Link>.
               Pour les colis achetés en ligne, voir aussi{" "}
               <Link href="/fr/reexpedition-colis-usa-tunisie" className="underline font-bold">la réexpédition de colis vers la Tunisie</Link>.
             </p>
@@ -580,8 +384,8 @@ export default function VirtualMailboxPage() {
             Activer ton adresse US réelle
           </h2>
           <p className="text-[15px] leading-relaxed mb-7" style={{ color: "rgba(45,16,15,0.75)" }}>
-            Inscris-toi en ligne, ou réserve un appel de 15 min pour choisir ton
-            forfait et préparer le Form 1583 avec l&apos;équipe.
+            Envoie ta demande en ligne, sans paiement : l&apos;équipe confirme ton
+            éligibilité, le forfait et le prix avant toute facturation.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
@@ -591,7 +395,7 @@ export default function VirtualMailboxPage() {
               className="inline-block font-black px-10 py-5 rounded-2xl text-[16px] transition-transform hover:scale-[1.02]"
               style={{ background: INK, color: CREAM, boxShadow: "0 6px 28px rgba(45,16,15,0.28)" }}
             >
-              Ouvrir ma boîte US →
+              Demander mon ouverture →
             </Link>
             <Link
               href="/fr/appel"

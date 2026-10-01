@@ -36,9 +36,8 @@ export function tunisianAmericanMoat() {
           probabilité augmente significativement.
         </li>
         <li>
-          Le storefront permet aussi la notarisation Form 1583 en
-          personne, sur place — pas d&apos;échange de papier inter-pays
-          avec délai.
+          Le storefront permet aussi la signature du Form 1583 en
+          personne, devant notre équipe au comptoir.
         </li>
       </ul>
 
@@ -108,7 +107,7 @@ export function tunisianAmericanMoat() {
       <ol>
         <li>Jour 0 : appel discovery, audit du dossier, sélection état + structure.</li>
         <li>Jour 1-7 : formation LLC + EIN coordonnés en parallèle (Mokhtar a accès aux files IRS).</li>
-        <li>Jour 7-10 : Form 1583 notarisé in-house OU via KHIARI à Tunis si tu y es.</li>
+        <li>Jour 7-10 : Form 1583 signé devant notre équipe au comptoir de North Hollywood (pas de notaire tunisien ni KHIARI pour ce formulaire ; depuis Tunis, confirme ton éligibilité avant de payer).</li>
         <li>Jour 14 : Mercury soumis avec dossier complet (9 éléments du Mercury KYC stack, lettre KHIARI optionnelle).</li>
         <li>Jour 17-21 : approval Mercury, souvent en première lecture.</li>
         <li>Jour 21 : Stripe activé en parallèle si dossier business clean.</li>
@@ -175,7 +174,7 @@ export function tunisianAmericanMoat() {
           </Link>{" "}
           : 4 000 TND une fois (≈ 1 290 USD) — formation LLC + EIN +
           Mercury setup + Stripe setup + brand identity + site web +
-          Form 1583 notarisé + onboarding.
+          Form 1583 + onboarding.
         </li>
         <li>
           Suivi mensuel : 1 200 TND/mois (≈ 390 USD) — site uptime,

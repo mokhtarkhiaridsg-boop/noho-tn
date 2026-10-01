@@ -60,9 +60,9 @@ export function casPratiqueEcomTunisienAnnee1() {
           Operating Agreement signé électroniquement le 28 janvier.
         </li>
         <li>
-          Form 1583 préparé par NOHO, signé par Karim devant notary
-          à Sfax (cabinet local TN, 40 TND), envoyé via DHL à 5062
-          Lankershim le 5 février (35 USD DHL).
+          Form 1583 préparé par NOHO ; éligibilité et signature organisées
+          avec l&apos;équipe avant tout paiement (un notaire tunisien
+          n&apos;est pas accepté pour ce formulaire).
         </li>
         <li>
           Mailbox NOHO active le 8 février, 12 mois inclus.
@@ -262,7 +262,7 @@ export function casPratiqueEcomTunisienAnnee1() {
       <ul>
         <li>
           <strong>Investissement total NOHO</strong> : 4 000 TND
-          Solution Business + 12 USD domaine + 35 USD DHL Form 1583 +
+          Solution Business + 12 USD domaine +
           ~250 USD CPA partenaire pour Form 5472 = environ 4 800 TND
           équivalent.
         </li>
